@@ -1,142 +1,225 @@
-<div id="container">
-		<div id="sidebar" class="sidebar-fixed">
-			<div id="sidebar-content">
-
-				<!-- Search Input -->
-				<form class="sidebar-search">
-					<div class="input-box">
-						<button type="submit" class="submit">
-							<i class="icon-search"></i>
-						</button>
-						<span>
-							<input type="text" placeholder="Search...">
-						</span>
-					</div>
-				</form>
-
-				<!-- Search Results -->
-				<div class="sidebar-search-results">
-
-					<i class="icon-remove close"></i>
-					<!-- Documents -->
-					<div class="title">
-						Documents
-					</div>
-					<ul class="notifications">
-						<li>
-							<a href="javascript:void(0);">
-								<div class="col-left">
-									<span class="label label-info"><i class="icon-file-text"></i></span>
-								</div>
-								<div class="col-right with-margin">
-									<span class="message"><strong>John Doe</strong> received $1.527,32</span>
-									<span class="time">finances.xls</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">
-								<div class="col-left">
-									<span class="label label-success"><i class="icon-file-text"></i></span>
-								</div>
-								<div class="col-right with-margin">
-									<span class="message">My name is <strong>John Doe</strong> ...</span>
-									<span class="time">briefing.docx</span>
-								</div>
-							</a>
-						</li>
-					</ul>
-					<!-- /Documents -->
-					<!-- Persons -->
-					<div class="title">
-						Persons
-					</div>
-					<ul class="notifications">
-						<li>
-							<a href="javascript:void(0);">
-								<div class="col-left">
-									<span class="label label-danger"><i class="icon-female"></i></span>
-								</div>
-								<div class="col-right with-margin">
-									<span class="message">Jane <strong>Doe</strong></span>
-									<span class="time">21 years old</span>
-								</div>
-							</a>
-						</li>
-					</ul>
-				</div> <!-- /.sidebar-search-results -->
-
-				<!--=== Navigation ===-->
-				<ul id="nav">
-					<li>
-						<a href="index.html">
-							<i class="icon-dashboard"></i>
-							Dashboard
-						</a>
-					</li>
-					<li>
-							<a href="index.html">
-								<i class="icon-user"></i>
-								USER
-							</a>
-					</li>
-					<li>
-							<a href="charts.html">
-								<i class="icon-money"></i>
-								DANA MASUK
-							</a>
-					</li>
-					<li>
-						<a href="charts.html">
-							<i class="icon-briefcase"></i>
-							PENGELUARAN
-						</a>
-						</li>
-					<li>
-					<li>
-						<a href="charts.html">
-							<i class="icon-briefcase"></i>
-								PENGELUARAN SPJ
-						</a>
-					</li>
-					<li>
-						<a href="javascript:void(0);">
-							<i class="icon-table"></i>
-							KATEGORI
-						</a>
-						<ul class="sub-menu">
-							<li>
-								<a href="form_components.html">
-								<i class="icon-angle-right"></i>
-								KATEGORI PENGELUARAN
-								</a>
-							</li>
-							<li>
-								<a href="form_layouts.html">
-								<i class="icon-angle-right"></i>
-								SUB PENGELUARAN
-								</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				
-				<!-- /Navigation -->
-				<div class="sidebar-title">
-					<span>Notifications</span>
-				</div>
-				<div class="sidebar-widget align-center">
-					<div class="btn-group" data-toggle="buttons" id="theme-switcher">
-						<label class="btn active">
-							<input type="radio" name="theme-switcher" data-theme="bright"><i class="icon-sun"></i> Bright
-						</label>
-						<label class="btn">
-							<input type="radio" name="theme-switcher" data-theme="dark"><i class="icon-moon"></i> Dark
-						</label>
-					</div>
-				</div>
-
-			</div>
-			<div id="divider" class="resizeable"></div>
-		</div>
-		<!-- /Sidebar -->
+<div class="layout-sidebar">
+        <div class="layout-sidebar-backdrop"></div>
+        <div class="layout-sidebar-body">
+          <div class="custom-scrollbar">
+            <nav id="sidenav" class="sidenav-collapse collapse">
+              <ul class="sidenav">
+                <li class="sidenav-search hidden-md hidden-lg">
+                  <form class="sidenav-form" action="/">
+                    <div class="form-group form-group-sm">
+                      <div class="input-with-icon">
+                        <input class="form-control" type="text" placeholder="Search…">
+                        <span class="icon icon-search input-icon"></span>
+                      </div>
+                    </div>
+                  </form>
+                </li>
+                <li class="sidenav-heading">Navigation</li>
+                <li class="sidenav-item has-subnav active">
+                  <a href="dashboard-1.html" aria-haspopup="true">
+                    <span class="sidenav-icon icon icon-home"></span>
+                    <span class="sidenav-label">Dashboards</span>
+                  </a>
+                  <ul class="sidenav-subnav collapse">
+                    <li class="sidenav-subheading">Dashboards</li>
+                    <li class="active"><a href="dashboard-1.html">Dashboard 1</a></li>
+                    <li><a href="dashboard-2.html">Dashboard 2</a></li>
+                    <li><a href="dashboard-3.html">Dashboard 3</a></li>
+                  </ul>
+                </li>
+                <li class="sidenav-item">
+                  <a href="widgets.html">
+                    <span class="badge badge-success">26</span>
+                    <span class="sidenav-icon icon icon-th"></span>
+                    <span class="sidenav-label">Widgets</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                  <a href="page-layouts.html">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label">Page layouts</span>
+                  </a>
+                </li>
+                <li class="sidenav-heading">Components</li>
+                <li class="sidenav-item has-subnav">
+                  <a href="#" aria-haspopup="true">
+                    <span class="sidenav-icon icon icon-briefcase"></span>
+                    <span class="sidenav-label">UI Elements</span>
+                  </a>
+                  <ul class="sidenav-subnav collapse">
+                    <li class="sidenav-subheading">UI Elements</li>
+                    <li><a href="arrows.html">Arrows</a></li>
+                    <li><a href="badges.html">Badges</a></li>
+                    <li><a href="buttons.html">Buttons</a></li>
+                    <li><a href="cards.html">Cards</a></li>
+                    <li><a href="dividers.html">Dividers</a></li>
+                    <li><a href="files.html">Files</a></li>
+                    <li><a href="flags.html">Flags</a></li>
+                    <li><a href="grid-system.html">Grid system</a></li>
+                    <li><a href="icons.html">Icons</a></li>
+                    <li><a href="labels.html">Labels</a></li>
+                    <li><a href="lists.html">Lists</a></li>
+                    <li><a href="modals.html">Modals <span class="badge badge-danger">New</span></a></li>
+                    <li><a href="pricing-cards.html">Pricing cards</a></li>
+                    <li><a href="progress-bars.html">Progress bars</a></li>
+                    <li><a href="spinners.html">Spinners</a></li>
+                    <li><a href="tabs.html">Tabs <span class="badge badge-danger">New</span></a></li>
+                    <li><a href="toastr.html">Toastr</a></li>
+                    <li><a href="typography.html">Typography</a></li>
+                  </ul>
+                </li>
+                <li class="sidenav-item has-subnav">
+                  <a href="#" aria-haspopup="true">
+                    <span class="sidenav-icon icon icon-edit"></span>
+                    <span class="sidenav-label">Forms</span>
+                  </a>
+                  <ul class="sidenav-subnav collapse">
+                    <li class="sidenav-subheading">Forms</li>
+                    <li><a href="cropper.html">Cropper</a></li>
+                    <li><a href="form-controls.html">Form controls</a></li>
+                    <li><a href="form-layouts.html">Form layouts</a></li>
+                    <li><a href="form-validation.html">Form validation</a></li>
+                    <li><a href="form-wizard.html">Form wizard</a></li>
+                    <li><a href="input-mask.html">Input mask</a></li>
+                    <li><a href="md-form-controls.html">Material form controls</a></li>
+                    <li><a href="md-form-validation.html">Material form validation</a></li>
+                    <li><a href="pickers.html">Pickers</a></li>
+                    <li><a href="select2.html">Select2</a></li>
+                    <li><a href="sliders.html">Sliders</a></li>
+                    <li><a href="toggles.html">Toggles</a></li>
+                    <li><a href="uploader.html">Uploader</a></li>
+                  </ul>
+                </li>
+                <li class="sidenav-item has-subnav">
+                  <a href="#" aria-haspopup="true">
+                    <span class="sidenav-icon icon icon-list"></span>
+                    <span class="sidenav-label">Tables</span>
+                  </a>
+                  <ul class="sidenav-subnav collapse">
+                    <li class="sidenav-subheading">Tables</li>
+                    <li><a href="static-tables.html">Static tables</a></li>
+                    <li><a href="responsive-tables.html">Responsive tables</a></li>
+                    <li><a href="bootstrap-tables.html">Bootstrap tables</a></li>
+                    <li><a href="datatables.html">Datatables</a></li>
+                    <li><a href="datatables-buttons.html">Datatables Buttons</a></li>
+                    <li><a href="datatables-responsive.html">Datatables Responsive</a></li>
+                    <li><a href="datatables-fixedheader.html">Datatables FixedHeader</a></li>
+                    <li><a href="datatables-rowreorder.html">Datatables RowReorder</a></li>
+                    <li><a href="datatables-colreorder.html">Datatables ColReorder</a></li>
+                    <li><a href="datatables-scroller.html">Datatables Scroller</a></li>
+                  </ul>
+                </li>
+                <li class="sidenav-item has-subnav">
+                  <a href="#" aria-haspopup="true">
+                    <span class="sidenav-icon icon icon-pie-chart"></span>
+                    <span class="sidenav-label">Charts</span>
+                  </a>
+                  <ul class="sidenav-subnav collapse">
+                    <li class="sidenav-subheading">Charts</li>
+                    <li><a href="peity.html">Peity</a></li>
+                    <li><a href="chartjs.html">Chart.js</a></li>
+                  </ul>
+                </li>
+                <li class="sidenav-item has-subnav">
+                  <a href="#" aria-haspopup="true">
+                    <span class="sidenav-icon icon icon-map-marker"></span>
+                    <span class="sidenav-label">Maps</span>
+                  </a>
+                  <ul class="sidenav-subnav collapse">
+                    <li class="sidenav-subheading">Maps</li>
+                    <li><a href="vector-maps.html">Vector maps</a></li>
+                    <li><a href="google-maps.html">Google maps</a></li>
+                  </ul>
+                </li>
+                <li class="sidenav-heading">Pages</li>
+                <li class="sidenav-item has-subnav">
+                  <a href="#" aria-haspopup="true">
+                    <span class="sidenav-icon icon icon-lock"></span>
+                    <span class="sidenav-label">Authentication</span>
+                  </a>
+                  <ul class="sidenav-subnav collapse">
+                    <li class="sidenav-subheading">Authentication</li>
+                    <li><a href="signup-1.html" target="_blank">Sign up 1</a></li>
+                    <li><a href="signup-2.html" target="_blank">Sign up 2</a></li>
+                    <li><a href="signup-3.html" target="_blank">Sign up 3</a></li>
+                    <li><a href="login-1.html" target="_blank">Login 1</a></li>
+                    <li><a href="login-2.html" target="_blank">Login 2</a></li>
+                    <li><a href="login-3.html" target="_blank">Login 3</a></li>
+                    <li><a href="password-1.html" target="_blank">Reset password 1</a></li>
+                    <li><a href="password-2.html" target="_blank">Reset password 2</a></li>
+                    <li><a href="password-3.html" target="_blank">Reset password 3</a></li>
+                  </ul>
+                </li>
+                <li class="sidenav-item">
+                  <a href="contacts.html">
+                    <span class="sidenav-icon icon icon-users"></span>
+                    <span class="sidenav-label">Contacts</span>
+                  </a>
+                </li>
+                <li class="sidenav-item has-subnav">
+                  <a href="#" aria-haspopup="true">
+                    <span class="sidenav-icon icon icon-envelope"></span>
+                    <span class="sidenav-label">Mailbox</span>
+                  </a>
+                  <ul class="sidenav-subnav collapse">
+                    <li class="sidenav-subheading">Mailbox</li>
+                    <li><a href="mail.html">Mail 1</a></li>
+                    <li><a href="inbox.html">Mail 2</a></li>
+                    <li><a href="compose.html">Compose</a></li>
+                  </ul>
+                </li>
+                <li class="sidenav-item">
+                  <a href="messenger.html">
+                    <span class="sidenav-icon icon icon-comments"></span>
+                    <span class="sidenav-label">Messenger</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                  <a href="profile.html">
+                    <span class="sidenav-icon icon icon-user"></span>
+                    <span class="sidenav-label">Profile</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                  <a href="drive.html">
+                    <span class="sidenav-icon icon icon-cloud-upload"></span>
+                    <span class="sidenav-label">Drive</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                  <a href="landing-page.html" target="_blank">
+                    <span class="sidenav-badge badge badge-danger">Hot</span>
+                    <span class="sidenav-icon icon icon-star"></span>
+                    <span class="sidenav-label">Landing Page</span>
+                  </a>
+                </li>
+                <li class="sidenav-item has-subnav">
+                  <a href="#" aria-haspopup="true">
+                    <span class="sidenav-icon icon icon-shopping-cart"></span>
+                    <span class="sidenav-label">E-commerce</span>
+                  </a>
+                  <ul class="sidenav-subnav collapse">
+                    <li class="sidenav-subheading">E-commerce</li>
+                    <li><a href="store.html">Store</a></li>
+                    <li><a href="shopping-cart.html">Shopping cart</a></li>
+                    <li><a href="product.html">Product</a></li>
+                  </ul>
+                </li>
+                <li class="sidenav-item has-subnav">
+                  <a href="#" aria-haspopup="true">
+                    <span class="sidenav-icon icon icon-files-o"></span>
+                    <span class="sidenav-label">Other pages</span>
+                  </a>
+                  <ul class="sidenav-subnav collapse">
+                    <li class="sidenav-subheading">Other pages</li>
+                    <li><a href="blank-page.html">Blank Page</a></li>
+                    <li><a href="404.html" target="_blank">404</a></li>
+                    <li><a href="500.html" target="_blank">500</a></li>
+                    <li><a href="invoice.html">Invoice</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
