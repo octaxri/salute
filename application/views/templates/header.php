@@ -26,14 +26,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/vendor.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/elephant.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/application.min.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/application.min.css">
+	<!-- CSS datatable-->
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/demo.min.css">
   </head>
   <body class="layout layout-header-fixed">
     <div class="layout-header">
       <div class="navbar navbar-default">
         <div class="navbar-header">
           <a class="navbar-brand navbar-brand-center" href="<?= base_url(); ?>assets/admin/doc/index.html">
-            <img class="navbar-brand-logo" src="<?= base_url(); ?>assets/admin/doc/img/logo-inverse.svg" alt="Elephant">
+            <img class="navbar-brand-logo" src="<?= base_url(); ?>assets/admin/img/logo-inverse.svg" alt="Elephant">
           </a>
           <button class="navbar-toggler visible-xs-block collapsed" type="button" data-toggle="collapse" data-target="#sidenav">
             <span class="sr-only">Toggle navigation</span>
@@ -51,7 +53,7 @@
             <span class="sr-only">Toggle navigation</span>
             <span class="arrow-up"></span>
             <span class="ellipsis ellipsis-vertical">
-              <img class="ellipsis-object" width="32" height="32" src="<?= base_url(); ?>assets/admin/doc/img/0180441436.jpg" alt="Teddy Wilson">
+              <img class="ellipsis-object" width="32" height="32" src="<?= base_url(); ?>assets/admin/img/0180441436.jpg" alt="Teddy Wilson">
             </span>
           </button>
         </div>
@@ -105,7 +107,7 @@
                       <a class="list-group-item" href="#">
                         <div class="notification">
                           <div class="notification-media">
-                            <img class="rounded" width="40" height="40" src="<?= base_url(); ?>assets/admin/doc/img/0299419341.jpg" alt="Harry Jones">
+                            <img class="rounded" width="40" height="40" src="<?= base_url(); ?>assets/admin/img/0299419341.jpg" alt="Harry Jones">
                           </div>
                           <div class="notification-content">
                             <small class="notification-timestamp">16 min</small>
@@ -119,7 +121,7 @@
                       <a class="list-group-item" href="#">
                         <div class="notification">
                           <div class="notification-media">
-                            <img class="rounded" width="40" height="40" src="<?= base_url(); ?>assets/admin/doc/img/0310728269.jpg" alt="Daniel Taylor">
+                            <img class="rounded" width="40" height="40" src="<?= base_url(); ?>assets/admin/img/0310728269.jpg" alt="Daniel Taylor">
                           </div>
                           <div class="notification-content">
                             <small class="notification-timestamp">2 hr</small>
@@ -347,7 +349,7 @@
               </li>
               <li class="dropdown hidden-xs">
                 <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
-                  <img class="rounded" width="36" height="36" src="<?= base_url(); ?>assets/admin/doc/img/0180441436.jpg" alt="Teddy Wilson"> Teddy Wilson
+                  <img class="rounded" width="36" height="36" src="<?= base_url(); ?>assets/admin/img/0180441436.jpg" alt="Teddy Wilson"> Teddy Wilson
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">

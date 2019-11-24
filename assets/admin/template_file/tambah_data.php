@@ -29,7 +29,6 @@
                         <th>Age</th>
                         <th>Start date</th>
                         <th>Salary</th>
-                        <th>Aksi</th>
                       </tr>
                     </thead>
                     <tfoot>
@@ -40,22 +39,10 @@
                         <th>Age</th>
                         <th>Start date</th>
                         <th>Salary</th>
-                        <th>Aksi</th>
                       </tr>
                     </tfoot>
                     <tbody>
-                    <tr>
-                        <td>Yuri Berry</td>
-                        <td>Chief Marketing Officer (CMO)</td>
-                        <td>$675,000</td>
-                        <td>New York</td>
-                        <td>6154</td>
-                        <td>y.berry@datatables.net</td>
-                        <td>
-                        <a class="badge badge-success" href="#"><span class="icon icon-edit"></span> Edit</a> ||
-                        <a class="badge badge-danger" href="#"><span class="icon icon-trash-o"></span> Hapus</a>
-                        </td>
-                      </tr>
+
                     </tbody>
                   </table>
                 </div>
