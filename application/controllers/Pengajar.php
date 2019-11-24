@@ -6,7 +6,11 @@ class Pengajar extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data['title'] ="Pengajar";
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pengajar/index',$data);
+		$this->load->view('templates/footer');
     }
     
     
