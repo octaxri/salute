@@ -88,6 +88,12 @@
     <script src="<?php echo base_url() ?>assets/admin/js/application.min.js"></script>
     <!-- Data table-->
     <script src="<?php echo base_url() ?>assets/admin/js/demo.min.js"></script>
+
+    </script>
+         <script type="text/javascript">
+    $('#notifikasi').slideDown('slow').delay(5000).slideUp('slow');
+    </script>
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
