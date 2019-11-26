@@ -91,7 +91,7 @@
 
           <div class="form-group">
               <label for="Kategori">Kejuruan  </label>
-                  <select required name="id_kejuruan" id="id_kejuruan" class="form-control">
+                  <select required name="id_kejuruan" id="id_kejuruan" class="custom-select">
                     <option value="">-- Pilih Kejuruan --</option>
                     <?php foreach($kej as $x) 
                           { 
