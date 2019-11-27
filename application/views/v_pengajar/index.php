@@ -1,16 +1,7 @@
 <div class="layout-content">
         <div class="layout-content-body">
-          <div class="title-bar">
-            <h1 class="title-bar-title">
-              <span class="d-ib">DATA PENGAJAR</span>
-            </h1>
-          </div>
-          <hr>
-          <div class="text-left m-b">
-              <button class="btn btn-info" data-toggle="modal" data-target="#add_pengajar" type="button">(+) Tambah Data</button>
-          </div>
-          <br>
-          <?php 
+
+        <?php 
                 $dat = $this->session->flashdata('msg');
                     if($dat!=""){ ?>
                           <div id="notifikasi" class="alert alert-success"><strong>Sukses! </strong> <?=$dat;?></div>
@@ -21,9 +12,20 @@
             $dat = $this->session->flashdata('msg2');
                 if($dat!=""){ ?>
                       <div id="notifikasi" class="alert alert-danger"><strong> </strong> <?=$dat;?></div>
-            <?php } ?> 
-            <br>
+        <?php } ?> 
+        <br>
 
+
+          <div class="title-bar">
+            <h1 class="title-bar-title">
+              <span class="d-ib">DATA PENGAJAR</span>
+            </h1>
+          </div>
+          <hr>
+          <div class="text-left m-b">
+              <button class="btn btn-info" data-toggle="modal" data-target="#add_pengajar" type="button">(+) Tambah Data</button>
+          </div>
+          <br>
           <div class="row gutter-xs">
             <div class="col-xs-12">
               <div class="card">
@@ -110,7 +112,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-primary">
-          <h4 class="modal-title">Edit Data Pengajar</h4>
+          <h4 class="modal-title">Ubah Data Pengajar</h4>
         </div>
         <div class="modal-body">
           <?php echo form_open('Pengajar/edit_pengajar');?>
@@ -123,7 +125,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-            <button type="submit" class="btn btn-primary">Tambah</button>
+            <button type="submit" class="btn btn-primary">Ubah</button>
         </div>
           </form>
       </div>

@@ -13,8 +13,12 @@ class Pengajar extends CI_Controller {
 	
 	public function index()
 	{
-		$data['title'] ="Pengajar";
+		$data['title'] ="SALUTE | Pengajar";
 		$data['data'] = $this->m_pengajar->tampil_pengajar();
+
+		$data['user'] = $this->db->get_where('user', ['username' =>
+		$this->session->userdata('username')])->row_array();
+		
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pengajar/index',$data);

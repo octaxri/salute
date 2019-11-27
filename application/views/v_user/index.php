@@ -1,17 +1,6 @@
 <div class="layout-content">
         <div class="layout-content-body">
-          <div class="title-bar">
-            <h1 class="title-bar-title">
-              <span class="d-ib">DATA USER</span>
-            </h1>
-          </div>
-          <hr>
-          <div class="text-left m-b">
-              <button class="btn btn-info" data-toggle="modal" data-target="#modalSignUpSm" type="button">(+) Tambah Data</button>
-          </div>
-          <br>
-
-          <?php 
+        <?php 
                 $dat = $this->session->flashdata('msg');
                     if($dat!=""){ ?>
                           <div id="notifikasi" class="alert alert-success"><strong>Sukses! </strong> <?=$dat;?></div>
@@ -22,8 +11,19 @@
             $dat = $this->session->flashdata('msg2');
                 if($dat!=""){ ?>
                       <div id="notifikasi" class="alert alert-danger"><strong> </strong> <?=$dat;?></div>
-            <?php } ?> 
+        <?php } ?> 
             <br>
+
+          <div class="title-bar">
+            <h1 class="title-bar-title">
+              <span class="d-ib">DATA USER</span>
+            </h1>
+          </div>
+          <hr>
+          <div class="text-left m-b">
+              <button class="btn btn-info" data-toggle="modal" data-target="#modalSignUpSm" type="button">(+) Tambah Data</button>
+          </div>
+          <br>
 
           <div class="row gutter-xs">
             <div class="col-xs-12">

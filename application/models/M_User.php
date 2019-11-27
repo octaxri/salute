@@ -15,7 +15,7 @@ class M_User extends CI_Model {
 	function tambah_data(){
 		$data = [
 			"username" => $this->input->post('username',TRUE),
-			"password" => $this->input->post('password1',TRUE),
+			"password" => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 			"email" => $this->input->post('email',TRUE),
 			"is_level" => 1
 		];

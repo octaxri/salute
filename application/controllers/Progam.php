@@ -15,9 +15,13 @@ class Progam extends CI_Controller {
     
 	public function index()
 	{
-        $data['title'] = "Progam Pelatihan";
+        $data['title'] = "SALUTE | Progam Pelatihan";
         $data['data'] = $this->m_progam->tampil_progam();
         $data['kej'] = $this->m_kejuruan->tampil_kejuruan();
+
+        $data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
+
         $this->load->view('templates/header',$data);
         $this->load->view('templates/sidebar',$data);
         $this->load->view('v_progam/index',$data);

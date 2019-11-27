@@ -72,7 +72,7 @@
             </button>
             <ul class="nav navbar-nav navbar-right">
               <li class="visible-xs-block">
-                <h4 class="navbar-text text-center">Hi, Teddy Wilson</h4>
+                <h4 class="navbar-text text-center">Hi, <?= $this->session->userdata('username'); ?></h4>
               </li>
               <li class="hidden-xs hidden-sm">
                 <form class="navbar-search navbar-search-collapsed">
@@ -87,7 +87,7 @@
               </li>
               <li class="dropdown hidden-xs">
                 <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
-                  <img class="rounded" width="36" height="36" src="<?= base_url(); ?>assets/admin/img/0180441436.jpg" alt="Teddy Wilson"> Teddy Wilson
+                  <img class="rounded" width="36" height="36" src="<?= base_url(); ?>assets/admin/img/0180441436.jpg" > <?= $this->session->userdata('username'); ?>
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
@@ -115,7 +115,7 @@
                 </a>
               </li>
               <li class="visible-xs-block">
-                <a href="login-1.html">
+                <a href="<?= base_url(); ?>auth/logout">
                   <span class="icon icon-power-off icon-lg icon-fw"></span>
                   Sign out
                 </a>
