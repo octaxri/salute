@@ -125,11 +125,8 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-<<<<<<< Updated upstream
             <button type="submit" class="btn btn-primary">Ubah</button>
-=======
             <button type="submit" class="btn btn-primary">Edit</button>
->>>>>>> Stashed changes
         </div>
           </form>
       </div>
