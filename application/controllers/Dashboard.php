@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller {
 		
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
-		$this->load->view('templates/content',$data);
+		$this->load->view('dashboard/index',$data);
 		$this->load->view('templates/footer');
 
     }

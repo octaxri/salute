@@ -127,7 +127,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-primary">
-          <h4 class="modal-title">Edit Data Progam Pelatihan</h4>
+          <h4 class="modal-title">Ubah Data Progam Pelatihan</h4>
         </div>
         <div class="modal-body">
           <?php echo form_open('Progam/edit_progam'); ?> 
@@ -155,7 +155,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-            <button type="submit" class="btn btn-primary">Edit</button>
+            <button type="submit" class="btn btn-primary">Ubah</button>
         </div>
           </form>
       </div>

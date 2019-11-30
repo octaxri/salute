@@ -126,7 +126,6 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
             <button type="submit" class="btn btn-primary">Ubah</button>
-            <button type="submit" class="btn btn-primary">Edit</button>
         </div>
           </form>
       </div>
