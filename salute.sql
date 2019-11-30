@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2019 at 03:10 PM
+-- Generation Time: Nov 29, 2019 at 06:36 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -21,6 +21,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `salute`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bobot_nilai`
+--
+
+CREATE TABLE `bobot_nilai` (
+  `id` int(11) NOT NULL,
+  `jenis_penilaian` enum('a','b','c') NOT NULL,
+  `nilai` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_penilaian_b`
+--
+
+CREATE TABLE `detail_penilaian_b` (
+  `id` int(11) NOT NULL,
+  `id_penilaian_b` int(11) NOT NULL,
+  `id_pengajar` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -94,6 +118,21 @@ CREATE TABLE `kuisioner_c` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pelatihan`
+--
+
+CREATE TABLE `pelatihan` (
+  `kd_pelatihan` char(15) NOT NULL,
+  `id_program` int(11) NOT NULL,
+  `tgl_mulai_pelatihan` date NOT NULL,
+  `tgl_akhir_pelatihan` date NOT NULL,
+  `tahap_pelatihan` int(11) NOT NULL,
+  `kelas_pelatihan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pengajar`
 --
 
@@ -105,13 +144,55 @@ CREATE TABLE `pengajar` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `penilaian_a`
+--
+
+CREATE TABLE `penilaian_a` (
+  `id` int(11) NOT NULL,
+  `kd_pelatihan` char(15) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_soalA` int(11) NOT NULL,
+  `jawaban` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `penilaian_b`
+--
+
+CREATE TABLE `penilaian_b` (
+  `id` int(11) NOT NULL,
+  `kd_pelatihan` char(15) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_soalB` int(11) NOT NULL,
+  `jawaban` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `penilaian_c`
+--
+
+CREATE TABLE `penilaian_c` (
+  `id` int(11) NOT NULL,
+  `kd_pelatihan` char(15) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_soalC` int(11) NOT NULL,
+  `jawaban` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `program`
 --
 
 CREATE TABLE `program` (
   `id_program` int(11) NOT NULL,
   `id_kejuruan` int(11) NOT NULL,
-  `nama_kejuruan` varchar(100) NOT NULL
+  `nama_program` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -176,6 +257,20 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 --
 
 --
+-- Indexes for table `bobot_nilai`
+--
+ALTER TABLE `bobot_nilai`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `detail_penilaian_b`
+--
+ALTER TABLE `detail_penilaian_b`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_penilaian_b` (`id_penilaian_b`),
+  ADD KEY `id_pengajar` (`id_pengajar`);
+
+--
 -- Indexes for table `kejuruan`
 --
 ALTER TABLE `kejuruan`
@@ -191,7 +286,8 @@ ALTER TABLE `kuisioner_a`
 -- Indexes for table `kuisioner_b`
 --
 ALTER TABLE `kuisioner_b`
-  ADD PRIMARY KEY (`id_kuisionerB`);
+  ADD PRIMARY KEY (`id_kuisionerB`),
+  ADD KEY `sub_soal` (`sub_soal`);
 
 --
 -- Indexes for table `kuisioner_c`
@@ -200,10 +296,44 @@ ALTER TABLE `kuisioner_c`
   ADD PRIMARY KEY (`id_kuisionerC`);
 
 --
+-- Indexes for table `pelatihan`
+--
+ALTER TABLE `pelatihan`
+  ADD PRIMARY KEY (`kd_pelatihan`),
+  ADD KEY `id_program` (`id_program`);
+
+--
 -- Indexes for table `pengajar`
 --
 ALTER TABLE `pengajar`
   ADD PRIMARY KEY (`id_pengajar`);
+
+--
+-- Indexes for table `penilaian_a`
+--
+ALTER TABLE `penilaian_a`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kd_pelatihan` (`kd_pelatihan`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_soalA` (`id_soalA`);
+
+--
+-- Indexes for table `penilaian_b`
+--
+ALTER TABLE `penilaian_b`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kd_pelatihan` (`kd_pelatihan`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_soalB` (`id_soalB`);
+
+--
+-- Indexes for table `penilaian_c`
+--
+ALTER TABLE `penilaian_c`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kd_pelatihan` (`kd_pelatihan`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_soalC` (`id_soalC`);
 
 --
 -- Indexes for table `program`
@@ -233,6 +363,18 @@ ALTER TABLE `user_token`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `bobot_nilai`
+--
+ALTER TABLE `bobot_nilai`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `detail_penilaian_b`
+--
+ALTER TABLE `detail_penilaian_b`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kejuruan`
@@ -265,6 +407,24 @@ ALTER TABLE `pengajar`
   MODIFY `id_pengajar` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `penilaian_a`
+--
+ALTER TABLE `penilaian_a`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `penilaian_b`
+--
+ALTER TABLE `penilaian_b`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `penilaian_c`
+--
+ALTER TABLE `penilaian_c`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `program`
 --
 ALTER TABLE `program`
@@ -287,6 +447,59 @@ ALTER TABLE `user`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `detail_penilaian_b`
+--
+ALTER TABLE `detail_penilaian_b`
+  ADD CONSTRAINT `detail_penilaian_b_ibfk_1` FOREIGN KEY (`id_penilaian_b`) REFERENCES `penilaian_b` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_penilaian_b_ibfk_2` FOREIGN KEY (`id_pengajar`) REFERENCES `pengajar` (`id_pengajar`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `kuisioner_b`
+--
+ALTER TABLE `kuisioner_b`
+  ADD CONSTRAINT `kuisioner_b_ibfk_1` FOREIGN KEY (`sub_soal`) REFERENCES `sub_soal` (`id_sub_soal`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `kuisioner_c`
+--
+ALTER TABLE `kuisioner_c`
+  ADD CONSTRAINT `kuisioner_c_ibfk_1` FOREIGN KEY (`id_kuisionerC`) REFERENCES `penilaian_c` (`id_soalC`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `penilaian_a`
+--
+ALTER TABLE `penilaian_a`
+  ADD CONSTRAINT `penilaian_a_ibfk_1` FOREIGN KEY (`kd_pelatihan`) REFERENCES `pelatihan` (`kd_pelatihan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `penilaian_a_ibfk_2` FOREIGN KEY (`id_soalA`) REFERENCES `kuisioner_a` (`id_kuisionerA`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `penilaian_a_ibfk_3` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `penilaian_b`
+--
+ALTER TABLE `penilaian_b`
+  ADD CONSTRAINT `penilaian_b_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `penilaian_b_ibfk_2` FOREIGN KEY (`id_soalB`) REFERENCES `kuisioner_b` (`id_kuisionerB`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `penilaian_b_ibfk_3` FOREIGN KEY (`kd_pelatihan`) REFERENCES `pelatihan` (`kd_pelatihan`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `penilaian_c`
+--
+ALTER TABLE `penilaian_c`
+  ADD CONSTRAINT `penilaian_c_ibfk_1` FOREIGN KEY (`kd_pelatihan`) REFERENCES `pelatihan` (`kd_pelatihan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `penilaian_c_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `program`
+--
+ALTER TABLE `program`
+  ADD CONSTRAINT `program_ibfk_1` FOREIGN KEY (`id_program`) REFERENCES `pelatihan` (`id_program`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `program_ibfk_2` FOREIGN KEY (`id_kejuruan`) REFERENCES `kejuruan` (`id_kejuruan`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
