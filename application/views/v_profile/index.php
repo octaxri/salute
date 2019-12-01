@@ -81,8 +81,48 @@
         <?php echo form_open('Profile/edit_profile') ?>
         <input type="hidden" readonly value="<?= $user['id_user']; ?>" name="id" class="form-control" >
             <div class="form-group">
+              <label class="control-label" for="nama">Nama</label>
+              <input class="form-control" id="nama" type="text" name="nama" value="<?= $user['nama']; ?>">
+            </div>
+            <div class="form-group">
               <label class="control-label" for="email">Email</label>
               <input class="form-control" id="email" type="email" name="email" value="<?= $user['email']; ?>">
+            </div>
+            <div class="form-group">
+                    <label for="jk" class="form-control-label">Jenis Kelamin</label>
+                    <select name="jk" id="jk" class="form-control" required>
+                        <option value="">----- Pilih ------</option>
+                        <option value="1">L</option>
+                        <option value="0">P</option>
+                    </select>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="tgl_lahir">Tanggal Lahir</label>
+              <input class="form-control" id="tgl_lahir" type="date" name="tgl_lahir" value="<?= $user['tgl_lahir']; ?>">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="nama">Nama</label>
+              <input class="form-control" id="nama" type="text" name="nama" value="<?= $user['nama']; ?>">
+            </div>
+            <div class="form-group">
+                    <label for="tipe_peserta" class="form-control-label">Tipe Peserta</label>
+                    <select name="tipe_peserta" id="tipe_peserta" class="form-control" required>
+                        <option value="">----- Pilih ------</option>
+                        <option value="Menginap">Menginap</option>
+                        <option value="Pulang">Pulang</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                    <label for="tipe_peserta" class="form-control-label">Pendidikan</label>
+                    <select name="tipe_peserta" id="tipe_peserta" class="form-control" required>
+                        <option value="">----- Pilih ------</option>
+                        <option value="Menginap">Menginap</option>
+                        <option value="Pulang">Pulang</option>
+                    </select>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="pekerjaan">Pekerjaan</label>
+              <input class="form-control" id="pekerjaan" type="text" name="pekerjaan" value="<?= $user['pekerjaan']; ?>">
             </div>
         </div>
         <div class="modal-footer">

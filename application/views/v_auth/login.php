@@ -40,7 +40,7 @@
           <form method="post">
             <div class="md-form-group md-label-floating">
               <input class="md-form-control" type="text" name="username" spellcheck="false" autocomplete="off" data-msg-required="Please enter your username." required>
-              <label class="md-control-label">Username</label>
+              <label class="md-control-label">Username / Email</label>
             </div>
             <div class="md-form-group md-label-floating">
               <input class="md-form-control" type="password" name="password" minlength="3" data-msg-minlength="Password must be 3 characters or more." data-msg-required="Please enter your password." required>
@@ -58,6 +58,9 @@
             <button class="btn btn-primary btn-block" type="submit">Sign in</button>
           </form>
         </div>
+      </div>
+      <div class="login-footer">
+        Don't have an account? <a href="<?= base_url(); ?>auth/signup">Sign Up</a>
       </div>
     </div>
     <script src="<?= base_url(); ?>assets/admin/js/vendor.min.js"></script>

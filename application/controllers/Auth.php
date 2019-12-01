@@ -28,11 +28,13 @@ class Auth extends CI_Controller {
         $password = $this->input->post('password');
 
             $user = $this->db->get_where('user', ['username' => $username])->row_array();
-            
+            $user2 = $this->db->get_where('user', ['email' => $username])->row_array();
+
+
             // jika usernya ada
-            if($user){
+            if($user != NULL || $user2 != NULL){
                     // cek password
-                    if(password_verify($password, $user['password'])){
+                    if(password_verify($password, $user['password']) || password_verify($password, $user2['password'])){
                         $data= [
                             'id' => $user['id_user'],
                             'username' => $user['username'],
@@ -193,6 +195,47 @@ class Auth extends CI_Controller {
 		$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
 			  You have been logout</div>');
 			redirect('auth');
-	}
+    }
+    
+    function signup(){
+        $this->form_validation->set_rules('username','Username','required|trim|min_length[3]|is_unique[user.username]',[
+            'is_unique' => 'This username has already registered!'
+        ]);
+
+        $this->form_validation->set_rules('password1','Password','required|trim|min_length[3]|matches[password2]',[
+            'matches' => 'Password dont match!',
+            'min_length' => 'Password to short!'
+        ]);
+
+        $this->form_validation->set_rules('password2','Password','required|trim|matches[password1]');
+        
+        $this->form_validation->set_rules('email','Email','required|trim|valid_email|is_unique[user.email]',[
+            'is_unique' => 'This email has already registered!'
+		]);
+        
+		if($this->form_validation->run()==FALSE){
+            $this->load->view('v_auth/signup');
+        }
+        else{
+            $data = [
+                "username" => $this->input->post('username',TRUE),
+                "password" => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                "nama" => $this->input->post('nama',TRUE),
+                "email" => $this->input->post('email',TRUE),
+                "jk" => $this->input->post('jk',TRUE),
+                "tgl_lahir" => $this->input->post('tgl_lahir',TRUE),
+                "pendidikan" => $this->input->post('pendidikan',TRUE),
+                "pekerjaan" => $this->input->post('pekerjaan',TRUE),
+                "is_level" => 0,
+                "tipe_peserta" => $this->input->post('tipe_peserta',TRUE),
+            ];
+            $this->db->insert('user',$data);
+
+
+			$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+			  Pendaftaran berhasil</div>');
+			redirect('auth/signup');
+        }
+    }
 
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2019 at 11:40 AM
+-- Generation Time: Dec 01, 2019 at 07:11 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -37,18 +37,6 @@ CREATE TABLE `bobot_nilai` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_pelatihan`
---
-
-CREATE TABLE `data_pelatihan` (
-  `id` int(11) NOT NULL,
-  `kd_pelatihan` char(15) NOT NULL,
-  `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `detail_pengajar`
 --
 
@@ -57,6 +45,15 @@ CREATE TABLE `detail_pengajar` (
   `kd_pelatihan` char(15) NOT NULL,
   `id_pengajar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detail_pengajar`
+--
+
+INSERT INTO `detail_pengajar` (`id`, `kd_pelatihan`, `id_pengajar`) VALUES
+(4, '2019-00000002', 1),
+(5, '2019-00000002', 4),
+(6, '2019-00000001', 2);
 
 -- --------------------------------------------------------
 
@@ -69,6 +66,25 @@ CREATE TABLE `detail_penilaian_b` (
   `id_penilaian_b` int(11) NOT NULL,
   `id_pengajar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_peserta`
+--
+
+CREATE TABLE `detail_peserta` (
+  `id` int(11) NOT NULL,
+  `kd_pelatihan` char(15) NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detail_peserta`
+--
+
+INSERT INTO `detail_peserta` (`id`, `kd_pelatihan`, `id_user`) VALUES
+(2, '2019-00000002', 3);
 
 -- --------------------------------------------------------
 
@@ -175,6 +191,15 @@ CREATE TABLE `pengajar` (
   `nama_pengajar` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pengajar`
+--
+
+INSERT INTO `pengajar` (`id_pengajar`, `nama_pengajar`) VALUES
+(1, 'Fajar Hidayat'),
+(2, 'Dhimas Budi'),
+(4, 'Bayu Dwi');
+
 -- --------------------------------------------------------
 
 --
@@ -264,15 +289,17 @@ CREATE TABLE `user` (
   `tgl_lahir` date NOT NULL,
   `pendidikan` enum('SD','SMP/SLTP','SMA/SMK/SLTA','DIPLOMA','S1','S2','S3') NOT NULL,
   `pekerjaan` varchar(100) NOT NULL,
-  `is_level` int(11) NOT NULL
+  `is_level` int(11) NOT NULL,
+  `tipe_peserta` enum('Menginap','Pulang') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `jk`, `tgl_lahir`, `pendidikan`, `pekerjaan`, `is_level`) VALUES
-(3, 'fajarhgl', '$2y$10$tQKN5bGmshT8aQoPnBEhwOkD/PdpYteph0XVA0dq6eHh22eACAVoe', '', 'fajarhdytt30@gmail.com', 'L', '0000-00-00', 'SD', '', 1);
+INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `jk`, `tgl_lahir`, `pendidikan`, `pekerjaan`, `is_level`, `tipe_peserta`) VALUES
+(3, 'fajarhgl', '$2y$10$tQKN5bGmshT8aQoPnBEhwOkD/PdpYteph0XVA0dq6eHh22eACAVoe', '', 'fajarhdytt30@gmail.com', 'L', '0000-00-00', 'SD', '', 1, 'Menginap'),
+(4, 'fajarhgl1', '$2y$10$WD3t4nCuezWpWKtBTZyr0uX8J64USxgq3DJvqNK2vy8Od0p1CIkb2', 'Fajar Hidayat', 'fajarhdyt30@gmail.com', 'L', '2019-12-06', 'S1', 'Programmer', 0, 'Menginap');
 
 -- --------------------------------------------------------
 
@@ -308,14 +335,6 @@ ALTER TABLE `bobot_nilai`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `data_pelatihan`
---
-ALTER TABLE `data_pelatihan`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `kd_pelatihan` (`kd_pelatihan`),
-  ADD KEY `id_user` (`id_user`);
-
---
 -- Indexes for table `detail_pengajar`
 --
 ALTER TABLE `detail_pengajar`
@@ -330,6 +349,14 @@ ALTER TABLE `detail_penilaian_b`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_penilaian_b` (`id_penilaian_b`),
   ADD KEY `id_pengajar` (`id_pengajar`);
+
+--
+-- Indexes for table `detail_peserta`
+--
+ALTER TABLE `detail_peserta`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kd_pelatihan` (`kd_pelatihan`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `kejuruan`
@@ -433,16 +460,10 @@ ALTER TABLE `bobot_nilai`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `data_pelatihan`
---
-ALTER TABLE `data_pelatihan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `detail_pengajar`
 --
 ALTER TABLE `detail_pengajar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `detail_penilaian_b`
@@ -451,10 +472,16 @@ ALTER TABLE `detail_penilaian_b`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `detail_peserta`
+--
+ALTER TABLE `detail_peserta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `kejuruan`
 --
 ALTER TABLE `kejuruan`
-  MODIFY `id_kejuruan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kejuruan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kuisioner_a`
@@ -478,7 +505,7 @@ ALTER TABLE `kuisioner_c`
 -- AUTO_INCREMENT for table `pengajar`
 --
 ALTER TABLE `pengajar`
-  MODIFY `id_pengajar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pengajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `penilaian_a`
@@ -502,7 +529,7 @@ ALTER TABLE `penilaian_c`
 -- AUTO_INCREMENT for table `program`
 --
 ALTER TABLE `program`
-  MODIFY `id_program` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_program` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `sub_soal`
@@ -514,7 +541,7 @@ ALTER TABLE `sub_soal`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_token`
@@ -527,18 +554,11 @@ ALTER TABLE `user_token`
 --
 
 --
--- Constraints for table `data_pelatihan`
---
-ALTER TABLE `data_pelatihan`
-  ADD CONSTRAINT `data_pelatihan_ibfk_1` FOREIGN KEY (`kd_pelatihan`) REFERENCES `pelatihan` (`kd_pelatihan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `data_pelatihan_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `detail_pengajar`
 --
 ALTER TABLE `detail_pengajar`
-  ADD CONSTRAINT `detail_pengajar_ibfk_1` FOREIGN KEY (`kd_pelatihan`) REFERENCES `pelatihan` (`kd_pelatihan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `detail_pengajar_ibfk_2` FOREIGN KEY (`id_pengajar`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `detail_pengajar_ibfk_1` FOREIGN KEY (`id_pengajar`) REFERENCES `pengajar` (`id_pengajar`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_pengajar_ibfk_2` FOREIGN KEY (`kd_pelatihan`) REFERENCES `pelatihan` (`kd_pelatihan`);
 
 --
 -- Constraints for table `detail_penilaian_b`
@@ -546,6 +566,13 @@ ALTER TABLE `detail_pengajar`
 ALTER TABLE `detail_penilaian_b`
   ADD CONSTRAINT `detail_penilaian_b_ibfk_1` FOREIGN KEY (`id_penilaian_b`) REFERENCES `penilaian_b` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `detail_penilaian_b_ibfk_2` FOREIGN KEY (`id_pengajar`) REFERENCES `pengajar` (`id_pengajar`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `detail_peserta`
+--
+ALTER TABLE `detail_peserta`
+  ADD CONSTRAINT `detail_peserta_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_peserta_ibfk_2` FOREIGN KEY (`kd_pelatihan`) REFERENCES `pelatihan` (`kd_pelatihan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `kuisioner_b`

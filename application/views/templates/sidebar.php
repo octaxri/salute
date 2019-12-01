@@ -14,6 +14,25 @@
                     </div>
                   </form>
                 </li>
+                <!-- Login sebagai peserta -->
+                <?php if($this->session->userdata('level') == 0){ ?>
+                  <li class="sidenav-heading">DASHBOARD</li>
+                  <li class="sidenav-item">
+                    <a href="<?= site_url(); ?>dashboard2">
+                      <span class="sidenav-icon icon icon-home"></span>
+                      <span class="sidenav-label">Dashboard</span>
+                    </a>
+                  </li>
+                  <li class="sidenav-heading">MAIN</li>
+                <li class="sidenav-item">
+                  <a href="#">
+                    <span class="sidenav-icon icon icon-history"></span>
+                    <span class="sidenav-label">History Pelatihan</span>
+                  </a>
+                </li>
+                <?php } ?>
+                <!-- Login sebagai admin -->
+                <?php if($this->session->userdata('level') == 1){ ?>
                 <li class="sidenav-heading">DASHBOARD</li>
                 <li class="sidenav-item">
                   <a href="<?= site_url(); ?>dashboard">
@@ -80,6 +99,7 @@
                     <span class="sidenav-label">USERS</span>
                   </a>
                 </li>
+                <?php } ?>
               </ul>
             </nav>
           </div>
