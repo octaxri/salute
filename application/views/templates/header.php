@@ -29,6 +29,8 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/application.min.css">
 	<!-- CSS datatable-->
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/demo.min.css">
+   <!-- TAMBAHAN -->
+   <script src="<?= base_url(); ?>assets/jquery/jquery.min.js"></script>
   </head>
   <body class="layout layout-header-fixed">
     <div class="layout-header">

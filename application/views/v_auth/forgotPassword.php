@@ -34,7 +34,7 @@
     <?php 
           $dat = $this->session->flashdata('msg');
               if($dat!=""){ ?>
-                    <div id="notifikasi" class="alert alert-success"><strong>Sukses! </strong> <?=$dat;?></div>
+                    <div id="notifikasi" class="alert alert-success"><?=$dat;?></div>
           <?php } ?>  
          <!-- AKHIR FLASH DATA -->
          <!-- FLASH DATA -->    

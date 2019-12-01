@@ -4,8 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_Progam extends CI_Model {
 
     
-
-    
     public function tampil_progam()
     {
         $this->db->select('*');
@@ -21,13 +19,11 @@ class M_Progam extends CI_Model {
     public function tambah_progam()
     {
         $data= array(
-
             "id_kejuruan" =>  $this->input->post('id_kejuruan',TRUE),
-            "nama_progam" => $this->input->post('nama_progam',TRUE)
+            "nama_program" => $this->input->post('nama_progam',TRUE)
         );
 
         $this->db->insert('program', $data);
-        
     }
 
 

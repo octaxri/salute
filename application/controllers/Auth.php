@@ -65,7 +65,7 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('email','Email','required|trim|valid_email');
         
 		if($this->form_validation->run()==FALSE){
-			$this->load->view('v_auth/forgot-password');
+			$this->load->view('v_auth/forgotPassword');
 		}
 		else{
 			$email = $this->input->post('email');
@@ -83,7 +83,7 @@ class Auth extends CI_Controller {
 				$this->_sendEmail($token,'forgot');
 
 				$this->session->set_flashdata('msg',' Pleace check your email to reset your password!');
-                redirect('v_auth/forgotPassword');
+                redirect('auth/forgotPassword');
 			}
 			else{
                 

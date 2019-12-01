@@ -60,7 +60,7 @@
                       <tr>
                         <td><?= $no++; ?></td>
                         <td><?= $i['nama_kejuruan']; ?></td>
-                        <td><?= $i['nama_progam']; ?></td>
+                        <td><?= $i['nama_program']; ?></td>
                         <td class="text-center">
                           <a class="badge badge-success" data-toggle="modal"  href="#edit_progam<?= $i['id_program'] ;?>"><span class="icon icon-edit"></span> Edit</a> ||
                           <a class="badge badge-danger" data-toggle="modal"  href="#hapus_progam<?= $i['id_program']; ?>"><span class="icon icon-trash-o"></span> Hapus</a>

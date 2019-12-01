@@ -38,7 +38,7 @@
                   <strong>Daftar Kejuruan</strong>
                 </div>
                 <div class="card-body">
-                  <table id="demo-datatables-5" class="table table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
+                <table id="demo-datatables-colreorder-2" class="table table-hover table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
                         <th width="15%">No</th>
