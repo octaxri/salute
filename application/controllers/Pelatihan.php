@@ -41,13 +41,84 @@ class Pelatihan extends CI_Controller {
 	function detail_pelatihan($kd_pelatihan){
 		$data['title'] = "SALUTE | Detail Pelatihan";
 
+		$data['kd_pelatihan'] = $kd_pelatihan;
 		$data['user'] = $this->db->get_where('user', ['username' =>
-        $this->session->userdata('username')])->row_array();
+		$this->session->userdata('username')])->row_array();
+		
+		$data['jml_peserta'] = $this->db->query("SELECT * FROM detail_peserta WHERE kd_pelatihan='$kd_pelatihan'")->num_rows();
+		$data['jml_pengajar'] = $this->db->query("SELECT * FROM detail_pengajar WHERE kd_pelatihan='$kd_pelatihan'")->num_rows();
+		
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan/detail_pelatihan',$data);
 		$this->load->view('templates/footer');
+	}
+
+	function detail_pelatihan2($a, $kd_pelatihan){
+		$data['kd_pelatihan'] = $kd_pelatihan;
+		$data['user'] = $this->db->get_where('user', ['username' =>
+		$this->session->userdata('username')])->row_array();
+
+		if($a == 1){
+			$data['title'] = "SALUTE | Data Peserta Pelatihan";
+			$data['data'] = $this->M_Pelatihan->tampil_peserta($kd_pelatihan);
+
+			$this->load->view('templates/header',$data);
+			$this->load->view('templates/sidebar',$data);
+			$this->load->view('v_pelatihan/daftar_peserta',$data);
+			$this->load->view('templates/footer');
+			
+		}
+		else if($a == 2){
+			$data['title'] = "SALUTE | Data Pengajar Pelatihan";
+			$data['data'] = $this->M_Pelatihan->tampil_pengajar($kd_pelatihan);
+			$data['pengajar'] = $this->M_Pelatihan->daftar_pengajar($kd_pelatihan);
+
+			$this->load->view('templates/header',$data);
+			$this->load->view('templates/sidebar',$data);
+			$this->load->view('v_pelatihan/daftar_pengajar',$data);
+			$this->load->view('templates/footer');
+		}
+		else if($a == 3){
+			$data['title'] = "SALUTE | Data Kuisioner A Pelatihan";
+		}
+		else if($a == 4){
+			$data['title'] = "SALUTE | Data Kuisioner B Pelatihan";
+		}
+		else if($a == 5){
+			$data['title'] = "SALUTE | Data Kuisioner C Pelatihan";
+		}
+
+	}
+
+	function tambah_pengajar_pelatihan(){
+		$a = 2;
+		$kd_pelatihan = $this->input->post('kd_pelatihan',TRUE);
+		$this->M_Pelatihan->tambah_pengajar_pelatihan();
+		$this->session->set_flashdata('msg','Data berhasil ditambahkan');
+
+		redirect('pelatihan/detail_pelatihan2/'.$a.'/'.$kd_pelatihan);
+	}
+
+	function hapus_pengajar_pelatihan(){
+		$a = 2;
+		$kd_pelatihan = $this->input->post('kd_pelatihan',TRUE);
+
+		$this->M_Pelatihan->hapus_pengajar_pelatihan();
+		$this->session->set_flashdata('msg','Data berhasil dihapus');
+
+		redirect('pelatihan/detail_pelatihan2/'.$a.'/'.$kd_pelatihan);
+	}
+
+	function hapus_peserta_pelatihan(){
+		$a = 1;
+		$kd_pelatihan = $this->input->post('kd_pelatihan',TRUE);
+
+		$this->M_Pelatihan->hapus_peserta_pelatihan();
+		$this->session->set_flashdata('msg','Data berhasil dihapus');
+
+		redirect('pelatihan/detail_pelatihan2/'.$a.'/'.$kd_pelatihan);
 	}
 
 	public function ambil_data(){

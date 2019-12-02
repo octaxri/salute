@@ -18,13 +18,13 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-primary circle sq-48">
-                        <span class="icon icon-user"></span>
+                        <span class="icon icon-envelope"></span>
                       </span>
                     </div>
                     <div class="media-middle media-body">
                       <h6 class="media-heading">Jawaban Masuk</h6>
                       <h3 class="media-heading">
-                        <span class="fw-l">1,031,760</span>
+                        <span class="fw-l">0</span>
                       </h3>
                     </div>
                   </div>
@@ -37,13 +37,13 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-danger circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                        <span class="icon icon-universal-access"></span>
                       </span>
                     </div>
                     <div class="media-middle media-body">
                       <h6 class="media-heading">Pengajar</h6>
                       <h3 class="media-heading">
-                        <span class="fw-l">1,256 Items</span>
+                        <span class="fw-l"><?= $jml_pengajar; ?></span>
                       </h3>
                     </div>
                   </div>
@@ -56,13 +56,13 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-primary circle sq-48">
-                        <span class="icon icon-clock-o"></span>
+                        <span class="icon icon-users"></span>
                       </span>
                     </div>
                     <div class="media-middle media-body">
                       <h6 class="media-heading">Peserta</h6>
                       <h3 class="media-heading">
-                        <span class="fw-l">00:07:56</span>
+                        <span class="fw-l"><?= $jml_peserta; ?></span>
                       </h3>
                     </div>
                   </div>
@@ -75,13 +75,13 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-danger circle sq-48">
-                        <span class="icon icon-usd"></span>
+                        <span class="icon icon-server"></span>
                       </span>
                     </div>
                     <div class="media-middle media-body">
                       <h6 class="media-heading">Jenis Kuisioner</h6>
                       <h3 class="media-heading">
-                        <span class="fw-l">$155,352.47</span>
+                        <span class="fw-l">3</span>
                       </h3>
                     </div>
                   </div>
@@ -122,27 +122,27 @@
                         <tr>
                             <td>1</td>
                             <td>Data Peserta</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan2/1/<?= $kd_pelatihan; ?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>Data Pengajar</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan2/2/<?= $kd_pelatihan; ?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>Kuisioner A</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan2/3"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>Kuisioner B</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan2/4"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>Kuisioner C</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan2/5"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                     </tbody>
                   </table>
