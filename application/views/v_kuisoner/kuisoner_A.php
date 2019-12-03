@@ -59,9 +59,9 @@
                       </tr>
                     </tfoot>
                     <tbody>
-                    <?php  foreach ($data as $i) 
+                    <?php  $no=1; foreach ($data as $i) 
                     {
-                      $no=1;
+                     
                     ?>
                       <tr>
                         <td><?= $no++; ?></td>
