@@ -41,11 +41,11 @@
                       <tr>
                         <th width="15%">No</th>
                         <th>Soal</th>
-                        <th>Jawaban1</th>
-                        <th>Jawaban2 A</th>
-                        <th>Jawaban3</th>
-                        <th>Jawaban4</th>
-                        <th>Jawaban5</th>
+                        <th>Jawaban1B</th>
+                        <th>Jawaban2B</th>
+                        <th>Jawaban3B</th>
+                        <th>Jawaban4B</th>
+                        <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
                         <th width="25%">Aksi</th>
@@ -55,11 +55,11 @@
                       <tr>
                         <th>No</th>
                         <th>Soal</th>
-                        <th>Jawaban1</th>
-                        <th>Jawaban2</th>
-                        <th>Jawaban3</th>
-                        <th>Jawaban4</th>
-                        <th>Jawaban5</th>
+                        <th>Jawaban1B</th>
+                        <th>Jawaban2B/th>
+                        <th>Jawaban3B</th>
+                        <th>Jawaban4B</th>
+                        <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
                         <th>Aksi</th>
@@ -115,11 +115,11 @@
                       <tr>
                         <th width="15%">No</th>
                         <th>Soal</th>
-                        <th>Jawaban1</th>
-                        <th>Jawaban2 A</th>
-                        <th>Jawaban3</th>
-                        <th>Jawaban4</th>
-                        <th>Jawaban5</th>
+                        <th>Jawaban1B</th>
+                        <th>Jawaban2B</th>
+                        <th>Jawaban3B</th>
+                        <th>Jawaban4B</th>
+                        <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
                         <th width="25%">Aksi</th>
@@ -129,11 +129,11 @@
                       <tr>
                         <th>No</th>
                         <th>Soal</th>
-                        <th>Jawaban1</th>
-                        <th>Jawaban2</th>
-                        <th>Jawaban3</th>
-                        <th>Jawaban4</th>
-                        <th>Jawaban5</th>
+                        <th>Jawaban1B</th>
+                        <th>Jawaban2B</th>
+                        <th>Jawaban3B</th>
+                        <th>Jawaban4B</th>
+                        <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
                         <th>Aksi</th>
@@ -191,11 +191,11 @@
                       <tr>
                         <th width="15%">No</th>
                         <th>Soal</th>
-                        <th>Jawaban1</th>
-                        <th>Jawaban2 A</th>
-                        <th>Jawaban3</th>
-                        <th>Jawaban4</th>
-                        <th>Jawaban5</th>
+                        <th>Jawaban1B</th>
+                        <th>Jawaban2B</th>
+                        <th>Jawaban3B</th>
+                        <th>Jawaban4B</th>
+                        <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
                         <th width="25%">Aksi</th>
@@ -205,11 +205,11 @@
                       <tr>
                         <th>No</th>
                         <th>Soal</th>
-                        <th>Jawaban1</th>
-                        <th>Jawaban2</th>
-                        <th>Jawaban3</th>
-                        <th>Jawaban4</th>
-                        <th>Jawaban5</th>
+                        <th>Jawaban1B</th>
+                        <th>Jawaban2B</th>
+                        <th>Jawaban3B</th>
+                        <th>Jawaban4B</th>
+                        <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
                         <th>Aksi</th>
@@ -267,11 +267,11 @@
                       <tr>
                         <th width="15%">No</th>
                         <th>Soal</th>
-                        <th>Jawaban1</th>
-                        <th>Jawaban2 A</th>
-                        <th>Jawaban3</th>
-                        <th>Jawaban4</th>
-                        <th>Jawaban5</th>
+                        <th>Jawaban1B</th>
+                        <th>Jawaban2B</th>
+                        <th>Jawaban3B</th>
+                        <th>Jawaban4B</th>
+                        <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
                         <th width="25%">Aksi</th>
@@ -281,11 +281,11 @@
                       <tr>
                         <th>No</th>
                         <th>Soal</th>
-                        <th>Jawaban1</th>
-                        <th>Jawaban2</th>
-                        <th>Jawaban3</th>
-                        <th>Jawaban4</th>
-                        <th>Jawaban5</th>
+                        <th>Jawaban1B</th>
+                        <th>Jawaban2B</th>
+                        <th>Jawaban3B</th>
+                        <th>Jawaban4B</th>
+                        <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
                         <th>Aksi</th>
@@ -343,11 +343,11 @@
                       <tr>
                         <th width="15%">No</th>
                         <th>Soal</th>
-                        <th>Jawaban1</th>
-                        <th>Jawaban2 A</th>
-                        <th>Jawaban3</th>
-                        <th>Jawaban4</th>
-                        <th>Jawaban5</th>
+                        <th>Jawaban1B</th>
+                        <th>Jawaban2B</th>
+                        <th>Jawaban3B</th>
+                        <th>Jawaban4B</th>
+                        <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
                         <th width="25%">Aksi</th>
@@ -357,11 +357,11 @@
                       <tr>
                         <th>No</th>
                         <th>Soal</th>
-                        <th>Jawaban1</th>
-                        <th>Jawaban2</th>
-                        <th>Jawaban3</th>
-                        <th>Jawaban4</th>
-                        <th>Jawaban5</th>
+                        <th>Jawaban1B</th>
+                        <th>Jawaban2B</th>
+                        <th>Jawaban3B</th>
+                        <th>Jawaban4B</th>
+                        <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
                         <th>Aksi</th>
@@ -546,7 +546,7 @@
           </div>
 
           <div class="form-group">
-                <label for="tipe_soal">Tipe Soal</label>
+                <label for="tipe_soal">Sub Soal</label>
                 <select class="form-control" name="sub_soal" id="sub_soal" required>
                 <?php foreach ($sub as $k2) 
                     {
@@ -655,7 +655,7 @@
           </div>
 
           <div class="form-group">
-                <label for="tipe_soal">Tipe Soal</label>
+                <label for="tipe_soal">Sub Soal</label>
                 <select class="form-control" name="sub_soal" id="sub_soal" required>
                 <?php foreach ($sub as $k2) 
                     {
@@ -763,7 +763,7 @@
           </div>
 
           <div class="form-group">
-                <label for="tipe_soal">Tipe Soal</label>
+                <label for="tipe_soal">Sub Soal</label>
                 <select class="form-control" name="sub_soal" id="sub_soal" required>
                 <?php foreach ($sub as $k2) 
                     {
@@ -871,7 +871,7 @@
           </div>
 
           <div class="form-group">
-                <label for="tipe_soal">Tipe Soal</label>
+                <label for="tipe_soal">Sub Soal</label>
                 <select class="form-control" name="sub_soal" id="sub_soal" required>
                 <?php foreach ($sub as $k2) 
                     {
@@ -980,7 +980,7 @@
           </div>
 
           <div class="form-group">
-                <label for="tipe_soal">Tipe Soal</label>
+                <label for="tipe_soal">Sub Soal</label>
                 <select class="form-control" name="sub_soal" id="sub_soal" required>
                 <?php foreach ($sub as $k2) 
                     {

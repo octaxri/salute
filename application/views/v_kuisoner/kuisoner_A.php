@@ -41,7 +41,7 @@
                         <th width="15%">No</th>
                         <th>Soal A</th>
                         <th>Jawaban1A</th>
-                        <th>Jawaban2A A</th>
+                        <th>Jawaban2A</th>
                         <th>Jawaban3A</th>
                         <th>Jawaban4A</th>
                         <th width="25%">Aksi</th>
