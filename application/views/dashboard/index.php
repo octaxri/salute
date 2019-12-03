@@ -45,7 +45,7 @@
                     <div class="media-middle media-body">
                       <h6 class="media-heading">Total Peserta</h6>
                       <h3 class="media-heading">
-                        <span class="fw-l">1,031,760</span>
+                        <span class="fw-l"><?= $jumlah_peserta; ?></span>
                       </h3>
                     </div>
                   </div>
@@ -67,7 +67,7 @@
                     <div class="media-middle media-body">
                       <h6 class="media-heading">Total Pengajar</h6>
                       <h3 class="media-heading">
-                        <span class="fw-l">1,031,760</span>
+                        <span class="fw-l"><?= $jumlah_pengajar; ?></span>
                       </h3>
                     </div>
                   </div>
@@ -89,7 +89,7 @@
                     <div class="media-middle media-body">
                       <h6 class="media-heading">Total Pelatihan</h6>
                       <h3 class="media-heading">
-                        <span class="fw-l">1,031,760</span>
+                        <span class="fw-l"><?= $jumlah_pelatihan; ?></span>
                       </h3>
                     </div>
                   </div>
