@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2019 at 07:11 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Generation Time: Dec 04, 2019 at 09:14 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -120,6 +120,14 @@ CREATE TABLE `kuisioner_a` (
   `jawaban4A` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `kuisioner_a`
+--
+
+INSERT INTO `kuisioner_a` (`id_kuisionerA`, `soalA`, `jawaban1A`, `jawaban2A`, `jawaban3A`, `jawaban4A`) VALUES
+(1, 'adad', '1', '2', '3', '4'),
+(2, 'ewfw', '1', '2', '3', '4');
+
 -- --------------------------------------------------------
 
 --
@@ -139,6 +147,21 @@ CREATE TABLE `kuisioner_b` (
   `sub_soal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `kuisioner_b`
+--
+
+INSERT INTO `kuisioner_b` (`id_kuisionerB`, `jenis_soal`, `soalB`, `jawaban1B`, `jawaban2B`, `jawaban3B`, `jawaban4B`, `jawaban5B`, `tipe_soal`, `sub_soal`) VALUES
+(2, 2, 'hau', 1, 2, 3, 4, 5, 'pg', 1),
+(4, 2, 'gdsgsd', 1, 2, 3, 4, 5, 'pg', 2),
+(6, 1, 'fhdfhdthdhf', 1, 2, 3, 4, 5, 'pg', 1),
+(9, 1, 'Ase', 1, 2, 3, 4, 5, 'pg', 1),
+(10, 1, 'awq', 1, 2, 3, 4, 5, 'pg', 2),
+(11, 3, 'prasaranaku', 1, 2, 3, 4, 5, 'pg', 1),
+(14, 3, 'ada', 1, 2, 3, 4, 5, 'pg', 2),
+(16, 4, 'potra', 1, 2, 3, 4, 5, 'pg', 1),
+(20, 5, 'qerty', 1, 2, 3, 4, 5, 'pg', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -155,6 +178,19 @@ CREATE TABLE `kuisioner_c` (
   `jawaban4C` int(11) NOT NULL,
   `tipe_soal` enum('pg','uraian') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kuisioner_c`
+--
+
+INSERT INTO `kuisioner_c` (`id_kuisionerC`, `jenis_soal`, `soalC`, `jawaban1C`, `jawaban2C`, `jawaban3C`, `jawaban4C`, `tipe_soal`) VALUES
+(7, 1, 'da', 1, 2, 3, 4, 'pg'),
+(8, 2, 'qw', 1, 2, 3, 4, 'pg'),
+(10, 3, 'qre', 1, 2, 3, 4, 'pg'),
+(11, 4, 'sese', 1, 2, 3, 4, 'pg'),
+(12, 5, 'sd', 1, 2, 3, 4, 'pg'),
+(13, 6, 'rere', 1, 2, 3, 4, 'pg'),
+(14, 7, 'polken', 1, 2, 3, 4, 'pg');
 
 -- --------------------------------------------------------
 
@@ -198,7 +234,8 @@ CREATE TABLE `pengajar` (
 INSERT INTO `pengajar` (`id_pengajar`, `nama_pengajar`) VALUES
 (1, 'Fajar Hidayat'),
 (2, 'Dhimas Budi'),
-(4, 'Bayu Dwi');
+(4, 'Bayu Dwi'),
+(5, 'Andi');
 
 -- --------------------------------------------------------
 
@@ -272,6 +309,14 @@ CREATE TABLE `sub_soal` (
   `id_sub_soal` int(11) NOT NULL,
   `nama_sub_soal` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sub_soal`
+--
+
+INSERT INTO `sub_soal` (`id_sub_soal`, `nama_sub_soal`) VALUES
+(1, 'A'),
+(2, 'B');
 
 -- --------------------------------------------------------
 
@@ -487,25 +532,25 @@ ALTER TABLE `kejuruan`
 -- AUTO_INCREMENT for table `kuisioner_a`
 --
 ALTER TABLE `kuisioner_a`
-  MODIFY `id_kuisionerA` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kuisionerA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kuisioner_b`
 --
 ALTER TABLE `kuisioner_b`
-  MODIFY `id_kuisionerB` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kuisionerB` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `kuisioner_c`
 --
 ALTER TABLE `kuisioner_c`
-  MODIFY `id_kuisionerC` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kuisionerC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `pengajar`
 --
 ALTER TABLE `pengajar`
-  MODIFY `id_pengajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pengajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `penilaian_a`
@@ -535,7 +580,7 @@ ALTER TABLE `program`
 -- AUTO_INCREMENT for table `sub_soal`
 --
 ALTER TABLE `sub_soal`
-  MODIFY `id_sub_soal` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sub_soal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -579,12 +624,6 @@ ALTER TABLE `detail_peserta`
 --
 ALTER TABLE `kuisioner_b`
   ADD CONSTRAINT `kuisioner_b_ibfk_1` FOREIGN KEY (`sub_soal`) REFERENCES `sub_soal` (`id_sub_soal`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `kuisioner_c`
---
-ALTER TABLE `kuisioner_c`
-  ADD CONSTRAINT `kuisioner_c_ibfk_1` FOREIGN KEY (`id_kuisionerC`) REFERENCES `penilaian_c` (`id_soalC`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pelatihan`
