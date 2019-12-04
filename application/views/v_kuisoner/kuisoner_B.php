@@ -428,7 +428,7 @@
 
           <div class="form-group">
               <label class="control-label">Soal B</label>
-              <input class="form-control" type="text" name="soalB"  required>
+              <textarea class="form-control" rows="5" name="soalB" id="soalB" required></textarea>
             </div>
 
             <div class="form-group">
@@ -508,7 +508,7 @@
 
           <div class="form-group">
               <label class="control-label">Soal B</label>
-              <input class="form-control" type="text" name="soalB" value="<?=$x['soalB'];?>" required>
+              <textarea class="form-control" rows="5" name="soalB" id="soalB" required><?= $x['soalB'];?></textarea>
           </div>
 
           <div class="form-group">
@@ -617,7 +617,7 @@
           
           <div class="form-group">
               <label class="control-label">Soal B</label>
-              <input class="form-control" type="text" name="soalB" value="<?=$x['soalB'];?>" required>
+              <textarea class="form-control" rows="5" name="soalB" id="soalB" required><?= $x['soalB'];?></textarea>
           </div>
 
           <div class="form-group">
@@ -725,7 +725,7 @@
 
           <div class="form-group">
               <label class="control-label">Soal B</label>
-              <input class="form-control" type="text" name="soalB" value="<?=$x['soalB'];?>" required>
+              <textarea class="form-control" rows="5" name="soalB" id="soalB" required><?= $x['soalB'];?></textarea>
           </div>
 
           <div class="form-group">
@@ -833,7 +833,7 @@
           
           <div class="form-group">
               <label class="control-label">Soal B</label>
-              <input class="form-control" type="text" name="soalB" value="<?=$x['soalB'];?>" required>
+              <textarea class="form-control" rows="5" name="soalB" id="soalB" required><?= $x['soalB'];?></textarea>
           </div>
 
           <div class="form-group">
@@ -942,7 +942,7 @@
           
           <div class="form-group">
               <label class="control-label">Soal B</label>
-              <input class="form-control" type="text" name="soalB" value="<?=$x['soalB'];?>" required>
+              <textarea class="form-control" rows="5" name="soalB" id="soalB" required><?= $x['soalB'];?></textarea>
           </div>
 
           <div class="form-group">

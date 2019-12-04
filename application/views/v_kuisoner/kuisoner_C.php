@@ -541,7 +541,7 @@
 
           <div class="form-group">
               <label class="control-label">Soal C</label>
-              <input class="form-control" type="text" name="soalC"  required>
+              <textarea class="form-control" rows="5" name="soalC" id="soalC" required></textarea>
             </div>
 
             <div class="form-group">
@@ -600,7 +600,7 @@
 
           <div class="form-group">
               <label class="control-label">Soal C</label>
-              <input class="form-control" type="text" name="soalC" value="<?=$x['soalC'];?>" required>
+              <textarea class="form-control" rows="5" name="soalC" id="soalC" required><?= $x['soalC'];?></textarea>
           </div>
 
           <div class="form-group">
@@ -689,7 +689,7 @@
           
           <div class="form-group">
               <label class="control-label">Soal B</label>
-              <input class="form-control" type="text" name="soalC" value="<?=$x['soalC'];?>" required>
+              <textarea class="form-control" rows="5" name="soalC" id="soalC" required><?= $x['soalC'];?></textarea>
           </div>
 
           <div class="form-group">
@@ -778,7 +778,7 @@
 
           <div class="form-group">
               <label class="control-label">Soal C</label>
-              <input class="form-control" type="text" name="soalC" value="<?=$x['soalC'];?>" required>
+              <textarea class="form-control" rows="5" name="soalC" id="soalC" required><?= $x['soalC'];?></textarea>
           </div>
 
           <div class="form-group">
@@ -866,8 +866,8 @@
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
           
           <div class="form-group">
-              <label class="control-label">Soal B</label>
-              <input class="form-control" type="text" name="soalC" value="<?=$x['soalC'];?>" required>
+              <label class="control-label">Soal C</label>
+              <textarea class="form-control" rows="5" name="soalC" id="soalC" required><?= $x['soalC'];?></textarea>
           </div>
 
           <div class="form-group">
@@ -954,8 +954,8 @@
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
           
           <div class="form-group">
-              <label class="control-label">Soal B</label>
-              <input class="form-control" type="text" name="soalC" value="<?=$x['soalC'];?>" required>
+              <label class="control-label">Soal C</label>
+              <textarea class="form-control" rows="5" name="soalC" id="soalC" required><?= $x['soalC'];?></textarea>
           </div>
 
           <div class="form-group">
@@ -1041,8 +1041,8 @@
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
           
           <div class="form-group">
-              <label class="control-label">Soal B</label>
-              <input class="form-control" type="text" name="soalC" value="<?=$x['soalC'];?>" required>
+              <label class="control-label">Soal C</label>
+              <textarea class="form-control" rows="5" name="soalC" id="soalC" required><?= $x['soalC'];?></textarea>
           </div>
 
           <div class="form-group">
@@ -1128,8 +1128,8 @@
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
           
           <div class="form-group">
-              <label class="control-label">Soal B</label>
-              <input class="form-control" type="text" name="soalC" value="<?=$x['soalC'];?>" required>
+              <label class="control-label">Soal C</label>
+              <textarea class="form-control" rows="5" name="soalC" id="soalC" required><?= $x['soalC'];?></textarea>
           </div>
 
           <div class="form-group">
