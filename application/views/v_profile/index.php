@@ -40,16 +40,50 @@
                     <!--begin: Datatable -->
                     <br><br>
                                 <table style="width:100%; margin-left:3%;">
+                                <?php if($this->session->userdata('level') == 0){ ?>
                                     <tr>
-                                        <td width="30%" ><h4>Username</h4></td>
+                                        <td width="30%" ><h4>Nama</h4></td>
                                         <td width="2%"><h4>:</h4></td>
-                                        <td><h4><?= $user['username']; ?></h4></td>
+                                        <td><h4><?= $user['nama']; ?></h4></td>
+                                    </tr>
+                                <?php } ?>
+                                    <tr>
+                                        <td width="20%"><br><h4>Username</h4></td>
+                                        <td width="2%"><br><h4>:</h4></td>
+                                        <td><br><h4><?= $user['username']; ?></h4></td>
                                     </tr>
                                     <tr>
                                         <td width="20%"><br><h4>Email</h4></td>
                                         <td width="2%"><br><h4>:</h4></td>
                                         <td><br><h4><?= $user['email']; ?></h4></td>
                                     </tr>
+                                    <?php if($this->session->userdata('level') == 0){ ?>
+                                    <tr>
+                                        <td width="20%"><br><h4>Jenis Kelamin</h4></td>
+                                        <td width="2%"><br><h4>:</h4></td>
+                                        <td><br><h4><?= $user['jk']; ?></h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><br><h4>Tanggal Lahir</h4></td>
+                                        <td width="2%"><br><h4>:</h4></td>
+                                        <td><br><h4><?= $user['tgl_lahir']; ?></h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><br><h4>Pendidikan</h4></td>
+                                        <td width="2%"><br><h4>:</h4></td>
+                                        <td><br><h4><?= $user['pendidikan']; ?></h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><br><h4>Pekerjaan</h4></td>
+                                        <td width="2%"><br><h4>:</h4></td>
+                                        <td><br><h4><?= $user['pekerjaan']; ?></h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><br><h4>Tipe Peserta</h4></td>
+                                        <td width="2%"><br><h4>:</h4></td>
+                                        <td><br><h4><?= $user['tipe_peserta']; ?></h4></td>
+                                    </tr>
+                                    <?php } ?>
                                 </table><br><br><br>
                                 <center>
                                 <div class="row">
@@ -80,20 +114,27 @@
         <div class="modal-body">
         <?php echo form_open('Profile/edit_profile') ?>
         <input type="hidden" readonly value="<?= $user['id_user']; ?>" name="id" class="form-control" >
+           <?php if($this->session->userdata('level') == 0){ ?>
             <div class="form-group">
               <label class="control-label" for="nama">Nama</label>
               <input class="form-control" id="nama" type="text" name="nama" value="<?= $user['nama']; ?>">
             </div>
+           <?php } ?>
             <div class="form-group">
               <label class="control-label" for="email">Email</label>
               <input class="form-control" id="email" type="email" name="email" value="<?= $user['email']; ?>">
             </div>
+            <?php if($this->session->userdata('level') == 0){ ?>
             <div class="form-group">
                     <label for="jk" class="form-control-label">Jenis Kelamin</label>
                     <select name="jk" id="jk" class="form-control" required>
-                        <option value="">----- Pilih ------</option>
-                        <option value="1">L</option>
-                        <option value="0">P</option>
+                        <?php foreach($jk as $j){ ?>
+                          <?php if($j == $user['jk']){ ?>
+                            <option value="<?= $j; ?>" selected><?= $j; ?></option>
+                          <?php }else{ ?>
+                            <option value="<?= $j; ?>"><?= $j; ?></option>
+                          <?php } ?>
+                        <?php } ?>
                     </select>
             </div>
             <div class="form-group">
@@ -101,29 +142,34 @@
               <input class="form-control" id="tgl_lahir" type="date" name="tgl_lahir" value="<?= $user['tgl_lahir']; ?>">
             </div>
             <div class="form-group">
-              <label class="control-label" for="nama">Nama</label>
-              <input class="form-control" id="nama" type="text" name="nama" value="<?= $user['nama']; ?>">
-            </div>
-            <div class="form-group">
-                    <label for="tipe_peserta" class="form-control-label">Tipe Peserta</label>
-                    <select name="tipe_peserta" id="tipe_peserta" class="form-control" required>
-                        <option value="">----- Pilih ------</option>
-                        <option value="Menginap">Menginap</option>
-                        <option value="Pulang">Pulang</option>
-                    </select>
-            </div>
-            <div class="form-group">
-                    <label for="tipe_peserta" class="form-control-label">Pendidikan</label>
-                    <select name="tipe_peserta" id="tipe_peserta" class="form-control" required>
-                        <option value="">----- Pilih ------</option>
-                        <option value="Menginap">Menginap</option>
-                        <option value="Pulang">Pulang</option>
+                    <label for="pendidikan" class="form-control-label">Pendidikan</label>
+                    <select name="pendidikan" id="pendidikan" class="form-control" required>
+                        <?php foreach($pendidikan as $p){ ?>
+                          <?php if($p == $user['pendidikan']){ ?>
+                            <option value="<?= $p; ?>" selected><?= $p; ?></option>
+                          <?php }else{ ?>
+                            <option value="<?= $p; ?>"><?= $p; ?></option>
+                          <?php } ?>
+                        <?php } ?>
                     </select>
             </div>
             <div class="form-group">
               <label class="control-label" for="pekerjaan">Pekerjaan</label>
               <input class="form-control" id="pekerjaan" type="text" name="pekerjaan" value="<?= $user['pekerjaan']; ?>">
             </div>
+            <div class="form-group">
+                    <label for="tipe_peserta" class="form-control-label">Tipe Peserta</label>
+                    <select name="tipe_peserta" id="tipe_peserta" class="form-control" required>
+                        <?php foreach($tipe_peserta as $t){ ?>
+                          <?php if($t == $user['tipe_peserta']){ ?>
+                            <option value="<?= $t; ?>" selected><?= $t; ?></option>
+                          <?php }else{ ?>
+                            <option value="<?= $t; ?>"><?= $t; ?></option>
+                          <?php } ?>
+                        <?php } ?>
+                    </select>
+            </div>
+            <?php } ?>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>

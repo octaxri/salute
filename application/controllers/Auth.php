@@ -30,17 +30,25 @@ class Auth extends CI_Controller {
             $user = $this->db->get_where('user', ['username' => $username])->row_array();
             $user2 = $this->db->get_where('user', ['email' => $username])->row_array();
 
-
             // jika usernya ada
             if($user != NULL || $user2 != NULL){
                     // cek password
                     if(password_verify($password, $user['password']) || password_verify($password, $user2['password'])){
-                        $data= [
-                            'id' => $user['id_user'],
-                            'username' => $user['username'],
-                            'level' => $user['is_level'],
-                        ];
-
+                        if($user['username'] != NULL){
+                            $data= [
+                                'id' => $user['id_user'],
+                                'username' => $user['username'],
+                                'level' => $user['is_level'],
+                            ];
+                        }
+                        else{
+                            $data= [
+                                'id' => $user2['id_user'],
+                                'username' => $user2['username'],
+                                'level' => $user2['is_level'],
+                            ];
+                        }
+                        
                         $this->session->set_userdata($data);
                         if($user['level']=='1'){
                             redirect('profile');

@@ -20,6 +20,10 @@ class Profile extends CI_Controller {
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
+        $data['jk'] = ['L','P'];
+        $data['pendidikan'] = ['SD','SMP/SLTP','SMA/SMK/SLTA','DIPLOMA','S1','S2','S3'];
+        $data['tipe_peserta'] = ['Menginap','Pulang'];
+
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_profile/index',$data);

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2019 at 09:14 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Dec 04, 2019 at 07:17 PM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -84,7 +84,8 @@ CREATE TABLE `detail_peserta` (
 --
 
 INSERT INTO `detail_peserta` (`id`, `kd_pelatihan`, `id_user`) VALUES
-(2, '2019-00000002', 3);
+(3, '2019-00000001', 4),
+(5, '2019-00000002', 4);
 
 -- --------------------------------------------------------
 
@@ -125,8 +126,9 @@ CREATE TABLE `kuisioner_a` (
 --
 
 INSERT INTO `kuisioner_a` (`id_kuisionerA`, `soalA`, `jawaban1A`, `jawaban2A`, `jawaban3A`, `jawaban4A`) VALUES
-(1, 'adad', '1', '2', '3', '4'),
-(2, 'ewfw', '1', '2', '3', '4');
+(3, 'Bagaimana pendapat Saudara tentang kesesuaian persyaratan pelayanan dengan jenis pelayanannya', 'Tidak sesuai', 'Kurang Sesuai', 'Sesuai', 'Sangat sesuai.'),
+(4, 'Bagaimana pemahaman Saudara tentang kemudahan prosedur pelayanan di unit ini.', 'Tidak mudah', 'Kurang Mudah', 'Mudah', 'Sangat Mudah'),
+(5, 'Bagaimana pendapat Saudara tentang kecepatan waktu dalam memberikan pelayanan', 'Tidak Cepat', 'Kurang Cepat', 'Cepat', 'Sangat Cepat');
 
 -- --------------------------------------------------------
 
@@ -251,6 +253,18 @@ CREATE TABLE `penilaian_a` (
   `jawaban` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `penilaian_a`
+--
+
+INSERT INTO `penilaian_a` (`id`, `kd_pelatihan`, `id_user`, `id_soalA`, `jawaban`) VALUES
+(2, '2019-00000001', 4, 3, 1),
+(3, '2019-00000001', 4, 4, 1),
+(4, '2019-00000001', 4, 5, 4),
+(5, '2019-00000002', 4, 3, 2),
+(6, '2019-00000002', 4, 4, 1),
+(7, '2019-00000002', 4, 5, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -343,8 +357,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `jk`, `tgl_lahir`, `pendidikan`, `pekerjaan`, `is_level`, `tipe_peserta`) VALUES
-(3, 'fajarhgl', '$2y$10$tQKN5bGmshT8aQoPnBEhwOkD/PdpYteph0XVA0dq6eHh22eACAVoe', '', 'fajarhdytt30@gmail.com', 'L', '0000-00-00', 'SD', '', 1, 'Menginap'),
-(4, 'fajarhgl1', '$2y$10$WD3t4nCuezWpWKtBTZyr0uX8J64USxgq3DJvqNK2vy8Od0p1CIkb2', 'Fajar Hidayat', 'fajarhdyt30@gmail.com', 'L', '2019-12-06', 'S1', 'Programmer', 0, 'Menginap');
+(3, 'fajarhgl', '$2y$10$tQKN5bGmshT8aQoPnBEhwOkD/PdpYteph0XVA0dq6eHh22eACAVoe', '', 'fajarhdytt30@gmail.com', '', '0000-00-00', '', '', 1, ''),
+(4, 'fajarhgl1', '$2y$10$WD3t4nCuezWpWKtBTZyr0uX8J64USxgq3DJvqNK2vy8Od0p1CIkb2', 'Fajar Hidayat', 'fajarhdyt30@gmail.com', 'P', '2019-12-06', 'S1', 'Programmer', 0, 'Pulang');
 
 -- --------------------------------------------------------
 
@@ -520,7 +534,7 @@ ALTER TABLE `detail_penilaian_b`
 -- AUTO_INCREMENT for table `detail_peserta`
 --
 ALTER TABLE `detail_peserta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kejuruan`
@@ -532,7 +546,7 @@ ALTER TABLE `kejuruan`
 -- AUTO_INCREMENT for table `kuisioner_a`
 --
 ALTER TABLE `kuisioner_a`
-  MODIFY `id_kuisionerA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kuisionerA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kuisioner_b`
@@ -556,7 +570,7 @@ ALTER TABLE `pengajar`
 -- AUTO_INCREMENT for table `penilaian_a`
 --
 ALTER TABLE `penilaian_a`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `penilaian_b`

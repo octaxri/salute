@@ -105,13 +105,7 @@
                 </ul>
               </li>
               <li class="visible-xs-block">
-                <a href="contacts.html">
-                  <span class="icon icon-users icon-lg icon-fw"></span>
-                  Contacts
-                </a>
-              </li>
-              <li class="visible-xs-block">
-                <a href="profile.html">
+                <a href="<?= base_url(); ?>profile">
                   <span class="icon icon-user icon-lg icon-fw"></span>
                   Profile
                 </a>

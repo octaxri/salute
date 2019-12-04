@@ -25,9 +25,9 @@
                   </li>
                   <li class="sidenav-heading">MAIN</li>
                 <li class="sidenav-item">
-                  <a href="#">
+                  <a href="<?= base_url(); ?>pelatihan_peserta">
                     <span class="sidenav-icon icon icon-history"></span>
-                    <span class="sidenav-label">History Pelatihan</span>
+                    <span class="sidenav-label">Pelatihan</span>
                   </a>
                 </li>
                 <?php } ?>
