@@ -28,7 +28,7 @@ class Pelatihan_peserta extends CI_Controller {
     function tambah_data(){
         $inputan = $this->input->post('kd_pelatihan');
         $id_peserta = $this->session->userdata('id');
-        $tampung = $this->db->query("SELECT * FROM detail_peserta WHERE kd_pelatihan='$inputan' AND id__user='$id_peserta'")->num_rows();
+        $tampung = $this->db->query("SELECT * FROM detail_peserta WHERE kd_pelatihan='$inputan' AND id_user='$id_peserta'")->num_rows();
 
         if($tampung==0){
             $cek = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$inputan'")->num_rows();
