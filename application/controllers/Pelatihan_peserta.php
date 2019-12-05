@@ -8,7 +8,8 @@ class Pelatihan_peserta extends CI_Controller {
 		parent::__construct();
 		//Do your magic here
 		$this->load->model('M_Pelatihan_Peserta');
-		$this->load->model('M_Kuisoner_A');
+        $this->load->model('M_Kuisoner_A');
+        $this->load->model('M_Kuisoner_B');
     }
     
     public function index(){
@@ -51,13 +52,23 @@ class Pelatihan_peserta extends CI_Controller {
     }
     
     function kirim_kuisioner_a($kd){
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl_skrg = date("Y-m-d", time()); 
+
         $id = $this->session->userdata('id');
         $tampung = $this->db->query("SELECT * FROM penilaian_a WHERE id_user='$id' AND kd_pelatihan='$kd'")->num_rows();
-
+        $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
+        $tgl = $get_pelatihan['tgl_akhir_pelatihan'];
+        
         if($tampung != 0){
             $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
             redirect('pelatihan_peserta');
         }
+        else if($tgl_skrg>$tgl){
+            $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
+            redirect('pelatihan_peserta');
+        }
+
         $data['title'] = "SALUTE | Kuisioner A";
 
 		// $data['data'] = $this->M_Pelatihan_Peserta->tampil_data();
@@ -90,5 +101,40 @@ class Pelatihan_peserta extends CI_Controller {
         }
         $this->session->set_flashdata('msg','Kuisioner A berhasil dikirim');
         redirect('pelatihan_peserta');
+    }
+
+    // kuisioner B, Materi pelatihan
+    function in_materi_pelatihan_kuisioner_b($kd){
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl_skrg = date("Y-m-d", time()); 
+
+        $id = $this->session->userdata('id');
+        // $tampung = $this->db->query("SELECT * FROM penilaian_a WHERE id_user='$id' AND kd_pelatihan='$kd'")->num_rows();
+        // $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
+        // $tgl = $get_pelatihan['tgl_akhir_pelatihan'];
+        
+        // if($tampung != 0){
+        //     $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+        //     redirect('pelatihan_peserta');
+        // }
+        // else if($tgl_skrg>$tgl){
+        //     $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
+        //     redirect('pelatihan_peserta');
+        // }
+
+        $data['title'] = "SALUTE | Kuisioner A";
+
+		// $data['data'] = $this->M_Pelatihan_Peserta->tampil_data();
+
+        $data['kd_pelatihan'] = $kd;
+		$data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
+
+        $data['data'] = $this->M_Kuisoner_B->tampil_materi_pel();
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan_peserta/kuisioner_b_materi_pelatihan',$data);
+        $this->load->view('templates/footer');
     }
 }

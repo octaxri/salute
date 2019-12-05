@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2019 at 07:17 PM
+-- Generation Time: Dec 05, 2019 at 08:17 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -154,15 +154,10 @@ CREATE TABLE `kuisioner_b` (
 --
 
 INSERT INTO `kuisioner_b` (`id_kuisionerB`, `jenis_soal`, `soalB`, `jawaban1B`, `jawaban2B`, `jawaban3B`, `jawaban4B`, `jawaban5B`, `tipe_soal`, `sub_soal`) VALUES
-(2, 2, 'hau', 1, 2, 3, 4, 5, 'pg', 1),
-(4, 2, 'gdsgsd', 1, 2, 3, 4, 5, 'pg', 2),
-(6, 1, 'fhdfhdthdhf', 1, 2, 3, 4, 5, 'pg', 1),
-(9, 1, 'Ase', 1, 2, 3, 4, 5, 'pg', 1),
-(10, 1, 'awq', 1, 2, 3, 4, 5, 'pg', 2),
-(11, 3, 'prasaranaku', 1, 2, 3, 4, 5, 'pg', 1),
-(14, 3, 'ada', 1, 2, 3, 4, 5, 'pg', 2),
-(16, 4, 'potra', 1, 2, 3, 4, 5, 'pg', 1),
-(20, 5, 'qerty', 1, 2, 3, 4, 5, 'pg', 1);
+(26, 1, 'Tulisan di dalam materi pelatihan jelas dan mudah di baca', 5, 4, 3, 2, 1, 'pg', 1),
+(27, 1, 'Kualitas materi pelatihan dapat menambah tingkat ketrampilan dan pengetahuan anda', 5, 4, 3, 2, 1, 'pg', 2),
+(28, 1, ' Tahapan materi pelatihan sudah berurutan dari materi tingkat dasar sampai dengan materi tingkat lanjut', 5, 4, 3, 2, 1, 'pg', 1),
+(29, 1, 'Komentar / saran tentang materi pelatihan :', 0, 0, 0, 0, 0, 'uraian', 0);
 
 -- --------------------------------------------------------
 
@@ -253,18 +248,6 @@ CREATE TABLE `penilaian_a` (
   `jawaban` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `penilaian_a`
---
-
-INSERT INTO `penilaian_a` (`id`, `kd_pelatihan`, `id_user`, `id_soalA`, `jawaban`) VALUES
-(2, '2019-00000001', 4, 3, 1),
-(3, '2019-00000001', 4, 4, 1),
-(4, '2019-00000001', 4, 5, 4),
-(5, '2019-00000002', 4, 3, 2),
-(6, '2019-00000002', 4, 4, 1),
-(7, '2019-00000002', 4, 5, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -329,6 +312,7 @@ CREATE TABLE `sub_soal` (
 --
 
 INSERT INTO `sub_soal` (`id_sub_soal`, `nama_sub_soal`) VALUES
+(0, 'Uraian'),
 (1, 'A'),
 (2, 'B');
 
@@ -552,7 +536,7 @@ ALTER TABLE `kuisioner_a`
 -- AUTO_INCREMENT for table `kuisioner_b`
 --
 ALTER TABLE `kuisioner_b`
-  MODIFY `id_kuisionerB` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_kuisionerB` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `kuisioner_c`
@@ -594,7 +578,7 @@ ALTER TABLE `program`
 -- AUTO_INCREMENT for table `sub_soal`
 --
 ALTER TABLE `sub_soal`
-  MODIFY `id_sub_soal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sub_soal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -632,12 +616,6 @@ ALTER TABLE `detail_penilaian_b`
 ALTER TABLE `detail_peserta`
   ADD CONSTRAINT `detail_peserta_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `detail_peserta_ibfk_2` FOREIGN KEY (`kd_pelatihan`) REFERENCES `pelatihan` (`kd_pelatihan`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `kuisioner_b`
---
-ALTER TABLE `kuisioner_b`
-  ADD CONSTRAINT `kuisioner_b_ibfk_1` FOREIGN KEY (`sub_soal`) REFERENCES `sub_soal` (`id_sub_soal`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pelatihan`

@@ -11,7 +11,7 @@
             <?php 
             $dat = $this->session->flashdata('msg2');
                 if($dat!=""){ ?>
-                      <div id="notifikasi" class="alert alert-danger"><strong> </strong> <?=$dat;?></div>
+                      <div id="notifikasi" class="alert alert-warning"><strong> </strong> <?=$dat;?></div>
         <?php } ?> 
             <br>
 
@@ -42,7 +42,7 @@
                     <?php foreach($data as $d){ ?>
                     <h3><?= $d['nama_kejuruan']; ?> - <?= $d['nama_program']; ?> (<?= $d['tgl_mulai_pelatihan']; ?> - <?= $d['tgl_akhir_pelatihan']; ?>)</h3><br>
                     <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/kirim_kuisioner_a/<?= $d['kd_pelatihan']; ?>">Kuisioner A</a><br><br><br>
-                    <a class="btn btn-primary col-xs-12" href="#edit_data">Kuisioner B</a><br><br><br>
+                    <a class="btn btn-primary col-xs-12" href="#modal-b<?= $d['kd_pelatihan']; ?>" data-toggle="modal">Kuisioner B</a><br><br><br>
                     <a class="btn btn-primary col-xs-12" href="#edit_data">Kuisioner C</a><br><br><br>
                     <hr>
                     <?php } ?>
@@ -79,4 +79,68 @@
     </div>
   </div>
     <!-- AKHIR MODAL BOX TAMBAH DATA -->
+
+   <!-- MODAL BOX KUISIONER B -->
+   <?php $no=0; foreach($data as $x): $no++; ?>
+    <div id="modal-b<?= $x['kd_pelatihan'] ?>" tabindex="-1" role="dialog" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <h4 class="modal-title">KUISIONER B</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_materi_pelatihan_kuisioner_b/<?= $x['kd_pelatihan']; ?>">Materi Pelatihan (kurikulum silabus dan modul)</a><br><br>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="#modal-pilih-pengajar<?= $x['kd_pelatihan']; ?>" data-toggle="modal">Tenaga Pelatih</a><br><br>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">Sarana dan Prasarana</a><br><br>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">Bahan Latihan, Modul, ATK, dan Seragam Peserta</a><br><br>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">Unit Kompetensi</a><br><br>
+          </div>
+          <hr>
+          <div class="form-group">
+            <button type="button" class="btn btn-danger col-xs-12" data-dismiss="modal">Batal</button><br><br>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+  <?php endforeach;?>
+    <!-- AKHIR MODAL BOX KUISIONER B -->
+
+
+     <!-- MODAL BOX KUISIONER B PENGAJAR-->
+   <?php $no=0; foreach($data as $x): $no++; ?>
+    <div id="modal-pilih-pengajar<?= $x['kd_pelatihan'] ?>" tabindex="-1" role="dialog" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <h4 class="modal-title">Pilih Pengajar</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">Pengajar 1</a><br><br>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">Pengajar 2</a><br><br>
+          </div>
+          <hr>
+          <div class="form-group">
+            <button type="button" class="btn btn-danger col-xs-12" data-dismiss="modal">Batal</button><br><br>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+  <?php endforeach;?>
+    <!-- AKHIR MODAL BOX KUISIONER B PENGAJAR-->
 

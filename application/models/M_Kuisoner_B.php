@@ -18,8 +18,6 @@ class M_Kuisoner_B extends CI_Model {
 			
 		}
 
-	
-
 		public function tampil_tenaga_pel()
 		{
 			$this->db->select('*');
