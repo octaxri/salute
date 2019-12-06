@@ -43,7 +43,7 @@
                     <h3><?= $d['nama_kejuruan']; ?> - <?= $d['nama_program']; ?> (<?= $d['tgl_mulai_pelatihan']; ?> - <?= $d['tgl_akhir_pelatihan']; ?>)</h3><br>
                     <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/kirim_kuisioner_a/<?= $d['kd_pelatihan']; ?>">Kuisioner A</a><br><br><br>
                     <a class="btn btn-primary col-xs-12" href="#modal-b<?= $d['kd_pelatihan']; ?>" data-toggle="modal">Kuisioner B</a><br><br><br>
-                    <a class="btn btn-primary col-xs-12" href="<?= base_url();?>pelatihan_peserta/kirim_kuisioner_c/<?= $d['kd_pelatihan'];?>">Kuisioner C</a><br><br><br>
+                    <a class="btn btn-primary col-xs-12" href="#modal-c<?= $d['kd_pelatihan']; ?>" data-toggle="modal">Kuisioner C</a><br><br><br>
                     <hr>
                     <?php } ?>
                     <!-- AKHIR ISINYA -->
@@ -143,4 +143,47 @@
   </div>
   <?php endforeach;?>
     <!-- AKHIR MODAL BOX KUISIONER B PENGAJAR-->
+
+
+    <!-- MODAL BOX KUISIONER C -->
+   <?php $no=0; foreach($data as $x): $no++; ?>
+    <div id="modal-c<?= $x['kd_pelatihan'] ?>" tabindex="-1" role="dialog" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <h4 class="modal-title">KUISIONER C</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_materi_pelatihan_kuisioner_c1/<?= $x['kd_pelatihan']; ?>">BERKENAAN DENGAN REKRUITMEN, PERJALANAN, DAN PERSYARATAN PESERTA</a><br><br>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_materi_pelatihan_kuisioner_c2/<?= $x['kd_pelatihan']; ?>">BERKENAAN DENGAN PENYAMBUTAN, PEMBAGIAN KAMAR PESERTA</a><br><br>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_bahan_pelatihan_b/<?= $x['kd_pelatihan'];?>">BERKENAAN DENGAN SARANA DAN PRASARANA</a><br><br>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">BERKENAAN DENGAN KONSUMSI</a><br><br>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">BERKENAAN DENGAN BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA</a><br><br>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">BERKENAAN DENGAN PELAKSANAAN UJI KOMPETENSI</a><br><br>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">SECARA UMUM PELAKSANAAN PELATIHAN</a><br><br>
+          </div>
+          <hr>
+          <div class="form-group">
+            <button type="button" class="btn btn-danger col-xs-12" data-dismiss="modal">Batal</button><br><br>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+  <?php endforeach;?>
+    <!-- AKHIR MODAL BOX KUISIONER C -->
 

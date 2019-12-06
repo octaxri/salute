@@ -2,9 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kuisoner_C extends CI_Controller {
-
-	
-
 	
 	function __construct() 
 	{
@@ -13,7 +10,6 @@ class Kuisoner_C extends CI_Controller {
 		
 	}
 
-	
 
 	public function index()
 	{

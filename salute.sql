@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2019 at 04:43 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Dec 06, 2019 at 07:04 PM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -336,6 +336,16 @@ CREATE TABLE `penilaian_b` (
   `jawaban` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `penilaian_b`
+--
+
+INSERT INTO `penilaian_b` (`id`, `kd_pelatihan`, `id_user`, `id_soalB`, `jawaban`) VALUES
+(15, '2019-00000001', 4, 26, '5'),
+(16, '2019-00000001', 4, 27, '4'),
+(17, '2019-00000001', 4, 28, '3'),
+(18, '2019-00000001', 4, 29, 'awa');
+
 -- --------------------------------------------------------
 
 --
@@ -349,6 +359,28 @@ CREATE TABLE `penilaian_c` (
   `id_soalC` int(11) NOT NULL,
   `jawaban` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `penilaian_c`
+--
+
+INSERT INTO `penilaian_c` (`id`, `kd_pelatihan`, `id_user`, `id_soalC`, `jawaban`) VALUES
+(1, '2019-00000001', 4, 7, '1'),
+(2, '2019-00000001', 4, 15, '1'),
+(3, '2019-00000001', 4, 16, '1'),
+(4, '2019-00000001', 4, 17, '1'),
+(5, '2019-00000001', 4, 18, '2'),
+(6, '2019-00000001', 4, 19, '2'),
+(7, '2019-00000001', 4, 20, '2'),
+(8, '2019-00000001', 4, 21, 'awaa'),
+(9, '2019-00000001', 4, 22, 'awa'),
+(10, '2019-00000001', 4, 23, 'awaaw'),
+(11, '2019-00000002', 4, 24, '1'),
+(12, '2019-00000002', 4, 25, '1'),
+(13, '2019-00000002', 4, 26, '1'),
+(14, '2019-00000002', 4, 27, '1'),
+(15, '2019-00000002', 4, 28, 'y'),
+(16, '2019-00000002', 4, 29, 'y');
 
 -- --------------------------------------------------------
 
@@ -640,13 +672,13 @@ ALTER TABLE `penilaian_a`
 -- AUTO_INCREMENT for table `penilaian_b`
 --
 ALTER TABLE `penilaian_b`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `penilaian_c`
 --
 ALTER TABLE `penilaian_c`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `program`
