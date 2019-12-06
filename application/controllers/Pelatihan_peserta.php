@@ -109,19 +109,21 @@ class Pelatihan_peserta extends CI_Controller {
         date_default_timezone_set('Asia/Jakarta');
         $tgl_skrg = date("Y-m-d", time()); 
 
-        $id = $this->session->userdata('id');
-        // $tampung = $this->db->query("SELECT * FROM penilaian_a WHERE id_user='$id' AND kd_pelatihan='$kd'")->num_rows();
-        // $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
-        // $tgl = $get_pelatihan['tgl_akhir_pelatihan'];
+        $id=$this->session->userdata('id');
+        $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB 
+                                        WHERE penilaian_b.id_user='$id' AND penilaian_b.kd_pelatihan='$kd' AND kuisioner_b.jenis_soal=1")->num_rows();
         
-        // if($tampung != 0){
-        //     $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
-        //     redirect('pelatihan_peserta');
-        // }
-        // else if($tgl_skrg>$tgl){
-        //     $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
-        //     redirect('pelatihan_peserta');
-        // }
+        $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
+        $tgl = $get_pelatihan['tgl_akhir_pelatihan'];
+
+        if($tampung != 0){
+            $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+            redirect('pelatihan_peserta');
+        }
+        else if($tgl_skrg>$tgl){
+            $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
+            redirect('pelatihan_peserta');
+        }
 
         $data['title'] = "SALUTE | Kuisioner B";
 
@@ -197,8 +199,6 @@ class Pelatihan_peserta extends CI_Controller {
     {
         date_default_timezone_set('Asia/Jakarta');
         $tgl_skrg=date("Y-m-d",time());
-
-        $id=$this->session->userdata('id');
 
         $data['title']="SALUTE | Kuisioner Bahan Pelatihan, Modul, ATK, dan Seragam Peserta";
 
