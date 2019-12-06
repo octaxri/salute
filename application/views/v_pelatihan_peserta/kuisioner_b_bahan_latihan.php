@@ -18,7 +18,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>pelatihan_peserta"><span class="icon icon-backward"></span></a> KUISIONER B | Materi Pelatihan (kurikulum silabus dan modul)</span>
+              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>pelatihan_peserta"><span class="icon icon-backward"></span></a> KUISIONER B | Bahan Latihan, Modul, ATK, dan Seragam Peserta</span>
             </h1>
           </div>
           <hr>
@@ -48,6 +48,7 @@
                           &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>"> <?= $d['jawaban4B']; ?> <br>
                           <hr>
                         <?php }else{ ?>
+                        <br>
                             <h4><?= $no++; ?>. <?= $d['soalB']; ?></h4>
                             <textarea class="form-control" name="pertanyaan2[<?= $no; ?>][jawaban]" id="" cols="30" rows="5"></textarea> <br>
                         <?php } ?>

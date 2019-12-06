@@ -43,7 +43,7 @@
                     <h3><?= $d['nama_kejuruan']; ?> - <?= $d['nama_program']; ?> (<?= $d['tgl_mulai_pelatihan']; ?> - <?= $d['tgl_akhir_pelatihan']; ?>)</h3><br>
                     <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/kirim_kuisioner_a/<?= $d['kd_pelatihan']; ?>">Kuisioner A</a><br><br><br>
                     <a class="btn btn-primary col-xs-12" href="#modal-b<?= $d['kd_pelatihan']; ?>" data-toggle="modal">Kuisioner B</a><br><br><br>
-                    <a class="btn btn-primary col-xs-12" href="#edit_data">Kuisioner C</a><br><br><br>
+                    <a class="btn btn-primary col-xs-12" href="<?= base_url();?>pelatihan_peserta/kirim_kuisioner_c/<?= $d['kd_pelatihan'];?>">Kuisioner C</a><br><br><br>
                     <hr>
                     <?php } ?>
                     <!-- AKHIR ISINYA -->
@@ -96,10 +96,10 @@
             <a class="btn btn-primary col-xs-12" href="#modal-pilih-pengajar<?= $x['kd_pelatihan']; ?>" data-toggle="modal">Tenaga Pelatih</a><br><br>
           </div>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">Sarana dan Prasarana</a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_sarana_dan_prasarana_b/<?= $x['kd_pelatihan']; ?>">Sarana dan Prasarana</a><br><br>
           </div>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">Bahan Latihan, Modul, ATK, dan Seragam Peserta</a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_bahan_pelatihan_b/<?= $x['kd_pelatihan'];?>">Bahan Latihan, Modul, ATK, dan Seragam Peserta</a><br><br>
           </div>
           <div class="form-group">
             <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">Unit Kompetensi</a><br><br>
