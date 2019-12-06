@@ -144,6 +144,7 @@ class Pelatihan_peserta extends CI_Controller {
     {
         $post = $this->input->post();
         $item = $post['pertanyaan'];
+        $item2 = $post['pertanyaan2'];
 
         foreach($item as $v) {
             $data = [
@@ -151,6 +152,17 @@ class Pelatihan_peserta extends CI_Controller {
                 "id_user" => $this->session->userdata('id'),
                 "id_soalB" => $v['id'],
                 "jawaban" => $v['jawaban'],
+            ];
+
+            $this->db->insert('penilaian_b',$data);
+        }
+
+        foreach($item2 as $v2) {
+            $data = [
+                "kd_pelatihan" => $this->input->post('kd_pelatihan',TRUE),
+                "id_user" => $this->session->userdata('id'),
+                "id_soalB" => $v2['id'],
+                "jawaban" => $v2['jawaban'],
             ];
 
             $this->db->insert('penilaian_b',$data);
