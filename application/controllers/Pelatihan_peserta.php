@@ -11,21 +11,14 @@ class Pelatihan_peserta extends CI_Controller {
         $this->load->model('M_kuisoner_a');
         $this->load->model('M_kuisoner_b');
         $this->load->model('M_kuisoner_c');
-<<<<<<< Updated upstream
-=======
         $this->load->model('M_pengajar');
->>>>>>> Stashed changes
     }
     
     public function index(){
 		$data['title'] = "SALUTE | Pelatihan Peserta";
-
-<<<<<<< Updated upstream
 		$data['data'] = $this->M_pelatihan_peserta->tampil_data();
-=======
         $data['data'] = $this->M_pelatihan_peserta->tampil_data();
         $data['data1']=$this->M_pengajar->tampil_pengajar();
->>>>>>> Stashed changes
 
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
@@ -339,13 +332,8 @@ class Pelatihan_peserta extends CI_Controller {
         $data['kd_pelatihan'] = $kd;
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
-
-<<<<<<< Updated upstream
         $data['data']=$this->M_kuisoner_b->tampil_sapras();
-=======
         $data['data'] = $this->M_kuisoner_c->tampil_konsumsi();
->>>>>>> Stashed changes
-
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan_peserta/kuisioner_c_4',$data);
@@ -372,12 +360,8 @@ class Pelatihan_peserta extends CI_Controller {
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-<<<<<<< Updated upstream
         $data['data']=$this->M_kuisoner_b->tampil_bahan_latihan();
-=======
         $data['data'] = $this->M_kuisoner_c->tampil_bahan_latihan();
->>>>>>> Stashed changes
-
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan_peserta/kuisioner_c_5',$data);
@@ -477,7 +461,6 @@ class Pelatihan_peserta extends CI_Controller {
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-<<<<<<< Updated upstream
         $data['data']=$this->M_kuisoner_c->tampil_rekrut();
         $data['data1']=$this->M_kuisoner_c->tampil_penyambutan();
         $data['data2']=$this->M_kuisoner_c->tampil_sarana();
@@ -485,10 +468,7 @@ class Pelatihan_peserta extends CI_Controller {
         $data['data4']=$this->M_kuisoner_c->tampil_bahan_latihan();
         $data['data5']=$this->M_kuisoner_c->tampil_pelaksanaan();
         $data['data6']=$this->M_kuisoner_c->tampil_pelaksanaan_pel();
-=======
         $data['data']=$this->M_kuisoner_b->tampil_sapras();
->>>>>>> Stashed changes
-
         $this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan_peserta/kuisioner_b_sarana_dan_prasarana_b',$data);
