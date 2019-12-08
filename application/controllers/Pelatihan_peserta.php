@@ -7,16 +7,16 @@ class Pelatihan_peserta extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		//Do your magic here
-		$this->load->model('M_Pelatihan_Peserta');
-        $this->load->model('m_Kuisoner_A');
-        $this->load->model('m_Kuisoner_B');
-        $this->load->model('m_Kuisoner_C');
+		$this->load->model('M_pelatihan_peserta');
+        $this->load->model('M_kuisoner_a');
+        $this->load->model('M_kuisoner_b');
+        $this->load->model('M_kuisoner_c');
     }
     
     public function index(){
 		$data['title'] = "SALUTE | Pelatihan Peserta";
 
-		$data['data'] = $this->M_Pelatihan_Peserta->tampil_data();
+		$data['data'] = $this->M_pelatihan_peserta->tampil_data();
 
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
@@ -40,7 +40,7 @@ class Pelatihan_peserta extends CI_Controller {
                 redirect('pelatihan_peserta');
             }
             else{
-                $this->M_Pelatihan_Peserta->tambah_data();
+                $this->M_pelatihan_peserta->tambah_data();
                 $this->session->set_flashdata('msg','Data berhasil ditambahkan');
                 redirect('pelatihan_peserta');
             }       
@@ -72,13 +72,13 @@ class Pelatihan_peserta extends CI_Controller {
 
         $data['title'] = "SALUTE | Kuisioner A";
 
-		// $data['data'] = $this->M_Pelatihan_Peserta->tampil_data();
+		// $data['data'] = $this->M_pelatihan_peserta->tampil_data();
 
         $data['kd_pelatihan'] = $kd;
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $data['data'] = $this->m_Kuisoner_A->tampil_kuisoner();
+        $data['data'] = $this->M_kuisoner_a->tampil_kuisoner();
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -127,13 +127,13 @@ class Pelatihan_peserta extends CI_Controller {
 
         $data['title'] = "SALUTE | Kuisioner B";
 
-		// $data['data'] = $this->M_Pelatihan_Peserta->tampil_data();
+		// $data['data'] = $this->M_pelatihan_peserta->tampil_data();
 
         $data['kd_pelatihan'] = $kd;
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $data['data'] = $this->m_Kuisoner_B->tampil_materi_pel();
+        $data['data'] = $this->M_kuisoner_b->tampil_materi_pel();
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -197,13 +197,13 @@ class Pelatihan_peserta extends CI_Controller {
 
         $data['title'] = "SALUTE | Kuisioner C";
 
-		// $data['data'] = $this->M_Pelatihan_Peserta->tampil_data();
+		// $data['data'] = $this->M_pelatihan_peserta->tampil_data();
 
         $data['kd_pelatihan'] = $kd;
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $data['data'] = $this->m_Kuisoner_C->tampil_rekrut();
+        $data['data'] = $this->M_kuisoner_c->tampil_rekrut();
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -269,7 +269,7 @@ class Pelatihan_peserta extends CI_Controller {
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $data['data'] = $this->m_Kuisoner_C->tampil_penyambutan();
+        $data['data'] = $this->M_kuisoner_c->tampil_penyambutan();
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -291,7 +291,7 @@ class Pelatihan_peserta extends CI_Controller {
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $data['data']=$this->m_Kuisoner_B->tampil_sapras();
+        $data['data']=$this->M_kuisoner_b->tampil_sapras();
 
         $this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -311,7 +311,7 @@ class Pelatihan_peserta extends CI_Controller {
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $data['data']=$this->m_Kuisoner_B->tampil_bahan_latihan();
+        $data['data']=$this->M_kuisoner_b->tampil_bahan_latihan();
 
         $this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -346,13 +346,13 @@ class Pelatihan_peserta extends CI_Controller {
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $data['data']=$this->m_Kuisoner_C->tampil_rekrut();
-        $data['data1']=$this->m_Kuisoner_C->tampil_penyambutan();
-        $data['data2']=$this->m_Kuisoner_C->tampil_sarana();
-        $data['data3']=$this->m_Kuisoner_C->tampil_konsumsi();
-        $data['data4']=$this->m_Kuisoner_C->tampil_bahan_latihan();
-        $data['data5']=$this->m_Kuisoner_C->tampil_pelaksanaan();
-        $data['data6']=$this->m_Kuisoner_C->tampil_pelaksanaan_pel();
+        $data['data']=$this->M_kuisoner_c->tampil_rekrut();
+        $data['data1']=$this->M_kuisoner_c->tampil_penyambutan();
+        $data['data2']=$this->M_kuisoner_c->tampil_sarana();
+        $data['data3']=$this->M_kuisoner_c->tampil_konsumsi();
+        $data['data4']=$this->M_kuisoner_c->tampil_bahan_latihan();
+        $data['data5']=$this->M_kuisoner_c->tampil_pelaksanaan();
+        $data['data6']=$this->M_kuisoner_c->tampil_pelaksanaan_pel();
 
         $this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);

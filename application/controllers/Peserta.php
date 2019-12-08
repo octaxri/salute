@@ -7,14 +7,14 @@ class Peserta extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		
-		$this->load->model('M_Peserta');
+		$this->load->model('M_peserta');
 		///$this->load->library('barcode');
 	}
 
 	public function index(){
 		$data['title'] = "SALUTE | Daftar Peserta";
 
-		$data['data'] = $this->M_Peserta->tampil_data();
+		$data['data'] = $this->M_peserta->tampil_data();
 
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_Kejuruan extends CI_Model {
+class M_kejuruan extends CI_Model {
 
 	
 	public function tampil_kejuruan(){

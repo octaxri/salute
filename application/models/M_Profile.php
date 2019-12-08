@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_Profile extends CI_Model {
+class M_profile extends CI_Model {
 
     function editProfile(){
         if($this->session->userdata('level') == 1){ 

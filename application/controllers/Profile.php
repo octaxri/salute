@@ -10,7 +10,7 @@ class Profile extends CI_Controller {
         // if($this->session->userdata('username') != TRUE){
 		// 	redirect('blocked');
 		// }
-		$this->load->model('M_Profile');
+		$this->load->model('M_profile');
     }
 
 
@@ -31,7 +31,7 @@ class Profile extends CI_Controller {
     }
 
     function edit_profile(){
-        $this->M_Profile->editProfile();
+        $this->M_profile->editProfile();
         $this->session->set_flashdata('msg','Data Berhasil Diubah');
         redirect('profile');
     }

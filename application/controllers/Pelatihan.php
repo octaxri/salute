@@ -6,14 +6,14 @@ class Pelatihan extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		
-		$this->load->model('M_Pelatihan');
+		$this->load->model('M_pelatihan');
 	}
 
 	
 	public function index(){
 		$data['title'] = "SALUTE | Pelatihan";
 
-		$data['data'] = $this->M_Pelatihan->tampil_data();
+		$data['data'] = $this->M_pelatihan->tampil_data();
 		$data['kejuruan'] = $this->db->get('kejuruan')->result_array();
 		$data['program'] = $this->db->get('program')->result_array();
 
@@ -27,13 +27,13 @@ class Pelatihan extends CI_Controller {
 	}
 
 	function tambah_data(){
-		$this->M_Pelatihan->tambah_data();
+		$this->M_pelatihan->tambah_data();
 		$this->session->set_flashdata('msg','Data berhasil ditambahkan');
 		redirect('pelatihan');
 	}
 
 	function hapus_data(){
-		$this->M_Pelatihan->hapus_data();
+		$this->M_pelatihan->hapus_data();
 		$this->session->set_flashdata('msg','Data berhasil dihapus');
 		redirect('pelatihan');
 	}
@@ -62,7 +62,7 @@ class Pelatihan extends CI_Controller {
 
 		if($a == 1){
 			$data['title'] = "SALUTE | Data Peserta Pelatihan";
-			$data['data'] = $this->M_Pelatihan->tampil_peserta($kd_pelatihan);
+			$data['data'] = $this->M_pelatihan->tampil_peserta($kd_pelatihan);
 
 			$this->load->view('templates/header',$data);
 			$this->load->view('templates/sidebar',$data);
@@ -72,8 +72,8 @@ class Pelatihan extends CI_Controller {
 		}
 		else if($a == 2){
 			$data['title'] = "SALUTE | Data Pengajar Pelatihan";
-			$data['data'] = $this->M_Pelatihan->tampil_pengajar($kd_pelatihan);
-			$data['pengajar'] = $this->M_Pelatihan->daftar_pengajar($kd_pelatihan);
+			$data['data'] = $this->M_pelatihan->tampil_pengajar($kd_pelatihan);
+			$data['pengajar'] = $this->M_pelatihan->daftar_pengajar($kd_pelatihan);
 
 			$this->load->view('templates/header',$data);
 			$this->load->view('templates/sidebar',$data);
@@ -95,7 +95,7 @@ class Pelatihan extends CI_Controller {
 	function tambah_pengajar_pelatihan(){
 		$a = 2;
 		$kd_pelatihan = $this->input->post('kd_pelatihan',TRUE);
-		$this->M_Pelatihan->tambah_pengajar_pelatihan();
+		$this->M_pelatihan->tambah_pengajar_pelatihan();
 		$this->session->set_flashdata('msg','Data berhasil ditambahkan');
 
 		redirect('pelatihan/detail_pelatihan2/'.$a.'/'.$kd_pelatihan);
@@ -105,7 +105,7 @@ class Pelatihan extends CI_Controller {
 		$a = 2;
 		$kd_pelatihan = $this->input->post('kd_pelatihan',TRUE);
 
-		$this->M_Pelatihan->hapus_pengajar_pelatihan();
+		$this->M_pelatihan->hapus_pengajar_pelatihan();
 		$this->session->set_flashdata('msg','Data berhasil dihapus');
 
 		redirect('pelatihan/detail_pelatihan2/'.$a.'/'.$kd_pelatihan);
@@ -115,7 +115,7 @@ class Pelatihan extends CI_Controller {
 		$a = 1;
 		$kd_pelatihan = $this->input->post('kd_pelatihan',TRUE);
 
-		$this->M_Pelatihan->hapus_peserta_pelatihan();
+		$this->M_pelatihan->hapus_peserta_pelatihan();
 		$this->session->set_flashdata('msg','Data berhasil dihapus');
 
 		redirect('pelatihan/detail_pelatihan2/'.$a.'/'.$kd_pelatihan);
@@ -126,7 +126,7 @@ class Pelatihan extends CI_Controller {
 		$id=$this->input->post('id');
 
 		if($modul=="program"){
-            echo $this->M_Pelatihan->program($id);
+            echo $this->M_pelatihan->program($id);
         }
 	}
     
