@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kuisoner_C extends CI_Controller {
+class Kuisoner_c extends CI_Controller {
 	
 	function __construct() 
 	{
 		parent::__construct();
-		$this->load->model('m_Kuisoner_C');
+		$this->load->model('M_kuisoner_c');
 		
 	}
 
@@ -14,27 +14,27 @@ class Kuisoner_C extends CI_Controller {
 	public function index()
 	{
 		$data['title']="SALUTE | Kuisioner C";
-		$data['data']=$this->m_Kuisoner_C->tampil_rekrut();
-		$data['data1']=$this->m_Kuisoner_C->tampil_penyambutan();
-		$data['data2']=$this->m_Kuisoner_C->tampil_sarana();
-		$data['data3']=$this->m_Kuisoner_C->tampil_konsumsi();
-		$data['data4']=$this->m_Kuisoner_C->tampil_bahan_latihan();
-		$data['data5']=$this->m_Kuisoner_C->tampil_pelaksanaan();
-		$data['data6']=$this->m_Kuisoner_C->tampil_pelaksanaan_pel();
+		$data['data']=$this->M_kuisoner_c->tampil_rekrut();
+		$data['data1']=$this->M_kuisoner_c->tampil_penyambutan();
+		$data['data2']=$this->M_kuisoner_c->tampil_sarana();
+		$data['data3']=$this->M_kuisoner_c->tampil_konsumsi();
+		$data['data4']=$this->M_kuisoner_c->tampil_bahan_latihan();
+		$data['data5']=$this->M_kuisoner_c->tampil_pelaksanaan();
+		$data['data6']=$this->M_kuisoner_c->tampil_pelaksanaan_pel();
 
 		$data['user'] = $this->db->get_where('user', ['username' =>
 		$this->session->userdata('username')])->row_array();
 
 		$this->load->view('templates/header',$data ,FALSE);
 		$this->load->view('templates/sidebar', $data, FALSE);
-		$this->load->view('v_kuisoner/kuisoner_C', $data, FALSE);
+		$this->load->view('v_kuisoner/kuisoner_c', $data, FALSE);
 		$this->load->view('templates/footer');
 			
 	}
 	
 	public function tambah_data()
 	{
-		$this->m_Kuisoner_C->tambah_data();
+		$this->M_kuisoner_c->tambah_data();
 		$this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
 		redirect('kuisoner_c','refresh');		
 	}
@@ -62,7 +62,7 @@ class Kuisoner_C extends CI_Controller {
 	public function hapus_data()
 	{
 		$id=$this->input->post('id_kuisionerC',TRUE);
-		$this->m_Kuisoner_C->hapus_data($id);
+		$this->M_kuisoner_c->hapus_data($id);
 		$this->session->set_flashdata('msg', 'Data Berhasil Di Hapus');
 		redirect('kuisoner_c','refresh');
 	}

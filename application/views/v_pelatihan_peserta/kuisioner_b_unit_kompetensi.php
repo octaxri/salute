@@ -32,29 +32,23 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
-                  <strong>Daftar Kuisioner B | Bahan Latihan, Modul, ATK, dan Seragam Peserta</strong>
+                  <strong>Daftar Kuisioner B | Unit Kompetensi</strong>
                 </div>
                 <div class="card-body">
                     <!-- ISINYA -->
                     <?php echo form_open('Pelatihan_peserta/proses_kuisioner_b');?>
                     <input type="hidden" value="<?= $kd_pelatihan; ?>" name="kd_pelatihan" class="form-control" >  
-                    <?php $no=1; $n=1; $k=1;foreach($data as $d){ ?>
-                          <?php $no++;?>
+                    <?php $no=1; foreach($data as $d){ ?>
+                        <h4><?= $no++; ?>. <?= $d['soalB']; ?></h4>
                         <?php if($d['tipe_soal'] == 'pg'){ ?>
-                        <h4><?= $n++; ?>. <?= $d['soalB']; ?></h4>
-                        <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan[<?= $no; ?>][id]" class="form-control" >
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>" required> <?= $d['jawaban1B']; ?> <br>
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>"> <?= $d['jawaban2B']; ?> <br>
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>"> <?= $d['jawaban3B']; ?> <br>
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>"> <?= $d['jawaban4B']; ?> <br>
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban5B']; ?>"> <?= $d['jawaban5B']; ?> <br>
-                          <hr>
-                        <?php }else{ ?>
-                        <br>
-                            <h4><?= $k++; ?>. <?= $d['soalB']; ?></h4>
-                            <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan2[<?= $no; ?>][id]" class="form-control" >
-                            <textarea class="form-control" name="pertanyaan2[<?= $no; ?>][jawaban]" id="" cols="30" rows="5"></textarea> <br>
+                        <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan[<?= $no; ?>][id]" class="form-control" >  
+                        
+                        <input type="number" name="pertanyaan[<?= $no;?>][jawaban]" class="form-control" required>
+                        
+                        
+
                         <?php } ?>
+                          <hr>
                     <?php } ?>
                     <button class="btn btn-primary col-xs-12" type="submit" >Kirim</button>
                     </form>     

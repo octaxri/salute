@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_Pelatihan_Peserta extends CI_Model {
+class M_pelatihan_peserta extends CI_Model {
 
     function tampil_data(){
         $id = $this->session->userdata('id');

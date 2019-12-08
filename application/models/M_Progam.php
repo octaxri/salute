@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_Progam extends CI_Model {
+class M_progam extends CI_Model {
 
     
     public function tampil_progam()

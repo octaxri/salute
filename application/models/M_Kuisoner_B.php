@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_Kuisoner_B extends CI_Model {
+class M_kuisoner_b extends CI_Model {
 
 	
 		public function tampil_materi_pel()

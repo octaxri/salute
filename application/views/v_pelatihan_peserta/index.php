@@ -102,7 +102,7 @@
             <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_bahan_pelatihan_b/<?= $x['kd_pelatihan'];?>">Bahan Latihan, Modul, ATK, dan Seragam Peserta</a><br><br>
           </div>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">Unit Kompetensi</a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_unit_kompetensi_b/<?= $x['kd_pelatihan'];?>">Unit Kompetensi</a><br><br>
           </div>
           <hr>
           <div class="form-group">
@@ -125,13 +125,12 @@
         <div class="modal-header bg-primary">
           <h4 class="modal-title">Pilih Pengajar</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body">  
+        <?php foreach($data1 as $i) { ?>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">Pengajar 1</a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta"><?= $i['nama_pengajar'];?></a><br><br>
           </div>
-          <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">Pengajar 2</a><br><br>
-          </div>
+        <?php } ?>
           <hr>
           <div class="form-group">
             <button type="button" class="btn btn-danger col-xs-12" data-dismiss="modal">Batal</button><br><br>
@@ -161,19 +160,19 @@
             <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_materi_pelatihan_kuisioner_c2/<?= $x['kd_pelatihan']; ?>">BERKENAAN DENGAN PENYAMBUTAN, PEMBAGIAN KAMAR PESERTA</a><br><br>
           </div>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_bahan_pelatihan_b/<?= $x['kd_pelatihan'];?>">BERKENAAN DENGAN SARANA DAN PRASARANA</a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_sarana_prasarana_c/<?= $x['kd_pelatihan'];?>">BERKENAAN DENGAN SARANA DAN PRASARANA</a><br><br>
           </div>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">BERKENAAN DENGAN KONSUMSI</a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_konsumsi_c/<?= $x['kd_pelatihan'];?>">BERKENAAN DENGAN KONSUMSI</a><br><br>
           </div>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">BERKENAAN DENGAN BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA</a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_bahan_pelatihan_c/<?= $x['kd_pelatihan'] ;?>">BERKENAAN DENGAN BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA</a><br><br>
           </div>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">BERKENAAN DENGAN PELAKSANAAN UJI KOMPETENSI</a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_pelaksanaan_uji_c/<?= $x['kd_pelatihan'] ;?>">BERKENAAN DENGAN PELAKSANAAN UJI KOMPETENSI</a><br><br>
           </div>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta">SECARA UMUM PELAKSANAAN PELATIHAN</a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_umum_pelaksanaan_c/<?= $x['kd_pelatihan'] ;?>">SECARA UMUM PELAKSANAAN PELATIHAN</a><br><br>
           </div>
           <hr>
           <div class="form-group">

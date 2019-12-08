@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_Pengajar extends CI_Model 
+class M_pengajar extends CI_Model 
 {
 
 	function tampil_pengajar()

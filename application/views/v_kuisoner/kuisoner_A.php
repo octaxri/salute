@@ -98,7 +98,7 @@
           <h4 class="modal-title">Tambah Data Kuisoner A</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_A/tambah_kuisoner');?>
+          <?php echo form_open('Kuisoner_a/tambah_kuisoner');?>
 
             <div class="form-group">
               <label class="control-label">Soal A</label>
@@ -147,7 +147,7 @@
           <h4 class="modal-title">Ubah Data Kuisoner A</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_A/edit_kuisoner'); ?> 
+          <?php echo form_open('Kuisoner_a/edit_kuisoner'); ?> 
           <input type="hidden" readonly value="<?= $x['id_kuisionerA']; ?>" name="id_kuisionerA" class="form-control" >
           
           <div class="form-group">
@@ -196,7 +196,7 @@
           <h4 class="modal-title">Hapus Data Kuisoner A</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_A/hapus_kuisoner'); ?>
+          <?php echo form_open('Kuisoner_a/hapus_kuisoner'); ?>
           <input type="hidden" readonly value="<?= $x['id_kuisionerA']; ?>" name="id_kuisionerA" class="form-control" >
 
           <p>Apakah Anda Yakin Menghapus Data "<b><?=$x['soalA']?></b>" ?</strong>

@@ -7,14 +7,14 @@ class Pengajar extends CI_Controller {
     {
 		parent::__construct();
 		
-		$this->load->model('m_pengajar');
+		$this->load->model('M_pengajar');
 		///$this->load->library('barcode');
 	}
 	
 	public function index()
 	{
 		$data['title'] ="SALUTE | Pengajar";
-		$data['data'] = $this->m_pengajar->tampil_pengajar();
+		$data['data'] = $this->M_pengajar->tampil_pengajar();
 
 		$data['user'] = $this->db->get_where('user', ['username' =>
 		$this->session->userdata('username')])->row_array();
@@ -27,7 +27,7 @@ class Pengajar extends CI_Controller {
 	
 	public function tambah_pengajar()
 	{
-		$this->m_pengajar->tambah_pengajar();
+		$this->M_pengajar->tambah_pengajar();
 		$this->session->set_flashdata('msg', 'Berhasil ditambahkan');
 		redirect('pengajar');
 		
@@ -51,7 +51,7 @@ class Pengajar extends CI_Controller {
 	public function hapus_pengajar()
 	{
 		$id= $this->input->post('id_pengajar',TRUE);
-		$this->m_pengajar->hapus_pengajar($id);
+		$this->M_pengajar->hapus_pengajar($id);
 		$this->session->set_flashdata('msg', 'Data Berhasil Di Hapus');
 		redirect('pengajar');
 	}

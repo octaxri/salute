@@ -1,32 +1,32 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kuisoner_A extends CI_Controller {
+class Kuisoner_a extends CI_Controller {
 	
 	function __construct() 
 	{
 		parent::__construct();
-		$this->load->model('m_Kuisoner_A');
+		$this->load->model('M_kuisoner_a');
 		
 	}
 
 	public function index()
 	{
 		$data['title'] = " SALUTE | Kuisoner A";
-		$data['data']=$this->m_Kuisoner_A->tampil_kuisoner();
+		$data['data']=$this->M_kuisoner_a->tampil_kuisoner();
 
 		$data['user'] = $this->db->get_where('user', ['username' =>
 		$this->session->userdata('username')])->row_array();
 		
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
-		$this->load->view('v_kuisoner/kuisoner_A',$data);
+		$this->load->view('v_kuisoner/kuisoner_a',$data);
 		$this->load->view('templates/footer');
 	}
 
 	public function tambah_kuisoner()
 	{
-		$this->m_Kuisoner_A->tambah_kuisoner();
+		$this->M_kuisoner_a->tambah_kuisoner();
 		$this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
 		redirect('kuisoner_a');
 		
@@ -55,7 +55,7 @@ class Kuisoner_A extends CI_Controller {
 	public function hapus_kuisoner()
 	{
 		$id= $this->input->post('id_kuisionerA');
-		$this->m_Kuisoner_A->hapus_kuisoner($id);
+		$this->M_kuisoner_a->hapus_kuisoner($id);
 		$this->session->set_flashdata('msg', 'Data Berhasil Di Hapus');
 		redirect('kuisoner_a');
 	}

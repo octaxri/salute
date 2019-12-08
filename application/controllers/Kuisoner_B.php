@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kuisoner_B extends CI_Controller {
+class Kuisoner_b extends CI_Controller {
 
 	
  
@@ -9,8 +9,8 @@ class Kuisoner_B extends CI_Controller {
 	{
 		parent::__construct();
 		//Do your magic here
-		$this->load->model('m_Kuisoner_B');
-		$this->load->model('m_sub_soal');
+		$this->load->model('M_kuisoner_b');
+		$this->load->model('M_sub_soal');
 
 	}
 	
@@ -18,25 +18,25 @@ class Kuisoner_B extends CI_Controller {
 	{
 		$data['title']="SALUTE | Kuisioner B";
 		
-		$data['data']= $this->m_Kuisoner_B->tampil_materi_pel();
-		$data['data1']= $this->m_Kuisoner_B->tampil_tenaga_pel();
-		$data['data2']= $this->m_Kuisoner_B->tampil_sapras();
-		$data['data3']= $this->m_Kuisoner_B->tampil_bahan_latihan();
-		$data['data4']= $this->m_Kuisoner_B->tampil_unit_kompetensi();
-		$data['sub']= $this->m_sub_soal->tampil_sub_soal();
+		$data['data']= $this->M_kuisoner_b->tampil_materi_pel();
+		$data['data1']= $this->M_kuisoner_b->tampil_tenaga_pel();
+		$data['data2']= $this->M_kuisoner_b->tampil_sapras();
+		$data['data3']= $this->M_kuisoner_b->tampil_bahan_latihan();
+		$data['data4']= $this->M_kuisoner_b->tampil_unit_kompetensi();
+		$data['sub']= $this->M_sub_soal->tampil_sub_soal();
 
 		$data['user'] = $this->db->get_where('user', ['username' =>
 		$this->session->userdata('username')])->row_array();
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
-		$this->load->view('v_kuisoner/kuisoner_B',$data);
+		$this->load->view('v_kuisoner/kuisoner_b',$data);
 		$this->load->view('templates/footer');
 	}
 	
 	public function tambah_data()
 	{
-		$this->m_Kuisoner_B->tambah_data();
+		$this->M_kuisoner_b->tambah_data();
 		$this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
 		redirect('kuisoner_b','refresh');
 	}
@@ -64,7 +64,7 @@ class Kuisoner_B extends CI_Controller {
 	public function hapus_data()
 	{
 		$id=$this->input->post('id_kuisionerB',TRUE);
-		$this->m_Kuisoner_B->hapus_data($id);
+		$this->M_kuisoner_b->hapus_data($id);
 		$this->session->set_flashdata('msg', 'Data Berhasil Di Hapus');
 		redirect('kuisoner_b','refresh');
 		

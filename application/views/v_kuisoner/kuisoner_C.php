@@ -523,7 +523,7 @@
           <h4 class="modal-title">Tambah Data Kuisoner C</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/tambah_data');?>
+          <?php echo form_open('Kuisoner_c/tambah_data');?>
 
             <div class="form-group">
                 <label for="jenis_soal">Jenis Soal </label>
@@ -595,7 +595,7 @@
           <h4 class="modal-title">Ubah Data Materi Pelatihan</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/edit_data'); ?> 
+          <?php echo form_open('Kuisoner_c/edit_data'); ?> 
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
 
           <div class="form-group">
@@ -684,7 +684,7 @@
           <h4 class="modal-title">Ubah Data BERKENAAN DENGAN PENYAMBUTAN, PEMBAGIAN KAMAR PESERTA</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/edit_data'); ?> 
+          <?php echo form_open('Kuisoner_c/edit_data'); ?> 
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
           
           <div class="form-group">
@@ -744,7 +744,7 @@
           <h4 class="modal-title">Hapus Data BERKENAAN DENGAN PENYAMBUTAN, PEMBAGIAN KAMAR PESERTA</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/hapus_data'); ?>
+          <?php echo form_open('Kuisoner_c/hapus_data'); ?>
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
 
           <p>Apakah Anda Yakin Menghapus Data "<b><?=$x['soalC']?></b>" ?</strong>
@@ -773,7 +773,7 @@
           <h4 class="modal-title">Ubah Data BERKENAAN DENGAN SARANA DAN PRASARANA</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/edit_data'); ?> 
+          <?php echo form_open('Kuisoner_c/edit_data'); ?> 
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
 
           <div class="form-group">
@@ -833,7 +833,7 @@
           <h4 class="modal-title">Hapus Data BERKENAAN DENGAN SARANA DAN PRASARANA</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/hapus_data'); ?>
+          <?php echo form_open('Kuisoner_c/hapus_data'); ?>
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
 
           <p>Apakah Anda Yakin Menghapus Data "<b><?=$x['soalC']?></b>" ?</strong>
@@ -862,7 +862,7 @@
           <h4 class="modal-title">Ubah Data BERKENAAN DENGAN KONSUMSI</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/edit_data'); ?> 
+          <?php echo form_open('Kuisoner_c/edit_data'); ?> 
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
           
           <div class="form-group">
@@ -920,7 +920,7 @@
           <h4 class="modal-title">Hapus Data BERKENAAN DENGAN KONSUMSI</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/hapus_data'); ?>
+          <?php echo form_open('Kuisoner_c/hapus_data'); ?>
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
 
           <p>Apakah Anda Yakin Menghapus Data "<b><?=$x['soalC']?></b>" ?</strong>
@@ -950,7 +950,7 @@
           <h4 class="modal-title">Ubah Data BERKENAAN DENGAN BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/edit_data'); ?> 
+          <?php echo form_open('Kuisoner_c/edit_data'); ?> 
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
           
           <div class="form-group">
@@ -1008,7 +1008,7 @@
           <h4 class="modal-title">Hapus Data BERKENAAN DENGAN BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/hapus_data'); ?>
+          <?php echo form_open('Kuisoner_c/hapus_data'); ?>
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
 
           <p>Apakah Anda Yakin Menghapus Data "<b><?=$x['soalC']?></b>" ?</strong>
@@ -1037,7 +1037,7 @@
           <h4 class="modal-title">Ubah Data BERKENAAN DENGAN PELAKSANAAN UJI KOMPETENSI</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/edit_data'); ?> 
+          <?php echo form_open('Kuisoner_c/edit_data'); ?> 
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
           
           <div class="form-group">
@@ -1095,7 +1095,7 @@
           <h4 class="modal-title">Hapus Data BERKENAAN DENGAN PELAKSANAAN UJI KOMPETENSI</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/hapus_data'); ?>
+          <?php echo form_open('Kuisoner_c/hapus_data'); ?>
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
 
           <p>Apakah Anda Yakin Menghapus Data "<b><?=$x['soalC']?></b>" ?</strong>
@@ -1124,7 +1124,7 @@
           <h4 class="modal-title">Ubah Data SECARA UMUM PELAKSANAAN PELATIHAN</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/edit_data'); ?> 
+          <?php echo form_open('Kuisoner_c/edit_data'); ?> 
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
           
           <div class="form-group">
@@ -1182,7 +1182,7 @@
           <h4 class="modal-title">Hapus Data SECARA UMUM PELAKSANAAN PELATIHAN</h4>
         </div>
         <div class="modal-body">
-          <?php echo form_open('Kuisoner_C/hapus_data'); ?>
+          <?php echo form_open('Kuisoner_c/hapus_data'); ?>
           <input type="hidden" readonly value="<?= $x['id_kuisionerC']; ?>" name="id_kuisionerC" class="form-control" >
 
           <p>Apakah Anda Yakin Menghapus Data "<b><?=$x['soalC']?></b>" ?</strong>

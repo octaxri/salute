@@ -11,12 +11,21 @@ class Pelatihan_peserta extends CI_Controller {
         $this->load->model('M_kuisoner_a');
         $this->load->model('M_kuisoner_b');
         $this->load->model('M_kuisoner_c');
+<<<<<<< Updated upstream
+=======
+        $this->load->model('M_pengajar');
+>>>>>>> Stashed changes
     }
     
     public function index(){
 		$data['title'] = "SALUTE | Pelatihan Peserta";
 
+<<<<<<< Updated upstream
 		$data['data'] = $this->M_pelatihan_peserta->tampil_data();
+=======
+        $data['data'] = $this->M_pelatihan_peserta->tampil_data();
+        $data['data1']=$this->M_pengajar->tampil_pengajar();
+>>>>>>> Stashed changes
 
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
@@ -103,6 +112,10 @@ class Pelatihan_peserta extends CI_Controller {
         $this->session->set_flashdata('msg','Kuisioner A berhasil dikirim');
         redirect('pelatihan_peserta');
     }
+
+
+    // kuisioner B, Tenaga pelatih
+    
 
     // kuisioner B, Materi pelatihan
     function in_materi_pelatihan_kuisioner_b($kd){
@@ -277,6 +290,179 @@ class Pelatihan_peserta extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    function in_sarana_prasarana_c($kd)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl_skrg=date("Y-m-d",time());
+
+        $this->session->userdata('id');
+        
+        $id=$this->session->userdata('id');
+        $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON penilaian_c.id_soalC=kuisioner_c.id_kuisionerC 
+                                        WHERE penilaian_c.id_user='$id' AND penilaian_c.kd_pelatihan='$kd' AND kuisioner_c.jenis_soal=3")->num_rows();
+           if($tampung != 0){
+            $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+            redirect('pelatihan_peserta');
+        }
+        
+        $data['title'] = "SALUTE | Kuisioner C";
+
+        $data['kd_pelatihan'] = $kd;
+		$data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
+
+        $data['data'] = $this->M_kuisoner_c->tampil_sarana();
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan_peserta/kuisioner_c_3',$data);
+        $this->load->view('templates/footer');
+
+    }
+
+    function in_konsumsi_c($kd)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl_skrg=date("Y-m-d",time());
+        
+        $id=$this->session->userdata('id');
+
+        $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON penilaian_c.id_soalC=kuisioner_c.id_kuisionerC 
+        WHERE penilaian_c.id_user='$id' AND penilaian_c.kd_pelatihan='$kd' AND kuisioner_c.jenis_soal=4")->num_rows();
+        if($tampung != 0){
+                $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+            redirect('pelatihan_peserta');
+        }
+
+        $data['title'] = "SALUTE | Kuisioner C";
+
+        $data['kd_pelatihan'] = $kd;
+		$data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
+
+<<<<<<< Updated upstream
+        $data['data']=$this->M_kuisoner_b->tampil_sapras();
+=======
+        $data['data'] = $this->M_kuisoner_c->tampil_konsumsi();
+>>>>>>> Stashed changes
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan_peserta/kuisioner_c_4',$data);
+        $this->load->view('templates/footer');
+
+    }
+
+    function in_bahan_pelatihan_c($kd)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl_skrg=date("Y-m-d",time());
+
+        $id=$this->session->userdata('id');
+        $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON penilaian_c.id_soalC=kuisioner_c.id_kuisionerC 
+        WHERE penilaian_c.id_user='$id' AND penilaian_c.kd_pelatihan='$kd' AND kuisioner_c.jenis_soal=5")->num_rows();
+        if($tampung != 0){
+                $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+            redirect('pelatihan_peserta');
+        }
+
+        $data['title'] = "SALUTE | Kuisioner C";
+
+        $data['kd_pelatihan'] = $kd;
+		$data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
+
+<<<<<<< Updated upstream
+        $data['data']=$this->M_kuisoner_b->tampil_bahan_latihan();
+=======
+        $data['data'] = $this->M_kuisoner_c->tampil_bahan_latihan();
+>>>>>>> Stashed changes
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan_peserta/kuisioner_c_5',$data);
+        $this->load->view('templates/footer');
+
+    }
+
+    function in_pelaksanaan_uji_c($kd)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl_skrg=date("Y-m-d",time());
+
+        $id=$this->session->userdata('id');
+        $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON penilaian_c.id_soalC=kuisioner_c.id_kuisionerC 
+        WHERE penilaian_c.id_user='$id' AND penilaian_c.kd_pelatihan='$kd' AND kuisioner_c.jenis_soal=6")->num_rows();
+        if($tampung != 0){
+                $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+            redirect('pelatihan_peserta');
+        }
+
+        $data['title'] = "SALUTE | Kuisioner C";
+
+        $data['kd_pelatihan'] = $kd;
+		$data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
+
+        $data['data'] = $this->M_kuisoner_c->tampil_pelaksanaan();
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan_peserta/kuisioner_c_6',$data);
+        $this->load->view('templates/footer');
+
+    }
+
+    function in_umum_pelaksanaan_c($kd)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl_skrg=date("Y-m-d",time());
+
+        $id=$this->session->userdata('id');
+        $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON penilaian_c.id_soalC=kuisioner_c.id_kuisionerC 
+        WHERE penilaian_c.id_user='$id' AND penilaian_c.kd_pelatihan='$kd' AND kuisioner_c.jenis_soal=7")->num_rows();
+        if($tampung != 0){
+                $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+            redirect('pelatihan_peserta');
+        }
+
+        $data['title'] = "SALUTE | Kuisioner C";
+
+        $data['kd_pelatihan'] = $kd;
+		$data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
+
+        $data['data'] = $this->M_kuisoner_c->tampil_pelaksanaan_pel();
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan_peserta/kuisioner_c_7',$data);
+        $this->load->view('templates/footer');
+
+    }
+
+    function in_unit_kompetensi_b($kd)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl_skrg=date("Y-m-d",time());
+        
+        $id=$this->session->userdata('id');
+
+        $data['title']="SALUTE | Kuisioner Unit KOmpetensi";
+        
+        $data['kd_pelatihan']= $kd;
+        $data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
+
+        $data['data']=$this->M_kuisoner_b->tampil_unit_kompetensi();
+        
+        $this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan_peserta/kuisioner_b_unit_kompetensi',$data);
+        $this->load->view('templates/footer');
+
+    }
+
     function in_sarana_dan_prasarana_b($kd)
     {
         date_default_timezone_set('Asia/Jakarta');
@@ -291,7 +477,17 @@ class Pelatihan_peserta extends CI_Controller {
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
+<<<<<<< Updated upstream
+        $data['data']=$this->M_kuisoner_c->tampil_rekrut();
+        $data['data1']=$this->M_kuisoner_c->tampil_penyambutan();
+        $data['data2']=$this->M_kuisoner_c->tampil_sarana();
+        $data['data3']=$this->M_kuisoner_c->tampil_konsumsi();
+        $data['data4']=$this->M_kuisoner_c->tampil_bahan_latihan();
+        $data['data5']=$this->M_kuisoner_c->tampil_pelaksanaan();
+        $data['data6']=$this->M_kuisoner_c->tampil_pelaksanaan_pel();
+=======
         $data['data']=$this->M_kuisoner_b->tampil_sapras();
+>>>>>>> Stashed changes
 
         $this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -320,66 +516,8 @@ class Pelatihan_peserta extends CI_Controller {
 
     }
 
-    function kirim_kuisioner_c($kd)
-    {
-        date_default_timezone_set('Asia/Jakarta');
-            $tgl_skrg=date("Y-m-d",time());
 
-        $id = $this->session->userdata('id');
-        // $tampung = $this->db->query("SELECT * FROM penilaian_a WHERE id_user='$id' AND kd_pelatihan='$kd'")->num_rows();
-        // $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
-        // $tgl = $get_pelatihan['tgl_akhir_pelatihan'];
-
-        // if($tampung != 0){
-        //     $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
-        //     redirect('pelatihan_peserta');
-        // }
-        // else if($tgl_skrg>$tgl){
-        //     $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
-        //     redirect('pelatihan_peserta');
-        // }
-
-        $data['title']="SALUTE | Kuisioner C";
-
-        $data['kd_pelatihan']= $kd;
-
-        $data['user'] = $this->db->get_where('user', ['username' =>
-        $this->session->userdata('username')])->row_array();
-
-        $data['data']=$this->M_kuisoner_c->tampil_rekrut();
-        $data['data1']=$this->M_kuisoner_c->tampil_penyambutan();
-        $data['data2']=$this->M_kuisoner_c->tampil_sarana();
-        $data['data3']=$this->M_kuisoner_c->tampil_konsumsi();
-        $data['data4']=$this->M_kuisoner_c->tampil_bahan_latihan();
-        $data['data5']=$this->M_kuisoner_c->tampil_pelaksanaan();
-        $data['data6']=$this->M_kuisoner_c->tampil_pelaksanaan_pel();
-
-        $this->load->view('templates/header',$data);
-		$this->load->view('templates/sidebar',$data);
-		$this->load->view('v_pelatihan_peserta/kuisioner_c',$data);
-        $this->load->view('templates/footer');
-
-    }
-
-    function proses_kuisioner_c(){
-        $post = $this->input->post();
-        $item = $post['pertanyaan'];
-
-        foreach($item as $v) {
-            var_dump($v['jawaban']);
-
-            // $data = [
-            //     "kd_pelatihan" => $this->input->post('kd_pelatihan',TRUE),
-            //     "id_user" => $this->session->userdata('id'),
-            //     "id_soalC" => $v['id'],
-            //     "jawaban" => $v['jawaban'],
-            // ];
-
-            // $this->db->insert('penilaian_c',$data);
-        }
-        // $this->session->set_flashdata('msg','Kuisioner C berhasil dikirim');
-        // redirect('pelatihan_peserta');
-    }
+    
 
 
 

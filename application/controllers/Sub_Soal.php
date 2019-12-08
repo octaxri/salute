@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sub_Soal extends CI_Controller 
+class Sub_soal extends CI_Controller 
 {
 	
 	function __construct()
 	{
 		parent::__construct();
 		
-		$this->load->model('m_sub_soal');
+		$this->load->model('M_sub_soal');
 		///$this->load->library('barcode');
 	}
 	
@@ -16,7 +16,7 @@ class Sub_Soal extends CI_Controller
 	{
 		$data['title'] = "SALUTE | SUB SOAL";
 		
-		$data['data']=$this->m_sub_soal->tampil_sub_soal();
+		$data['data']=$this->M_sub_soal->tampil_sub_soal();
 
         $data['user'] = $this->db->get_where('user', ['username' =>
 		$this->session->userdata('username')])->row_array();
@@ -29,7 +29,7 @@ class Sub_Soal extends CI_Controller
 	
 	public function tambah_sub_soal()
 	{
-		$this->m_sub_soal->tambah_sub_soal();
+		$this->M_sub_soal->tambah_sub_soal();
 		$this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
 		redirect('sub_soal');
 	}
@@ -52,7 +52,7 @@ class Sub_Soal extends CI_Controller
 	public function hapus_sub_soal()
 	{
 		$id=$this->input->post('id_sub_soal',TRUE);
-		$this->m_sub_soal->hapus_sub_soal($id);
+		$this->M_sub_soal->hapus_sub_soal($id);
 		$this->session->set_flashdata('msg', 'Data Berhasil Di Hapus');
 		redirect('sub_soal');
 	}

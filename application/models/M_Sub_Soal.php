@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_Sub_Soal extends CI_Model {
+class M_sub_soal extends CI_Model {
 
 	
 	public function tampil_sub_soal()

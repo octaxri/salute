@@ -18,7 +18,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>pelatihan_peserta"><span class="icon icon-backward"></span></a> KUISIONER B </span>
+              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>pelatihan_peserta"><span class="icon icon-backward"></span></a> KUISIONER C </span>
             </h1>
           </div>
           <hr>
@@ -32,29 +32,25 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
-                  <strong>Daftar Kuisioner B | Bahan Latihan, Modul, ATK, dan Seragam Peserta</strong>
+                  <strong>Daftar Kuisioner C | Berkenaan Dengan Sarana Dan Prasarana</strong>
                 </div>
                 <div class="card-body">
                     <!-- ISINYA -->
-                    <?php echo form_open('Pelatihan_peserta/proses_kuisioner_b');?>
+                    <?php echo form_open('Pelatihan_peserta/proses_kuisioner_c1');?>
                     <input type="hidden" value="<?= $kd_pelatihan; ?>" name="kd_pelatihan" class="form-control" >  
-                    <?php $no=1; $n=1; $k=1;foreach($data as $d){ ?>
-                          <?php $no++;?>
+                    <?php $no=1; foreach($data as $d){ ?>
+                        <h4><?= $no++; ?>. <?= $d['soalC']; ?></h4>
                         <?php if($d['tipe_soal'] == 'pg'){ ?>
-                        <h4><?= $n++; ?>. <?= $d['soalB']; ?></h4>
-                        <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan[<?= $no; ?>][id]" class="form-control" >
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>" required> <?= $d['jawaban1B']; ?> <br>
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>"> <?= $d['jawaban2B']; ?> <br>
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>"> <?= $d['jawaban3B']; ?> <br>
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>"> <?= $d['jawaban4B']; ?> <br>
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban5B']; ?>"> <?= $d['jawaban5B']; ?> <br>
-                          <hr>
+                        <input type="hidden" value="<?= $d['id_kuisionerC']; ?>" name="pertanyaan[<?= $no; ?>][id]" class="form-control" >  
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1C']; ?>" required> <?= $d['jawaban1C']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban2C']; ?>"> <?= $d['jawaban2C']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban3C']; ?>"> <?= $d['jawaban3C']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban4C']; ?>"> <?= $d['jawaban4C']; ?> <br>
                         <?php }else{ ?>
-                        <br>
-                            <h4><?= $k++; ?>. <?= $d['soalB']; ?></h4>
-                            <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan2[<?= $no; ?>][id]" class="form-control" >
-                            <textarea class="form-control" name="pertanyaan2[<?= $no; ?>][jawaban]" id="" cols="30" rows="5"></textarea> <br>
+                          <input type="hidden" value="<?= $d['id_kuisionerC']; ?>" name="pertanyaan2[<?= $no; ?>][id]" class="form-control" >  
+                          <textarea name="pertanyaan2[<?= $no; ?>][jawaban]" class="form-control" cols="30" rows="5"></textarea>
                         <?php } ?>
+                          <hr>
                     <?php } ?>
                     <button class="btn btn-primary col-xs-12" type="submit" >Kirim</button>
                     </form>     

@@ -7,8 +7,8 @@ class Progam extends CI_Controller {
     {
 		parent::__construct();
 		
-        $this->load->model('m_progam');
-        $this->load->model('m_kejuruan');
+        $this->load->model('M_progam');
+        $this->load->model('M_kejuruan');
 		///$this->load->library('barcode');
 	}
     
@@ -16,8 +16,8 @@ class Progam extends CI_Controller {
 	public function index()
 	{
         $data['title'] = "SALUTE | Progam Pelatihan";
-        $data['data'] = $this->m_progam->tampil_progam();
-        $data['kej'] = $this->m_kejuruan->tampil_kejuruan();
+        $data['data'] = $this->M_progam->tampil_progam();
+        $data['kej'] = $this->M_kejuruan->tampil_kejuruan();
 
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
@@ -30,7 +30,7 @@ class Progam extends CI_Controller {
 
     public function tambah_progam()
     {
-        $this->m_progam->tambah_progam();
+        $this->M_progam->tambah_progam();
         $this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
         redirect('progam');
         
@@ -53,7 +53,7 @@ class Progam extends CI_Controller {
     public function hapus_progam()
     {
         $id=$this->input->post('id_program',TRUE);
-        $this->m_progam->hapus_progam($id);
+        $this->M_progam->hapus_progam($id);
         $this->session->set_flashdata('msg', 'Data Berhasil Di Hapus');
         redirect('progam');
         
