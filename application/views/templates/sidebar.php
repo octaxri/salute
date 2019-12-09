@@ -71,9 +71,9 @@
                     <span class="sidenav-label">Soal</span>
                   </a>
                   <ul class="sidenav-subnav collapse">
-                    <li><a href="<?= site_url(); ?>kuisoner_A">Kuisioner A</a></li>
-                    <li><a href="<?= site_url(); ?>kuisoner_B">Kuisioner B</a></li>
-                    <li><a href="<?= site_url(); ?>kuisoner_C">Kuisioner C</a></li>
+                    <li><a href="<?= site_url(); ?>kuisoner_a">Kuisioner A</a></li>
+                    <li><a href="<?= site_url(); ?>kuisoner_b">Kuisioner B</a></li>
+                    <li><a href="<?= site_url(); ?>kuisoner_c">Kuisioner C</a></li>
                   </ul>
                 </li>
                 <li class="sidenav-item has-subnav">
