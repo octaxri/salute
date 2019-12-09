@@ -264,10 +264,10 @@ class Pelatihan_peserta extends CI_Controller {
             $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
             redirect('pelatihan_peserta');
         }
-        // else if($tgl_skrg>$tgl){
-        //     $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
-        //     redirect('pelatihan_peserta');
-        // }
+        else if($tgl_skrg>$tgl){
+            $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
+            redirect('pelatihan_peserta');
+        }
 
         $data['title'] = "SALUTE | Kuisioner C";
 
@@ -293,8 +293,16 @@ class Pelatihan_peserta extends CI_Controller {
         $id=$this->session->userdata('id');
         $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON penilaian_c.id_soalC=kuisioner_c.id_kuisionerC 
                                         WHERE penilaian_c.id_user='$id' AND penilaian_c.kd_pelatihan='$kd' AND kuisioner_c.jenis_soal=3")->num_rows();
+        
+        $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
+        $tgl = $get_pelatihan['tgl_akhir_pelatihan'];   
+
            if($tampung != 0){
             $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+            redirect('pelatihan_peserta');
+        }
+        else if($tgl_skrg>$tgl){
+            $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
             redirect('pelatihan_peserta');
         }
         
@@ -322,8 +330,16 @@ class Pelatihan_peserta extends CI_Controller {
 
         $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON penilaian_c.id_soalC=kuisioner_c.id_kuisionerC 
         WHERE penilaian_c.id_user='$id' AND penilaian_c.kd_pelatihan='$kd' AND kuisioner_c.jenis_soal=4")->num_rows();
-        if($tampung != 0){
-                $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+        
+        $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
+        $tgl = $get_pelatihan['tgl_akhir_pelatihan'];   
+
+           if($tampung != 0){
+            $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+            redirect('pelatihan_peserta');
+        }
+        else if($tgl_skrg>$tgl){
+            $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
             redirect('pelatihan_peserta');
         }
 
@@ -332,7 +348,7 @@ class Pelatihan_peserta extends CI_Controller {
         $data['kd_pelatihan'] = $kd;
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
-        $data['data']=$this->M_kuisoner_b->tampil_sapras();
+        
         $data['data'] = $this->M_kuisoner_c->tampil_konsumsi();
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -349,8 +365,16 @@ class Pelatihan_peserta extends CI_Controller {
         $id=$this->session->userdata('id');
         $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON penilaian_c.id_soalC=kuisioner_c.id_kuisionerC 
         WHERE penilaian_c.id_user='$id' AND penilaian_c.kd_pelatihan='$kd' AND kuisioner_c.jenis_soal=5")->num_rows();
-        if($tampung != 0){
-                $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+       
+       $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
+        $tgl = $get_pelatihan['tgl_akhir_pelatihan'];   
+
+           if($tampung != 0){
+            $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+            redirect('pelatihan_peserta');
+        }
+        else if($tgl_skrg>$tgl){
+            $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
             redirect('pelatihan_peserta');
         }
 
@@ -360,7 +384,7 @@ class Pelatihan_peserta extends CI_Controller {
 		$data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $data['data']=$this->M_kuisoner_b->tampil_bahan_latihan();
+        
         $data['data'] = $this->M_kuisoner_c->tampil_bahan_latihan();
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -377,8 +401,16 @@ class Pelatihan_peserta extends CI_Controller {
         $id=$this->session->userdata('id');
         $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON penilaian_c.id_soalC=kuisioner_c.id_kuisionerC 
         WHERE penilaian_c.id_user='$id' AND penilaian_c.kd_pelatihan='$kd' AND kuisioner_c.jenis_soal=6")->num_rows();
-        if($tampung != 0){
-                $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+        
+        $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
+        $tgl = $get_pelatihan['tgl_akhir_pelatihan'];   
+
+           if($tampung != 0){
+            $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+            redirect('pelatihan_peserta');
+        }
+        else if($tgl_skrg>$tgl){
+            $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
             redirect('pelatihan_peserta');
         }
 
@@ -405,8 +437,16 @@ class Pelatihan_peserta extends CI_Controller {
         $id=$this->session->userdata('id');
         $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON penilaian_c.id_soalC=kuisioner_c.id_kuisionerC 
         WHERE penilaian_c.id_user='$id' AND penilaian_c.kd_pelatihan='$kd' AND kuisioner_c.jenis_soal=7")->num_rows();
-        if($tampung != 0){
-                $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+        
+        $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
+        $tgl = $get_pelatihan['tgl_akhir_pelatihan'];   
+
+           if($tampung != 0){
+            $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+            redirect('pelatihan_peserta');
+        }
+        else if($tgl_skrg>$tgl){
+            $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
             redirect('pelatihan_peserta');
         }
 
@@ -425,12 +465,28 @@ class Pelatihan_peserta extends CI_Controller {
 
     }
 
+    ///kuisioner B uni kompetensi
     function in_unit_kompetensi_b($kd)
     {
         date_default_timezone_set('Asia/Jakarta');
         $tgl_skrg=date("Y-m-d",time());
         
         $id=$this->session->userdata('id');
+
+        $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB 
+        WHERE penilaian_b.id_user='$id' AND penilaian_b.kd_pelatihan='$kd' AND kuisioner_b.jenis_soal=5")->num_rows();
+
+        $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
+        $tgl = $get_pelatihan['tgl_akhir_pelatihan'];
+
+        if($tampung != 0){
+        $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+        redirect('pelatihan_peserta');
+        }
+        else if($tgl_skrg>$tgl){
+        $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
+        redirect('pelatihan_peserta');
+        }
 
         $data['title']="SALUTE | Kuisioner Unit KOmpetensi";
         
@@ -447,12 +503,28 @@ class Pelatihan_peserta extends CI_Controller {
 
     }
 
+    ///Kuisioner B sarana dan prasarana
     function in_sarana_dan_prasarana_b($kd)
     {
         date_default_timezone_set('Asia/Jakarta');
         $tgl_skrg= date("Y-m-d",time());
 
         $id= $this->session->userdata('id');
+
+        $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB 
+        WHERE penilaian_b.id_user='$id' AND penilaian_b.kd_pelatihan='$kd' AND kuisioner_b.jenis_soal=3")->num_rows();
+
+        $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
+        $tgl = $get_pelatihan['tgl_akhir_pelatihan'];
+
+        if($tampung != 0){
+        $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+        redirect('pelatihan_peserta');
+        }
+        else if($tgl_skrg>$tgl){
+        $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
+        redirect('pelatihan_peserta');
+        }
 
         $data['title'] = "SALUTE | Kuisioner Sarana dan Prasarana";
 
@@ -461,13 +533,6 @@ class Pelatihan_peserta extends CI_Controller {
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $data['data']=$this->M_kuisoner_c->tampil_rekrut();
-        $data['data1']=$this->M_kuisoner_c->tampil_penyambutan();
-        $data['data2']=$this->M_kuisoner_c->tampil_sarana();
-        $data['data3']=$this->M_kuisoner_c->tampil_konsumsi();
-        $data['data4']=$this->M_kuisoner_c->tampil_bahan_latihan();
-        $data['data5']=$this->M_kuisoner_c->tampil_pelaksanaan();
-        $data['data6']=$this->M_kuisoner_c->tampil_pelaksanaan_pel();
         $data['data']=$this->M_kuisoner_b->tampil_sapras();
         $this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -475,10 +540,26 @@ class Pelatihan_peserta extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    ///Kuisioner Bahan Pelatihan B
     function in_bahan_pelatihan_b($kd)
     {
         date_default_timezone_set('Asia/Jakarta');
         $tgl_skrg=date("Y-m-d",time());
+
+        $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB 
+        WHERE penilaian_b.id_user='$id' AND penilaian_b.kd_pelatihan='$kd' AND kuisioner_b.jenis_soal=4")->num_rows();
+
+        $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
+        $tgl = $get_pelatihan['tgl_akhir_pelatihan'];
+
+        if($tampung != 0){
+        $this->session->set_flashdata('msg2','Anda sudah mengisi kuisioner ini!');
+        redirect('pelatihan_peserta');
+        }
+        else if($tgl_skrg>$tgl){
+        $this->session->set_flashdata('msg2','Waktu pelatihan telah berakhir!');
+        redirect('pelatihan_peserta');
+        }
 
         $data['title']="SALUTE | Kuisioner Bahan Pelatihan, Modul, ATK, dan Seragam Peserta";
 
