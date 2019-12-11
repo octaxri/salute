@@ -16,7 +16,7 @@ class Pelatihan_peserta extends CI_Controller {
     
     public function index(){
 		$data['title'] = "SALUTE | Pelatihan Peserta";
-		$data['data'] = $this->M_pelatihan_peserta->tampil_data();
+		
         $data['data'] = $this->M_pelatihan_peserta->tampil_data();
         $data['data1']=$this->M_pengajar->tampil_pengajar();
 
