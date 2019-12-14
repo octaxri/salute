@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2019 at 07:04 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Generation Time: Dec 14, 2019 at 08:32 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `salute`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bobot`
+--
+
+CREATE TABLE `bobot` (
+  `id_bobot` int(11) NOT NULL,
+  `nilai` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bobot`
+--
+
+INSERT INTO `bobot` (`id_bobot`, `nilai`) VALUES
+(7, '5.0'),
+(8, '5.0');
 
 -- --------------------------------------------------------
 
@@ -53,7 +72,9 @@ CREATE TABLE `detail_pengajar` (
 INSERT INTO `detail_pengajar` (`id`, `kd_pelatihan`, `id_pengajar`) VALUES
 (4, '2019-00000002', 1),
 (5, '2019-00000002', 4),
-(6, '2019-00000001', 2);
+(6, '2019-00000001', 2),
+(7, '2019-00000004', 2),
+(8, '2019-00000004', 4);
 
 -- --------------------------------------------------------
 
@@ -66,6 +87,14 @@ CREATE TABLE `detail_penilaian_b` (
   `id_penilaian_b` int(11) NOT NULL,
   `id_pengajar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detail_penilaian_b`
+--
+
+INSERT INTO `detail_penilaian_b` (`id`, `id_penilaian_b`, `id_pengajar`) VALUES
+(1, 42, 2),
+(2, 44, 6);
 
 -- --------------------------------------------------------
 
@@ -88,7 +117,10 @@ INSERT INTO `detail_peserta` (`id`, `kd_pelatihan`, `id_user`) VALUES
 (5, '2019-00000002', 4),
 (6, '2019-00000002', 5),
 (7, '2019-00000003', 5),
-(8, '2019-00000003', 6);
+(8, '2019-00000003', 6),
+(9, '2019-00000002', 7),
+(10, '2019-00000003', 7),
+(11, '2019-00000004', 8);
 
 -- --------------------------------------------------------
 
@@ -186,7 +218,11 @@ INSERT INTO `kuisioner_b` (`id_kuisionerB`, `jenis_soal`, `soalB`, `jawaban1B`, 
 (52, 4, 'Modul pelatihan yang diterimakan peserta (secara umum)', 1, 2, 3, 4, 5, 'pg', 4),
 (53, 4, 'Alat tulis / kelengkapan yang diterima peserta', 1, 2, 3, 4, 5, 'pg', 4),
 (54, 4, 'Seragam yang diterima peserta (kondisi umum : ukuran, jenis bahan , kenyamanan dalam pemakaian)', 1, 2, 3, 4, 5, 'pg', 4),
-(55, 4, 'Komentar / saran tentang Bahan Latihan, Modul, ATK, dan Seragam Peserta :', 0, 0, 0, 0, 0, 'uraian', 8);
+(55, 4, 'Komentar / saran tentang Bahan Latihan, Modul, ATK, dan Seragam Peserta :', 0, 0, 0, 0, 0, 'uraian', 8),
+(56, 5, 'Berapa unit Kompetensi yang harus saudara laksanakan pada program pelatihan yang sedang diikuti sekarang ini..', 0, 0, 0, 0, 0, 'pg', 4),
+(57, 5, 'Sampai dengan saat ini sudah berapa unit kompetensi yang saudara ikuti?', 0, 0, 0, 0, 0, 'pg', 4),
+(58, 2, 'Bagaimana Sikap anda ?', 1, 2, 3, 4, 5, 'pg', 4),
+(59, 2, 'gimana ?', 0, 0, 0, 0, 0, 'uraian', 8);
 
 -- --------------------------------------------------------
 
@@ -273,7 +309,8 @@ CREATE TABLE `pelatihan` (
 INSERT INTO `pelatihan` (`kd_pelatihan`, `id_kejuruan`, `id_program`, `tgl_mulai_pelatihan`, `tgl_akhir_pelatihan`, `tahap_pelatihan`, `kelas_pelatihan`) VALUES
 ('2019-00000001', 2, 16, '2019-12-01', '2019-12-03', 1, 1),
 ('2019-00000002', 2, 16, '2019-12-01', '2019-12-03', 1, 2),
-('2019-00000003', 2, 16, '2019-12-06', '2019-12-17', 2, 2);
+('2019-00000003', 2, 16, '2019-12-06', '2019-12-17', 2, 2),
+('2019-00000004', 4, 18, '2019-12-11', '2019-12-31', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -294,7 +331,8 @@ INSERT INTO `pengajar` (`id_pengajar`, `nama_pengajar`) VALUES
 (1, 'Fajar Hidayat'),
 (2, 'Dhimas Budi'),
 (4, 'Bayu Dwi'),
-(5, 'Andi');
+(5, 'Andi'),
+(6, ' Pardi');
 
 -- --------------------------------------------------------
 
@@ -320,7 +358,10 @@ INSERT INTO `penilaian_a` (`id`, `kd_pelatihan`, `id_user`, `id_soalA`, `jawaban
 (10, '2019-00000003', 5, 5, 2),
 (11, '2019-00000003', 6, 3, 1),
 (12, '2019-00000003', 6, 4, 2),
-(13, '2019-00000003', 6, 5, 2);
+(13, '2019-00000003', 6, 5, 2),
+(14, '2019-00000004', 8, 3, 1),
+(15, '2019-00000004', 8, 4, 3),
+(16, '2019-00000004', 8, 5, 4);
 
 -- --------------------------------------------------------
 
@@ -341,10 +382,12 @@ CREATE TABLE `penilaian_b` (
 --
 
 INSERT INTO `penilaian_b` (`id`, `kd_pelatihan`, `id_user`, `id_soalB`, `jawaban`) VALUES
-(15, '2019-00000001', 4, 26, '5'),
-(16, '2019-00000001', 4, 27, '4'),
-(17, '2019-00000001', 4, 28, '3'),
-(18, '2019-00000001', 4, 29, 'awa');
+(39, '2019-00000003', 7, 58, '1'),
+(40, '2019-00000003', 7, 59, 'dafafsf'),
+(41, '2019-00000003', 7, 58, '1'),
+(42, '2019-00000003', 7, 59, 'dafafsf'),
+(43, '2019-00000003', 7, 58, '4'),
+(44, '2019-00000003', 7, 59, 'dasdsd');
 
 -- --------------------------------------------------------
 
@@ -359,28 +402,6 @@ CREATE TABLE `penilaian_c` (
   `id_soalC` int(11) NOT NULL,
   `jawaban` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `penilaian_c`
---
-
-INSERT INTO `penilaian_c` (`id`, `kd_pelatihan`, `id_user`, `id_soalC`, `jawaban`) VALUES
-(1, '2019-00000001', 4, 7, '1'),
-(2, '2019-00000001', 4, 15, '1'),
-(3, '2019-00000001', 4, 16, '1'),
-(4, '2019-00000001', 4, 17, '1'),
-(5, '2019-00000001', 4, 18, '2'),
-(6, '2019-00000001', 4, 19, '2'),
-(7, '2019-00000001', 4, 20, '2'),
-(8, '2019-00000001', 4, 21, 'awaa'),
-(9, '2019-00000001', 4, 22, 'awa'),
-(10, '2019-00000001', 4, 23, 'awaaw'),
-(11, '2019-00000002', 4, 24, '1'),
-(12, '2019-00000002', 4, 25, '1'),
-(13, '2019-00000002', 4, 26, '1'),
-(14, '2019-00000002', 4, 27, '1'),
-(15, '2019-00000002', 4, 28, 'y'),
-(16, '2019-00000002', 4, 29, 'y');
 
 -- --------------------------------------------------------
 
@@ -454,7 +475,9 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `jk`, `t
 (3, 'fajarhgl', '$2y$10$tQKN5bGmshT8aQoPnBEhwOkD/PdpYteph0XVA0dq6eHh22eACAVoe', '', 'fajarhdytt30@gmail.com', '', '0000-00-00', '', '', 1, ''),
 (4, 'fajarhgl1', '$2y$10$WD3t4nCuezWpWKtBTZyr0uX8J64USxgq3DJvqNK2vy8Od0p1CIkb2', 'Fajar Hidayat', 'fajarhdyt30@gmail.com', 'P', '2019-12-06', 'S1', 'Programmer', 0, 'Pulang'),
 (5, 'dhimas23', '$2y$10$gq4mbeMP8mAlkD1tz.obhOpO.qiqt6aCJXSAF.8to/RRtxyipdGgi', 'dhimas', 'dhimasputrabudhi@gmail.com', 'L', '2019-10-03', 'S1', 'rere', 0, 'Pulang'),
-(6, 'dhimas', '$2y$10$atOD0qvokstCIpJKPjln.uXrV1i4MfwhLrl.IehW5T.2lKnAteMjC', 'b', 'b@gmail.com', 'L', '2019-12-01', 'S1', 'nknk', 0, 'Menginap');
+(6, 'dhimas', '$2y$10$atOD0qvokstCIpJKPjln.uXrV1i4MfwhLrl.IehW5T.2lKnAteMjC', 'b', 'b@gmail.com', 'L', '2019-12-01', 'S1', 'nknk', 0, 'Menginap'),
+(7, 'dhimasputra230795', '$2y$10$hLOutSjcbRRb6gFs9h9dmuV1UF0s6g7duPuYX9EnyVCFc59Hw.8O2', 'dhimas putra buhdi', 'balapkereto@gmail.com', 'L', '2019-12-01', 'S1', 'gege', 0, 'Menginap'),
+(8, 'kereto', '$2y$10$MlZYGJtXo96AsoPKR4MxquBiDjOTH2HogE6j78fRwmQfLs6BRe6wy', 'wedos', 'l@gmail.com', 'L', '2019-12-02', 'S1', 'sdfds', 0, 'Menginap');
 
 -- --------------------------------------------------------
 
@@ -482,6 +505,12 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bobot`
+--
+ALTER TABLE `bobot`
+  ADD PRIMARY KEY (`id_bobot`);
 
 --
 -- Indexes for table `bobot_nilai`
@@ -609,6 +638,12 @@ ALTER TABLE `user_token`
 --
 
 --
+-- AUTO_INCREMENT for table `bobot`
+--
+ALTER TABLE `bobot`
+  MODIFY `id_bobot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `bobot_nilai`
 --
 ALTER TABLE `bobot_nilai`
@@ -618,19 +653,19 @@ ALTER TABLE `bobot_nilai`
 -- AUTO_INCREMENT for table `detail_pengajar`
 --
 ALTER TABLE `detail_pengajar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `detail_penilaian_b`
 --
 ALTER TABLE `detail_penilaian_b`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `detail_peserta`
 --
 ALTER TABLE `detail_peserta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `kejuruan`
@@ -648,7 +683,7 @@ ALTER TABLE `kuisioner_a`
 -- AUTO_INCREMENT for table `kuisioner_b`
 --
 ALTER TABLE `kuisioner_b`
-  MODIFY `id_kuisionerB` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id_kuisionerB` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `kuisioner_c`
@@ -660,25 +695,25 @@ ALTER TABLE `kuisioner_c`
 -- AUTO_INCREMENT for table `pengajar`
 --
 ALTER TABLE `pengajar`
-  MODIFY `id_pengajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_pengajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `penilaian_a`
 --
 ALTER TABLE `penilaian_a`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `penilaian_b`
 --
 ALTER TABLE `penilaian_b`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `penilaian_c`
 --
 ALTER TABLE `penilaian_c`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `program`
@@ -696,7 +731,7 @@ ALTER TABLE `sub_soal`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user_token`
