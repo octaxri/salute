@@ -3,6 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_pelatihan extends CI_Model {
 
+	function tampil_detail_pelatihan($kd){
+		$this->db->select('*');
+		$this->db->from('pelatihan');
+		$this->db->join('kejuruan','pelatihan.id_kejuruan=kejuruan.id_kejuruan');
+		$this->db->join('program','pelatihan.id_program=program.id_program');
+
+		$this->db->where('kd_pelatihan',$kd);
+
+		return $this->db->get()->row_array();
+	}
+
 	function tampil_data(){
 		$this->db->select('*');
 		$this->db->from('pelatihan');

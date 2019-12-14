@@ -2,7 +2,7 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Detail Pelatihan</span>
+              <span class="d-ib">Detail Pelatihan | Kejuruan <?= $data['nama_kejuruan']; ?>, Program <?= $data['nama_program']; ?></span>
               <span class="d-ib">
                 <a class="title-bar-shortcut" href="#" title="Add to shortcut list" data-container="body" data-toggle-text="Remove from shortcut list" data-trigger="hover" data-placement="right" data-toggle="tooltip">
                   <span class="sr-only">Add to shortcut list</span>

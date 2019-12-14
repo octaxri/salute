@@ -42,6 +42,8 @@ class Pelatihan extends CI_Controller {
 		$data['title'] = "SALUTE | Detail Pelatihan";
 
 		$data['kd_pelatihan'] = $kd_pelatihan;
+		$data['data'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
 		$data['user'] = $this->db->get_where('user', ['username' =>
 		$this->session->userdata('username')])->row_array();
 		
@@ -63,6 +65,7 @@ class Pelatihan extends CI_Controller {
 		if($a == 1){
 			$data['title'] = "SALUTE | Data Peserta Pelatihan";
 			$data['data'] = $this->M_pelatihan->tampil_peserta($kd_pelatihan);
+			$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 			$this->load->view('templates/header',$data);
 			$this->load->view('templates/sidebar',$data);
@@ -73,6 +76,7 @@ class Pelatihan extends CI_Controller {
 		else if($a == 2){
 			$data['title'] = "SALUTE | Data Pengajar Pelatihan";
 			$data['data'] = $this->M_pelatihan->tampil_pengajar($kd_pelatihan);
+			$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 			$data['pengajar'] = $this->M_pelatihan->daftar_pengajar($kd_pelatihan);
 
 			$this->load->view('templates/header',$data);
@@ -82,6 +86,7 @@ class Pelatihan extends CI_Controller {
 		}
 		else if($a == 3){
 			$data['title'] = "SALUTE | Data Kuisioner A Pelatihan";
+			$data['data'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 			$this->load->view('templates/header',$data);
 			$this->load->view('templates/sidebar',$data);
@@ -105,6 +110,7 @@ class Pelatihan extends CI_Controller {
 		$data['title'] = "SALUTE | Data Kuisioner B Pelatihan";
 
 		$data['kd_pelatihan'] = $kd_pelatihan;
+		$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
