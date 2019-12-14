@@ -133,6 +133,8 @@ class Pelatihan extends CI_Controller {
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_pengajar',$data);
+
+	}
 	///detail pelatihan kuisione b sarana dan prasarana
 	function in_detail_pelatihan_kuisionerb_sapras($kd_pelatihan)
 	{
@@ -201,7 +203,8 @@ class Pelatihan extends CI_Controller {
 		redirect('pelatihan/detail_pelatihan2/'.$a.'/'.$kd_pelatihan);
 	}
 
-	public function ambil_data(){
+	public function ambil_data()
+	{
 		$modul=$this->input->post('modul');
 		$id=$this->input->post('id');
 
