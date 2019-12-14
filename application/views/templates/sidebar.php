@@ -92,7 +92,14 @@
                     <span class="sidenav-label">Pelatihan</span>
                   </a>
                 </li>
+             
                 <li class="sidenav-heading">LAINNYA</li>
+                <!-- <li class="sidenav-item">
+                  <a href="bobot">
+                    <span class="sidenav-icon icon icon-gear"></span>
+                    <span class="sidenav-label">Bobot Peniliaan</span>
+                  </a>
+                </li> -->
                 <li class="sidenav-item">
                   <a href="<?= site_url(); ?>user">
                     <span class="sidenav-icon icon icon-user"></span>

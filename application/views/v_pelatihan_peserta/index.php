@@ -128,7 +128,7 @@
         <div class="modal-body">  
         <?php foreach($data1 as $i) { ?>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta"><?= $i['nama_pengajar'];?></a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_tenaga_pelatih_b/<?= $i['id_pengajar']?>/<?= $x['kd_pelatihan'] ;?>" ><?= $i['nama_pengajar'];?></a><br><br>
           </div>
         <?php } ?>
           <hr>

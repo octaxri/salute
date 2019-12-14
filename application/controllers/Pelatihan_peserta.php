@@ -108,7 +108,24 @@ class Pelatihan_peserta extends CI_Controller {
 
 
     // kuisioner B, Tenaga pelatih
-    
+    function in_tenaga_pelatih_b($id, $kd)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+
+            $data['title']= "SALUTE | Kuisioner B";
+
+            $data['kd_pelatihan'] = $kd;
+            $data['id_pengajar'] = $id;
+            $data['user'] = $this->db->get_where('user', ['username' =>
+            $this->session->userdata('username')])->row_array();
+
+            $data['data'] = $this->M_kuisoner_b->tampil_tenaga_pel();
+
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('v_pelatihan_peserta/kuisioner_b_tenaga_pelatih',$data);
+            $this->load->view('templates/footer');
+    }
 
     // kuisioner B, Materi pelatihan
     function in_materi_pelatihan_kuisioner_b($kd){
@@ -174,6 +191,49 @@ class Pelatihan_peserta extends CI_Controller {
             ];
 
             $this->db->insert('penilaian_b',$data);
+
+
+        }
+        $this->session->set_flashdata('msg','Kuisioner B berhasil dikirim');
+        redirect('pelatihan_peserta');
+    }
+
+    function proses_kuisioner_b1()
+    {
+        $post = $this->input->post();
+        $item = $post['pertanyaan'];
+        $item2 = $post['pertanyaan2'];
+
+        foreach($item as $v) {
+            $data = [
+                "kd_pelatihan" => $this->input->post('kd_pelatihan',TRUE),
+                "id_user" => $this->session->userdata('id'),
+                "id_soalB" => $v['id'],
+                "jawaban" => $v['jawaban'],
+            ];
+
+            $this->db->insert('penilaian_b',$data);
+        }
+
+        foreach($item2 as $v2) {
+            $data = [
+                "kd_pelatihan" => $this->input->post('kd_pelatihan',TRUE),
+                "id_user" => $this->session->userdata('id'),
+                "id_soalB" => $v2['id'],
+                "jawaban" => $v2['jawaban'],
+            ];
+
+            $this->db->insert('penilaian_b',$data);
+
+            
+            $tampung=$this->db->query('SELECT * FROM penilaian_b order by id DESC')->row_array();
+        
+            $data1=[
+                "id_penilaian_b" => $tampung['id'],
+                "id_pengajar" => $this->input->post('id_pengajar',TRUE)
+            ];
+
+            $this->db->insert('detail_penilaian_b', $data1);
         }
         $this->session->set_flashdata('msg','Kuisioner B berhasil dikirim');
         redirect('pelatihan_peserta');
@@ -545,6 +605,8 @@ class Pelatihan_peserta extends CI_Controller {
     {
         date_default_timezone_set('Asia/Jakarta');
         $tgl_skrg=date("Y-m-d",time());
+
+        $id= $this->session->userdata('id'); 
 
         $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB 
         WHERE penilaian_b.id_user='$id' AND penilaian_b.kd_pelatihan='$kd' AND kuisioner_b.jenis_soal=4")->num_rows();
