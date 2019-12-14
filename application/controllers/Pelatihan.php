@@ -123,7 +123,6 @@ class Pelatihan extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-<<<<<<< Updated upstream
 	function in_detail_pelatihan_pengajar_kuisioner_b($kd_pelatihan,$id_pengajar){
 		$data['title'] = "SALUTE | Data Kuisioner B Pelatihan";
 
@@ -134,7 +133,6 @@ class Pelatihan extends CI_Controller {
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_pengajar',$data);
-=======
 	///detail pelatihan kuisione b sarana dan prasarana
 	function in_detail_pelatihan_kuisionerb_sapras($kd_pelatihan)
 	{
@@ -171,7 +169,6 @@ class Pelatihan extends CI_Controller {
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_unit_kompetensi',$data);
->>>>>>> Stashed changes
 		$this->load->view('templates/footer');
 	}
 
