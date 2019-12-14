@@ -82,14 +82,34 @@ class Pelatihan extends CI_Controller {
 		}
 		else if($a == 3){
 			$data['title'] = "SALUTE | Data Kuisioner A Pelatihan";
+
+			$this->load->view('templates/header',$data);
+			$this->load->view('templates/sidebar',$data);
+			$this->load->view('v_pelatihan/detail_kuisioner_a',$data);
+			$this->load->view('templates/footer');
 		}
 		else if($a == 4){
 			$data['title'] = "SALUTE | Data Kuisioner B Pelatihan";
+
+			$this->load->view('templates/header',$data);
+			$this->load->view('templates/sidebar',$data);
+			$this->load->view('v_pelatihan/detail_kuisioner_b',$data);
+			$this->load->view('templates/footer');
 		}
 		else if($a == 5){
 			$data['title'] = "SALUTE | Data Kuisioner C Pelatihan";
 		}
+	}
 
+	function in_detail_pelatihan_kuisionerb_materi_pelatihan($kd_pelatihan){
+		$data['title'] = "SALUTE | Data Kuisioner B Pelatihan";
+
+		$data['kd_pelatihan'] = $kd_pelatihan;
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_materi_pelatihan',$data);
+		$this->load->view('templates/footer');
 	}
 
 	function tambah_pengajar_pelatihan(){

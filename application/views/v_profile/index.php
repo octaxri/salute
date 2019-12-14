@@ -37,61 +37,81 @@
               <div class="card mb-3 col-lg-8">
               <div class="row no-gutters">
                 <div class="col-md-8">
-                    <!--begin: Datatable -->
-                    <br><br>
-                                <table style="width:100%; margin-left:3%;">
-                                <?php if($this->session->userdata('level') == 0){ ?>
-                                    <tr>
-                                        <td width="30%" ><h4>Nama</h4></td>
-                                        <td width="2%"><h4>:</h4></td>
-                                        <td><h4><?= $user['nama']; ?></h4></td>
-                                    </tr>
-                                <?php } ?>
-                                    <tr>
-                                        <td width="20%"><br><h4>Username</h4></td>
-                                        <td width="2%"><br><h4>:</h4></td>
-                                        <td><br><h4><?= $user['username']; ?></h4></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="20%"><br><h4>Email</h4></td>
-                                        <td width="2%"><br><h4>:</h4></td>
-                                        <td><br><h4><?= $user['email']; ?></h4></td>
-                                    </tr>
-                                    <?php if($this->session->userdata('level') == 0){ ?>
-                                    <tr>
-                                        <td width="20%"><br><h4>Jenis Kelamin</h4></td>
-                                        <td width="2%"><br><h4>:</h4></td>
-                                        <td><br><h4><?= $user['jk']; ?></h4></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="20%"><br><h4>Tanggal Lahir</h4></td>
-                                        <td width="2%"><br><h4>:</h4></td>
-                                        <td><br><h4><?= $user['tgl_lahir']; ?></h4></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="20%"><br><h4>Pendidikan</h4></td>
-                                        <td width="2%"><br><h4>:</h4></td>
-                                        <td><br><h4><?= $user['pendidikan']; ?></h4></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="20%"><br><h4>Pekerjaan</h4></td>
-                                        <td width="2%"><br><h4>:</h4></td>
-                                        <td><br><h4><?= $user['pekerjaan']; ?></h4></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="20%"><br><h4>Tipe Peserta</h4></td>
-                                        <td width="2%"><br><h4>:</h4></td>
-                                        <td><br><h4><?= $user['tipe_peserta']; ?></h4></td>
-                                    </tr>
-                                    <?php } ?>
-                                </table><br><br><br>
-                                <center>
-                                <div class="row">
-                                    <div class="col-sm-9"><a class="btn btn-primary"  href="#modal-edit<?= $user['id_user']; ?>" data-toggle="modal"><span class="fas fa-fw fa-edit"></span>Ubah Profile</a> | <a class="btn btn-primary" href="#modal-password<?= $user['id_user']; ?>" data-toggle="modal"><span class="fas fa-fw fa-edit"></span>Ganti Password</a></div>
-                                </div>
-                                </center>
-                            <br><br><br><br><br>
-                                <!--end: Datatable -->
+                    <!-- ISI -->
+                <br>
+                <div class="demo-form-wrapper">
+                <div class="form form-horizontal">
+                  <?php if($user['is_level'] == 0){ ?>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-control-1">Nama</label>
+                    <div class="col-sm-9">
+                      <input id="form-control-1" class="form-control" type="text" value="<?= $user['nama']; ?>" readonly>
+                    </div>
+                  </div>
+                  <?php } ?>
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-control-1">Username</label>
+                    <div class="col-sm-9">
+                      <input id="form-control-1" class="form-control" type="text" value="<?= $user['username']; ?>" readonly>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-control-1">Email</label>
+                    <div class="col-sm-9">
+                      <input id="form-control-1" class="form-control" type="text" value="<?= $user['email']; ?>" readonly>
+                    </div>
+                  </div>
+
+                  <?php if($user['is_level'] == 0){ ?>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-control-1">Jenis Kelamin</label>
+                    <div class="col-sm-9">
+                      <input id="form-control-1" class="form-control" type="text" value="<?= $user['jk']; ?>" readonly>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-control-1">Tanggal Lahir</label>
+                    <div class="col-sm-9">
+                      <input id="form-control-1" class="form-control" type="text" value="<?= $user['tgl_lahir']; ?>" readonly>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-control-1">Pendidikan</label>
+                    <div class="col-sm-9">
+                      <input id="form-control-1" class="form-control" type="text" value="<?= $user['pendidikan']; ?>" readonly>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-control-1">Pekerjaan</label>
+                    <div class="col-sm-9">
+                      <input id="form-control-1" class="form-control" type="text" value="<?= $user['pekerjaan']; ?>" readonly>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-control-1">Tipe Peserta</label>
+                    <div class="col-sm-9">
+                      <input id="form-control-1" class="form-control" type="text" value="<?= $user['tipe_peserta']; ?>" readonly>
+                    </div>
+                  </div>
+                  <?php } ?>
+
+                  <br><br>
+                  <center>
+                  <div class="row">
+                    <div class="col-sm-12"><a class="btn btn-primary"  href="#modal-edit<?= $user['id_user']; ?>" data-toggle="modal"><span class="fas fa-fw fa-edit"></span>Ubah Profile</a> | <a class="btn btn-primary" href="#modal-password<?= $user['id_user']; ?>" data-toggle="modal"><span class="fas fa-fw fa-edit"></span>Ganti Password</a></div>
+                  </div>
+                  </center>
+    
+                </div>
+              </div>
+              
+                    <!-- AKHIR ISI -->
                 </div>
               </div>
               </div>
