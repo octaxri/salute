@@ -88,7 +88,8 @@ class Pelatihan extends CI_Controller {
 			$data['title'] = "SALUTE | Data Kuisioner A Pelatihan";
 			$data['data'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
-			$data['responden'] = $this->db->query("SELECT DISTINCT id_user FROM penilaian_a")->result_array();
+			$data['responden'] = $this->db->query("SELECT DISTINCT id_user FROM penilaian_a WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+			$data['jmlhh_responden'] = $this->db->query("SELECT DISTINCT id_user FROM penilaian_a WHERE kd_pelatihan='$kd_pelatihan'")->num_rows();
 
 			$this->load->view('templates/header',$data);
 			$this->load->view('templates/sidebar',$data);
@@ -129,6 +130,13 @@ class Pelatihan extends CI_Controller {
 		$data['kd_pelatihan'] = $kd_pelatihan;
 		$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 		$data['pengajar'] = $this->db->query("SELECT * FROM pengajar WHERE id_pengajar='$id_pengajar'")->row_array();
+
+		$soal = $this->db->query("SELECT DISTINCT id_soalA FROM penilaian_a WHERE kd_pelatihan='$kd_pelatihan'")->result_array(); 
+
+		foreach($soal as $s){
+			$i = 1;
+			$soal_ke[$i] = 0;
+		}
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
