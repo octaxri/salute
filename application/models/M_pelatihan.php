@@ -14,6 +14,7 @@ class M_pelatihan extends CI_Model {
 		return $this->db->get()->row_array();
 	}
 
+
 	function tampil_data(){
 		$this->db->select('*');
 		$this->db->from('pelatihan');

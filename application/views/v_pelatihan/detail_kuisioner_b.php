@@ -16,7 +16,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>pelatihan/detail_pelatihan/<?= $kd_pelatihan; ?>"><span class="icon icon-backward"></span></a> DETAIL KUISIONER B</span>
+              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>pelatihan/detail_pelatihan/<?= $kd_pelatihan; ?>"><span class="icon icon-backward"></span></a> DETAIL KUISIONER B | Kejuruan <?= $data1['nama_kejuruan']; ?>, Program <?= $data1['nama_program']; ?></span>
             </h1>
           </div>
           <hr>
@@ -48,7 +48,7 @@
                         <tr>
                           <td>2</td>
                           <td>Tenaga Pelatih</td>
-                          <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>"><span class="icon icon-eye"></span> Detail</a></td>
+                          <td class="text-center"><a class="badge badge-primary" href="#modal-pilih-pengajar<?= $kd_pelatihan; ?>" data-toggle="modal"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                           <td>3</td>
@@ -167,8 +167,31 @@
               </div>
             </div>
           </div>
-
-
                     
         </div>
       </div>
+
+
+      <!-- MODAL BOX KUISIONER B PENGAJAR-->
+    <div id="modal-pilih-pengajar<?= $kd_pelatihan; ?>" tabindex="-1" role="dialog" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <h4 class="modal-title">Pilih Pengajar</h4>
+        </div>
+        <div class="modal-body">  
+        <?php foreach($daftar_pengajar as $i) { ?>
+          <div class="form-group">
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan/in_detail_pelatihan_pengajar_kuisioner_b/<?= $kd_pelatihan; ?>/<?= $i['id_pengajar']; ?>"><?= $i['nama_pengajar'];?></a><br><br>
+          </div>
+        <?php } ?>
+          <hr>
+          <div class="form-group">
+            <button type="button" class="btn btn-danger col-xs-12" data-dismiss="modal">Batal</button><br><br>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+    <!-- AKHIR MODAL BOX KUISIONER B PENGAJAR-->

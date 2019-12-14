@@ -88,6 +88,8 @@ class Pelatihan extends CI_Controller {
 			$data['title'] = "SALUTE | Data Kuisioner A Pelatihan";
 			$data['data'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
+			$data['responden'] = $this->db->query("SELECT DISTINCT id_user FROM penilaian_a")->result_array();
+
 			$this->load->view('templates/header',$data);
 			$this->load->view('templates/sidebar',$data);
 			$this->load->view('v_pelatihan/detail_kuisioner_a',$data);
@@ -95,6 +97,9 @@ class Pelatihan extends CI_Controller {
 		}
 		else if($a == 4){
 			$data['title'] = "SALUTE | Data Kuisioner B Pelatihan";
+
+			$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+			$data['daftar_pengajar'] = $this->M_pelatihan->tampil_pengajar($kd_pelatihan);
 
 			$this->load->view('templates/header',$data);
 			$this->load->view('templates/sidebar',$data);
@@ -117,6 +122,20 @@ class Pelatihan extends CI_Controller {
 		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_materi_pelatihan',$data);
 		$this->load->view('templates/footer');
 	}
+
+	function in_detail_pelatihan_pengajar_kuisioner_b($kd_pelatihan,$id_pengajar){
+		$data['title'] = "SALUTE | Data Kuisioner B Pelatihan";
+
+		$data['kd_pelatihan'] = $kd_pelatihan;
+		$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+		$data['pengajar'] = $this->db->query("SELECT * FROM pengajar WHERE id_pengajar='$id_pengajar'")->row_array();
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_pengajar',$data);
+		$this->load->view('templates/footer');
+	}
+
 
 	function tambah_pengajar_pelatihan(){
 		$a = 2;

@@ -16,7 +16,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>pelatihan/detail_pelatihan/<?= $kd_pelatihan; ?>"><span class="icon icon-backward"></span></a> DETAIL KUISIONER A | Kejuruan <?= $data['nama_kejuruan']; ?>, Program <?= $data['nama_program']; ?></span>
+              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>pelatihan/detail_pelatihan2/4/<?= $kd_pelatihan; ?>"><span class="icon icon-backward"></span></a> DETAIL KUISIONER B | Kejuruan <?= $data1['nama_kejuruan']; ?>, Program <?= $data1['nama_program']; ?></span>
             </h1>
           </div>
           <hr>
@@ -25,7 +25,7 @@
             <div class="col-xs-12">
               <div class="card">
                 <div class="card-header">
-                  <strong>Pengolahan Indeks Kepuasan Masyarakat Per Responden Dan Per Unsur Pelayanan</strong>
+                  <strong>Hasil Analisis Angket Pengajar | <?= $pengajar['nama_pengajar']; ?></strong>
                 </div>
                 <div class="card-body">
                     <!-- IISI -->
@@ -40,45 +40,30 @@
                       <thead>
                         <tr>
                           <th rowspan="2" width="15">No Responden</th>
-                          <?php $i1 =1; foreach($responden as $r){ ?>
-                            <?php 
-                              $id_user = $r['id_user'];
-                              $jml = $this->db->query("SELECT DISTINCT id_soalA FROM penilaian_a WHERE id_user='$id_user'")->num_rows(); 
-                            ?>
-                          <?php } ?>
-                          <th colspan="<?= $jml; ?>" class="text-center">Materi Pelatihan</th>
+                          <th colspan="4" class="text-center">Materi Pelatihan</th>
                         </tr>
                         <tr>
-                        <?php 
-                           $p = 1;
-                           $soalnya = $this->db->query("SELECT DISTINCT id_soalA FROM penilaian_a")->result_array(); 
-                           foreach($soalnya as $sl){
-                        ?>
-                          <th><?= $p++; ?></th>
-                        <?php } ?>
+                          <th>1</th>
+                          <th>2</th>
+                          <th>3</th>
+                          <th>4</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <!-- loop 1 -->
-                        <?php $i1 =1; foreach($responden as $r){ ?>
-
-                          <?php 
-                            $id_user = $r['id_user'];
-                            $soal = $this->db->query("SELECT DISTINCT id_soalA FROM penilaian_a WHERE id_user='$id_user'")->result_array(); 
-                          ?>
                         <tr>
-                          <td><?= $i1++; ?></td>
-                          <!-- loop 2 -->
-                          <?php $i2=1; foreach($soal as $s){ 
-                            $id_soal = $s['id_soalA'];
-                            $nilainya = $this->db->query("SELECT * FROM penilaian_a WHERE id_user='$id_user' AND id_soalA='$id_soal'")->row_array();  
-                          ?>
-                          <td><?= $nilainya['jawaban']; ?></td>
-                          <?php } ?>
-                          <!-- akhir loop 2 -->
+                          <td>1</td>
+                          <td>4</td>
+                          <td>4</td>
+                          <td>4</td>
+                          <td>3</td>
                         </tr>
-                        <?php } ?>
-                        <!-- akhir loop 1 -->
+                        <tr>
+                          <td>2</td>
+                          <td>5</td>
+                          <td>4</td>
+                          <td>4</td>
+                          <td>3</td>
+                        </tr>
                         <tr>
                           <td>Jumlah</td>
                           <td>5</td>
