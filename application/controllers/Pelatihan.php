@@ -152,7 +152,6 @@ class Pelatihan extends CI_Controller {
 		$data['title']= "SALUTE | Data Kuisioner B Bahan Pelatihan ";
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
-
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_bahan_latihan',$data);
