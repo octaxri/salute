@@ -128,11 +128,11 @@
                         </tr>
                         <tr>
                           <td>Jumlah</td>
-                          <td colspan="<?= $jml; ?>" class="text-center"><h4><?= $jmlh_keseluruhan; ?></h4></td>
+                          <td colspan="<?= $jml; ?>" class="text-center"><h4><?= number_format($jmlh_keseluruhan,2); ?></h4></td>
                         </tr>
                         <tr>
                           <td>Jumlah X 20</td>
-                          <td colspan="<?= $jml; ?>" class="text-center"><h4><?= $jmlh_keseluruhan*20; ?></h4></td>
+                          <td colspan="<?= $jml; ?>" class="text-center"><h4><?= number_format($jmlh_keseluruhan*20,2); ?></h4></td>
                         </tr>
                       </tbody>
                     </table>
