@@ -53,17 +53,17 @@
                         <tr>
                           <td>3</td>
                           <td>Sarana Dan Prasarana</td>
-                          <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>"><span class="icon icon-eye"></span> Detail</a></td>
+                          <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/in_detail_pelatihan_kuisionerb_sapras/<?=$kd_pelatihan;?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                           <td>4</td>
                           <td>Bahan Latihan, Modul, ATK, Dan Seragam Peserta</td>
-                          <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>"><span class="icon icon-eye"></span> Detail</a></td>
+                          <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/in_detail_pelatihan_kuisionerb_bahan_latihan/<?= $kd_pelatihan;?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                           <td>5</td>
                           <td>Unit Kompetensi</td>
-                          <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>"><span class="icon icon-eye"></span> Detail</a></td>
+                          <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/in_detail_pelatihan_kuisionerb_unit_kompetensi/<?= $kd_pelatihan;?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                       </tbody>
                     </table>

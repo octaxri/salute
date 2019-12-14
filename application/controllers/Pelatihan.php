@@ -123,6 +123,7 @@ class Pelatihan extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
+<<<<<<< Updated upstream
 	function in_detail_pelatihan_pengajar_kuisioner_b($kd_pelatihan,$id_pengajar){
 		$data['title'] = "SALUTE | Data Kuisioner B Pelatihan";
 
@@ -133,6 +134,44 @@ class Pelatihan extends CI_Controller {
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_pengajar',$data);
+=======
+	///detail pelatihan kuisione b sarana dan prasarana
+	function in_detail_pelatihan_kuisionerb_sapras($kd_pelatihan)
+	{
+		$data['title']= "SALUTE | Data Kuisioner B Sarana dan Prasarana ";
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_bahan_latihan',$data);
+		$this->load->view('templates/footer');
+	}
+
+	//detail pelatihan kuisioner b bahan latihan
+	function in_detail_pelatihan_kuisionerb_bahan_latihan($kd_pelatihan)
+	{
+		$data['title']= "SALUTE | Data Kuisioner B Bahan Pelatihan ";
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_bahan_latihan',$data);
+		$this->load->view('templates/footer');
+	}
+
+	//detail pelatihan unit kompetensi
+	function in_detail_pelatihan_kuisionerb_unit_kompetensi($kd_pelatihan)
+	{
+		$data['title']= "SALUTE | Data Kuisioner B Unit Kompetensi ";
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_unit_kompetensi',$data);
+>>>>>>> Stashed changes
 		$this->load->view('templates/footer');
 	}
 
