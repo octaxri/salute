@@ -38,26 +38,29 @@
                     <div class="table-responsive">
                     <table class="table table-striped table-bordered">
                       <thead>
+                        
                         <tr>
                           <th rowspan="2" width="15">No Responden</th>
-                          <?php $i1 =1; foreach($responden as $r){ ?>
+                          <?php $i1 =1; $jml=0; foreach($responden as $r){ ?>
                             <?php 
+                              
                               $id_user = $r['id_user'];
                               $jml = $this->db->query("SELECT DISTINCT id_soalA FROM penilaian_a WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan'")->num_rows(); 
+                            
                             ?>
                           <?php } ?>
-                          <th colspan="<?= $jml; ?>" class="text-center">Materi Pelatihan</th>
+                          <th colspan="<?= $jml ;?>" class="text-center">Pelayanan</th>
                         </tr>
+
                         <tr>
                         <?php 
                            $p = 1;
                            $soalnya = $this->db->query("SELECT DISTINCT id_soalA FROM penilaian_a WHERE kd_pelatihan='$kd_pelatihan'")->result_array(); 
-                           foreach($soalnya as $sl){
-
-                        ?>
+                           foreach($soalnya as $sl) { ?>
                           <th><?= $p++; ?></th>
                         <?php } ?>
                         </tr>
+
                       </thead>
                       <tbody>
                         <!-- loop 1 -->
@@ -97,6 +100,7 @@
                           <td><?= $total['total']; ?></td>
                           <?php } ?>
                         </tr>
+
                         <tr>
                           <td>Nilai Rata-Rata</td>
                           <?php 
@@ -110,6 +114,7 @@
                           <td><?= number_format($total['total'],2); ?></td>
                           <?php } ?>
                         </tr>
+                        
                         <tr>
                           <td>NRR X Bobot</td>
                           <?php 
@@ -124,7 +129,7 @@
                            $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_a WHERE id_soalA='$id_soalnya' AND kd_pelatihan='$kd_pelatihan'")->row_array();
                           ?>
                           <td><?= number_format($total['total']/$jml_soal,2); ?></td>
-                          <?php $jmlh_keseluruhan = $jmlh_keseluruhan+($total['total']/$jml_soal); } ?>
+                          <?php $jmlh_keseluruhan = $jmlh_keseluruhan+(number_format($total['total']/$jml_soal,2)); } ?>
                         </tr>
                         <tr>
                           <td>Jumlah</td>

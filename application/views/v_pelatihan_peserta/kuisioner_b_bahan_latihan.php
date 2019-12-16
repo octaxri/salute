@@ -44,9 +44,9 @@
                         <h4><?= $n++; ?>. <?= $d['soalB']; ?></h4>
                         <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan[<?= $no; ?>][id]" class="form-control" >
                           &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>" required> <?= $d['jawaban1B']; ?> <br>
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>"> <?= $d['jawaban2B']; ?> <br>
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>"> <?= $d['jawaban3B']; ?> <br>
-                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>"> <?= $d['jawaban4B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban2B']; ?>"> <?= $d['jawaban2B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban3B']; ?>"> <?= $d['jawaban3B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban4B']; ?>"> <?= $d['jawaban4B']; ?> <br>
                           &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban5B']; ?>"> <?= $d['jawaban5B']; ?> <br>
                           <hr>
                         <?php }else{ ?>
