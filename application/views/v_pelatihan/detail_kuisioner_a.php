@@ -142,12 +142,35 @@
                       </tbody>
                     </table>
                     <br>
+                    
                   </div>
 
                     <!-- AKHIR ISI -->
                 </div>
               </div>
             </div>
+          </div>
+          <div class="row gutter-xs">
+          <div class="col-xs-12">
+          <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Grafik Data Kuisioner A</h4>
+                </div>
+                
+                <div class="card-body">
+                <div class="col-xs-6 col-xs-9">
+                  <div class="card-chart">
+                    <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                    <canvas id="nilai_a" data-chart="bar" data-animation="false" 
+ 
+                    data-tooltips="{&quot;mode&quot;: &quot;label&quot;}" 
+                    data-hide="[&quot;gridLinesX&quot;, &quot;legend&quot;]" 
+                    height="450" width="900" style="display: block; width: 300px; height: 150px;"></canvas>
+                  </div>
+                  </div>
+                </div>
+              </div>
+          </div>
           </div>
         </div>
       </div>

@@ -90,8 +90,7 @@ class Pelatihan extends CI_Controller {
 			
 			
 			$data['responden'] = $this->db->query("SELECT DISTINCT id_user FROM penilaian_a WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
-			
-			$data['jmlhh_responden'] = $this->db->query("SELECT DISTINCT id_user FROM penilaian_a WHERE kd_pelatihan='$kd_pelatihan'")->num_rows();
+			$data['graph']= $this->db->query("SELECT DISTINCT * FROM penilaian_a WHERE kd_pelatihan='$kd_pelatihan'")->result_array();			
 
 			$this->load->view('templates/header',$data);
 			$this->load->view('templates/sidebar',$data);
@@ -109,8 +108,17 @@ class Pelatihan extends CI_Controller {
 			$this->load->view('v_pelatihan/detail_kuisioner_b',$data);
 			$this->load->view('templates/footer');
 		}
-		else if($a == 5){
+		else if($a == 5)
+		{
 			$data['title'] = "SALUTE | Data Kuisioner C Pelatihan";
+
+			$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+			$data['daftar_pengajar'] = $this->M_pelatihan->tampil_pengajar($kd_pelatihan);
+
+			$this->load->view('templates/header',$data);
+			$this->load->view('templates/sidebar',$data);
+			$this->load->view('v_pelatihan/detail_kuisioner_c',$data);
+			$this->load->view('templates/footer');
 		}
 	}
 
@@ -121,7 +129,7 @@ class Pelatihan extends CI_Controller {
 		$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		
-		$data['responden'] = $this->db->query("SELECT DISTINCT id_user FROM penilaian_b WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1 ")->result_array();
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -148,7 +156,7 @@ class Pelatihan extends CI_Controller {
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
-		$data['responden'] = $this->db->query("SELECT DISTINCT id_user FROM penilaian_b WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB  WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 ")->result_array();
 
 
 		$this->load->view('templates/header',$data);
@@ -164,7 +172,7 @@ class Pelatihan extends CI_Controller {
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
-		$data['responden'] = $this->db->query("SELECT DISTINCT id_user FROM penilaian_b WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 ")->result_array();
 
 
 		$this->load->view('templates/header',$data);
@@ -183,6 +191,118 @@ class Pelatihan extends CI_Controller {
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_unit_kompetensi',$data);
+		$this->load->view('templates/footer');
+	}
+
+	///detail kuisioner c rekrut
+	function in_detail_pelatihan_kuisionerc_rekrut($kd_pelatihan)
+	{
+		$data['title']= "SALUTE | Data Kuisioner C Rekruitmen, Perjalanan, Persayaratan Peserta ";
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1")->result_array();
+
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerc_rekrut',$data);
+		$this->load->view('templates/footer');
+	}
+
+	//detail kuisioner C penyambutan
+	function in_detail_pelatihan_kuisionerc_pemnyambutan($kd_pelatihan)
+	{
+		$data['title']= "SALUTE | Data Kuisioner C Penyambutan, Pembagian Kamar Peserta ";
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=2 ")->result_array();
+
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerc_penyambutan',$data);
+		$this->load->view('templates/footer');	
+	}
+
+	//deatal kuisioner sarana dan prasarana asrama
+	function in_detail_pelatihan_kuisionerc_sapras($kd_pelatihan)
+	{
+		$data['title']= "SALUTE | Data Kuisioner C Sarana dan Prasarana Asrama ";
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 ")->result_array();
+
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerc_sapras',$data);
+		$this->load->view('templates/footer');	
+	}
+
+	//detail kuisioner C konsumsi
+	function in_detail_pelatihan_kuisionerc_konsumsi($kd_pelatihan)
+	{
+		$data['title']= "SALUTE | Data Kuisioner C Konsumsi ";
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 ")->result_array();
+
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerc_konsumsi',$data);
+		$this->load->view('templates/footer');	
+	}
+
+	///detail kuisioner c Bahan Pelatihan
+	function in_detail_pelatihan_kuisionerc_bahan_latihan($kd_pelatihan)
+	{
+		$data['title']= "SALUTE | Data Kuisioner C Bahan Pelatihan, Modul, ATK, Seragam Peserta ";
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=5 ")->result_array();
+
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerc_bahan_latihan',$data);
+		$this->load->view('templates/footer');	
+	}
+	
+	////detail kuisioner C pelaksanaan pelatihan uji kompetensi
+	function in_detail_pelatihan_kuisionerc_pelaksanaan_uji($kd_pelatihan)
+	{
+		$data['title']= "SALUTE | Data Kuisioner C Pelaksanaan Uji Kompetensi ";
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=6 ")->result_array();
+
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerc_pelaksanaan_uji',$data);
+		$this->load->view('templates/footer');
+	}
+
+	///detail kuisioner C Pelaksanaan Pelatihan
+	function in_detail_pelatihan_kuisionerc_pelaksanaan_pel($kd_pelatihan)
+	{
+		$data['title']= "SALUTE | Data Kuisioner C Pelaksanaan Uji Kompetensi ";
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=7 ")->result_array();
+
+
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/sidebar',$data);
+		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerc_pelaksanaan_pel',$data);
 		$this->load->view('templates/footer');
 	}
 

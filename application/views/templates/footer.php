@@ -94,6 +94,43 @@
     $('#notifikasi').slideDown('slow').delay(5000).slideUp('slow');
     </script>
 
+<script>
+		var ctx = document.getElementById("nilai_a").getContext('2d');
+		var nilai_a = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["Kuisioner A"],
+				datasets: [{
+					label: 'Total Pengisi Kuisioner A',
+					data: [
+					<?php 
+					$jumlah_user = $this->db->query("SELECT DISTINCT id_user FROM penilaian_a WHERE id_user ")->num_rows();
+					echo $jumlah_user;
+					?>
+          
+					],
+					backgroundColor: [
+            '#0288d1'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)'
+					],
+					borderWidth: 2
+				}]
+			}, 
+      
+			options: {
+				scales: { 
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+	</script>
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

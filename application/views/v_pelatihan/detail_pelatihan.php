@@ -137,7 +137,7 @@
                         <tr>
                             <td>5</td>
                             <td>Kuisioner C</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan2/5"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/detail_pelatihan2/5/<?= $kd_pelatihan;?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                     </tbody>
                   </table>
