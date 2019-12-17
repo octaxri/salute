@@ -104,7 +104,7 @@
                   <br><br>
                   <center>
                   <div class="row">
-                    <div class="col-sm-12"><a class="btn btn-primary"  href="#modal-edit<?= $user['id_user']; ?>" data-toggle="modal"><span class="fas fa-fw fa-edit"></span>Ubah Profile</a> | <a class="btn btn-primary" href="#modal-password<?= $user['id_user']; ?>" data-toggle="modal"><span class="fas fa-fw fa-edit"></span>Ganti Password</a></div>
+                    <div class="col-sm-12"><a class="btn-sm btn-primary"  href="#modal-edit<?= $user['id_user']; ?>" data-toggle="modal"><span class="fas fa-fw fa-edit"></span>Ubah Profile</a> | <a class="btn-sm btn-primary" href="#modal-password<?= $user['id_user']; ?>" data-toggle="modal"><span class="fas fa-fw fa-edit"></span>Ganti Password</a></div>
                   </div>
                   </center>
     
