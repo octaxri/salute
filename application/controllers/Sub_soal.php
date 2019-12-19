@@ -8,7 +8,7 @@ class Sub_soal extends CI_Controller
 	{
 		parent::__construct();
 
-		if($this->session->userdata('is_level') != 1){
+		if($this->session->userdata('level') != 1){
 			redirect(base_url());
 		}
 		

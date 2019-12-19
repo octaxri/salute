@@ -16,17 +16,10 @@
                 </li>
                 <!-- Login sebagai peserta -->
                 <?php if($this->session->userdata('level') == 0){ ?>
-                  <li class="sidenav-heading">DASHBOARD</li>
-                  <li class="sidenav-item">
-                    <a href="<?= site_url(); ?>dashboard2">
-                      <span class="sidenav-icon icon icon-home"></span>
-                      <span class="sidenav-label">Dashboard</span>
-                    </a>
-                  </li>
-                  <li class="sidenav-heading">MAIN</li>
+                <li class="sidenav-heading">MAIN</li>
                 <li class="sidenav-item">
                   <a href="<?= base_url(); ?>pelatihan_peserta">
-                    <span class="sidenav-icon icon icon-history"></span>
+                    <span class="sidenav-icon icon icon-home"></span>
                     <span class="sidenav-label">Pelatihan</span>
                   </a>
                 </li>

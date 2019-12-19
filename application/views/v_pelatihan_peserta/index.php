@@ -145,7 +145,7 @@
   <?php endforeach;?>
     <!-- AKHIR MODAL BOX KUISIONER B PENGAJAR-->
 
-
+    <?php if($user['tipe_peserta'] == 'Menginap'){ ?>
     <!-- MODAL BOX KUISIONER C -->
    <?php $no=0; foreach($data as $x): $no++; ?>
     <div id="modal-c<?= $x['kd_pelatihan'] ?>" tabindex="-1" role="dialog" class="modal fade">
@@ -187,4 +187,4 @@
   </div>
   <?php endforeach;?>
     <!-- AKHIR MODAL BOX KUISIONER C -->
-
+    <?php } ?>

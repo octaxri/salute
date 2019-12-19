@@ -5,7 +5,11 @@ class Progam extends CI_Controller {
 
     function __construct()
     {
-		parent::__construct();
+        parent::__construct();
+        
+        if($this->session->userdata('level') != 1){
+			redirect(base_url());
+		}
 		
         $this->load->model('M_progam');
         $this->load->model('M_kejuruan');

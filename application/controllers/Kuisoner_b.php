@@ -9,7 +9,7 @@ class Kuisoner_b extends CI_Controller {
 	{
 		parent::__construct();
 		//Do your magic here
-		if($this->session->userdata('is_level') != 1){
+		if($this->session->userdata('level') != 1){
 			redirect(base_url());
 		}
 		

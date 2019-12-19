@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2019 at 11:59 AM
+-- Generation Time: Dec 19, 2019 at 05:55 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -52,7 +52,10 @@ CREATE TABLE `detail_pengajar` (
 
 INSERT INTO `detail_pengajar` (`id`, `kd_pelatihan`, `id_pengajar`) VALUES
 (11, '2019-00000001', 1),
-(12, '2019-00000001', 4);
+(12, '2019-00000001', 4),
+(13, '2019-00000002', 1),
+(14, '2019-00000002', 2),
+(15, '2019-00000002', 4);
 
 -- --------------------------------------------------------
 
@@ -65,6 +68,31 @@ CREATE TABLE `detail_penilaian_b` (
   `id_penilaian_b` int(11) NOT NULL,
   `id_pengajar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detail_penilaian_b`
+--
+
+INSERT INTO `detail_penilaian_b` (`id`, `id_penilaian_b`, `id_pengajar`) VALUES
+(1, 84, 1),
+(2, 85, 1),
+(3, 86, 1),
+(4, 87, 1),
+(5, 88, 1),
+(6, 89, 1),
+(7, 90, 1),
+(8, 91, 1),
+(9, 92, 1),
+(10, 93, 1),
+(11, 94, 1),
+(12, 95, 1),
+(13, 96, 1),
+(14, 97, 1),
+(15, 98, 1),
+(16, 99, 1),
+(17, 100, 1),
+(18, 101, 1),
+(19, 102, 1);
 
 -- --------------------------------------------------------
 
@@ -86,7 +114,8 @@ INSERT INTO `detail_peserta` (`id`, `kd_pelatihan`, `id_user`) VALUES
 (11, '2019-00000001', 4),
 (12, '2019-00000001', 7),
 (13, '2019-00000001', 8),
-(14, '2019-00000002', 4);
+(14, '2019-00000002', 4),
+(15, '2019-00000003', 4);
 
 -- --------------------------------------------------------
 
@@ -190,7 +219,26 @@ INSERT INTO `kuisioner_b` (`id_kuisionerB`, `jenis_soal`, `soalB`, `jawaban1B`, 
 (52, 4, 'Modul pelatihan yang diterimakan peserta (secara umum)', 1, 2, 3, 4, 5, 'pg', 4),
 (53, 4, 'Alat tulis / kelengkapan yang diterima peserta', 1, 2, 3, 4, 5, 'pg', 4),
 (54, 4, 'Seragam yang diterima peserta (kondisi umum : ukuran, jenis bahan , kenyamanan dalam pemakaian)', 1, 2, 3, 4, 5, 'pg', 4),
-(55, 4, 'Komentar / saran tentang Bahan Latihan, Modul, ATK, dan Seragam Peserta :', 0, 0, 0, 0, 0, 'uraian', 8);
+(55, 4, 'Komentar / saran tentang Bahan Latihan, Modul, ATK, dan Seragam Peserta :', 0, 0, 0, 0, 0, 'uraian', 8),
+(56, 2, 'Tenaga pelatih menguasai materi pelatihan teori', 5, 4, 3, 2, 1, 'pg', 9),
+(57, 2, 'Tenaga pelatih menguasai materi Pelatihan praktek', 5, 4, 3, 2, 1, 'pg', 9),
+(58, 2, 'Tenaga pelatih selalu Mendemonstra sikan dan menjelaskan jobsheet sesuai dengan prosedur kerja', 5, 4, 3, 2, 1, 'pg', 9),
+(59, 2, 'Tenaga pelatih selalu menjelaskan, memberikan contoh, dan mengingatkan peserta pelatihan tentang pentingnya K3 (Kesehatan dan Keselamatan Kerja) di Lingkungan kerja', 5, 4, 3, 2, 1, 'pg', 9),
+(60, 2, 'Tenaga pelatih menjelaskan tujuan pelatihan dan gambaran pelatihan secara umum di awal pelatihan', 5, 4, 3, 2, 1, 'pg', 10),
+(61, 2, 'Tenaga pelatih menyajikan pelajaran dengan jelas dan bahasanya mudah di mengerti', 5, 4, 3, 2, 1, 'pg', 10),
+(62, 2, 'Tenaga pelatih selalu Mendampingi peserta Pelatihan selama proses pelatihan', 5, 4, 3, 2, 1, 'pg', 10),
+(63, 2, 'Tenaga pelatih memberikan materi sesuai dengan tujuan pembelajaran secara sistematis / berurutan', 5, 4, 3, 2, 1, 'pg', 10),
+(64, 2, 'Tenaga pelatih mendorong partisipasi Peserta pelatihan dalam diskusi, demonstrasi, peragaan dan percobaan\r\n', 5, 4, 3, 2, 1, 'pg', 10),
+(65, 2, 'Tenaga pelatih memperhatikan kebersihan lingkungan dan keamanan peralatan / bahan praktek\r\n', 5, 4, 3, 2, 1, 'pg', 10),
+(66, 2, 'Tenaga pelatih memberikan kesempatan pada peserta pelatihan untuk bertanya atau menyampaikan pendapat\r\n', 5, 4, 3, 2, 1, 'pg', 10),
+(67, 2, 'Tenaga pelatih menciptakan suasana belajar yang kondusif (aman dan nyaman)\r\n', 5, 4, 3, 2, 1, 'pg', 11),
+(68, 2, 'Tenaga pelatih mendengarkn dan memperhatikan keluhan,usul dan saran dari peserta pelatihan\r\n', 5, 4, 3, 2, 1, 'pg', 11),
+(69, 2, 'Tenaga pelatih memperlakukan  Peserta pelatihan secara adil, tidak memihak atau membedabedakan\r\n', 5, 4, 3, 2, 1, 'pg', 11),
+(70, 2, 'Tenaga pelatih  hadir tepat waktu sesuai jadwal', 5, 4, 3, 2, 1, 'pg', 12),
+(71, 2, 'Tenaga pelatih Memakai pakaian kerja pada saat mengajar praktek\r\n', 5, 4, 3, 2, 1, 'pg', 12),
+(72, 2, 'Tenaga pelatih memberikan keteladanan baik di dalam maupun di luar kelas/ bengkel\r\n', 5, 4, 3, 2, 1, 'pg', 12),
+(73, 2, 'Tenaga pelatih  tidak Merokok pada saat di ruang kelas/bengkel maupun gedung kantor\r\n', 5, 4, 3, 2, 1, 'pg', 12),
+(74, 2, 'Komentar / saran tentang Tenaga pelatih :', 0, 0, 0, 0, 0, 'uraian', 13);
 
 -- --------------------------------------------------------
 
@@ -276,7 +324,8 @@ CREATE TABLE `pelatihan` (
 
 INSERT INTO `pelatihan` (`kd_pelatihan`, `id_kejuruan`, `id_program`, `tgl_mulai_pelatihan`, `tgl_akhir_pelatihan`, `tahap_pelatihan`, `kelas_pelatihan`) VALUES
 ('2019-00000001', 2, 16, '2020-01-01', '2020-01-03', 1, 1),
-('2019-00000002', 2, 16, '2020-01-01', '2020-01-03', 1, 2);
+('2019-00000002', 2, 16, '2020-01-01', '2020-01-03', 1, 2),
+('2019-00000003', 2, 16, '2020-02-03', '2020-04-03', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -437,7 +486,26 @@ INSERT INTO `penilaian_b` (`id`, `kd_pelatihan`, `id_user`, `id_soalB`, `jawaban
 (80, '2019-00000001', 4, 52, '5'),
 (81, '2019-00000001', 4, 53, '4'),
 (82, '2019-00000001', 4, 54, '5'),
-(83, '2019-00000001', 4, 55, 'awa');
+(83, '2019-00000001', 4, 55, 'awa'),
+(84, '2019-00000002', 4, 56, '4'),
+(85, '2019-00000002', 4, 57, '5'),
+(86, '2019-00000002', 4, 58, '5'),
+(87, '2019-00000002', 4, 59, '5'),
+(88, '2019-00000002', 4, 60, '5'),
+(89, '2019-00000002', 4, 61, '5'),
+(90, '2019-00000002', 4, 62, '5'),
+(91, '2019-00000002', 4, 63, '4'),
+(92, '2019-00000002', 4, 64, '4'),
+(93, '2019-00000002', 4, 65, '5'),
+(94, '2019-00000002', 4, 66, '5'),
+(95, '2019-00000002', 4, 67, '5'),
+(96, '2019-00000002', 4, 68, '5'),
+(97, '2019-00000002', 4, 69, '5'),
+(98, '2019-00000002', 4, 70, '5'),
+(99, '2019-00000002', 4, 71, '5'),
+(100, '2019-00000002', 4, 72, '5'),
+(101, '2019-00000002', 4, 73, '5'),
+(102, '2019-00000002', 4, 74, 'Jelekk');
 
 -- --------------------------------------------------------
 
@@ -544,7 +612,12 @@ INSERT INTO `sub_soal` (`id_sub_soal`, `nama_sub_soal`) VALUES
 (5, 'C'),
 (6, 'D'),
 (7, 'E'),
-(8, 'Uraian');
+(8, 'Uraian'),
+(9, 'PENGETAHUAN / PEMAHAMAN'),
+(10, 'KEMAMPUAN DALAM MEMBAWAKAN MATERI'),
+(11, 'KEMAMPUAN MEMAHAMI MASALAH PESERTA'),
+(12, 'PENAMPILAN TENAGA PELATIH'),
+(13, 'KOMENTAR / SARAN TENAGA PELATIH');
 
 -- --------------------------------------------------------
 
@@ -740,19 +813,19 @@ ALTER TABLE `bobot_nilai`
 -- AUTO_INCREMENT for table `detail_pengajar`
 --
 ALTER TABLE `detail_pengajar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `detail_penilaian_b`
 --
 ALTER TABLE `detail_penilaian_b`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `detail_peserta`
 --
 ALTER TABLE `detail_peserta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `kejuruan`
@@ -770,7 +843,7 @@ ALTER TABLE `kuisioner_a`
 -- AUTO_INCREMENT for table `kuisioner_b`
 --
 ALTER TABLE `kuisioner_b`
-  MODIFY `id_kuisionerB` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id_kuisionerB` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `kuisioner_c`
@@ -794,7 +867,7 @@ ALTER TABLE `penilaian_a`
 -- AUTO_INCREMENT for table `penilaian_b`
 --
 ALTER TABLE `penilaian_b`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `penilaian_c`
@@ -812,7 +885,7 @@ ALTER TABLE `program`
 -- AUTO_INCREMENT for table `sub_soal`
 --
 ALTER TABLE `sub_soal`
-  MODIFY `id_sub_soal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_sub_soal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user`

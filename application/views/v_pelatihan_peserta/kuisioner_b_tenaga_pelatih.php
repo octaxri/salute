@@ -35,22 +35,63 @@
                   <strong>Daftar Kuisioner B | Tenaga Pelatih</strong>
                 </div>
                 <div class="card-body">
+                    <!-- <h5>* Bagi tenaga pelatih  yang hanya mengajar teori saja,peserta jangan mengisi point 2a, 3a,4a dan 7b</h5>
+                    <hr> -->
                     <!-- ISINYA -->
                     <?php echo form_open('Pelatihan_peserta/proses_kuisioner_b1');?>
                     <input type="hidden" value="<?= $kd_pelatihan; ?>" name="kd_pelatihan" class="form-control" >
                     <input type="hidden" value="<?= $id_pengajar; ?>" name="id_pengajar" class="form-control" >  
-                    <?php $no=1; foreach($data as $d){ ?>
-                        <h4><?= $no++; ?>. <?= $d['soalB']; ?></h4>
-                        <?php if($d['tipe_soal'] == 'pg'){ ?>
+                    <?php $no=1; $n=1; $nu=1; $k=1; $p=1; $m=1; $s=1; foreach($data as $d){ ?>
+                      <?php $no++; ?>
+                      <?php if($d['tipe_soal'] == 'pg' && $d['sub_soal'] == 9){ ?>
+                          <strong>A. PENGETAHUAN / PEMAHAMAN</strong>
+                          <h4><?= $s++; ?>. <?= $d['soalB']; ?></h4>
                         <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan[<?= $no; ?>][id]" class="form-control" >  
                           &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>" required> <?= $d['jawaban1B']; ?> <br>
                           &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban2B']; ?>"> <?= $d['jawaban2B']; ?> <br>
                           &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban3B']; ?>"> <?= $d['jawaban3B']; ?> <br>
                           &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban4B']; ?>"> <?= $d['jawaban4B']; ?> <br>
                           &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban5B']; ?>"> <?= $d['jawaban5B']; ?> <br>
-                        <?php }else{ ?>
+                        
+                        <?php } elseif ($d['tipe_soal'] == 'pg' && $d['sub_soal'] == 10) { ?>
+                          <strong>B. KEMAMPUAN DALAM MEMBAWAKAN MATERI </strong>
+                          <h4><?= $n++; ?>. <?= $d['soalB']; ?></h4>
+                        <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan[<?= $no; ?>][id]" class="form-control" >  
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>" required> <?= $d['jawaban1B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban2B']; ?>"> <?= $d['jawaban2B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban3B']; ?>"> <?= $d['jawaban3B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban4B']; ?>"> <?= $d['jawaban4B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban5B']; ?>"> <?= $d['jawaban5B']; ?> <br>
+                          
+                        <?php } elseif ($d['tipe_soal'] == 'pg' && $d['sub_soal'] == 11) { ?>
+
+                          <strong>C. KEMAMPUAN MEMAHAMI MASALAH PESERTA</strong>
+                          <h4><?= $nu++; ?>. <?= $d['soalB']; ?></h4>
+                        <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan[<?= $no; ?>][id]" class="form-control" >  
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>" required> <?= $d['jawaban1B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban2B']; ?>"> <?= $d['jawaban2B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban3B']; ?>"> <?= $d['jawaban3B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban4B']; ?>"> <?= $d['jawaban4B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban5B']; ?>"> <?= $d['jawaban5B']; ?> <br>
+
+                        <?php } elseif ($d['tipe_soal'] == 'pg' && $d['sub_soal'] == 12) { ?>
+
+                          <strong>D. PENAMPILAN TENAGA PELATIH</strong>
+                          <h4><?= $k++; ?>. <?= $d['soalB']; ?></h4>
+                        <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan[<?= $no; ?>][id]" class="form-control" >  
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban1B']; ?>" required> <?= $d['jawaban1B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban2B']; ?>"> <?= $d['jawaban2B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban3B']; ?>"> <?= $d['jawaban3B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban4B']; ?>"> <?= $d['jawaban4B']; ?> <br>
+                          &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban5B']; ?>"> <?= $d['jawaban5B']; ?> <br>
+                    
+                        <?php } elseif ($d['tipe_soal'] == 'uraian' && $d['sub_soal'] == 13) { ?>
+
+                          <strong>KOMENTAR / SARAN TENAGA PELATIH</strong>
+                          <h4><?= $m++; ?>. <?= $d['soalB']; ?></h4>
                           <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan2[<?= $no; ?>][id]" class="form-control" >  
                           <textarea name="pertanyaan2[<?= $no; ?>][jawaban]" class="form-control" cols="30" rows="5"></textarea>
+                        
                         <?php } ?>
                           <hr>
                     <?php } ?>

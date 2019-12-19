@@ -7,9 +7,10 @@ class Profile extends CI_Controller {
 	function __construct(){
         parent::__construct();
         
-        // if($this->session->userdata('username') != TRUE){
-		// 	redirect('blocked');
-		// }
+        if($this->session->userdata('level') == NULL){
+			redirect(base_url());
+        }
+        
 		$this->load->model('M_profile');
     }
 
