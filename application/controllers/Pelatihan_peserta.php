@@ -8,7 +8,7 @@ class Pelatihan_peserta extends CI_Controller {
 		parent::__construct();
         //Do your magic here
 
-        if($this->session->userdata('is_level') == NULL){
+        if($this->session->userdata('level') != 0){
 			redirect(base_url());
         }
         

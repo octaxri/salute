@@ -43,7 +43,9 @@
                     <h3><?= $d['nama_kejuruan']; ?> - <?= $d['nama_program']; ?> (<?= $d['tgl_mulai_pelatihan']; ?> - <?= $d['tgl_akhir_pelatihan']; ?>)</h3><br>
                     <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/kirim_kuisioner_a/<?= $d['kd_pelatihan']; ?>">Kuisioner A</a><br><br><br>
                     <a class="btn btn-primary col-xs-12" href="#modal-b<?= $d['kd_pelatihan']; ?>" data-toggle="modal">Kuisioner B</a><br><br><br>
+                    <?php if($user['tipe_peserta'] == 'Menginap'){ ?>
                     <a class="btn btn-primary col-xs-12" href="#modal-c<?= $d['kd_pelatihan']; ?>" data-toggle="modal">Kuisioner C</a><br><br><br>
+                    <?php } ?>
                     <hr>
                     <?php } ?>
                     <!-- AKHIR ISINYA -->
