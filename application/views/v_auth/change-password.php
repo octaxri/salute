@@ -33,7 +33,7 @@
     <?= $this->session->flashdata('message');?>
       <div class="login-body">
         <a class="login-brand" href="#">
-          <img class="img-responsive" src="<?= base_url(); ?>assets/admin/img/logo.svg" alt="Elephant">
+        <img class="img-responsive" src="<?= base_url(); ?>assets/admin/img/logo.png" width="90%">
         </a>
         <h3 class="login-heading">Change Password</h3>
         <div class="login-form">

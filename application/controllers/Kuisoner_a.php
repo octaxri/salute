@@ -5,6 +5,11 @@ class Kuisoner_a extends CI_Controller {
 	
 	function __construct() 
 	{
+
+		if($this->session->userdata('is_level') != 1){
+			redirect(base_url());
+		}
+		
 		parent::__construct();
 		$this->load->model('M_kuisoner_a');
 		

@@ -18,8 +18,8 @@
     <meta name="twitter:description" content="Elephant is an admin template that helps you build modern Admin Applications, professionally fast! Built on top of Bootstrap, it includes a large collection of HTML, CSS and JS components that are simple to use and easy to customize.">
     <meta name="twitter:image" content="http://demo.madebytilde.com/elephant.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url() ?>assets/admin/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/admin/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/admin/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/admin/logo.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/admin/logo.png" sizes="16x16">
     <link rel="manifest" href="<?php echo base_url() ?>assets/admin/manifest.json">
     <link rel="mask-icon" href="<?php echo base_url() ?>assets/admin/safari-pinned-tab.svg" color="#0288d1">
     <meta name="theme-color" content="#ffffff">
@@ -37,7 +37,8 @@
       <div class="navbar navbar-default">
         <div class="navbar-header">
           <a class="navbar-brand navbar-brand-center" href="<?= base_url(); ?>assets/admin/doc/index.html">
-            <img class="navbar-brand-logo" src="<?= base_url(); ?>assets/admin/img/logo-inverse.svg" alt="Elephant">
+            <!-- <img class="navbar-brand-logo" src="<?= base_url(); ?>assets/admin/img/logo.png" alt="Elephant"> -->
+            SALUTE BPLK
           </a>
           <button class="navbar-toggler visible-xs-block collapsed" type="button" data-toggle="collapse" data-target="#sidenav">
             <span class="sr-only">Toggle navigation</span>
@@ -55,7 +56,7 @@
             <span class="sr-only">Toggle navigation</span>
             <span class="arrow-up"></span>
             <span class="ellipsis ellipsis-vertical">
-              <img class="ellipsis-object" width="32" height="32" src="<?= base_url(); ?>assets/admin/img/0180441436.jpg" alt="Teddy Wilson">
+              <img class="ellipsis-object" width="32" height="32" src="<?= base_url(); ?>assets/admin/img/user.jpg" alt="User">
             </span>
           </button>
         </div>
@@ -89,7 +90,7 @@
               </li>
               <li class="dropdown hidden-xs">
                 <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
-                  <img class="rounded" width="36" height="36" src="<?= base_url(); ?>assets/admin/img/0180441436.jpg" > <?= $this->session->userdata('username'); ?>
+                  <img class="rounded" width="36" height="36" src="<?= base_url(); ?>assets/admin/img/user.jpg" > <?= $this->session->userdata('username'); ?>
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">

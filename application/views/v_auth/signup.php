@@ -33,7 +33,7 @@
     <?= $this->session->flashdata('message');?>
       <div class="signup-body">
         <a class="signup-brand" href="index.html">
-          <img class="img-responsive" src="<?= base_url(); ?>assets/admin/img/logo.svg" alt="Elephant">
+        <img class="img-responsive" src="<?= base_url(); ?>assets/admin/img/logo.png" width="90%">
         </a>
         <p class="signup-heading">
           <em>Pendaftaran peserta Sistem Aplikasi Evaluasi Pelatihan Online</em>

@@ -6,7 +6,12 @@ class Pelatihan_peserta extends CI_Controller {
  
 	public function __construct(){
 		parent::__construct();
-		//Do your magic here
+        //Do your magic here
+
+        if($this->session->userdata('is_level') == NULL){
+			redirect(base_url());
+        }
+        
 		$this->load->model('M_pelatihan_peserta');
         $this->load->model('M_kuisoner_a');
         $this->load->model('M_kuisoner_b');

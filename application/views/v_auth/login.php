@@ -18,8 +18,8 @@
     <meta name="twitter:description" content="Elephant is an admin template that helps you build modern Admin Applications, professionally fast! Built on top of Bootstrap, it includes a large collection of HTML, CSS and JS components that are simple to use and easy to customize.">
     <meta name="twitter:image" content="http://demo.madebytilde.com/elephant.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url(); ?>assets/admin/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/admin/logo.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/admin/logo.png" sizes="16x16">
     <link rel="manifest" href="<?= base_url(); ?>assets/admin/manifest.json">
     <link rel="mask-icon" href="<?= base_url(); ?>assets/admin/safari-pinned-tab.svg" color="#0288d1">
     <meta name="theme-color" content="#ffffff">
@@ -33,7 +33,7 @@
     <?= $this->session->flashdata('message');?>
       <div class="login-body">
         <a class="login-brand" href="#">
-          <img class="img-responsive" src="<?= base_url(); ?>assets/admin/img/logo.svg" alt="Elephant">
+          <img class="img-responsive" src="<?= base_url(); ?>assets/admin/img/logo.png" width="90%">
         </a>
         <h3 class="login-heading">Sign in</h3>
         <div class="login-form">

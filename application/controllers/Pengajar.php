@@ -6,6 +6,10 @@ class Pengajar extends CI_Controller {
 	function __construct()
     {
 		parent::__construct();
+
+		if($this->session->userdata('is_level') != 1){
+			redirect(base_url());
+		}
 		
 		$this->load->model('M_pengajar');
 		///$this->load->library('barcode');

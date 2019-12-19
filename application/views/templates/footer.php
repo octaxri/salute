@@ -1,6 +1,6 @@
       <div class="layout-footer">
         <div class="layout-footer-body">
-          <small class="version">Version 1.4.0</small>
+          <small class="version">Version 1.0.0</small>
           <small class="copyright">2019 &copy; Salute BPLK <a href="#">Develop by Farmas Tech</a></small>
         </div>
       </div>

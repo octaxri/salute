@@ -9,6 +9,10 @@ class Kuisoner_b extends CI_Controller {
 	{
 		parent::__construct();
 		//Do your magic here
+		if($this->session->userdata('is_level') != 1){
+			redirect(base_url());
+		}
+		
 		$this->load->model('M_kuisoner_b');
 		$this->load->model('M_sub_soal');
 
