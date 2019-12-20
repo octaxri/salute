@@ -36,7 +36,7 @@
                 <td colspan="3">
                 <center>
                 <table border="1" width="100%">
-                        <tr>
+                        <tr  align="center"  >
                           <td rowspan="2" width="15" align="center"><b>NOMOR URUT</b></td>
                           <?php $i1 =1; $jml=0; foreach($responden as $r){ ?>
                             <?php 
@@ -49,7 +49,7 @@
                           <td colspan="<?= $jml ;?>" align="center"><b>NILAI PER UNSUR PELAYANAN</b></td>
                         </tr>
 
-                        <tr>
+                        <tr  align="center" >
                         <?php 
                            $p = 1;
                            $soalnya = $this->db->query("SELECT DISTINCT id_soalA FROM penilaian_a WHERE kd_pelatihan='$kd_pelatihan'")->result_array(); 
@@ -57,7 +57,7 @@
                           <td align="center">U <?= $p++; ?></td>
                         <?php } ?>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                             <td align="center" style="background-color:BurlyWood;">1</td>
                             <?php $p2=2; 
                                 foreach($soalnya as $c){
@@ -72,7 +72,7 @@
                             $id_user = $r['id_user'];
                             $soal = $this->db->query("SELECT DISTINCT id_soalA FROM penilaian_a WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan'")->result_array(); 
                           ?>
-                        <tr>
+                        <tr  align="center" >
                           <td align="center"><?= $i1++; ?></td>
                           <!-- loop 2 -->
                           <?php $i2=1; 
@@ -89,7 +89,7 @@
                         </tr>
                         <?php } ?>
                         <!-- akhir loop 1 -->
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">Jumlah</td>
                           <?php 
                            $z = 1;
@@ -99,11 +99,11 @@
 
                            $total = $this->db->query("SELECT SUM(jawaban) as total FROM penilaian_a WHERE id_soalA='$id_soalnya' AND kd_pelatihan='$kd_pelatihan'")->row_array();
                           ?>
-                          <td><?= $total['total']; ?></td>
+                          <td><center><?= $total['total']; ?></center></td>
                           <?php } ?>
                         </tr>
 
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">NRR</td>
                           <?php 
                            $z = 1;
@@ -117,7 +117,7 @@
                           <?php } ?>
                         </tr>
                         
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">NRR Tertimbang</td>
                           <?php 
                            $jmlh_keseluruhan = 0;
@@ -133,11 +133,11 @@
                           <td><?= number_format($total['total']/$jml_soal,2); ?></td>
                           <?php $jmlh_keseluruhan = $jmlh_keseluruhan+(number_format($total['total']/$jml_soal,2)); } ?>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">Total</td>
-                          <td colspan="<?= $jml; ?>" align="center"><h4><?= number_format($jmlh_keseluruhan,2); ?></h4></td>
+                          <td colspan="<?= $jml; ?>" align="center"><?= number_format($jmlh_keseluruhan,2); ?></h4></td>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">Hasil</td>
                           <td colspan="<?= $jml; ?>" align="center"><h4><?= $hasil_akhir = number_format($jmlh_keseluruhan*20,2); ?></h4></td>
                         </tr>

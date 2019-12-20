@@ -14,17 +14,17 @@
 </style>
 <body onload="window.print()">
     <table align="center" cellspacing="5" width="100%">
-            <tr>
+            <tr  align="center" >
                 <td colspan="3"><h4>PELAKSANAAN UJI</h4></td>
             </tr>
-            <tr>
+            <tr  align="center" >
                 <td colspan="3"><center><h4>
                 HASIL ANALISIS ANGKET <br>
                 PELATIHAN <?= strtoupper($data1['nama_program']); ?>  
                 <br> KEJURUAN <?= strtoupper($data1['nama_kejuruan']); ?>
                 </h4></center></td>
             </tr>
-            <tr>
+            <tr  align="center" >
                 <td colspan="3">
                         <!-- tabel -->  
                         <table align="center" width="100%" border="1">
@@ -41,7 +41,7 @@
                           <?php } ?>
                           <th colspan="<?=$jml;?>" align="center">Pelaksanaan Uji Kompetensi</th>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                         <?php 
                                $soal=1;
                                $jml_soal=$this->db->query("SELECT DISTINCT id_soalC,jenis_soal,tipe_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=6 AND tipe_soal='pg' ")->result_array();
@@ -57,7 +57,7 @@
                             $id_user = $r['id_user'];
                             $soal = $this->db->query("SELECT DISTINCT id_soalC,jenis_soal,tipe_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=6 AND tipe_soal='pg' ")->result_array(); 
                           ?>
-                          <tr>
+                          <tr  align="center" >
                           <td align="center"><?= $i1++; ?></td>
                           <!-- loop 2 -->
                           <?php $i2=1; 
@@ -74,7 +74,7 @@
                           </tr>
                           <?php } ?>
 
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">Jumlah</td>
                           <?php 
                             $z = 1;
@@ -87,7 +87,7 @@
                             <td align="center"><?= $total['total']; ?></td>
                             <?php } ?>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">Nilai Rata-Rata</td>
                           <?php 
                             $z = 1;
@@ -100,7 +100,7 @@
                             <td align="center"><?= number_format($total['total'],2); ?></td>
                             <?php } ?>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">NRR X Bobot</td>
                           <?php 
                            $jml_semua=0;
@@ -117,11 +117,11 @@
                             <td align="center"><?= number_format($total['total']/$jml_soal,2); ?></td>
                             <?php $jml_semua=$jml_semua+(number_format($total['total']/$jml_soal,2)); } ?>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">Jumlah</td>
                           <td colspan="<?=$jml;?>" align="center"><h4><?=number_format($jml_semua,2);?></h4></td>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">Jumlah X 25</td>
                           <td colspan="<?=$jml;?>" align="center"><h4><?=number_format($jml_semua*25,2);?></h4></td>
                         </tr>

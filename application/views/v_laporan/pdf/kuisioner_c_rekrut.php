@@ -40,7 +40,7 @@
                           <th colspan="<?= $jml;?>" align="center">Rekruitmen, Perjalanan, Persyaratan Peserta</th>
                         </tr>
 
-                        <tr>
+                        <tr  align="center" >
                         <?php 
                                $soal=1;
                                $jml_soal=$this->db->query("SELECT DISTINCT id_soalC,jenis_soal,tipe_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1 AND tipe_soal='pg' ")->result_array();

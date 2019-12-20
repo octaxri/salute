@@ -29,7 +29,7 @@
                         <!-- tabel -->  
                         <table border="1" width="100%">
                       <thead>
-                        <tr>
+                        <tr  align="center" >
                           <th rowspan="2" width="15" align="center">No Responden</th>
                           <?php $i=0; $jml=0; foreach ($responden as $r) { ?>
                             <?php 
@@ -41,7 +41,7 @@
                           <th colspan="<?= $jml;?>" align="center">Bahan Latihan</th>
                         </tr>
              
-                        <tr>
+                        <tr  align="center" >
                             <?php 
                                $soal=1;
                                $jml_soal=$this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 AND tipe_soal='pg' ")->result_array();
@@ -58,7 +58,7 @@
                             $id_user = $r['id_user'];
                             $soal = $this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 AND tipe_soal='pg' ")->result_array(); 
                           ?>
-                          <tr>
+                          <tr  align="center" >
                           <td align="center"><?= $i1++; ?></td>
                           <!-- loop 2 -->
                           <?php $i2=1; 
@@ -75,7 +75,7 @@
                           </tr>
                           <?php } ?>
                      
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">Jumlah</td>
                           <?php 
                             $z = 1;
@@ -88,7 +88,7 @@
                             <td align="center"><?= $total['total']; ?></td>
                             <?php } ?>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">Nilai Rata-Rata</td>
                           <?php 
                             $z = 1;
@@ -101,7 +101,7 @@
                             <td align="center"><?= number_format($total['total'],2); ?></td>
                             <?php } ?>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">NRR X Bobot</td>
                           <?php 
                            $jml_semua=0;
@@ -118,11 +118,11 @@
                             <td align="center"><?= number_format($total['total']/$jml_soal,2); ?></td>
                             <?php $jml_semua=$jml_semua+(number_format($total['total']/$jml_soal,2)); } ?>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">Jumlah</td>
                           <td colspan="<?=$jml;?>" align="center"><h4><?= number_format($jml_semua,2);?></h4></td>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                           <td align="center">Jumlah X 20</td>
                           <td colspan="<?=$jml;?>" align="center"><h4><?= number_format($jml_semua*20,2);?></h4></td>
                         </tr>

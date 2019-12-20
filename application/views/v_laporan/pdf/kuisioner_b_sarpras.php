@@ -50,7 +50,7 @@
                           <th colspan="<?= $jml4;?>" align="center">SARANA PENUNJANG</th>
                         </tr>
                         
-                        <tr>
+                        <tr  align="center" >
                         <?php 
                                $soal=1;
                                $jml_soal=$this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal,sub_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1 ")->result_array();                               
@@ -99,7 +99,7 @@
                           $soal3 = $this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal,sub_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 AND tipe_soal='pg'AND sub_soal=6 ")->result_array(); 
                           $soal4 = $this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal,sub_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 AND tipe_soal='pg'AND sub_soal=7 ")->result_array(); 
                         ?>
-                        <tr>
+                        <tr  align="center" >
                         <td><?= $i1++; ?></td>
                         <!-- loop 2 -->
                         <?php $i2=1; 
@@ -169,7 +169,7 @@
                         <?php } ?>
 
                     
-                        <tr>
+                        <tr  align="center" >
                           <td>Jumlah</td>
                           <!-- Jumlah Workshop -->
                           <?php 
@@ -239,7 +239,7 @@
                         </tr>
 
 
-                        <tr>
+                        <tr  align="center" >
                           <td>Nilai Rata-Rata</td>
                           <!-- Rt Workshop -->
                           <?php 
@@ -309,7 +309,7 @@
                         </tr>
 
 
-                        <tr>
+                        <tr  align="center" >
                           <td>NRR X Bobot</td>
                           <!-- nrr x bobot Workshop -->
                           <?php 
@@ -399,7 +399,7 @@
                         </tr>
 
 
-                        <tr>
+                        <tr  align="center" >
                           <td>Jumlah</td>
                           <td colspan="<?= $jml;?>" align="center"><h4><?= number_format($jml_semua1,2);?></h4></td>
                           <td colspan="<?= $jml1;?>" align="center"><h4><?= number_format($jml_semua2,2);?></h4></td>
@@ -407,7 +407,7 @@
                           <td colspan="<?= $jml3;?>" align="center"><h4><?= number_format($jml_semua4,2);?></h4></td>
                           <td colspan="<?= $jml4;?>" align="center"><h4><?= number_format($jml_semua5,2);?></h4></td>
                         </tr>
-                        <tr>
+                        <tr  align="center" >
                           <td>Jumlah X 20</td>
                           <td colspan="<?=$jml;?>" align="center"><h4><?= number_format($jml_semua1*20,2);?></h4></td>
                           <td colspan="<?=$jml1;?>" align="center"><h4><?= number_format($jml_semua2*20,2);?></h4></td>
