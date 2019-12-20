@@ -117,7 +117,7 @@ class M_pelatihan extends CI_Model {
 
 
 	function program($id){
-		$program="<option value='0'>----- Pilih -----</pilih>";
+		$program="<option value=''>----- Pilih -----</pilih>";
 
 		$prog= $this->db->get_where('program',array('id_kejuruan'=>$id));
         

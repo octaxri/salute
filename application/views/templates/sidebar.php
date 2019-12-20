@@ -76,8 +76,8 @@
                   </a>
                   <ul class="sidenav-subnav collapse">
                     <li><a href="<?= site_url(); ?>Rekap_tahap">Tahap</a></li>
-                    <li><a href="<?= site_url(); ?>Rekap_kejuruan">Kejuruan</a></li>
                     <li><a href="<?= site_url(); ?>Rekap_program">Program</a></li>
+                    <li><a href="<?= site_url(); ?>Rekap_kejuruan">Kejuruan</a></li>
                   </ul>
                 </li>
                 <li class="sidenav-item">
