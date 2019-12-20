@@ -263,20 +263,7 @@ class Pelatihan extends CI_Controller {
 	}
 
 	///detail kuisioner c Bahan Pelatihan
-	function in_detail_pelatihan_kuisionerc_bahan_latihan($kd_pelatihan)
-	{
-		$data['title']= "SALUTE | Data Kuisioner C Bahan Pelatihan, Modul, ATK, Seragam Peserta ";
-		$data['kd_pelatihan']=$kd_pelatihan;
-		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
-		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=5 ")->result_array();
-
-
-		$this->load->view('templates/header',$data);
-		$this->load->view('templates/sidebar',$data);
-		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerc_bahan_latihan',$data);
-		$this->load->view('templates/footer');	
-	}
 	
 	////detail kuisioner C pelaksanaan pelatihan uji kompetensi
 	function in_detail_pelatihan_kuisionerc_pelaksanaan_uji($kd_pelatihan)

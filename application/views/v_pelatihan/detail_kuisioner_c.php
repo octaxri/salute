@@ -60,18 +60,14 @@
                           <td>KONSUMSI</td>
                           <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/in_detail_pelatihan_kuisionerc_konsumsi/<?= $kd_pelatihan;?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
+
                         <tr>
                           <td>5</td>
-                          <td>BAHAN PELATIHAN,MODUL,ATK, DAN SERAGAM PESERTA </td>
-                          <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/in_detail_pelatihan_kuisionerc_bahan_latihan/<?= $kd_pelatihan;?>"><span class="icon icon-eye"></span> Detail</a></td>
-                        </tr>
-                        <tr>
-                          <td>6</td>
                           <td>PELAKSANAAN UJI KOMPETENSI</td>
                           <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/in_detail_pelatihan_kuisionerc_pelaksanaan_uji/<?= $kd_pelatihan;?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
-                          <td>7</td>
+                          <td>6</td>
                           <td>SECARA UMUM PELATIHAN</td>
                           <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>pelatihan/in_detail_pelatihan_kuisionerc_pelaksanaan_pel/<?= $kd_pelatihan;?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
