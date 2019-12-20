@@ -162,65 +162,36 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/excel/kuisioner_b_bahan_pelatihan',$data);
 	}
 
-<<<<<<< HEAD
 	function export_exel_kuisioner_c_konsumsi($kd_pelatihan){
 		$data['title'] = "Kuisioner C | Konsumsi";
-=======
-	function export_exel_kuisioner_c_rekrut($kd_pelatihan){
-		$data['title'] = "Kuisioner B | Bahan Pelatihan";
->>>>>>> master
 
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
-<<<<<<< HEAD
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 ")->result_array();
 		$this->load->view('v_laporan/excel/kuisioner_c_konsumsi',$data);
 	}
 
 	function export_exel_kuisioner_c_pelaksanaan_uji($kd_pelatihan){
 		$data['title'] = "Kuisioner C | Pelaksanaan Uji Kompetensi";
-=======
-		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1")->result_array();
-		$this->load->view('v_laporan/excel/kuisioner_c_rekrut',$data);
-	}
-
-	function export_exel_kuisioner_c_penyambutan($kd_pelatihan){
-		$data['title'] = "Kuisioner B | Bahan Pelatihan";
->>>>>>> master
 
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
-<<<<<<< HEAD
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=6 ")->result_array();
 		$this->load->view('v_laporan/excel/kuisioner_c_pelaksanaan_uji',$data);
 	}
 
 	function export_exel_kuisioner_c_secara_umum_pel($kd_pelatihan){
 		$data['title'] = "Kuisioner C | Secara Umum Pelatihan";
-=======
-		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=2 ")->result_array();
-		$this->load->view('v_laporan/excel/kuisioner_c_penyambutan',$data);
-	}
-	
-	function export_exel_kuisioner_c_sarpras($kd_pelatihan){
-		$data['title'] = "Kuisioner B | Bahan Pelatihan";
->>>>>>> master
 
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
-<<<<<<< HEAD
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=7 ")->result_array();
 		$this->load->view('v_laporan/excel/kuisioner_c_secara_umum',$data);
 	}
 
-=======
-		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 ")->result_array();
-		$this->load->view('v_laporan/excel/kuisioner_c_sarpras',$data);
-	}
->>>>>>> master
 	
 
 	
