@@ -302,8 +302,8 @@
 
           <br>
             <br>
-            <!--BERKENAAN DENGAN BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA-->
-            <div class="row gutter-xs">
+            <!-- BERKENAAN DENGAN BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA-->
+            <!-- <div class="row gutter-xs">
             <div class="col-xs-12">
               <div class="card">
                 <div class="card-header">
@@ -368,7 +368,7 @@
               </div>
             </div>
           </div>
-          <!-- AKHIR TABEL BERKENAAN DENGAN BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA -->
+          AKHIR TABEL BERKENAAN DENGAN BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA -->
 
           <br>
             <br>
@@ -533,7 +533,6 @@
                         <option value="2">BERKENAAN DENGAN PENYAMBUTAN, PEMBAGIAN KAMAR PESERTA</option>
                         <option value="3">BERKENAAN DENGAN SARANA DAN PRASARANA</option>
                         <option value="4">BERKENAAN DENGAN KONSUMSI</option>
-                        <option value="5">BERKENAAN DENGAN BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA</option>
                         <option value="6">BERKENAAN DENGAN PELAKSANAAN UJI KOMPETENSI</option>
                         <option value="7">SECARA UMUM PELAKSANAAN PELATIHAN</option>
                     </select>
