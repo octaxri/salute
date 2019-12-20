@@ -162,6 +162,38 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/excel/kuisioner_b_bahan_pelatihan',$data);
 	}
 
+	
+	function export_exel_kuisioner_c_rekrut($kd_pelatihan){
+		$data['title'] = "Kuisioner B | Bahan Pelatihan";
+
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1")->result_array();
+		$this->load->view('v_laporan/excel/kuisioner_c_rekrut',$data);
+	}
+
+	function export_exel_kuisioner_c_penyambutan($kd_pelatihan){
+		$data['title'] = "Kuisioner B | Bahan Pelatihan";
+
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=2 ")->result_array();
+		$this->load->view('v_laporan/excel/kuisioner_c_penyambutan',$data);
+	}
+	
+	function export_exel_kuisioner_c_sarpras($kd_pelatihan){
+		$data['title'] = "Kuisioner B | Bahan Pelatihan";
+
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 ")->result_array();
+		$this->load->view('v_laporan/excel/kuisioner_c_sarpras',$data);
+	}
+	
+
 	function export_exel_kuisioner_c_konsumsi($kd_pelatihan){
 		$data['title'] = "Kuisioner C | Konsumsi";
 
