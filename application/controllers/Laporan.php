@@ -117,6 +117,50 @@ class Laporan extends CI_Controller {
 
 		$this->load->view('v_laporan/pdf/kuisioner_c_pelaksanaan_uji',$data);
 	}
+
+	function export_exel_kuisioner_a($kd_pelatihan){
+		$data['title'] = "Kuisioner A";
+		$data['kd_pelatihan'] = $kd_pelatihan;
+		$data['data'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+				
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user FROM penilaian_a WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+		$data['graph']= $this->db->query("SELECT DISTINCT * FROM penilaian_a WHERE kd_pelatihan='$kd_pelatihan'")->result_array();			
+
+		$this->load->view('v_laporan/excel/kuisioner_a',$data);
+	}
+
+	function export_exel_kuisioner_b_materi_pelatihan($kd_pelatihan){
+		$data['title'] = "Kuisioner B | Materi Pelatihan";
+
+		$data['kd_pelatihan'] = $kd_pelatihan;
+		$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1 ")->result_array();
+
+		$this->load->view('v_laporan/excel/kuisioner_b_materi_pelatihan',$data);
+	}
+
+	function export_exel_kuisioner_b_sarpras($kd_pelatihan){
+		$data['title'] = "Kuisioner B | Sarpras";
+
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB  WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 ")->result_array();
+
+		$this->load->view('v_laporan/excel/kuisioner_b_sarpras',$data);
+	}
+
+	function export_exel_kuisioner_b_bahan_pelatihan($kd_pelatihan){
+		$data['title'] = "Kuisioner B | Bahan Pelatihan";
+
+		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 ")->result_array();
+		$this->load->view('v_laporan/excel/kuisioner_b_bahan_pelatihan',$data);
+	}
 	
 	
 

@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <!-- IISI -->
                     <center>
-                        <a href="" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="" class="btn btn-success icon icon-file-excel-o"> Excel</a>
+                        <a href="" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_kuisioner_b_bahan_pelatihan/<?= $kd_pelatihan; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
                         
                     </center>
                     <br><br>

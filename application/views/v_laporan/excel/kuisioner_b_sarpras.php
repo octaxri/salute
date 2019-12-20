@@ -1,44 +1,34 @@
-<div class="layout-content">
-        <div class="layout-content-body">
+<?php 
 
-        <?php 
-                $dat = $this->session->flashdata('msg');
-                    if($dat!=""){ ?>
-                          <div id="notifikasi" class="alert alert-success"><strong>Sukses! </strong> <?=$dat;?></div>
-                <?php } ?> 
-                <!-- Akhir flashdata  -->
-      
-            <?php 
-            $dat = $this->session->flashdata('msg2');
-                if($dat!=""){ ?>
-                      <div id="notifikasi" class="alert alert-danger"><strong> </strong> <?=$dat;?></div>
-        <?php } ?> 
+header("Content-type: application/octet-stream");
 
-          <div class="title-bar">
-            <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>pelatihan/detail_pelatihan/<?= $kd_pelatihan; ?>"><span class="icon icon-backward"></span></a> DETAIL KUISIONER B SARANA DAN PRASARANA | Kejuruan <?= $data1['nama_kejuruan']; ?>, Program <?= $data1['nama_program']; ?></span>
-            </h1>
-          </div>
-          <hr>
-          <br>
-          <div class="row gutter-xs">
-            <div class="col-xs-12">
-              <div class="card">
-                <div class="card-header">
-                  <strong>Hasil Nilai Responden SARANA DAN PRASARANA</strong>
-                </div>
-                <div class="card-body">
-                    <!-- IISI -->
-                    <center>
-                        <a href="<?= base_url(); ?>laporan/cetak_kuisioner_b_sarpras/<?= $kd_pelatihan; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_kuisioner_b_sarpras/<?= $kd_pelatihan; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
-                    </center>
-                    <br><br>
+header("Content-Disposition: attachment; filename=$title.xls");
 
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
+header("Pragma: no-cache");
+
+header("Expires: 0");
+
+?>
+
+
+<table align="center" cellspacing="5">
+            <tr>
+                <td colspan="3"><h4>III. SARANA / PRASARANA</h4></td>
+            </tr>
+            <tr>
+                <td colspan="3"><center><h4>
+                HASIL ANALISIS ANGKET <br>
+                PELATIHAN <?= strtoupper($data1['nama_program']); ?>  
+                <br> KEJURUAN <?= strtoupper($data1['nama_kejuruan']); ?>
+                </h4></center></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                        <!-- tabel -->  
+                        <table border="1">
                       <thead>
                         <tr>
-                          <th rowspan="2" width="15">No Responden</th>
+                          <th rowspan="2">No Responden</th>
                           <?php $i1 =1; $jml=0; $jml1=0;$jml2=0;$jml3=0;$jml4=0; foreach($responden as $r){ ?>
                             
                             <?php 
@@ -51,14 +41,14 @@
                             ?>
 
                           <?php } ?>
-                          <th colspan="<?= $jml;?>" class="text-center">WORKSHOP/BENGKEL</th>
-                          <th colspan="<?= $jml1;?>" class="text-center">RUANG TEORI</th>
-                          <th colspan="<?= $jml2;?>" class="text-center">LISTRIK</th>
-                          <th colspan="<?= $jml3;?>" class="text-center">KAMAR MANDI/TOILET</th>
-                          <th colspan="<?= $jml4;?>" class="text-center">SARANA PENUNJANG</th>
+                          <th colspan="<?= $jml;?>" align="center">WORKSHOP/BENGKEL</th>
+                          <th colspan="<?= $jml1;?>" align="center">RUANG TEORI</th>
+                          <th colspan="<?= $jml2;?>" align="center">LISTRIK</th>
+                          <th colspan="<?= $jml3;?>" align="center">KAMAR MANDI/TOILET</th>
+                          <th colspan="<?= $jml4;?>" align="center">SARANA PENUNJANG</th>
                         </tr>
                         
-                        <tr>
+                        <tr align="center">
                         <?php 
                                $soal=1;
                                $jml_soal=$this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal,sub_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1 ")->result_array();                               
@@ -107,7 +97,7 @@
                           $soal3 = $this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal,sub_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 AND tipe_soal='pg'AND sub_soal=6 ")->result_array(); 
                           $soal4 = $this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal,sub_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 AND tipe_soal='pg'AND sub_soal=7 ")->result_array(); 
                         ?>
-                        <tr>
+                        <tr align="center">
                         <td><?= $i1++; ?></td>
                         <!-- loop 2 -->
                         <?php $i2=1; 
@@ -177,7 +167,7 @@
                         <?php } ?>
 
                     
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah</td>
                           <!-- Jumlah Workshop -->
                           <?php 
@@ -247,7 +237,7 @@
                         </tr>
 
 
-                        <tr>
+                        <tr align="center">
                           <td>Nilai Rata-Rata</td>
                           <!-- Rt Workshop -->
                           <?php 
@@ -317,7 +307,7 @@
                         </tr>
 
 
-                        <tr>
+                        <tr align="center">
                           <td>NRR X Bobot</td>
                           <!-- nrr x bobot Workshop -->
                           <?php 
@@ -409,19 +399,19 @@
 
                         <tr>
                           <td>Jumlah</td>
-                          <td colspan="<?= $jml;?>" class="text-center"><h4><?= number_format($jml_semua1,2);?></h4></td>
-                          <td colspan="<?= $jml1;?>" class="text-center"><h4><?= number_format($jml_semua2,2);?></h4></td>
-                          <td colspan="<?= $jml2;?>" class="text-center"><h4><?= number_format($jml_semua3,2);?></h4></td>
-                          <td colspan="<?= $jml3;?>" class="text-center"><h4><?= number_format($jml_semua4,2);?></h4></td>
-                          <td colspan="<?= $jml4;?>" class="text-center"><h4><?= number_format($jml_semua5,2);?></h4></td>
+                          <td colspan="<?= $jml;?>" align="center"><h4><?= number_format($jml_semua1,2);?></h4></td>
+                          <td colspan="<?= $jml1;?>" align="center"><h4><?= number_format($jml_semua2,2);?></h4></td>
+                          <td colspan="<?= $jml2;?>" align="center"><h4><?= number_format($jml_semua3,2);?></h4></td>
+                          <td colspan="<?= $jml3;?>" align="center"><h4><?= number_format($jml_semua4,2);?></h4></td>
+                          <td colspan="<?= $jml4;?>" align="center"><h4><?= number_format($jml_semua5,2);?></h4></td>
                         </tr>
                         <tr>
                           <td>Jumlah X 20</td>
-                          <td colspan="<?=$jml;?>" class="text-center"><h4><?= number_format($jml_semua1*20,2);?></h4></td>
-                          <td colspan="<?=$jml1;?>" class="text-center"><h4><?= number_format($jml_semua2*20,2);?></h4></td>
-                          <td colspan="<?=$jml2;?>" class="text-center"><h4><?= number_format($jml_semua3*20,2);?></h4></td>
-                          <td colspan="<?=$jml3;?>" class="text-center"><h4><?= number_format($jml_semua4*20,2);?></h4></td>
-                          <td colspan="<?=$jml4;?>" class="text-center"><h4><?= number_format($jml_semua5*20,2);?></h4></td>
+                          <td colspan="<?=$jml;?>" align="center"><h4><?= number_format($jml_semua1*20,2);?></h4></td>
+                          <td colspan="<?=$jml1;?>" align="center"><h4><?= number_format($jml_semua2*20,2);?></h4></td>
+                          <td colspan="<?=$jml2;?>" align="center"><h4><?= number_format($jml_semua3*20,2);?></h4></td>
+                          <td colspan="<?=$jml3;?>" align="center"><h4><?= number_format($jml_semua4*20,2);?></h4></td>
+                          <td colspan="<?=$jml4;?>" align="center"><h4><?= number_format($jml_semua5*20,2);?></h4></td>
                         </tr>
                       </tbody>
                     </table>
@@ -429,28 +419,28 @@
                 
                   </div>
                   <br>
-                  <div class="table-responsive">
-                    <table>
+
+                    <table cellpadding="7" cellspacing="7">
                         <tr>
-                        <td><h4> WORKSHOP / BENGKEL  <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua1*20,2);?></h4></td></h4></td>
+                        <td><b> WORKSHOP / BENGKEL  <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jml_semua1*20,2);?></b></td></b></td>
                         </tr>
                         <tr>
-                        <td><h4> RUANG TEORI <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua2*20,2);?></h4></td></h4></td>
+                        <td><b> RUANG TEORI <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jml_semua2*20,2);?></b></td></b></td>
                         </tr>                        
                         <tr>
-                        <td><h4> LISTRIK <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua3*20,2);?></h4></td></h4></td>
+                        <td><b> LISTRIK <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jml_semua3*20,2);?></b></td></b></td>
                         </tr>                        
                         <tr>
-                        <td><h4> KAMAR MANDI / TOILET <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua4*20,2);?></h4></td> </h4></td>
+                        <td><b> KAMAR MANDI / TOILET <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jml_semua4*20,2);?></b></td> </b></td>
                         </tr>                        
                         <tr>
-                        <td><h4> SARANA PENUNJANG <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua5*20,2);?></h4></td> </h4></td>
+                        <td><b> SARANA PENUNJANG <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jml_semua5*20,2);?></b></td> </b></td>
                         </tr>
                         <tr>
                         <?php 
                         $rata=(number_format($jml_semua1*20,2))+(number_format($jml_semua2*20,2))+(number_format($jml_semua3*20,2))+(number_format($jml_semua4*20,2))+(number_format($jml_semua5*20,2));
                         ?>
-                        <td><h4> RATA-RATA <td></td><td></td><td><h4>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/5,2);?>
+                        <td><b> RATA-RATA <td></td><td></td><td><b>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/5,2);?> 
                         <?php 
                               if($hasil_akhir <= 64.99){  
                                   echo '(Tidak Baik)';
@@ -465,14 +455,11 @@
                                   echo '(Sangat Baik)';
                               }   
                             ?>
-                        </h4></td> </h4></td>
+                        </b></td> </b></td>
                         </tr>
                     </table>
-                    </div>
-                    <!-- AKHIR ISI -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                        <!-- akhir tabel -->
+                </td>
+            </tr>
+            
+    </table>

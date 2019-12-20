@@ -13,7 +13,7 @@
     }
 </style>
 <body onload="window.print()">
-    <table align="center" cellspacing="5" width="100%">
+    <table align="center" cellspacing="5">
             <tr>
                 <td colspan="3"><h4>IV. BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA</h4></td>
             </tr>
