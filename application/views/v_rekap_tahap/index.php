@@ -31,26 +31,6 @@
                 <!--  -->
                 <div class="demo-form-wrapper">
                 <form class="form form-horizontal" method="post">
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label" for="kejuruan">Kejuruan</label>
-                    <div class="col-sm-6">
-                    <select required name="kejuruan" id="kejuruan" class="custom-select" required="">
-                        <option value="">----- Pilih ------</option>
-                        <?php foreach($kejuruan as $k){ ?>
-                            <option value="<?= $k['id_kejuruan']; ?>"><?= strtoupper($k['nama_kejuruan']); ?></option>
-                        <?php } ?>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label" for="program">Program</label>
-                    <div class="col-sm-6">
-                        <select name="program" id="program" class="form-control" required="">
-                            <option value="" style="display:none;">Silahkan pilih kejuruan terlebih dahulu</option>
-                        </select>
-                    </div>
-                  </div>
 
                   <div class="form-group">
                     <label class="col-sm-3 control-label" for="tahap">Tahap</label>

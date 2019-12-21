@@ -18,6 +18,8 @@ class Laporan extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
+	// PDF
+
 	function cetak_kuisioner_a_pdf($kd_pelatihan){
 		$data['kd_pelatihan'] = $kd_pelatihan;
 
@@ -125,6 +127,18 @@ class Laporan extends CI_Controller {
 
 		$this->load->view('v_laporan/pdf/kuisioner_c_pelaksanaan_uji',$data);
 	}
+
+	function cetak_rekap_tahap_kuisioner_a($tahap){
+        $data['tahap'] = $tahap;
+        // custome
+        $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+
+        $data['jml_kuisioner_a'] = $this->db->get('kuisioner_a')->num_rows();
+        $data['kuisioner_a'] = $this->db->get('kuisioner_a')->result_array();
+		$this->load->view('v_laporan/pdf/rekap_tahap_kuisioner_a',$data);
+	}
+
+	// akhir pdf
 
 	function export_exel_kuisioner_a($kd_pelatihan){
 		$data['title'] = "Kuisioner A";
@@ -241,6 +255,8 @@ class Laporan extends CI_Controller {
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=7 ")->result_array();
 		$this->load->view('v_laporan/excel/kuisioner_c_secara_umum',$data);
 	}
+
+	
 
 	
 
