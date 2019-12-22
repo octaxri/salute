@@ -48,7 +48,7 @@ class Rekap_tahap extends CI_Controller {
     }
 
     function in_detail_rekap($tahap){
-
+        $data['title'] = "SALUTE | Rekap Kuisioner : $tahap";
         $data['tahap'] = $tahap;
 
         $this->load->view('templates/header',$data);
@@ -57,21 +57,49 @@ class Rekap_tahap extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    function rekap_kuisioner($tahap){
-            $data['title'] = "SALUTE | Rekap Kuisioner A";
+    function rekap_kuisioner($jenis,$tahap){
 
             $data['tahap'] = $tahap;
 
-            // custome
-            $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+            if($jenis == 1){
+                $data['title'] = "SALUTE | Rekap Per Tahap Kuisioner A";
+                $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
 
-            $data['jml_kuisioner_a'] = $this->db->get('kuisioner_a')->num_rows();
-            $data['kuisioner_a'] = $this->db->get('kuisioner_a')->result_array();
+                $data['jml_kuisioner_a'] = $this->db->get('kuisioner_a')->num_rows();
+                $data['kuisioner_a'] = $this->db->get('kuisioner_a')->result_array();
+    
+                $this->load->view('templates/header',$data);
+                $this->load->view('templates/sidebar',$data);
+                $this->load->view('v_rekap_tahap/detail_kuisioner_a',$data);
+                $this->load->view('templates/footer');
+            }
+            else if($jenis == 2){
+                $data['title'] = "SALUTE | Detail Rekap Kuisioner B";
 
-            $this->load->view('templates/header',$data);
-			$this->load->view('templates/sidebar',$data);
-			$this->load->view('v_rekap_tahap/detail_kuisioner_a',$data);
-			$this->load->view('templates/footer');
+                $data['daftar_pengajar'] = $this->db->query("SELECT * FROM detail_pengajar LEFT JOIN pelatihan ON detail_pengajar.kd_pelatihan=pelatihan.kd_pelatihan
+                                                                        LEFT JOIN pengajar ON pengajar.id_pengajar=detail_pengajar.id_pengajar
+                                                                        WHERE pelatihan.tahap_pelatihan='$tahap'")->result_array();
+                
+
+                $this->load->view('templates/header',$data);
+                $this->load->view('templates/sidebar',$data);
+                $this->load->view('v_rekap_tahap/detail_kuisioner_b',$data);
+                $this->load->view('templates/footer');
+            }
+    }
+
+    function rekap_kuisioner_b_materi_pelatihan($tahap){
+        $data['title'] = "SALUTE | Rekap Per Tahap Kuisioner B Materi Pelatihan";
+        $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+
+        $data['tahap'] = $tahap;
+        $data['jml_kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
+
+        $this->load->view('templates/header',$data);
+        $this->load->view('templates/sidebar',$data);
+        $this->load->view('v_rekap_tahap/detail_kuisioner_b_materi_pelatihan',$data);
+        $this->load->view('templates/footer');
     }
 
 

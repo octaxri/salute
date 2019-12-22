@@ -138,6 +138,16 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/pdf/rekap_tahap_kuisioner_a',$data);
 	}
 
+	function rekap_pertahap_kuisioner_b_materi_pelatihan($tahap){
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+
+        $data['tahap'] = $tahap;
+        $data['jml_kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
+		
+		$this->load->view('v_laporan/pdf/rekap_tahap_kuisioner_b_materi_pelatihan',$data);
+	}
+
 	// akhir pdf
 
 	function export_exel_kuisioner_a($kd_pelatihan){
@@ -255,6 +265,20 @@ class Laporan extends CI_Controller {
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=7 ")->result_array();
 		$this->load->view('v_laporan/excel/kuisioner_c_secara_umum',$data);
 	}
+
+	function export_exel_rekap_tahap_kuisioner_a($tahap){
+		$data['title'] = "Kuisioner A | Per Tahap : .$tahap.";
+
+		$data['tahap'] = $tahap;
+        // custome
+        $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+
+        $data['jml_kuisioner_a'] = $this->db->get('kuisioner_a')->num_rows();
+        $data['kuisioner_a'] = $this->db->get('kuisioner_a')->result_array();
+		$this->load->view('v_laporan/excel/rekap_tahap_kuisioner_a',$data);
+	}
+
+
 
 	
 

@@ -2,7 +2,7 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Rekap Tahap</span>
+              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_tahap" ><span class="icon icon-backward"></span></a> Rekap Tahap : <?= $tahap; ?></span>
               <span class="d-ib">
                 <a class="title-bar-shortcut" href="#" title="Add to shortcut list" data-container="body" data-toggle-text="Remove from shortcut list" data-trigger="hover" data-placement="right" data-toggle="tooltip">
                   <span class="sr-only">Add to shortcut list</span>
@@ -43,7 +43,7 @@
                         <tr>
                             <td>2</td>
                             <td>Kuisioner B</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner/2/"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner/2/<?= $tahap; ?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                             <td>3</td>

@@ -15,7 +15,7 @@
 <body onload="window.print()">
     <table align="center" cellspacing="10" style="margin-right:0px; margin-bottom:0px;">
             <tr>
-                <td colspan="3"><center><h4>PENGELOHAN INDEKS KEPUASAN MASYARAKAT PER RESPONDEN DAN PER UNSUR PELAYANAN</h4></center></td>
+                <td colspan="3"><center><h4>LAPORAN PER TAHAP : <?= $tahap; ?></h4></center><center><h4>PENGELOHAN INDEKS KEPUASAN MASYARAKAT PER RESPONDEN DAN PER UNSUR PELAYANAN</h4></center></td>
             </tr>
             <tr>
                 <td>UNIT PELAYANAN</td>

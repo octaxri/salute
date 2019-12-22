@@ -1,56 +1,65 @@
-<div class="layout-content">
-        <div class="layout-content-body">
+<?php 
 
-        <?php 
-                $dat = $this->session->flashdata('msg');
-                    if($dat!=""){ ?>
-                          <div id="notifikasi" class="alert alert-success"><strong>Sukses! </strong> <?=$dat;?></div>
-                <?php } ?> 
-                <!-- Akhir flashdata  -->
-      
-            <?php 
-            $dat = $this->session->flashdata('msg2');
-                if($dat!=""){ ?>
-                      <div id="notifikasi" class="alert alert-danger"><strong> </strong> <?=$dat;?></div>
-        <?php } ?> 
+header("Content-type: application/octet-stream");
 
-          <div class="title-bar">
-            <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_tahap/in_detail_rekap/<?= $tahap; ?>" ><span class="icon icon-backward"></span></a> LAPORAN KUISIONER A | PER TAHAP : <?= $tahap; ?></span>
-            </h1>
-          </div>
-          <hr>
-          <br>
-          <div class="row gutter-xs">
-            <div class="col-xs-12">
-              <div class="card">
-                <div class="card-header">
-                  <strong>Pengolahan Indeks Kepuasan Masyarakat Per Responden Dan Per Unsur Pelayanan</strong>
-                </div>
-                <div class="card-body">
-                    <!-- IISI -->
-                    <center>
-                        <a href="<?= base_url(); ?>laporan/cetak_rekap_tahap_kuisioner_a/<?= $tahap; ?>" class="btn btn-danger icon icon-file-pdf-o" target="_blank"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_rekap_tahap_kuisioner_a/<?= $tahap; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>          
-                    </center>
-                    <br><br>
+header("Content-Disposition: attachment; filename=$title.xls");
 
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                      <thead>
-                        
-                        <tr>
-                          <th rowspan="2" width="15" align="center"><b>NOMOR URUT</b></th>
-                          <th colspan="<?= $jml_kuisioner_a ;?>" class="text-center">NILAI PER UNSUR PELAYANAN</th>
+header("Pragma: no-cache");
+
+header("Expires: 0");
+
+?>
+
+
+<table>
+    <tr>
+        <td colspan="11"><center><h4>LAPORAN PER TAHAP : <?= $tahap; ?></h4></center></td>
+    </tr>
+    <tr>
+        <td colspan="11"><center><h4>PENGELOHAN INDEKS KEPUASAN MASYARAKAT PER RESPONDEN DAN PER UNSUR PELAYANAN</h4></center></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="10"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="10">UNIT PELAYANAN : BALAI BESAR PENGEMBANGAN LATIHAN KERJA SEMARANG</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="10">ALAMAT : JLN. BRIGJEN SUDIARTO NO. 118 SEMARANG</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="10">Tlp/Fax : (024) 6712680 / 76580968</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="10"></td>
+    </tr>
+</table>
+
+
+
+<table align="center" cellspacing="10">
+            <tr>
+                <td></td>
+                <td colspan="3">
+                <table align="center" border="1" cellpadding="3" > 
+                        <tr align="center">
+                          <th rowspan="2" align="center" valign="middle"><b>NOMOR URUT</b></th>
+                          <th colspan="<?= $jml_kuisioner_a ;?>" align="center">NILAI PER UNSUR PELAYANAN</th>
                         </tr>
 
-                        <tr>
+                        <tr align="center">
                         <?php 
                            $p = 1;
                            foreach($kuisioner_a as $sl) { ?>
-                          <th class="text-center">U <?= $p++; ?></th>
+                          <th align="center">U <?= $p++; ?></th>
                         <?php } ?>
                         </tr>
-                        <tr>
+                        <tr align="center">
                             <td align="center" style="background-color:BurlyWood;">1</td>
                             <?php $p2=2; 
                                 foreach($kuisioner_a as $c){
@@ -58,9 +67,6 @@
                             <td align="center" style="background-color:BurlyWood;"><?= $p2++; ?></td>
                             <?php } ?>
                         </tr>
-
-                      </thead>
-                      <tbody>
                           <!-- loop pelatihan -->
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>
                           <?php 
@@ -74,7 +80,7 @@
                                 $id_user = $r['id_user'];
                                 $soal = $this->db->query("SELECT DISTINCT id_soalA FROM penilaian_a WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan'")->result_array(); 
                               ?>
-                              <tr>
+                              <tr align="center">
                               <td align="center"><?= $i1++; ?></td>
                               <!-- loop 2 -->
                               <?php $i2=1; 
@@ -93,8 +99,8 @@
                         <!-- akhir loop pelatihan -->
                         <?php } ?>
                         
-                        <tr>
-                          <td class="text-center">Jumlah</td>
+                        <tr align="center">
+                          <td align="center">Jumlah</td>
                         <?php foreach($kuisioner_a as $sl){
                           $id_soalnya = $sl['id_kuisionerA'];
                           $total = $this->db->query("SELECT SUM(jawaban) as total FROM penilaian_a LEFT JOIN pelatihan ON penilaian_a.kd_pelatihan=pelatihan.kd_pelatihan  
@@ -104,8 +110,8 @@
                         <?php } ?>
                         </tr>
 
-                        <tr>
-                          <td class="text-center">NRR</td>
+                        <tr align="center">
+                          <td align="center">NRR</td>
                           <?php foreach($kuisioner_a as $sl){
                           $id_soalnya = $sl['id_kuisionerA'];
                           $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_a LEFT JOIN pelatihan ON penilaian_a.kd_pelatihan=pelatihan.kd_pelatihan  
@@ -115,8 +121,8 @@
                           <?php } ?>
                         </tr>
                         
-                        <tr>
-                          <td class="text-center">NRR Tertimbang</td>
+                        <tr align="center">
+                          <td align="center">NRR Tertimbang</td>
                           <?php  $jmlh_keseluruhan = 0; foreach($kuisioner_a as $sl){
                           $id_soalnya = $sl['id_kuisionerA'];
                           $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_a LEFT JOIN pelatihan ON penilaian_a.kd_pelatihan=pelatihan.kd_pelatihan  
@@ -127,13 +133,13 @@
                           <?php $jmlh_keseluruhan = $jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_a,2)); } ?>
                         </tr>
 
-                        <tr>
-                          <td class="text-center">Total</td>
-                          <td colspan="<?= $jml_kuisioner_a; ?>" class="text-center"><h4><?= number_format($jmlh_keseluruhan,2); ?></h4></td>
+                        <tr align="center">
+                          <td align="center">Total</td>
+                          <td colspan="<?= $jml_kuisioner_a; ?>" align="center"><h4><?= number_format($jmlh_keseluruhan,2); ?></h4></td>
                         </tr>
                         <tr>
-                          <td class="text-center">Hasil</td>
-                          <td colspan="<?= $jml_kuisioner_a; ?>" class="text-center"><h4><?= $hasil_akhir = number_format($jmlh_keseluruhan*20,2); ?>
+                          <td align="center">Hasil</td>
+                          <td colspan="<?= $jml_kuisioner_a; ?>" align="center"><h4><?= $hasil_akhir = number_format($jmlh_keseluruhan*20,2); ?>
                             <?php 
                               if($hasil_akhir <= 64.99){  
                                   echo '(Tidak Baik)';
@@ -150,16 +156,66 @@
                             ?>
                           </h4></td>
                         </tr>
-                      </tbody>
                     </table>
-                    <br>
-                    
-                  </div>
-                    <!-- AKHIR ISI -->
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          
-      </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3">       
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3">
+                <br>Menurut KEP. MEN. PAN NOMOR : KEP/25/M.PAN/2/2004 tentang Pedoman Umum Penyusunan        
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3">
+                Indeks Kepuasan Masyarakat di Unit Pelayanan Instansi Pemerintah dengan kriteria sebagai berikut :      
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3">       
+                </td>
+            </tr>
+            <tr>
+                 <td></td>
+                <td colspan="3">
+                    <table width="90%" align="center" border="1" cellpadding="3">
+                        <tr>
+                          <td align="center">NILAI PERSEPSI</td>
+                          <td align="center">NILAI INTERVAL KONVERSI IKM</td>
+                          <td align="center">MUTU PELAYANAN</td>
+                          <td align="center">KINERJA UNIT PELAYANAN</td>
+                        </tr>
+                          <tr align="center" <?php if($hasil_akhir <= 64.99){ ?>style="background-color:BurlyWood;" <?php }?>>
+                          <td>1</td>
+                          <td>25.00 - 64.99</td>
+                          <td>D</td>
+                          <td>Tidak Baik</td>
+                        </tr>
+                        <tr align="center" <?php if($hasil_akhir>= 65.00 && $hasil_akhir<= 76.60){ ?>style="background-color:BurlyWood;" <?php }?>>
+                          <td>2</td>
+                          <td>65.00 - 76.60</td>
+                          <td>C</td>
+                          <td>Kurang Baik</td>
+                        </tr>
+                        <tr align="center" <?php if($hasil_akhir>= 76.61 && $hasil_akhir<= 88.30){ ?>style="background-color:BurlyWood;" <?php }?>>
+                          <td>3</td>
+                          <td>76.61 - 88.30</td>
+                          <td>B</td>
+                          <td>Baik</td>
+                        </tr>
+                        <tr align="center" <?php if($hasil_akhir>= 88.31 && $hasil_akhir<= 100){ ?>style="background-color:BurlyWood;" <?php }?>>
+                          <td>4</td>
+                          <td>88.31 - 100.00</td>
+                          <td>A</td>
+                          <td>Sangat Baik</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+    </table>
