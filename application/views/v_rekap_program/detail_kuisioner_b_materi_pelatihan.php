@@ -111,6 +111,7 @@
                           ?>
                             <td class="text-center"><?= number_format($total['total']/$jml_kuisioner_b_materi_pelatihan,2); ?></td>
                           <?php $jmlh_keseluruhan = $jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_b_materi_pelatihan,2)); } ?>
+                        
                         </tr>
                         <tr>
                           <td class="text-center">Jumlah</td>
