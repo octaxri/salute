@@ -77,7 +77,7 @@
                               <tr>
                               <td align="center"><?= $i1++; ?></td>
                               <!-- loop 2 -->
-                              <?php $i2=1; 
+                              <?php  
                               foreach($soal as $s){
                                 
                                 $id_soal = $s['id_soalA']; 

@@ -53,12 +53,12 @@
                         <tr>
                           <td>3</td>
                           <td>Sarana Dan Prasarana</td>
-                          <td class="text-center"><a class="badge badge-primary" href=""><span class="icon icon-eye"></span> Detail</a></td>
+                          <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner_b_sarpras/<?= $tahap; ?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                           <td>4</td>
                           <td>Bahan Latihan, Modul, ATK, Dan Seragam Peserta</td>
-                          <td class="text-center"><a class="badge badge-primary" href=""><span class="icon icon-eye"></span> Detail</a></td>
+                          <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner_b_bahan_latihan/<?= $tahap; ?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                           <td>5</td>

@@ -279,6 +279,16 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/excel/rekap_tahap_kuisioner_a',$data);
 	}
 
+	function export_exel_rekap_tahap_kuisioner_b_materi_pelatihan($tahap){
+		$data['title'] = "Kuisioner B - Materi Pelatihan | Tahap : .$tahap.";
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+
+        $data['tahap'] = $tahap;
+        $data['jml_kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
+		$this->load->view('v_laporan/excel/rekap_tahap_kuisioner_b_materi_pelatihan',$data);
+	}
+
 
 
 	
