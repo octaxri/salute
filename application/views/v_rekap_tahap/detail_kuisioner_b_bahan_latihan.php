@@ -40,7 +40,7 @@
                         
                       <tr>
                           <th rowspan="2" width="15" class="text-center">No Responden</th>
-                          <th colspan="<?= $jml_kuisioner_b_bahan_latihan; ?>" class="text-center">Materi Pelatihan</th>
+                          <th colspan="<?= $jml_kuisioner_b_bahan_latihan; ?>" class="text-center">Bahan Latihan</th>
                         
                       </tr>
 

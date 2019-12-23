@@ -40,15 +40,6 @@
                         <tr>
                           <th rowspan="2" width="15">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_c_secara_umum;?>" class="text-center">Sarana dan Prasarana Asrama</th>
-                          <th rowspan="2" style="vertical-align:top"><center>Asal Kab / Kota</center></th>    
-                        </tr>
-
-                        <tr>
-                        <?php 
-                               $soal=1;
-                              foreach ($kuisioner_c_secara_umum as $key) { ?>
-                                <th><center><?= $soal++;?></center></th>
-                              <?php }?>
                         </tr>
 
                       </thead>
@@ -76,10 +67,6 @@
                             // 
                           ?>
                           <td><?= $nilainya['jawaban']; ?></td>
-                          <td>
-                            <?php $tampung = $this->db->query("SELECT * FROM user WHERE id_user='$id_user'")->row_array(); ?>
-                            <?= $tampung['nama']; ?>
-                          </td>
                           <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>
