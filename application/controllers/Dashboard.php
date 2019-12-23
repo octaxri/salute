@@ -20,6 +20,7 @@ class Dashboard extends CI_Controller {
 		$data['jumlah_peserta']=$this->M_dashboard->jumlah_peserta();
 		$data['jumlah_pengajar']=$this->M_dashboard->jumlah_pengajar();
 		$data['jumlah_pelatihan']=$this->M_dashboard->jumlah_pelatihan();
+		$data['jumlah_pesan']=$this->M_dashboard->jumlah_pesan_masuk();
 
 		$data['user'] = $this->db->get_where('user', ['username' =>
 		$this->session->userdata('username')])->row_array();

@@ -23,7 +23,7 @@
                     <div class="media-middle media-body">
                       <h6 class="media-heading">Jawaban Masuk</h6>
                       <h3 class="media-heading">
-                        <span class="fw-l">1,031,760</span>
+                        <span class="fw-l"><?= $jumlah_pesan; ?></span>
                       </h3>
                     </div>
                   </div>

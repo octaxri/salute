@@ -49,6 +49,24 @@ class M_dashboard extends CI_Model {
         
     }
 
+    public function jumlah_pesan_masuk()
+    {
+        $a=$this->db->get('penilaian_a');
+        $b=$this->db->get('penilaian_b');
+        $c=$this->db->get('penilaian_c');
+
+        if($a->num_rows() >0 && $b->num_rows()>0 ) 
+        {
+
+
+            return $a->num_rows()+$b->num_rows()+$c->num_rows();
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
 }
 
 
