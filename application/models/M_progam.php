@@ -16,6 +16,19 @@ class M_progam extends CI_Model {
         return $query;
     }
 
+    public function tampil_detail_progam($kd)
+    {
+        $this->db->select('*');
+        $this->db->from('program');
+        $this->db->join('kejuruan', 'kejuruan.id_kejuruan=program.id_kejuruan');
+        $this->db->where('id_program', $kd);
+        
+
+        $query= $this->db->get()->row_array();
+
+        return $query;
+    }
+
     public function tambah_progam()
     {
         $data= array(

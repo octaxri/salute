@@ -16,7 +16,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/2/<?= $program; ?>"><span class="icon icon-backward"></span></a> LAPORAN KUISIONER B - BAHAN PELATIHAN | PER PROGRAM : <?= $program; ?></span>
+              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/2/<?= $program; ?>"><span class="icon icon-backward"></span></a> LAPORAN KUISIONER B - BAHAN PELATIHAN | PER PROGRAM : <?= $program1['nama_program']; ?></span>
             </h1>
           </div>
           <hr>

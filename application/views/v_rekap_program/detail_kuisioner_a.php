@@ -16,7 +16,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_program/in_detail_rekap/<?= $program; ?>" ><span class="icon icon-backward"></span></a> LAPORAN KUISIONER A | PER PROGRAM</span>
+              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_program/in_detail_program/<?= $program; ?>" ><span class="icon icon-backward"></span></a> LAPORAN KUISIONER A | PER PROGRAM : <?= $program1['nama_program'];?></span>
             </h1>
           </div>
           <hr>
@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <!-- IISI -->
                     <center>
-                        <a href="<?= base_url(); ?>laporan/cetak_rekap_tahap_kuisioner_a/<?= $program; ?>" class="btn btn-danger icon icon-file-pdf-o" target="_blank"> PDF</a> | <a href="" class="btn btn-success icon icon-file-excel-o"> Excel</a>          
+                        <a href="<?= base_url(); ?>laporan/cetak_rekap_program_kuisioner_a/<?= $program; ?>" class="btn btn-danger icon icon-file-pdf-o" target="_blank"> PDF</a> | <a href="<?= base_url();?>laporan/export_excel_rekap_program_kuisioner_a" class="btn btn-success icon icon-file-excel-o"> Excel</a>          
                     </center>
                     <br><br>
 

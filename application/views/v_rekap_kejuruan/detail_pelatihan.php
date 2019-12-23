@@ -2,7 +2,7 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Rekap Program : <?= $program1['nama_program'];?></span>
+              <span class="d-ib">Rekap Kejuruan</span>
               <span class="d-ib">
                 <a class="title-bar-shortcut" href="#" title="Add to shortcut list" data-container="body" data-toggle-text="Remove from shortcut list" data-trigger="hover" data-placement="right" data-toggle="tooltip">
                   <span class="sr-only">Add to shortcut list</span>
@@ -38,17 +38,17 @@
                         <tr>
                             <td>1</td>
                             <td>Kuisioner A</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/1/<?= $program; ?>"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/1/<?= $kejuruan; ?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>Kuisioner B</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/2/<?= $program;?>"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/2/<?= $kejuruan;?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>Kuisioner C</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/3/<?= $program;?>"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/3/<?= $kejuruan;?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                     </tbody>
                   </table>

@@ -16,7 +16,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/2/<?= $program; ?>"><span class="icon icon-backward"></span></a> LAPORAN KUISIONER B - MATERI PELATIHAN | PER PROGRAM : <?= $program; ?></span>
+              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/2/<?= $program; ?>"><span class="icon icon-backward"></span></a> LAPORAN KUISIONER B - MATERI PELATIHAN | PER PROGRAM : <?= $program1['nama_program']; ?></span>
             </h1>
           </div>
           <hr>
@@ -111,6 +111,7 @@
                           ?>
                             <td class="text-center"><?= number_format($total['total']/$jml_kuisioner_b_materi_pelatihan,2); ?></td>
                           <?php $jmlh_keseluruhan = $jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_b_materi_pelatihan,2)); } ?>
+                        
                         </tr>
                         <tr>
                           <td class="text-center">Jumlah</td>
