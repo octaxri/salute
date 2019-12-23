@@ -162,6 +162,18 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/pdf/rekap_program_kuisioner_a',$data);
 	 }
 
+	 function rekap_program_kuisioner_b_materi_pelatihan($program)
+	 {
+
+		$data['program'] = $program;
+		$data['program1']= $this->M_progam->tampil_detail_progam($program);
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_program='$program'")->result_array();
+        $data['jml_kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
+		
+		$this->load->view('v_laporan/pdf/rekap_program_kuisioner_b_materi_pelatihan',$data);
+	 }
+
 	
 	// akhir pdf
 
@@ -315,6 +327,18 @@ class Laporan extends CI_Controller {
         $data['jml_kuisioner_a'] = $this->db->get('kuisioner_a')->num_rows();
         $data['kuisioner_a'] = $this->db->get('kuisioner_a')->result_array();
 		$this->load->view('v_laporan/excel/rekap_program_kuisioner_a',$data);
+
+	}
+
+	function export_exel_program_kuisioner_b_materi_pelatihan($program)
+	{
+		$data['title'] = "Kuisioner B - Materi Pelatihan | Program : .$program.";
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_program='$program'")->result_array();
+		$data['program1']=$this->M_progam->tampil_detail_progam($program);
+        $data['program'] = $program;
+        $data['jml_kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
+		$this->load->view('v_laporan/excel/rekap_program_kuisioner_b_materi_pelatihan',$data);
 
 	}
 
