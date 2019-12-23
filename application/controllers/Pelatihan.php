@@ -142,13 +142,13 @@ class Pelatihan extends CI_Controller {
 	}
 
 	function in_detail_pelatihan_pengajar_kuisioner_b($kd_pelatihan,$id_pengajar){
-		$data['title'] = "SALUTE | Data Kuisioner B Pelatihan";
+		$data['title'] = "SALUTE | Data Kuisioner B Pelatihan Pengajar";
 
 		$data['kd_pelatihan'] = $kd_pelatihan;
 		$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 		$data['pengajar'] = $this->db->query("SELECT * FROM pengajar WHERE id_pengajar='$id_pengajar'")->row_array();
 
-		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal,id_pengajar FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB INNER JOIN detail_penilaian_b ON id_soalB=id_penilaian_b  WHERE kd_pelatihan='$kd_pelatihan' AND id_pengajar='$id_pengajar' AND jenis_soal=2 ")->result_array();
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal,tipe_soal,id_pengajar FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB INNER JOIN detail_penilaian_b ON idku=id_penilaian_b  WHERE kd_pelatihan='$kd_pelatihan' AND id_pengajar='$id_pengajar' AND jenis_soal=2 AND tipe_soal='pg' ")->result_array();
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);

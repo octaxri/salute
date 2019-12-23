@@ -38,10 +38,11 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/pdf/kuisioner_b_materi_pelatihan',$data);
 	}
 
-	function cetak_kuisioner_b_pelatihan_pengajar($kd_pelatihan){
+	function cetak_kuisioner_b_pelatihan_pengajar($kd_pelatihan,$id_pengajar){
 		$data['kd_pelatihan'] = $kd_pelatihan;
 		$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
-		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1 ")->result_array();
+		$data['pengajar'] = $this->db->query("SELECT * FROM pengajar WHERE id_pengajar='$id_pengajar'")->row_array();
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal,tipe_soal,id_pengajar FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB INNER JOIN detail_penilaian_b ON idku=id_penilaian_b  WHERE kd_pelatihan='$kd_pelatihan' AND id_pengajar='$id_pengajar' AND jenis_soal=2 AND tipe_soal='pg' ")->result_array();
 
 		$this->load->view('v_laporan/pdf/kuisioner_b_pelatihan_pengajar',$data);
 	}

@@ -119,7 +119,7 @@ class Pelatihan_peserta extends CI_Controller {
         $tgl_skrg=date("Y-m-d",time());
         
         $id_user=$this->session->userdata('id');
-        $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN detail_penilaian_b ON penilaian_b.id=detail_penilaian_b.id_penilaian_b
+        $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN detail_penilaian_b ON penilaian_b.idku=detail_penilaian_b.id_penilaian_b
                                                     WHERE penilaian_b.kd_pelatihan='$kd' AND penilaian_b.id_user='$id_user' AND detail_penilaian_b.id_pengajar='$id'")->num_rows();
         
         $get_pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd'")->row_array();
@@ -236,10 +236,10 @@ class Pelatihan_peserta extends CI_Controller {
 
             $this->db->insert('penilaian_b',$data);
 
-            $tampung=$this->db->query('SELECT * FROM penilaian_b order by id DESC')->row_array();
+            $tampung=$this->db->query('SELECT * FROM penilaian_b order by idku DESC')->row_array();
         
             $data1=[
-                "id_penilaian_b" => $tampung['id'],
+                "id_penilaian_b" => $tampung['idku'],
                 "id_pengajar" => $this->input->post('id_pengajar',TRUE)
             ];
             $this->db->insert('detail_penilaian_b', $data1);
@@ -256,10 +256,10 @@ class Pelatihan_peserta extends CI_Controller {
             $this->db->insert('penilaian_b',$data);
 
             
-            $tampung=$this->db->query('SELECT * FROM penilaian_b order by id DESC')->row_array();
+            $tampung=$this->db->query('SELECT * FROM penilaian_b order by idku DESC')->row_array();
         
             $data1=[
-                "id_penilaian_b" => $tampung['id'],
+                "id_penilaian_b" => $tampung['idku'],
                 "id_pengajar" => $this->input->post('id_pengajar',TRUE)
             ];
             $this->db->insert('detail_penilaian_b', $data1);
