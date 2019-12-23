@@ -17,7 +17,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">REKAP PER PROGAM</span>
+              <span class="d-ib">REKAP PER KEJURUAN</span>
             </h1>
           </div>
           <hr>
