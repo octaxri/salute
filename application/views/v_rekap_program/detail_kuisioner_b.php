@@ -171,7 +171,7 @@
 
 
       <!-- MODAL BOX KUISIONER B PENGAJAR-->
-    <div id="modal-pilih-pengajar<?= $tahap; ?>" tabindex="-1" role="dialog" class="modal fade">
+    <div id="modal-pilih-pengajar<?= $program; ?>" tabindex="-1" role="dialog" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-primary">
@@ -180,7 +180,7 @@
         <div class="modal-body">  
         <?php foreach($daftar_pengajar as $i) { ?>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan/in_detail_pelatihan_pengajar_kuisioner_b/<?= $tahap; ?>/<?= $i['id_pengajar']; ?>"><?= $i['nama_pengajar'];?></a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan/in_detail_pelatihan_pengajar_kuisioner_b/<?= $program; ?>/<?= $i['id_pengajar']; ?>"><?= $i['nama_pengajar'];?></a><br><br>
           </div>
         <?php } ?>
           <hr>
