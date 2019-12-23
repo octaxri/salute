@@ -45,7 +45,7 @@ class Rekap_program extends CI_Controller {
                 redirect('rekap_program/in_detail_program/'.$program);
             }
             else{
-                $this->session->set_flashdata('msg2','Laporan tahap yang anda cari tidak ditemukan!');
+                $this->session->set_flashdata('msg2','Laporan program yang anda cari tidak ditemukan!');
                 redirect('rekap_program');
             }
         }
@@ -55,7 +55,7 @@ class Rekap_program extends CI_Controller {
 
         $data['title']= "SALUTE | Detail Per Program Pelatihan ";
         $data['program'] = $program;
-    
+        $data['program1'] = $this->M_progam->tampil_detail_progam($program);
 
         $this->load->view('templates/header',$data);
         $this->load->view('templates/sidebar',$data);
@@ -69,10 +69,12 @@ class Rekap_program extends CI_Controller {
         
         $data['program'] = $program;
 
+        $data['program1'] = $this->M_progam->tampil_detail_progam($program);
         if($jenis==1)
         {
             $data['title'] = "SALUTE | Rekap Kuisioner A";
             // custome
+
             $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_program='$program'")->result_array();
     
             $data['jml_kuisioner_a'] = $this->db->get('kuisioner_a')->num_rows();
@@ -112,6 +114,7 @@ class Rekap_program extends CI_Controller {
         $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_program='$program'")->result_array();
 
         $data['program'] = $program;
+        $data['program1'] = $this->M_progam->tampil_detail_progam($program);
         $data['jml_kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
         $data['kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
 
@@ -126,7 +129,7 @@ class Rekap_program extends CI_Controller {
         $data['title'] = "SALUTE | Rekap Per Program Kuisioner B Bahan Pelatihan ";
         $data['pelatihan']= $this->db->query("SELECT * FROM pelatihan WHERE id_program='$program'")->result_array();
         $data['program']= $program;
-        
+        $data['program1'] = $this->M_progam->tampil_detail_progam($program);
 
         $data['jml_kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
         $data['kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
@@ -142,7 +145,7 @@ class Rekap_program extends CI_Controller {
      $data['title']="SALUTE | Rekap Per Program Kuisioner B Sarana dan Prasarana";
      $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_program='$program' ")->result_array();
      $data['program']= $program;
-
+     $data['program1'] = $this->M_progam->tampil_detail_progam($program);
      $data['jml_kuisioner_b_sapras1']=$this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1")->num_rows();
      $data['jml_kuisioner_b_sapras2']=$this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=2")->num_rows();
      $data['jml_kuisioner_b_sapras3']=$this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=5")->num_rows();
@@ -168,7 +171,7 @@ class Rekap_program extends CI_Controller {
         $data['title']="SALUTE | Rekap Per Program Kuisioner C Rekruitmen, Perjalanan, Persyaratan Peserta";
         $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_program='$program' ")->result_array();
         $data['program']= $program;
-
+        $data['program1'] = $this->M_progam->tampil_detail_progam($program);
 
          $data['jml_kuisioner_c_rekrut']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
          $data['kuisioner_c_rekrut']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
@@ -184,7 +187,7 @@ class Rekap_program extends CI_Controller {
         $data['title']="SALUTE | Rekap Per Program Kuisioner C Penyambutan, Pembagian Kamar Peserta";
         $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_program='$program' ")->result_array();
         $data['program']= $program;
-
+        $data['program1'] = $this->M_progam->tampil_detail_progam($program);
 
          $data['jml_kuisioner_c_penyambutan']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=2 AND tipe_soal='pg'")->num_rows();
          $data['kuisioner_c_penyambutan']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=2 AND tipe_soal='pg'")->result_array();
@@ -201,7 +204,7 @@ class Rekap_program extends CI_Controller {
         $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_program='$program' ")->result_array();
         $data['program']= $program;
 
-
+        $data['program1'] = $this->M_progam->tampil_detail_progam($program);
          $data['jml_kuisioner_c_sapras']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=3 AND tipe_soal='pg'")->num_rows();
          $data['kuisioner_c_sapras']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=3 AND tipe_soal='pg'")->result_array();
     
@@ -216,7 +219,7 @@ class Rekap_program extends CI_Controller {
         $data['title']="SALUTE | Rekap Per Program Kuisioner C Sarana Dan Prasarana Asrama";
         $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_program='$program' ")->result_array();
         $data['program']= $program;
-
+        $data['program1'] = $this->M_progam->tampil_detail_progam($program);
 
          $data['jml_kuisioner_c_konsumsi']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
          $data['kuisioner_c_konsumsi']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
@@ -233,7 +236,7 @@ class Rekap_program extends CI_Controller {
         $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_program='$program' ")->result_array();
         $data['program']= $program;
 
-
+        $data['program1'] = $this->M_progam->tampil_detail_progam($program);
          $data['jml_kuisioner_c_pelaksanaan']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=6 AND tipe_soal='pg'")->num_rows();
          $data['kuisioner_c_pelaksanaan']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=6 AND tipe_soal='pg'")->result_array();
     
@@ -248,7 +251,7 @@ class Rekap_program extends CI_Controller {
         $data['title']="SALUTE | Rekap Per Program Kuisioner C Secara Umum Pelaksanaan Pelatihan";
         $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_program='$program' ")->result_array();
         $data['program']= $program;
-
+        $data['program1'] = $this->M_progam->tampil_detail_progam($program);
 
          $data['jml_kuisioner_c_umum']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='pg'")->num_rows();
          $data['kuisioner_c_umum']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='pg'")->result_array();

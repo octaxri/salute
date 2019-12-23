@@ -40,16 +40,16 @@ class Rekap_kejuruan extends CI_Controller {
             $cek = $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan'")->row_array();
 
             if($cek['kd_pelatihan'] != NULL){
-                redirect('rekap_kejuruan/in_detail_program/'.$kejuruan);
+                redirect('rekap_kejuruan/in_detail_kejuruan/'.$kejuruan);
             }
             else{
-                $this->session->set_flashdata('msg2','Laporan tahap yang anda cari tidak ditemukan!');
+                $this->session->set_flashdata('msg2','Laporan kejuruan yang anda cari tidak ditemukan!');
                 redirect('rekap_kejuruan');
             }
         }
     }
 
-    function in_detail_program($kejuruan){
+    function in_detail_kejuruan($kejuruan){
 
         $data['title']= "SALUTE | Detail Per Kejuruan Pelatihan ";
         $data['kejuruan'] = $kejuruan;

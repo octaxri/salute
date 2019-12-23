@@ -16,7 +16,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-            <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_program/in_detail_program/<?= $program; ?>"><span class="icon icon-backward"></span></a> DETAIL KUISIONER C PER PROGRAM : <?= $program; ?></span>
+            <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_program/in_detail_program/<?= $program; ?>"><span class="icon icon-backward"></span></a> DETAIL KUISIONER C PER PROGRAM : <?= $program1['nama_program']; ?></span>
             </h1>
           </div>
           <hr>
@@ -83,90 +83,11 @@
           </div>
 
 
-          <hr>
-           <!--  -->
-           <div class="row gutter-xs">
-            <div class="col-xs-12">
-              <div class="card">
-                <div class="card-header">
-                  <center><strong>HASIL REKAP ANALISIS ANGKET PELATIHAN .....</strong></center>
-                </div>
-                <div class="card-body">
-                    <!-- IISI -->
-                    <center>
-                        <a href="" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="" class="btn btn-success icon icon-file-excel-o"> Excel</a>
-                        
-                    </center>
-                    <br><br>
-                    <!--  -->
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Indikator</th>
-                          <th>Rata- Rata</th>
-                          <th>Kinerja Unit Pelayanan</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Materi Pelatihan</td>
-                          <td>80.00</td>
-                          <td>Baik</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Tenaga Pelatih</td>
-                          <td>80.00</td>
-                          <td>Baik</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Sarpras</td>
-                          <td>80.00</td>
-                          <td>Baik</td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>Bahan Pelatihan</td>
-                          <td>80.00</td>
-                          <td>Baik</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <br>
-                  </div>
-                    <hr>
+        
 
                     <!--  -->
-                  <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>No</th>
-                          <th width="30%">Nama Instruktur</th>
-                          <th>Pengetahuan / Pemahaman</th>
-                          <th>Kemampuan Dalam Membawakan Materi</th>
-                          <th>Penampilan Tenaga Pelatih</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Betri Betharia, A.Md</td>
-                          <td>80.00</td>
-                          <td>80</td>
-                          <td>80</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <br>
-                  </div>
-                  <br><br>
-                  <!--  -->
-                  GRAFIK DISINI
+    
+            
 
                     <!-- AKHIR ISI -->
                 </div>

@@ -16,7 +16,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-            <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/3/<?= $program; ?>"><span class="icon icon-backward"></span></a> DETAIL KUISIONER C PER PROGRAM : <?= $program; ?></span>
+            <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/3/<?= $program; ?>"><span class="icon icon-backward"></span></a> DETAIL KUISIONER C PER PROGRAM : <?= $program1['nama_program']; ?></span>
             </h1>
           </div>
           <hr>
