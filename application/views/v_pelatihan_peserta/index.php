@@ -168,9 +168,6 @@
             <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_konsumsi_c/<?= $x['kd_pelatihan'];?>">BERKENAAN DENGAN KONSUMSI</a><br><br>
           </div>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_bahan_pelatihan_c/<?= $x['kd_pelatihan'] ;?>">BERKENAAN DENGAN BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA</a><br><br>
-          </div>
-          <div class="form-group">
             <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_pelaksanaan_uji_c/<?= $x['kd_pelatihan'] ;?>">BERKENAAN DENGAN PELAKSANAAN UJI KOMPETENSI</a><br><br>
           </div>
           <div class="form-group">
