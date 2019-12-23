@@ -38,12 +38,12 @@
                     <table class="table table-striped table-bordered">
                       <thead>
                         
-                        <tr>
-                          <th rowspan="2" width="15" align="center"><b>NOMOR URUT</b></th>
+                        <tr  align="center">
+                          <th rowspan="2" width="15"><b>NOMOR URUT</b></th>
                           <th colspan="<?= $jml_kuisioner_a ;?>" class="text-center">NILAI PER UNSUR PELAYANAN</th>
                         </tr>
 
-                        <tr>
+                        <tr align="center"> 
                         <?php 
                            $p = 1;
                            foreach($kuisioner_a as $sl) { ?>
@@ -74,7 +74,7 @@
                                 $id_user = $r['id_user'];
                                 $soal = $this->db->query("SELECT DISTINCT id_soalA FROM penilaian_a WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan'")->result_array(); 
                               ?>
-                              <tr>
+                              <tr  align="center">
                               <td align="center"><?= $i1++; ?></td>
                               <!-- loop 2 -->
                               <?php  
@@ -93,8 +93,8 @@
                         <!-- akhir loop pelatihan -->
                         <?php } ?>
                         
-                        <tr>
-                          <td class="text-center">Jumlah</td>
+                        <tr align="center">
+                          <td>Jumlah</td>
                         <?php foreach($kuisioner_a as $sl){
                           $id_soalnya = $sl['id_kuisionerA'];
                           $total = $this->db->query("SELECT SUM(jawaban) as total FROM penilaian_a LEFT JOIN pelatihan ON penilaian_a.kd_pelatihan=pelatihan.kd_pelatihan  
@@ -104,8 +104,8 @@
                         <?php } ?>
                         </tr>
 
-                        <tr>
-                          <td class="text-center">NRR</td>
+                        <tr align="center">
+                          <td>NRR</td>
                           <?php foreach($kuisioner_a as $sl){
                           $id_soalnya = $sl['id_kuisionerA'];
                           $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_a LEFT JOIN pelatihan ON penilaian_a.kd_pelatihan=pelatihan.kd_pelatihan  
@@ -115,8 +115,8 @@
                           <?php } ?>
                         </tr>
                         
-                        <tr>
-                          <td class="text-center">NRR Tertimbang</td>
+                        <tr align="center">
+                          <td>NRR Tertimbang</td>
                           <?php  $jmlh_keseluruhan = 0; foreach($kuisioner_a as $sl){
                           $id_soalnya = $sl['id_kuisionerA'];
                           $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_a LEFT JOIN pelatihan ON penilaian_a.kd_pelatihan=pelatihan.kd_pelatihan  
@@ -127,13 +127,13 @@
                           <?php $jmlh_keseluruhan = $jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_a,2)); } ?>
                         </tr>
 
-                        <tr>
-                          <td class="text-center">Total</td>
-                          <td colspan="<?= $jml_kuisioner_a; ?>" class="text-center"><h4><?= number_format($jmlh_keseluruhan,2); ?></h4></td>
+                        <tr align="center">
+                          <td>Total</td>
+                          <td colspan="<?= $jml_kuisioner_a; ?>"><h4><?= number_format($jmlh_keseluruhan,2); ?></h4></td>
                         </tr>
-                        <tr>
-                          <td class="text-center">Hasil</td>
-                          <td colspan="<?= $jml_kuisioner_a; ?>" class="text-center"><h4><?= $hasil_akhir = number_format($jmlh_keseluruhan*20,2); ?>
+                        <tr align="center">
+                          <td>Hasil</td>
+                          <td colspan="<?= $jml_kuisioner_a; ?>"><h4><?= $hasil_akhir = number_format($jmlh_keseluruhan*20,2); ?>
                             <?php 
                               if($hasil_akhir <= 64.99){  
                                   echo '(Tidak Baik)';

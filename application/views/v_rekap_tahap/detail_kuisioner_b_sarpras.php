@@ -81,11 +81,11 @@
                       
                       </thead>
                       <tbody>
-                        <?php foreach($pelatihan as $p){ 
+                        <?php $i1=1;  foreach($pelatihan as $p){ 
                           $kd_pelatihan = $p['kd_pelatihan'];
                           $responden = $this->db->query("SELECT DISTINCT id_user FROM penilaian_b WHERE kd_pelatihan='$kd_pelatihan'")->result_array(); 
                         ?>
-                          <?php $i1=1; foreach($responden as $r){ 
+                          <?php foreach($responden as $r){ 
                             $id_user = $r['id_user'];
                             $soal_workshop = $this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal,sub_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 AND tipe_soal='pg'AND sub_soal=1 ")->result_array();
                             $soal_teori = $this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal,sub_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 AND tipe_soal='pg'AND sub_soal=2 ")->result_array(); 
