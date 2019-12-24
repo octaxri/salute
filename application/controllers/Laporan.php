@@ -12,6 +12,8 @@ class Laporan extends CI_Controller {
 		
 		$this->load->model('M_pelatihan');
 		$this->load->model('M_progam');
+		$this->load->model('M_kejuruan');
+
 	}
 
 	public function index()
@@ -311,6 +313,37 @@ class Laporan extends CI_Controller {
 
 		$this->load->view('v_laporan/pdf/rekap_tahap_kuisioner_c_rekruitmen',$data);
 	}
+
+	function cetak_perkejuruan_kuisioner_b_sarpras($kejuruan)
+	{
+		$data['kejuruan'] = $kejuruan;
+		$data['kejuruan1']= $this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan'")->result_array();
+        $data['jml_kuisioner_b_sapras1'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1 ")->num_rows();
+        $data['jml_kuisioner_b_sapras2'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=2")->num_rows();
+        $data['jml_kuisioner_b_sapras3'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=5 ")->num_rows();
+        $data['jml_kuisioner_b_sapras4'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=6 ")->num_rows();
+        $data['jml_kuisioner_b_sapras5'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=7")->num_rows();
+		
+		$data['kuisioner_b_sapras1'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1")->result_array();
+        $data['kuisioner_b_sapras2'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=2")->result_array();
+        $data['kuisioner_b_sapras3'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=5")->result_array();
+        $data['kuisioner_b_sapras4'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=6")->result_array();
+        $data['kuisioner_b_sapras5'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=7")->result_array();
+		
+		$this->load->view('v_laporan/pdf/rekap_kejuruan_kuisioner_b_sapras',$data);
+	}
+
+	function rekap_kejuruan_kuisioner_b_bahan_pelatihan($kejuruan)
+	{
+		$data['kejuruan'] = $kejuruan;
+		$data['kejuruan1']= $this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan'")->result_array();
+        $data['jml_kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
+		
+		$this->load->view('v_laporan/pdf/rekap_kejuruan_kuisioner_b_bahan_pelatihan',$data);
+	}
 	
 	// akhir pdf
 
@@ -521,6 +554,27 @@ class Laporan extends CI_Controller {
 
 	}
 
+	function export_excel_perkejuruan_kuisioner_b_sarpras($kejuruan)
+	{
+		$data['title'] = "Kuisioner B - Sarana / Prasarana | Program : .$kejuruan.";
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan'")->result_array();
+		$data['kejuruan1']=$this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+        $data['kejuruan'] = $kejuruan;
+        $data['jml_kuisioner_b_sapras1'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1")->num_rows();
+        $data['jml_kuisioner_b_sapras2'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=2")->num_rows();
+        $data['jml_kuisioner_b_sapras3'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=5")->num_rows();
+        $data['jml_kuisioner_b_sapras4'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=6")->num_rows();
+        $data['jml_kuisioner_b_sapras5'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=7")->num_rows();
+		
+		$data['kuisioner_b_sapras1'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1")->result_array();
+		$data['kuisioner_b_sapras2'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=2")->result_array();
+		$data['kuisioner_b_sapras3'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=5")->result_array();
+		$data['kuisioner_b_sapras4'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=6")->result_array();
+		$data['kuisioner_b_sapras5'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=7")->result_array();
+		
+		$this->load->view('v_laporan/excel/rekap_kejuruan_kuisioner_b_sapras',$data);
+	}
+
 	function export_exel_program_kuisioner_b_bahan_pelatihan($program)
 	{
 		$data['title'] = "Kuisioner B - Bahan Pelatihan | Program : .$program.";
@@ -532,6 +586,19 @@ class Laporan extends CI_Controller {
         $data['kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
 	
 		$this->load->view('v_laporan/excel/rekap_program_kuisioner_b_bahan_pelatihan',$data);
+	}
+
+	function export_excel_kejuruan_kuisioner_b_bahan_pelatihan($kejuruan)
+	{
+		$data['title'] = "Kuisioner B - Bahan Pelatihan | Kejuruan : .$kejuruan.";
+		$data['pelatihan']= $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan=$kejuruan ")->result_array();
+		$data['kejuruan1']=$this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+		$data['kejuruan']= $kejuruan;
+
+		$data['jml_kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
+	
+		$this->load->view('v_laporan/excel/rekap_kejuruan_kuisioner_b_bahan_pelatihan',$data);
 	}
 
 	///perpogram c 

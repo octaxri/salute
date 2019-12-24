@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <!-- IISI -->
                     <center>
-                        <a href="<?= base_url(); ?>laporan/rekap_kejuruan_kuisioner_b_bahan_pelatihan/<?= $kejuruan; ?>" class="btn btn-danger icon icon-file-pdf-o" target="_blank"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_kejuruan_kuisioner_b_bahan_pelatihan/<?= $kejuruan; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a> 
+                        <a href="<?= base_url(); ?>laporan/rekap_kejuruan_kuisioner_b_bahan_pelatihan/<?= $kejuruan; ?>" class="btn btn-danger icon icon-file-pdf-o" target="_blank"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_excel_kejuruan_kuisioner_b_bahan_pelatihan/<?= $kejuruan; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a> 
                     </center>
                     <br><br>
 

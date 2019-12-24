@@ -251,6 +251,22 @@ class Rekap_kejuruan extends CI_Controller {
          $this->load->view('templates/footer');
     }
 
+    function kuisioner_c_secara_umum($kejuruan)
+    {
+        $data['title']="SALUTE | Rekap Per kejuruan Kuisioner C Secara Umum Pelatihan";
+        $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan' ")->result_array();
+        $data['kejuruan']= $kejuruan;
+
+        $data['kejuruan1'] = $this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+         $data['jml_kuisioner_c_umum']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='pg'")->num_rows();
+         $data['kuisioner_c_umum']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='pg'")->result_array();
+    
+         $this->load->view('templates/header',$data);
+         $this->load->view('templates/sidebar',$data);
+         $this->load->view('v_rekap_kejuruan/detail_kuisioner_c_umum',$data);
+         $this->load->view('templates/footer');
+    }
+
 
 
 }
