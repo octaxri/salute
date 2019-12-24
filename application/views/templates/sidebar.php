@@ -80,6 +80,24 @@
                     <li><a href="<?= site_url(); ?>Rekap_kejuruan">Kejuruan</a></li>
                   </ul>
                 </li>
+                <li class="sidenav-item has-subnav">
+                  <a href="#" aria-haspopup="true">
+                    <span class="sidenav-icon icon icon-reorder"></span>
+                    <span class="sidenav-label">Rekap Uraian</span>
+                  </a>
+                  <ul class="sidenav-subnav collapse">
+                    <li><a href="<?= site_url(); ?>Rekap_uraian/tampil_uraian_materi_pelatihan/">Materi Pelatihan</a></li>
+                    <li><a href="<?= site_url(); ?>Rekap_uraian/tampil_uraian_tenaga_pelatih/">Tenaga Pelatih</a></li>
+                    <li><a href="<?= site_url(); ?>Rekap_uraian/tampil_uraian_sapras/">Sarana dan Prasarana</a></li>
+                    <li><a href="<?= site_url(); ?>Rekap_uraian/tampil_uraian_bahan_pelatihan/">Bahan Pelatihan</a></li>
+                    <li><a href="<?= site_url(); ?>Rekap_uraian/tampil_uraian_rekrut/">Rekruitment</a></li>
+                    <li><a href="<?= site_url(); ?>Rekap_uraian/tampil_uraian_sambut/">Penyambutan</a></li>
+                    <li><a href="<?= site_url(); ?>Rekap_uraian/tampil_uraian_sapras_asrama/">Sarana dan Prasarana Asrama</a></li>
+                    <li><a href="<?= site_url(); ?>Rekap_uraian/tampil_uraian_konsumsi/">Konsumsi</a></li>
+                    <li><a href="<?= site_url(); ?>Rekap_uraian/tampil_uraian_umum/">Secara Umum Pelaksanaan Pelatihan</a></li>
+
+                  </ul>
+                </li>
                 <li class="sidenav-item">
                   <a href="<?= site_url(); ?>pelatihan">
                     <span class="sidenav-icon icon icon-diamond"></span>
