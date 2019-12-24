@@ -38,17 +38,17 @@
                         <tr>
                             <td>1</td>
                             <td>Kuisioner A</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/1/<?= $kejuruan; ?>"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_kejuruan/rekap_kuisioner/1/<?= $kejuruan; ?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>Kuisioner B</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/2/<?= $kejuruan;?>"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_kejuruan/rekap_kuisioner/2/<?= $kejuruan;?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>Kuisioner C</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/3/<?= $kejuruan;?>"><span class="icon icon-eye"></span> Detail</a></td>
+                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_kejuruan/rekap_kuisioner/3/<?= $kejuruan;?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
                     </tbody>
                   </table>

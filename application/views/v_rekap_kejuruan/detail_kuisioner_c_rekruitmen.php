@@ -16,7 +16,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner/3/<?= $tahap; ?>"><span class="icon icon-backward"></span></a> LAPORAN PER TAHAP : <?= $tahap; ?></span>
+              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_kejuruan/rekap_kuisioner/3/<?= $kejuruan; ?>"><span class="icon icon-backward"></span></a> LAPORAN PER KEJURUAN : <?= $detail_kejuruan['nama_kejuruan']; ?></span>
             </h1>
           </div>
           <hr>
@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <!-- IISI -->
                     <center>
-                        <a href="<?= base_url(); ?>laporan/rekap_pertahap_kuisioner_c_rekruitmen/<?= $tahap; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_rekap_tahap_kuisioner_c_rekruitmen/<?= $tahap; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
+                        <a href="<?= base_url(); ?>laporan/cetak_kuisioner_c_rekrut/<?= $kejuruan; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_kuisioner_c_rekrut/<?= $kejuruan; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
                     </center>
                     <br><br>
 
@@ -88,7 +88,7 @@
                             $id_soalnya = $z['id_kuisionerC'];
 
                             $total = $this->db->query("SELECT SUM(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-                                            WHERE penilaian_c.id_soalC='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
+                                            WHERE penilaian_c.id_soalC='$id_soalnya' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
                             ?>
                             <td><?= $total['total']; ?></td>
                             <?php } ?>
@@ -101,7 +101,7 @@
                             $id_soalnya = $z['id_kuisionerC'];
 
                             $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-                                            WHERE penilaian_c.id_soalC='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
+                                            WHERE penilaian_c.id_soalC='$id_soalnya' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
                             ?>
                             <td><?= number_format($total['total'],2); ?></td>
                             <?php } ?>
@@ -113,7 +113,7 @@
                             $id_soalnya = $z['id_kuisionerC'];
 
                             $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-                                            WHERE penilaian_c.id_soalC='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
+                                            WHERE penilaian_c.id_soalC='$id_soalnya' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
                             ?>
                             <td><?= number_format($total['total']/$jml_kuisioner_c_rekruitmen,2); ?></td>
                             <?php $jmlh_keseluruhan=$jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_c_rekruitmen,2)); } ?>

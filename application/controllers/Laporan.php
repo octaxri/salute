@@ -174,6 +174,7 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/pdf/rekap_program_kuisioner_b_materi_pelatihan',$data);
 	 }
 
+<<<<<<< Updated upstream
 	 function rekap_program_kuisioner_b_sapras($program)
 	 {
 		$data['program'] = $program;
@@ -271,6 +272,48 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/pdf/rekap_program_kuisioner_c_umum',$data);
 	 }
 
+=======
+	 function cetak_pertahap_kuisioner_b_sarpras($tahap){
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+
+        $data['tahap'] = $tahap;
+        $data['jml_workshop'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1")->num_rows();
+        $data['jml_ruang_teori'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=2")->num_rows();
+        $data['jml_listrik'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=5")->num_rows();
+        $data['jml_km'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=6")->num_rows();
+        $data['jml_sarana'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=7")->num_rows();
+
+        $data['workshop'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1")->result_array();
+        $data['teori'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=2")->result_array();
+        $data['listrik'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=5")->result_array();
+        $data['km'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=6")->result_array();
+        $data['sarana'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=7")->result_array();
+		
+		$this->load->view('v_laporan/pdf/rekap_tahap_kuisioner_b_sarpras',$data);
+	 }
+
+	 function rekap_pertahap_kuisioner_b_bahan_pelatihan($tahap){
+
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+
+        $data['tahap'] = $tahap;
+        $data['jml_kuisioner_b_bahan_latihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
+		$data['kuisioner_b_bahan_latihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
+		
+		$this->load->view('v_laporan/pdf/rekap_tahap_kuisioner_b_bahan_pelatihan',$data);
+	}
+
+	function rekap_pertahap_kuisioner_c_rekruitmen($tahap){
+
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+
+        $data['tahap'] = $tahap;
+        $data['jml_kuisioner_c_rekruitmen'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_c_rekruitmen'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
+
+		$this->load->view('v_laporan/pdf/rekap_tahap_kuisioner_c_rekruitmen',$data);
+	}
+>>>>>>> Stashed changes
 	
 	// akhir pdf
 
@@ -436,9 +479,30 @@ class Laporan extends CI_Controller {
         $data['jml_kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
         $data['kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
 		$this->load->view('v_laporan/excel/rekap_program_kuisioner_b_materi_pelatihan',$data);
+	}
+	
+	function export_exel_pertahap_kuisioner_b_sarpras($tahap){
+		$data['title'] = "Kuisioner B - Sarpras | Program : .$tahap.";
 
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+
+        $data['tahap'] = $tahap;
+        $data['jml_workshop'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1")->num_rows();
+        $data['jml_ruang_teori'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=2")->num_rows();
+        $data['jml_listrik'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=5")->num_rows();
+        $data['jml_km'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=6")->num_rows();
+        $data['jml_sarana'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=7")->num_rows();
+
+        $data['workshop'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1")->result_array();
+        $data['teori'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=2")->result_array();
+        $data['listrik'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=5")->result_array();
+        $data['km'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=6")->result_array();
+		$data['sarana'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=7")->result_array();
+		
+		$this->load->view('v_laporan/excel/rekap_tahap_kuisioner_b_sarpras',$data);
 	}
 
+<<<<<<< Updated upstream
 	function export_exel_program_kuisioner_b_sapras($program)
 	{
 		$data['title'] = "Kuisioner B - Sarana / Prasarana | Program : .$program.";
@@ -553,13 +617,30 @@ class Laporan extends CI_Controller {
 	
 		$this->load->view('v_laporan/excel/rekap_program_kuisioner_c_umum',$data);
 	}
+=======
+	function export_exel_rekap_tahap_kuisioner_b_bahan_pelatihan($tahap){
+		$data['title'] = "Kuisioner B - Bahan Pelatihan | Tahap : .$tahap.";
+>>>>>>> Stashed changes
 
-	
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
 
-	
+        $data['tahap'] = $tahap;
+        $data['jml_kuisioner_b_bahan_latihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_bahan_latihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
 
-	
+		$this->load->view('v_laporan/excel/rekap_tahap_kuisioner_b_bahan_pelatihan',$data);
+	}
 
-    
+	function export_exel_rekap_tahap_kuisioner_c_rekruitmen($tahap){
+		$data['title'] = "Kuisioner C - Rekruitmen | Tahap : .$tahap.";
+
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+
+        $data['tahap'] = $tahap;
+        $data['jml_kuisioner_c_rekruitmen'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_c_rekruitmen'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
+
+		$this->load->view('v_laporan/excel/rekap_tahap_kuisioner_c_rekruitmen',$data);
+	}
     
 }

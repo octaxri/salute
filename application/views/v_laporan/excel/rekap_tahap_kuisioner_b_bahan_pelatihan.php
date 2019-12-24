@@ -1,56 +1,43 @@
-<div class="layout-content">
-        <div class="layout-content-body">
+<?php 
 
-        <?php 
-                $dat = $this->session->flashdata('msg');
-                    if($dat!=""){ ?>
-                          <div id="notifikasi" class="alert alert-success"><strong>Sukses! </strong> <?=$dat;?></div>
-                <?php } ?> 
-                <!-- Akhir flashdata  -->
-      
-            <?php 
-            $dat = $this->session->flashdata('msg2');
-                if($dat!=""){ ?>
-                      <div id="notifikasi" class="alert alert-danger"><strong> </strong> <?=$dat;?></div>
-        <?php } ?> 
+header("Content-type: application/octet-stream");
 
-          <div class="title-bar">
-            <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner/2/<?= $tahap; ?>"><span class="icon icon-backward"></span></a> LAPORAN KUISIONER B - BAHAN PELATIHAN | PER TAHAP : <?= $tahap; ?></span>
-            </h1>
-          </div>
-          <hr>
-          <br>
-          <div class="row gutter-xs">
-            <div class="col-xs-12">
-              <div class="card">
-                <div class="card-header">
-                  <strong>Hasil Nilai Responden Bahan Pelatihan, Modul, ATK, dan Seragam peserta</strong>
-                </div>
-                <div class="card-body">
-                    <!-- IISI -->
-                    <center>
-                        <a href="<?= base_url(); ?>laporan/rekap_pertahap_kuisioner_b_bahan_pelatihan/<?= $tahap; ?>" class="btn btn-danger icon icon-file-pdf-o" target="_blank"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_rekap_tahap_kuisioner_b_bahan_pelatihan/<?= $tahap; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a> 
-                    </center>
-                    <br><br>
+header("Content-Disposition: attachment; filename=$title.xls");
 
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
+header("Pragma: no-cache");
+
+header("Expires: 0");
+
+?>
+
+<table align="center" cellspacing="5">
+            <tr>
+                <td colspan="3"><h4>IV. BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA</h4></td>
+            </tr>
+            <tr>
+                <td colspan="3"><center><h4>
+                HASIL ANALISIS ANGKET <br>
+                LAPORAN PER TAHAP : <?= $tahap; ?>
+                </h4></center></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                        <!-- tabel -->  
+                        <table border="1" width="100%">
                       <thead>
-                        
-                      <tr>
-                          <th rowspan="2" width="15" class="text-center">No Responden</th>
-                          <th colspan="<?= $jml_kuisioner_b_bahan_latihan; ?>" class="text-center">Bahan Latihan</th>
-                        
-                      </tr>
-
+                        <tr>
+                          <th rowspan="2" width="15" align="center">No Responden</th>
+                          <th colspan="<?= $jml_kuisioner_b_bahan_latihan;?>" align="center">Bahan Latihan</th>
+                        </tr>
+             
                         <tr>
                               <?php 
                                $soal=1;
                               foreach ($kuisioner_b_bahan_latihan as $key) { ?>
-                                <th class="text-center"><?= $soal++;?></th>
+                                <th align="center"><?= $soal++;?></th>
                               <?php }?>
-                        </tr>        
+                        </tr>
+             
                       </thead>
                       <tbody>
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>
@@ -65,7 +52,7 @@
                             $soal = $this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 AND tipe_soal='pg'")->result_array(); 
                           ?>
                           <tr>
-                          <td class="text-center"><?= $i1++; ?></td>
+                          <td align="center"><?= $i1++; ?></td>
                           <!-- loop 2 -->
                           <?php $i2=1; 
                           foreach($soal as $s){
@@ -74,51 +61,50 @@
                             $nilainya = $this->db->query("SELECT * FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND id_soalB='$id_soal' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 AND tipe_soal='pg'")->row_array();  
                             // 
                           ?>
-                          <td class="text-center"><?= $nilainya['jawaban']; ?></td>
+                          <td align="center"><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>
                         <?php } ?>
-                        <?php } ?>
+                      <?php } ?>
+                     
                         <tr>
-                          <td class="text-center">Jumlah</td>
+                          <td align="center">Jumlah</td>
                           <?php foreach($kuisioner_b_bahan_latihan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerB'];
                               $total = $this->db->query("SELECT SUM(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
                                                             WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
                           ?>
-                            <td class="text-center"><?= $total['total']; ?></td>
+                            <td align="center"><?= $total['total']; ?></td>
                           <?php } ?>
                         </tr>
-                        
                         <tr>
-                          <td class="text-center">Nilai Rata-Rata</td>
+                          <td align="center">Nilai Rata-Rata</td>
                           <?php foreach($kuisioner_b_bahan_latihan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerB'];
                               $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
                                                             WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
                           ?>
-                            <td class="text-center"><?= number_format($total['total'],2); ?></td>
+                            <td align="center"><?= number_format($total['total'],2); ?></td>
                         <?php } ?>
                         </tr>
-
                         <tr>
-                          <td class="text-center">NRR X Bobot</td>
+                          <td align="center">NRR X Bobot</td>
                           <?php  $jmlh_keseluruhan = 0; foreach($kuisioner_b_bahan_latihan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerB'];
                               $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
                                                             WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
                           ?>
-                            <td class="text-center"><?= number_format($total['total']/$jml_kuisioner_b_bahan_latihan,2); ?></td>
+                            <td align="center"><?= number_format($total['total']/$jml_kuisioner_b_bahan_latihan,2); ?></td>
                           <?php $jmlh_keseluruhan = $jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_b_bahan_latihan,2)); } ?>
                         </tr>
                         <tr>
-                          <td class="text-center">Jumlah</td>
-                          <td colspan="<?= $jml_kuisioner_b_bahan_latihan;?>" class="text-center"><h4><?= number_format($jmlh_keseluruhan,2) ;?></h4></td>
+                          <td align="center">Jumlah</td>
+                          <td colspan="<?= $jml_kuisioner_b_bahan_latihan;?>" align="center"><h4><?= number_format($jmlh_keseluruhan,2) ;?></h4></td>
                         </tr>
                         <tr>
-                          <td class="text-center">Jumlah X 20</td>
-                          <td colspan="<?= $jml_kuisioner_b_bahan_latihan; ?>" class="text-center"><h4><?= $hasil_akhir = number_format($jmlh_keseluruhan*20,2);?> 
+                          <td align="center">Jumlah X 20</td>
+                          <td colspan="<?= $jml_kuisioner_b_bahan_latihan; ?>" align="center"><h4><?= $hasil_akhir = number_format($jmlh_keseluruhan*20,2);?> 
                           <?php 
                               if($hasil_akhir <= 64.99){  
                                   echo '(Tidak Baik)';
@@ -137,13 +123,8 @@
                         </tr>
                       </tbody>
                     </table>
-                    <br>
-                  </div>
-
-                    <!-- AKHIR ISI -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                        <!-- akhir tabel -->
+                </td>
+            </tr>
+            
+    </table>

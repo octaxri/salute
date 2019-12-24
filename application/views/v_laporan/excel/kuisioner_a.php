@@ -13,7 +13,8 @@ header("Expires: 0");
 
 <table>
     <tr>
-        <td colspan="11"><center><h4>PENGELOHAN INDEKS KEPUASAN MASYARAKAT PER RESPONDEN DAN PER UNSUR PELAYANAN</h4></center></td>
+        <td></td>
+        <td colspan="10"><center><h4>PENGELOHAN INDEKS KEPUASAN MASYARAKAT PER RESPONDEN DAN PER UNSUR PELAYANAN</h4></center></td>
     </tr>
     <tr>
         <td></td>
