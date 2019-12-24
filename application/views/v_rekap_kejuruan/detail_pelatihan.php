@@ -89,56 +89,178 @@
                         <tr>
                           <td align="center">1</td>
                           <td>Materi Pelatihan</td>
-                          <td align="center">80.00</td>
-                          <td align="center">Baik</td>
+                          <td align="center"><?= $hasil_kuisioner_b_materi_pelatihan; ?></td>
+                          <td align="center">
+                          <?php 
+                              if($hasil_kuisioner_b_materi_pelatihan <= 64.99){  
+                                  echo 'Tidak Baik';
+                              }
+                              else if($hasil_kuisioner_b_materi_pelatihan>= 65.00 && $hasil_kuisioner_b_materi_pelatihan<= 76.60){
+                                  echo 'Kurang Baik';
+                              }
+                              else if($hasil_kuisioner_b_materi_pelatihan>= 76.61 && $hasil_kuisioner_b_materi_pelatihan<= 88.30){
+                                  echo 'Baik';
+                              }
+                              else if($hasil_kuisioner_b_materi_pelatihan>= 88.31 && $hasil_kuisioner_b_materi_pelatihan<= 100){
+                                  echo 'Sangat Baik';
+                              }   
+                          ?>
+                          </td>
                         </tr>
                         <tr>
                           <td align="center">2</td>
                           <td>Tenaga Pelatih</td>
-                          <td align="center">80.00</td>
-                          <td align="center">Baik</td>
+                          <td align="center"></td>
+                          <td align="center">
+                          </td>
                         </tr>
                         <tr>
                           <td align="center">3</td>
                           <td>Sarpras</td>
-                          <td align="center">80.00</td>
-                          <td align="center">Baik</td>
+                          <td align="center"><?= $hasil_kuisioner_b_sarpras; ?></td>
+                          <td align="center">
+                          <?php 
+                              if($hasil_kuisioner_b_sarpras <= 64.99){  
+                                  echo 'Tidak Baik';
+                              }
+                              else if($hasil_kuisioner_b_sarpras>= 65.00 && $hasil_kuisioner_b_sarpras<= 76.60){
+                                  echo 'Kurang Baik';
+                              }
+                              else if($hasil_kuisioner_b_sarpras>= 76.61 && $hasil_kuisioner_b_sarpras<= 88.30){
+                                  echo 'Baik';
+                              }
+                              else if($hasil_kuisioner_b_sarpras>= 88.31 && $hasil_kuisioner_b_sarpras<= 100){
+                                  echo 'Sangat Baik';
+                              }   
+                          ?>
+                          </td>
                         </tr>
                         <tr>
                           <td align="center">4</td>
                           <td>Bahan Pelatihan</td>
-                          <td align="center">80.00</td>
-                          <td align="center">Baik</td>
+                          <td align="center"><?= $hasil_kuisioner_b_bahan_latihan; ?></td>
+                          <td align="center">
+                          <?php 
+                              if($hasil_kuisioner_b_bahan_latihan <= 64.99){  
+                                  echo 'Tidak Baik';
+                              }
+                              else if($hasil_kuisioner_b_bahan_latihan>= 65.00 && $hasil_kuisioner_b_bahan_latihan<= 76.60){
+                                  echo 'Kurang Baik';
+                              }
+                              else if($hasil_kuisioner_b_bahan_latihan>= 76.61 && $hasil_kuisioner_b_bahan_latihan<= 88.30){
+                                  echo 'Baik';
+                              }
+                              else if($hasil_kuisioner_b_bahan_latihan>= 88.31 && $hasil_kuisioner_b_bahan_latihan<= 100){
+                                  echo 'Sangat Baik';
+                              }   
+                          ?>
+                          </td>
                         </tr>
                         <tr>
                           <td align="center">5</td>
                           <td>Rekruitmen</td>
-                          <td align="center">80.00</td>
-                          <td align="center">Baik</td>
+                          <td align="center"><?= $hasil_kuisioner_c_rekruitmen; ?></td>
+                          <td align="center">
+                          <?php 
+                              if($hasil_kuisioner_c_rekruitmen <= 64.99){  
+                                  echo 'Tidak Baik';
+                              }
+                              else if($hasil_kuisioner_c_rekruitmen>= 65.00 && $hasil_kuisioner_c_rekruitmen<= 76.60){
+                                  echo 'Kurang Baik';
+                              }
+                              else if($hasil_kuisioner_c_rekruitmen>= 76.61 && $hasil_kuisioner_c_rekruitmen<= 88.30){
+                                  echo 'Baik';
+                              }
+                              else if($hasil_kuisioner_c_rekruitmen>= 88.31 && $hasil_kuisioner_c_rekruitmen<= 100){
+                                  echo 'Sangat Baik';
+                              }   
+                          ?>
+                          </td>
                         </tr>
                         <tr>
                           <td align="center">6</td>
                           <td>Penyambutan</td>
-                          <td align="center">80.00</td>
-                          <td align="center">Baik</td>
+                          <td align="center"><?= $hasil_kuisioner_c_penyambutan; ?></td>
+                          <td align="center">
+                          <?php 
+                              if($hasil_kuisioner_c_penyambutan <= 64.99){  
+                                  echo 'Tidak Baik';
+                              }
+                              else if($hasil_kuisioner_c_penyambutan>= 65.00 && $hasil_kuisioner_c_penyambutan<= 76.60){
+                                  echo 'Kurang Baik';
+                              }
+                              else if($hasil_kuisioner_c_penyambutan>= 76.61 && $hasil_kuisioner_c_penyambutan<= 88.30){
+                                  echo 'Baik';
+                              }
+                              else if($hasil_kuisioner_c_penyambutan>= 88.31 && $hasil_kuisioner_c_penyambutan<= 100){
+                                  echo 'Sangat Baik';
+                              }   
+                          ?>
+                          </td>
                         </tr>
                         <tr>
                           <td align="center">7</td>
                           <td>Sarpras Asrama</td>
-                          <td align="center">80.00</td>
-                          <td align="center">Baik</td>
+                          <td align="center"><?= $hasil_kuisioner_c_sarpras_asrama; ?></td>
+                          <td align="center">
+                          <?php 
+                              if($hasil_kuisioner_c_sarpras_asrama <= 64.99){  
+                                  echo 'Tidak Baik';
+                              }
+                              else if($hasil_kuisioner_c_sarpras_asrama>= 65.00 && $hasil_kuisioner_c_sarpras_asrama<= 76.60){
+                                  echo 'Kurang Baik';
+                              }
+                              else if($hasil_kuisioner_c_sarpras_asrama>= 76.61 && $hasil_kuisioner_c_sarpras_asrama<= 88.30){
+                                  echo 'Baik';
+                              }
+                              else if($hasil_kuisioner_c_sarpras_asrama>= 88.31 && $hasil_kuisioner_c_sarpras_asrama<= 100){
+                                  echo 'Sangat Baik';
+                              }   
+                          ?>
+                          </td>
                         </tr>
                         <tr>
                           <td align="center">8</td>
                           <td>Konsumsi</td>
-                          <td align="center">80.00</td>
-                          <td align="center">Baik</td>
+                          <td align="center"><?= $hasil_kuisioner_c_konsumsi; ?></td>
+                          <td align="center">
+                          <?php 
+                              if($hasil_kuisioner_c_sarpras_asrama <= 64.99){  
+                                  echo 'Tidak Baik';
+                              }
+                              else if($hasil_kuisioner_c_sarpras_asrama>= 65.00 && $hasil_kuisioner_c_sarpras_asrama<= 76.60){
+                                  echo 'Kurang Baik';
+                              }
+                              else if($hasil_kuisioner_c_sarpras_asrama>= 76.61 && $hasil_kuisioner_c_sarpras_asrama<= 88.30){
+                                  echo 'Baik';
+                              }
+                              else if($hasil_kuisioner_c_sarpras_asrama>= 88.31 && $hasil_kuisioner_c_sarpras_asrama<= 100){
+                                  echo 'Sangat Baik';
+                              }   
+                          ?>
+                          </td>
                         </tr>
                         <tr>
                           <td align="center">9</td>
                           <td>Secara Umum</td>
-                          <td align="center">80.00</td>
-                          <td align="center">Baik</td>
+                          <td align="center"><?= $hasil_kuisioner_c_secara_umum; ?></td>
+                          <td align="center">
+                          <?php 
+                              if($hasil_kuisioner_c_secara_umum <= 64.99){  
+                                  echo 'Tidak Baik';
+                              }
+                              else if($hasil_kuisioner_c_secara_umum>= 65.00 && $hasil_kuisioner_c_secara_umum<= 76.60){
+                                  echo 'Kurang Baik';
+                              }
+                              else if($hasil_kuisioner_c_secara_umum>= 76.61 && $hasil_kuisioner_c_secara_umum<= 88.30){
+                                  echo 'Baik';
+                              }
+                              else if($hasil_kuisioner_c_secara_umum>= 88.31 && $hasil_kuisioner_c_secara_umum<= 100){
+                                  echo 'Sangat Baik';
+                              }   
+                          ?>
+                          
+                          </td>
                         </tr>
                       </tbody>
                     </table>

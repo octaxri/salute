@@ -54,6 +54,141 @@ class Rekap_kejuruan extends CI_Controller {
         $data['title']= "SALUTE | Detail Per Kejuruan Pelatihan ";
         $data['kejuruan'] = $kejuruan;
     
+        // MATERI PELATIHAN
+        $jml_kuisioner_b_materi_pelatihan = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+        $kuisioner_b_materi_pelatihan = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
+        
+        $jmlh_keseluruhan_materi_pelatihan = 0; 
+        
+        foreach($kuisioner_b_materi_pelatihan as $sl1){ 
+            $id_soalnya1 = $sl1['id_kuisionerB'];
+            $total_materi_pelatihan = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
+                                          WHERE penilaian_b.id_soalB='$id_soalnya1' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
+        
+            $jmlh_keseluruhan_materi_pelatihan = $jmlh_keseluruhan_materi_pelatihan+(number_format($total_materi_pelatihan['total']/$jml_kuisioner_b_materi_pelatihan,2));
+            $hasil_akhir_materi_pelatihan = number_format($jmlh_keseluruhan_materi_pelatihan*20,2);
+        }
+        $data['hasil_kuisioner_b_materi_pelatihan'] = $hasil_akhir_materi_pelatihan;
+
+        // SARPRAS
+        $jml_kuisioner_b_sarpras = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg'")->num_rows();
+        $kuisioner_b_sarpras = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg'")->result_array();
+        
+        $jmlh_keseluruhan_sarpras = 0; 
+        
+        foreach($kuisioner_b_sarpras as $sl2){ 
+            $id_soalnya2 = $sl2['id_kuisionerB'];
+            $total_sarpras = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
+                                          WHERE penilaian_b.id_soalB='$id_soalnya2' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
+        
+            $jmlh_keseluruhan_sarpras = $jmlh_keseluruhan_sarpras+(number_format($total_sarpras['total']/$jml_kuisioner_b_sarpras,2));
+            $hasil_akhir_sarpras = number_format($jmlh_keseluruhan_sarpras*20,2);
+        }
+        $data['hasil_kuisioner_b_sarpras'] = $hasil_akhir_sarpras;
+
+
+        // BAHAN LATIHAN
+        $jml_kuisioner_b_bahan_latihan = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
+        $kuisioner_b_bahan_latihan = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
+        
+        $jmlh_keseluruhan_bahan_latihan = 0; 
+        
+        foreach($kuisioner_b_bahan_latihan as $sl3){ 
+            $id_soalnya3 = $sl3['id_kuisionerB'];
+            $total_bahan_latihan = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
+                                          WHERE penilaian_b.id_soalB='$id_soalnya3' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
+        
+            $jmlh_keseluruhan_bahan_latihan = $jmlh_keseluruhan_bahan_latihan+(number_format($total_bahan_latihan['total']/$jml_kuisioner_b_bahan_latihan,2));
+            $hasil_akhir_bahan_latihan = number_format($jmlh_keseluruhan_bahan_latihan*20,2);
+        }
+        $data['hasil_kuisioner_b_bahan_latihan'] = $hasil_akhir_bahan_latihan;
+
+
+        // REKRUITMEN
+        $jml_kuisioner_c_rekruitmen = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+        $kuisioner_c_rekruitmen = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
+        
+        $jmlh_keseluruhan_rekruitmen = 0; 
+        
+        foreach($kuisioner_c_rekruitmen as $sl4){ 
+            $id_soalnya4 = $sl4['id_kuisionerC'];
+            $total_rekruitmen = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
+                                            WHERE penilaian_c.id_soalC='$id_soalnya4' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
+
+            $jmlh_keseluruhan_rekruitmen=$jmlh_keseluruhan_rekruitmen+(number_format($total_rekruitmen['total']/$jml_kuisioner_c_rekruitmen,2));
+            $hasil_akhir_rekruitmen = number_format($jmlh_keseluruhan_rekruitmen*25,2);
+        }
+        $data['hasil_kuisioner_c_rekruitmen'] = $hasil_akhir_rekruitmen;
+
+
+        // PENYAMBUTAN
+        $jml_kuisioner_c_penyambutan = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=2 AND tipe_soal='pg'")->num_rows();
+        $kuisioner_c_penyambutan = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=2 AND tipe_soal='pg'")->result_array();
+        
+        $jmlh_keseluruhan_penyambutan = 0; 
+        
+        foreach($kuisioner_c_penyambutan as $sl5){ 
+            $id_soalnya5 = $sl5['id_kuisionerC'];
+            $total_penyambutan = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
+                                            WHERE penilaian_c.id_soalC='$id_soalnya5' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
+
+            $jmlh_keseluruhan_penyambutan=$jmlh_keseluruhan_penyambutan+(number_format($total_penyambutan['total']/$jml_kuisioner_c_penyambutan,2));
+            $hasil_akhir_penyambutan = number_format($jmlh_keseluruhan_penyambutan*25,2);
+        }
+        $data['hasil_kuisioner_c_penyambutan'] = $hasil_akhir_penyambutan;
+
+
+        // SARPRAS ASRAMA
+        $jml_kuisioner_c_sarpras_asrama = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=3 AND tipe_soal='pg'")->num_rows();
+        $kuisioner_c_sarpras_asrama = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=3 AND tipe_soal='pg'")->result_array();
+        
+        $jmlh_keseluruhan_sarpras_asrama = 0; 
+        
+        foreach($kuisioner_c_sarpras_asrama as $sl6){ 
+            $id_soalnya6 = $sl6['id_kuisionerC'];
+            $total_sarpras_asrama = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
+                                            WHERE penilaian_c.id_soalC='$id_soalnya6' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
+
+            $jmlh_keseluruhan_sarpras_asrama=$jmlh_keseluruhan_sarpras_asrama+(number_format($total_sarpras_asrama['total']/$jml_kuisioner_c_sarpras_asrama,2));
+            $hasil_akhir_sarpras_asrama = number_format($jmlh_keseluruhan_sarpras_asrama*25,2);
+        }
+        $data['hasil_kuisioner_c_sarpras_asrama'] = $hasil_akhir_sarpras_asrama;
+
+
+        // KONSUMSI
+        $jml_kuisioner_c_konsumsi = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
+        $kuisioner_c_konsumsi = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
+        
+        $jmlh_keseluruhan_konsumsi = 0; 
+        
+        foreach($kuisioner_c_konsumsi as $sl7){ 
+            $id_soalnya7 = $sl7['id_kuisionerC'];
+            $total_konsumsi = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
+                                            WHERE penilaian_c.id_soalC='$id_soalnya7' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
+
+            $jmlh_keseluruhan_konsumsi=$jmlh_keseluruhan_konsumsi+(number_format($total_konsumsi['total']/$jml_kuisioner_c_konsumsi,2));
+            $hasil_akhir_konsumsi = number_format($jmlh_keseluruhan_konsumsi*25,2);
+        }
+        $data['hasil_kuisioner_c_konsumsi'] = $hasil_akhir_konsumsi;
+
+
+        // SECARA UMUM
+        $jml_kuisioner_c_secara_umum = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='pg'")->num_rows();
+        $kuisioner_c_secara_umum = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='pg'")->result_array();
+        
+        $jmlh_keseluruhan_secara_umum = 0; 
+        
+        foreach($kuisioner_c_secara_umum as $sl8){ 
+            $id_soalnya7 = $sl8['id_kuisionerC'];
+            $total_secara_umum = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
+                                            WHERE penilaian_c.id_soalC='$id_soalnya7' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
+
+            $jmlh_keseluruhan_secara_umum=$jmlh_keseluruhan_secara_umum+(number_format($total_secara_umum['total']/$jml_kuisioner_c_secara_umum,2));
+            $hasil_akhir_secara_umum = number_format($jmlh_keseluruhan_secara_umum*25,2);
+        }
+        $data['hasil_kuisioner_c_secara_umum'] = $hasil_akhir_secara_umum;
+
+
 
         $this->load->view('templates/header',$data);
         $this->load->view('templates/sidebar',$data);

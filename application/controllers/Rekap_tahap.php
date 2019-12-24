@@ -170,6 +170,23 @@ class Rekap_tahap extends CI_Controller {
         $data['hasil_kuisioner_b_secara_umum'] = $hasil_akhir_secara_umum;
 
 
+        // sarpras
+        $kuisioner_b_sarpras = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg'")->result_array();
+        
+        $jmlh_keseluruhan_sarpras = 0;
+        $jml_kuisioner_b_sarpras = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg'")->num_rows();
+        foreach($kuisioner_b_sarpras as $sl7){ 
+            $id_soalnya7 = $sl7['id_kuisionerB'];
+        
+            $total_sarpras = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
+            WHERE penilaian_b.id_soalB='$id_soalnya7' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
+            
+            $jmlh_keseluruhan_sarpras = $jmlh_keseluruhan_sarpras+(number_format($total_sarpras['total']/$jml_kuisioner_b_sarpras,2));
+            $hasil_akhir_sarpras = number_format($jmlh_keseluruhan_sarpras*20,2);
+        }
+        $data['hasil_kuisioner_b_sarpras'] = $hasil_akhir_sarpras;
+
+
         $this->load->view('templates/header',$data);
         $this->load->view('templates/sidebar',$data);
         $this->load->view('v_rekap_tahap/detail_pelatihan',$data);

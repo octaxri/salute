@@ -112,8 +112,23 @@
                         <tr>
                           <td align="center">3</td>
                           <td>Sarpras</td>
-                          <td align="center"></td>
-                          <td align="center"></td>
+                          <td align="center"><?= $hasil_kuisioner_b_sarpras; ?></td>
+                          <td align="center">
+                          <?php 
+                              if($hasil_kuisioner_b_sarpras <= 64.99){  
+                                  echo 'Tidak Baik';
+                              }
+                              else if($hasil_kuisioner_b_sarpras>= 65.00 && $hasil_kuisioner_b_sarpras<= 76.60){
+                                  echo 'Kurang Baik';
+                              }
+                              else if($hasil_kuisioner_b_sarpras>= 76.61 && $hasil_kuisioner_b_sarpras<= 88.30){
+                                  echo 'Baik';
+                              }
+                              else if($hasil_kuisioner_b_sarpras>= 88.31 && $hasil_kuisioner_b_sarpras<= 100){
+                                  echo 'Sangat Baik';
+                              }   
+                          ?>
+                          </td>
                         </tr>
                         <tr>
                           <td align="center">4</td>
