@@ -16,7 +16,7 @@
 <body onload="window.print()">
     <table style="margin-left:10px; margin-bottom:0px;" width="100%">
         <tr>
-            <td><h4>I. MATERI PELATIHAN (KURIKULUM SILABUS)</h4></td>
+            <td colspan="3"><h4>I. MATERI PELATIHAN (KURIKULUM SILABUS)</h4></td>
         </tr>
         <tr>
             <td><center><h4>LAPORAN KUISIONE B (MATERI PELATIHAN) <br>PER PROGRAM : <?= $program1['nama_program']; ?></h4>

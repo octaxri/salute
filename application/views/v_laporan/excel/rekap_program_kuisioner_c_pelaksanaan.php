@@ -1,52 +1,43 @@
-<div class="layout-content">
-        <div class="layout-content-body">
+<?php 
 
-        <?php 
-                $dat = $this->session->flashdata('msg');
-                    if($dat!=""){ ?>
-                          <div id="notifikasi" class="alert alert-success"><strong>Sukses! </strong> <?=$dat;?></div>
-                <?php } ?> 
-                <!-- Akhir flashdata  -->
-      
-            <?php 
-            $dat = $this->session->flashdata('msg2');
-                if($dat!=""){ ?>
-                      <div id="notifikasi" class="alert alert-danger"><strong> </strong> <?=$dat;?></div>
-        <?php } ?> 
+header("Content-type: application/octet-stream");
 
-          <div class="title-bar">
-            <h1 class="title-bar-title">
-            <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_program/rekap_kuisioner/3/<?= $program; ?>"><span class="icon icon-backward"></span></a> DETAIL KUISIONER C PER PROGRAM : <?= $program1['nama_program']; ?></span>
-            </h1>
-          </div>
-          <hr>
-          <br>
-          <div class="row gutter-xs">
-            <div class="col-xs-12">
-              <div class="card">
-                <div class="card-header">
-                  <strong>Hasil Nilai Responden Pelaksanaan Uji Kompetensi</strong>
-                </div>
-                <div class="card-body">
-                    <!-- IISI -->
-                    <center>
-                        <a href="<?= base_url(); ?>laporan/cetak_program_kuisioner_c_pelaksanaan/<?= $program; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_program_excel_kuisioner_c_pelaksanaan/<?= $program; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
-                    </center>
-                    <br><br>
+header("Content-Disposition: attachment; filename=$title.xls");
 
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
+header("Pragma: no-cache");
+
+header("Expires: 0");
+
+?>
+
+<table align="center" cellspacing="5">
+	
+		    <tr>
+    <td></td>
+                <td colspan="3"><h4>PELAKSANAAN UJI KOMPETENSI</h4></td>
+            </tr>
+            <br>
+            <tr>
+            <td></td>
+                <td colspan="3"><center><h4>LAPORAN KUISIONER C PELAKSANAAN UJI KOMPETENSI <br> PER PROGRAM : <?=$program1['nama_program'];?> </h4></center></td>
+            </tr>
+			
+			      <tr>
+                  <td></td>
+					<td colspan="3">
+                        <!-- tabel -->  
+                        <table border="1" width="90%">
+                        <thead>
+                        <tr align="center">
                           <th rowspan="2" width="15">No Responden</th>
-                          <th colspan="<?= $jml_kuisioner_c_pelaksanaan;?>" class="text-center">Pelaksanaan Uji Kompetensi</th>
+                          <th colspan="<?= $jml_kuisioner_c_pelaksanaan;?>" align="center">Pelaksanaan Uji Kompetensi</th>
                         </tr>
 
-                        <tr>
+                        <tr align="center">
                         <?php 
                                $soal=1;
                               foreach ($kuisioner_c_pelaksanaan as $key) { ?>
-                                <th class="text-center"><?= $soal++;?></th>
+                                <th align="center"><?= $soal++;?></th>
                               <?php }?>
                         </tr>
 
@@ -64,7 +55,7 @@
                             $soal = $this->db->query("SELECT DISTINCT id_soalC,jenis_soal,tipe_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=6 AND tipe_soal='pg'")->result_array(); 
                           ?>
                           <tr>
-                          <td class="text-center"><?= $i1++; ?></td>
+                          <td align="center"><?= $i1++; ?></td>
                           <!-- loop 2 -->
                           <?php $i2=1; 
                           foreach($soal as $s){
@@ -73,54 +64,54 @@
                             $nilainya = $this->db->query("SELECT * FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE id_user='$id_user' AND id_soalC='$id_soal' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=6 AND tipe_soal='pg'")->row_array();  
                             // 
                           ?>
-                          <td class="text-center"><?= $nilainya['jawaban']; ?></td>
+                          <td align="center"><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>
                         <?php } ?>
                         <?php } ?>
                     
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah</td>
                           <?php foreach($kuisioner_c_pelaksanaan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerC'];
                               $total = $this->db->query("SELECT SUM(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
                                                             WHERE penilaian_c.id_soalC='$id_soalnya' AND pelatihan.id_program='$program'")->row_array();
                           ?>
-                            <td class="text-center"><?= $total['total']; ?></td>
+                            <td align="center"><?= $total['total']; ?></td>
                           <?php } ?>
                         
                         </tr>
 
-                        <tr>
+                        <tr align="center">
                           <td>Nilai Rata-Rata</td>
                           <?php foreach($kuisioner_c_pelaksanaan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerC'];
                               $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
                                                             WHERE penilaian_c.id_soalC='$id_soalnya' AND pelatihan.id_program='$program'")->row_array();
                           ?>
-                            <td class="text-center"><?= number_format($total['total'],2); ?></td>
+                            <td align="center"><?= number_format($total['total'],2); ?></td>
                         <?php } ?>
                         </tr>
 
-                        <tr>
+                        <tr align="center">
                           <td>NRR X Bobot</td>
                           <?php  $jmlh_keseluruhan = 0; foreach($kuisioner_c_pelaksanaan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerC'];
                               $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
                                                             WHERE penilaian_c.id_soalC='$id_soalnya' AND pelatihan.id_program='$program'")->row_array();
                           ?>
-                            <td class="text-center"><?= number_format($total['total']/$jml_kuisioner_c_pelaksanaan,2); ?></td>
+                            <td align="center"><?= number_format($total['total']/$jml_kuisioner_c_pelaksanaan,2); ?></td>
                           <?php $jmlh_keseluruhan = $jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_c_pelaksanaan,2)); } ?>
                         
                         </tr>
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah</td>
-                          <td colspan="<?= $jml_kuisioner_c_pelaksanaan;?>" class="text-center"><h4><?= number_format($jmlh_keseluruhan,2) ;?></h4></td>
+                          <td colspan="<?= $jml_kuisioner_c_pelaksanaan;?>" align="center"><h4><?= number_format($jmlh_keseluruhan,2) ;?></h4></td>
                         </tr>
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah X 25</td>
-                          <td colspan="<?= $jml_kuisioner_c_pelaksanaan;?>" class="text-center"><h4><?= $hasil_akhir= number_format($jmlh_keseluruhan*25,2) ;?>
+                          <td colspan="<?= $jml_kuisioner_c_pelaksanaan;?>" align="center"><h4><?= $hasil_akhir= number_format($jmlh_keseluruhan*25,2) ;?>
                           
                           <?php 
                               if($hasil_akhir <= 64.99){  
@@ -140,17 +131,8 @@
                           </h4></td>
                         </tr>
                       </tbody>
-                    </table>
-                    <br>
-                
-                  </div>
-                  <br>
-            
-
-                    <!-- AKHIR ISI -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+						</table>
+					</td>	
+				</tr>
+	
+	</table>

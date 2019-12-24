@@ -14,7 +14,7 @@ header("Expires: 0");
 <table align="center" cellspacing="5">
             <tr>
                 <td></td>
-                <td colspan="3"><h4>IV. BAHAN LATIHAN, MODUL, ATK, DAN SERAGAM PESERTA</h4></td>
+                <td colspan="3"><h4>I. MATERI PELATIHAN (KURIKULUM SILABUS DAN MODUL)</h4></td>
             </tr>
             <tr>
                 <td></td>
