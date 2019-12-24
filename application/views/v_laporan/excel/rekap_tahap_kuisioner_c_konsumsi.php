@@ -1,47 +1,33 @@
-<div class="layout-content">
-        <div class="layout-content-body">
+<?php 
 
-        <?php 
-                $dat = $this->session->flashdata('msg');
-                    if($dat!=""){ ?>
-                          <div id="notifikasi" class="alert alert-success"><strong>Sukses! </strong> <?=$dat;?></div>
-                <?php } ?> 
-                <!-- Akhir flashdata  -->
-      
-            <?php 
-            $dat = $this->session->flashdata('msg2');
-                if($dat!=""){ ?>
-                      <div id="notifikasi" class="alert alert-danger"><strong> </strong> <?=$dat;?></div>
-        <?php } ?> 
+header("Content-type: application/octet-stream");
 
-          <div class="title-bar">
-            <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner/3/<?= $tahap; ?>"><span class="icon icon-backward"></span></a> LAPORAN PER TAHAP : <?= $tahap; ?></span>
-            </h1>
-          </div>
-          <hr>
-          <br>
-          <div class="row gutter-xs">
-            <div class="col-xs-12">
-              <div class="card">
-                <div class="card-header">
-                  <strong>Hasil Nilai Responden Konsumsi</strong>
-                </div>
-                <div class="card-body">
-                    <!-- IISI -->
-                    <center>
-                        <a href="<?= base_url(); ?>laporan/rekap_pertahap_kuisioner_c_konsumsi/<?= $tahap; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_rekap_tahap_kuisioner_c_konsumsi/<?= $tahap; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
-                    </center>
-                    <br><br>
+header("Content-Disposition: attachment; filename=$title.xls");
 
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
+header("Pragma: no-cache");
+
+header("Expires: 0");
+
+?>
+<table align="center" cellspacing="5">
+            <tr  align="center" >
+                <td colspan="3"><h4>IX. KONSUMSI</h4></td>
+            </tr>
+            <tr  align="center" >
+                <td colspan="3"><center><h4>
+                HASIL ANALISIS ANGKET <br>
+                LAPORAN PER TAHAP : <?= $tahap; ?>
+                </h4></center></td>
+            </tr>
+            <tr  align="center" >
+                <td colspan="3">
+                        <!-- tabel -->  
+                        <table border="1" width="100%">
                       <thead>
-                        <tr align="center">
-                          <th rowspan="2" width="15">No Responden</th>
-                          <th colspan="<?= $jml_kuisioner_c_konsumsi;?>" class="text-center">Konsumsi</th>
+                        <tr  align="center" >
+                          <th rowspan="2" width="15" align="center">No Responden</th>
+                          <th colspan="<?=$jml_kuisioner_c_konsumsi;?>" align="center">Konsumsi</th>
                         </tr>
-
                         <tr>
                         <?php 
                                $soal=1;
@@ -49,7 +35,6 @@
                                 <th><center><?= $soal++;?></center></th>
                               <?php }?>
                         </tr>
-
                       </thead>
                       <tbody>
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>
@@ -58,30 +43,30 @@
                             $responden = $this->db->query("SELECT DISTINCT id_user FROM penilaian_c WHERE kd_pelatihan='$kd_pelatihan'")->result_array(); 
                           ?>
 
-                        <?php foreach($responden as $r){ ?>
-                          <?php 
-                            $id_user = $r['id_user'];
-                            $soal = $this->db->query("SELECT DISTINCT id_soalC,jenis_soal,tipe_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 AND tipe_soal='pg' ")->result_array(); 
-                          ?>
-                          <tr align="center">
-                          <td><?= $i1++; ?></td>
-                          <!-- loop 2 -->
-                          <?php $i2=1; 
+                          <?php foreach($responden as $r){ ?>
+                            <?php 
+                                $id_user = $r['id_user'];
+                                $soal = $this->db->query("SELECT DISTINCT id_soalC,jenis_soal,tipe_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 AND tipe_soal='pg' ")->result_array(); 
+                            ?>
+                            <tr align="center">
+                            <td><?= $i1++; ?></td>
+                            <!-- loop 2 -->
+                            <?php $i2=1; 
 
-                          foreach($soal as $s){
-                            
-                            $id_soal = $s['id_soalC']; 
-                            $nilainya = $this->db->query("SELECT DISTINCT * FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE id_user='$id_user' AND id_soalC='$id_soal' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 AND tipe_soal='pg' ")->row_array();  
-                            // 
-                          ?>
-                          <td><?= $nilainya['jawaban']; ?></td>
-                          <?php } ?>
-                          <!-- akhir loop 2 -->
-                          </tr>
-                          <?php } ?>
-                      <?php } ?>
-                    
-                        <tr align="center">
+                            foreach($soal as $s){
+                                
+                                $id_soal = $s['id_soalC']; 
+                                $nilainya = $this->db->query("SELECT DISTINCT * FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE id_user='$id_user' AND id_soalC='$id_soal' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 AND tipe_soal='pg' ")->row_array();  
+                                // 
+                            ?>
+                            <td><?= $nilainya['jawaban']; ?></td>
+                            <?php } ?>
+                            <!-- akhir loop 2 -->
+                            </tr>
+                            <?php } ?>
+                         <?php } ?>
+
+                         <tr align="center">
                           <td>Jumlah</td>
                           <?php 
                             foreach($kuisioner_c_konsumsi as $z){
@@ -142,16 +127,8 @@
                         </tr>
                       </tbody>
                     </table>
-                    <br>
-                
-                  </div>
-                  <br>
+                        <!-- akhir tabel -->
+                </td>
+            </tr>
             
-
-                    <!-- AKHIR ISI -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    </table>

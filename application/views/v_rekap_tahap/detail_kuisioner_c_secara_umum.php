@@ -25,12 +25,12 @@
             <div class="col-xs-12">
               <div class="card">
                 <div class="card-header">
-                  <strong>Hasil Nilai Responden Sarana dan Prasarana Asrama</strong>
+                  <strong>Hasil Nilai Responden Secara Umum Pelaksanaan Pelatihan</strong>
                 </div>
                 <div class="card-body">
                     <!-- IISI -->
                     <center>
-                        <a href="<?= base_url(); ?>laporan/cetak_kuisioner_c_rekrut/<?= $tahap; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_kuisioner_c_rekrut/<?= $tahap; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
+                        <a href="<?= base_url(); ?>laporan/rekap_pertahap_kuisioner_c_secara_umum/<?= $tahap; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_kuisioner_c_rekrut/<?= $tahap; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
                     </center>
                     <br><br>
 
@@ -39,7 +39,7 @@
                       <thead>
                         <tr>
                           <th rowspan="2" width="15">No Responden</th>
-                          <th colspan="<?= $jml_kuisioner_c_secara_umum;?>" class="text-center">Sarana dan Prasarana Asrama</th>
+                          <th colspan="<?= $jml_kuisioner_c_secara_umum;?>" class="text-center">Secara Umum Pelaksanaan Pelatihan</th>
                         </tr>
 
                       </thead>
@@ -55,8 +55,8 @@
                             $id_user = $r['id_user'];
                             $soal = $this->db->query("SELECT DISTINCT id_soalC,jenis_soal,tipe_soal,id_user FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=7 AND tipe_soal='pg' ")->result_array(); 
                           ?>
-                          <tr align="center">
-                          <td><?= $i1++; ?></td>
+                          <tr>
+                          <td><center><?= $i1++; ?></center></td>
                           <!-- loop 2 -->
                           <?php $i2=1; 
 
@@ -66,14 +66,14 @@
                             $nilainya = $this->db->query("SELECT DISTINCT * FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE id_user='$id_user' AND id_soalC='$id_soal' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=7 AND tipe_soal='pg' ")->row_array();  
                             // 
                           ?>
-                          <td><?= $nilainya['jawaban']; ?></td>
+                          <td><center><?= $nilainya['jawaban']; ?></center></td>
                           <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>
                           <?php } ?>
                       <?php } ?>
                     
-                        <tr align="center">
+                        <tr class="text-center">
                           <td>Jumlah</td>
                           <?php 
                             foreach($kuisioner_c_secara_umum as $z){
@@ -86,7 +86,7 @@
                             <?php } ?>
                         </tr>
 
-                        <tr align="center">
+                        <tr class="text-center">
                           <td>Nilai Rata-Rata</td>
                           <?php 
                             foreach($kuisioner_c_secara_umum as $z){
@@ -98,7 +98,7 @@
                             <td><?= number_format($total['total'],2); ?></td>
                             <?php } ?>
                         </tr>
-                        <tr align="center">
+                        <tr class="text-center">
                           <td>NRR X Bobot</td>
                           <?php  $jmlh_keseluruhan = 0;
                             foreach($kuisioner_c_secara_umum as $z){

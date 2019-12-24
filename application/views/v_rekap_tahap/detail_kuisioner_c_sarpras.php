@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <!-- IISI -->
                     <center>
-                        <a href="<?= base_url(); ?>laporan/cetak_kuisioner_c_rekrut/<?= $tahap; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_kuisioner_c_rekrut/<?= $tahap; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
+                        <a href="<?= base_url(); ?>laporan/rekap_pertahap_kuisioner_c_sarpras/<?= $tahap; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_rekap_tahap_kuisioner_c_sarpras/<?= $tahap; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
                     </center>
                     <br><br>
 
