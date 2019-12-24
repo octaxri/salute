@@ -173,8 +173,7 @@ class Laporan extends CI_Controller {
 		
 		$this->load->view('v_laporan/pdf/rekap_program_kuisioner_b_materi_pelatihan',$data);
 	 }
-
-<<<<<<< Updated upstream
+	 
 	 function rekap_program_kuisioner_b_sapras($program)
 	 {
 		$data['program'] = $program;
@@ -272,7 +271,6 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/pdf/rekap_program_kuisioner_c_umum',$data);
 	 }
 
-=======
 	 function cetak_pertahap_kuisioner_b_sarpras($tahap){
 		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
 
@@ -313,7 +311,6 @@ class Laporan extends CI_Controller {
 
 		$this->load->view('v_laporan/pdf/rekap_tahap_kuisioner_c_rekruitmen',$data);
 	}
->>>>>>> Stashed changes
 	
 	// akhir pdf
 
@@ -502,7 +499,6 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/excel/rekap_tahap_kuisioner_b_sarpras',$data);
 	}
 
-<<<<<<< Updated upstream
 	function export_exel_program_kuisioner_b_sapras($program)
 	{
 		$data['title'] = "Kuisioner B - Sarana / Prasarana | Program : .$program.";
@@ -617,10 +613,9 @@ class Laporan extends CI_Controller {
 	
 		$this->load->view('v_laporan/excel/rekap_program_kuisioner_c_umum',$data);
 	}
-=======
+
 	function export_exel_rekap_tahap_kuisioner_b_bahan_pelatihan($tahap){
 		$data['title'] = "Kuisioner B - Bahan Pelatihan | Tahap : .$tahap.";
->>>>>>> Stashed changes
 
 		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
 
