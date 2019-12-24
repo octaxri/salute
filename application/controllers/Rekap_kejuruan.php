@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Rekap_kejuruan extends CI_Controller {
+class Rekap_kejuruan extends CI_Controller { 
 
     	
 	function __construct(){
@@ -24,7 +24,7 @@ class Rekap_kejuruan extends CI_Controller {
         $this->session->userdata('username')])->row_array();
 
         $data['kejuruan'] = $this->M_kejuruan->tampil_kejuruan();
-        $data['program']= $this->M_progam->tampil_progam();
+        $data['kejuruan']= $this->M_progam->tampil_progam();
 
         $this->form_validation->set_rules('kejuruan','Kejuruan','trim|required');
 
@@ -109,6 +109,7 @@ class Rekap_kejuruan extends CI_Controller {
             $this->load->view('v_rekap_kejuruan/detail_kuisioner_c',$data);
             $this->load->view('templates/footer');
         }
+    }
 
     function rekap_kuisioner_b_materi_pelatihan($kejuruan){
         $data['title'] = "SALUTE | Rekap Per Kejuruan Kuisioner B Materi Pelatihan";
@@ -149,6 +150,27 @@ class Rekap_kejuruan extends CI_Controller {
         $this->load->view('v_rekap_kejuruan/detail_kuisioner_b_sarpras',$data);
         $this->load->view('templates/footer');
     }
+
+///// bagian dhimas
+       function rekap_kuisioner_b_bahan_latihan($kejuruan){
+        $data['title'] = "SALUTE | Rekap Per kejuruan Kuisioner B Bahan Pelatihan";
+        $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan'")->result_array();
+
+        $data['kejuruan'] = $kejuruan;
+        $data['kejuruan1'] = $this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+        $data['jml_kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
+
+        $this->load->view('templates/header',$data);
+        $this->load->view('templates/sidebar',$data);
+        $this->load->view('v_rekap_kejuruan/detail_kuisioner_b_bahan_pelatihan',$data);
+        $this->load->view('templates/footer');
+    }
+
+
+
+
+    ////akhir kuisioner b
 
     function kuisioner_c_rekruitmen($kejuruan){
         $data['title'] = "SALUTE | Rekap Per Kejuruan Kuisioner C";
@@ -195,22 +217,40 @@ class Rekap_kejuruan extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    ///rekap kuisione b 
-    function rekap_kuisioner_b_bahan_pelatihan($kejuruan){
-        $data['title'] = "SALUTE | Rekap Per Program Kuisioner B Bahan Pelatihan";
-        $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan'")->result_array();
 
-        $data['kejuruan'] = $kejuruan;
+    ///bagian dhimas 
+    function kuisioner_c_konsumsi($kejuruan)
+    {
+        $data['title']="SALUTE | Rekap Per kejuruan Kuisioner C Konsumsi";
+        $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan' ")->result_array();
+        $data['kejuruan']= $kejuruan;
         $data['kejuruan1'] = $this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
-        $data['jml_kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
-        $data['kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
 
-        $this->load->view('templates/header',$data);
-        $this->load->view('templates/sidebar',$data);
-        $this->load->view('v_rekap_program/detail_kuisioner_b_materi_pelatihan',$data);
-        $this->load->view('templates/footer');
+         $data['jml_kuisioner_c_konsumsi']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
+         $data['kuisioner_c_konsumsi']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
+    
+         $this->load->view('templates/header',$data);
+         $this->load->view('templates/sidebar',$data);
+         $this->load->view('v_rekap_kejuruan/detail_kuisioner_c_konsumsi',$data);
+         $this->load->view('templates/footer');
     }
 
-}
+    function kuisioner_c_uji_kompetensi($kejuruan)
+    {
+        $data['title']="SALUTE | Rekap Per kejuruan Kuisioner C Pelaksanaan Uji Kompetensi";
+        $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan' ")->result_array();
+        $data['kejuruan']= $kejuruan;
 
-/* End of file Rekap_kejuruan.php */
+        $data['kejuruan1'] = $this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+         $data['jml_kuisioner_c_pelaksanaan']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=6 AND tipe_soal='pg'")->num_rows();
+         $data['kuisioner_c_pelaksanaan']=$this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=6 AND tipe_soal='pg'")->result_array();
+    
+         $this->load->view('templates/header',$data);
+         $this->load->view('templates/sidebar',$data);
+         $this->load->view('v_rekap_kejuruan/detail_kuisioner_c_pelaksanaan',$data);
+         $this->load->view('templates/footer');
+    }
+
+
+
+}

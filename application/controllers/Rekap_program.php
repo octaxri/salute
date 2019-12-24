@@ -214,7 +214,7 @@ class Rekap_program extends CI_Controller {
 
     function rekap_kuisioner_c_konsumsi($program)
     {
-        $data['title']="SALUTE | Rekap Per Program Kuisioner C Sarana Dan Prasarana Asrama";
+        $data['title']="SALUTE | Rekap Per Program Kuisioner C Konsumsi";
         $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_program='$program' ")->result_array();
         $data['program']= $program;
         $data['program1'] = $this->M_progam->tampil_detail_progam($program);
