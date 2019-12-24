@@ -13,6 +13,17 @@ class M_kejuruan extends CI_Model {
 		return $query;
 	}
 
+	function tampil_detail_kejuruan($kd)
+	{
+		$this->db->select('*');
+		$this->db->from('kejuruan');
+		$this->db->where('id_kejuruan', $kd);
+		
+		$query= $this->db->get()->row_array();
+
+		return $query;
+	}
+
 	function tambah_data(){
 		$data = [
 			"nama_kejuruan" => $this->input->post('nama_kejuruan',TRUE)

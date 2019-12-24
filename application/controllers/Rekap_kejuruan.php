@@ -110,8 +110,6 @@ class Rekap_kejuruan extends CI_Controller {
             $this->load->view('templates/footer');
         }
 
-    }
-
     function rekap_kuisioner_b_materi_pelatihan($kejuruan){
         $data['title'] = "SALUTE | Rekap Per Kejuruan Kuisioner B Materi Pelatihan";
         $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan'")->result_array();
@@ -194,6 +192,22 @@ class Rekap_kejuruan extends CI_Controller {
         $this->load->view('templates/header',$data);
         $this->load->view('templates/sidebar',$data);
         $this->load->view('v_rekap_kejuruan/detail_kuisioner_c_sarpras',$data);
+        $this->load->view('templates/footer');
+    }
+
+    ///rekap kuisione b 
+    function rekap_kuisioner_b_bahan_pelatihan($kejuruan){
+        $data['title'] = "SALUTE | Rekap Per Program Kuisioner B Bahan Pelatihan";
+        $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan'")->result_array();
+
+        $data['kejuruan'] = $kejuruan;
+        $data['kejuruan1'] = $this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+        $data['jml_kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_bahan_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
+
+        $this->load->view('templates/header',$data);
+        $this->load->view('templates/sidebar',$data);
+        $this->load->view('v_rekap_program/detail_kuisioner_b_materi_pelatihan',$data);
         $this->load->view('templates/footer');
     }
 
