@@ -344,6 +344,40 @@ class Laporan extends CI_Controller {
 		
 		$this->load->view('v_laporan/pdf/rekap_kejuruan_kuisioner_b_bahan_pelatihan',$data);
 	}
+
+	function cetak_kejuruan_kuisioner_c_konsumsi($kejuruan)
+	{
+		$data['kejuruan'] = $kejuruan;
+		$data['kejuruan1']= $this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan'")->result_array();
+        $data['jml_kuisioner_c_konsumsi'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_c_konsumsi'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
+		
+		$this->load->view('v_laporan/pdf/rekap_kejuruan_kuisioner_c_konsumsi',$data);
+	}
+
+
+	function cetak_kejuruan_kuisioner_c_pelaksanaan($kejuruan)
+	{
+		$data['kejuruan'] = $kejuruan;
+		$data['kejuruan1']= $this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan'")->result_array();
+        $data['jml_kuisioner_c_pelaksanaan'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=6 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_c_pelaksanaan'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=6 AND tipe_soal='pg'")->result_array();
+		
+		$this->load->view('v_laporan/pdf/rekap_kejuruan_kuisioner_c_pelaksanaan',$data);
+	}
+
+	function cetak_kejuruan_kuisioner_c_umum($kejuruan)
+	{
+		$data['kejuruan'] = $kejuruan;
+		$data['kejuruan1']= $this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan='$kejuruan'")->result_array();
+        $data['jml_kuisioner_c_umum'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_c_umum'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='pg'")->result_array();
+		
+		$this->load->view('v_laporan/pdf/rekap_kejuruan_kuisioner_c_umum',$data);
+	}
 	
 	// akhir pdf
 
@@ -601,6 +635,7 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/excel/rekap_kejuruan_kuisioner_b_bahan_pelatihan',$data);
 	}
 
+	
 	///perpogram c 
 	function export_program_excel_kuisioner_c_rekrut($program)
 	{
@@ -654,6 +689,18 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/excel/rekap_program_kuisioner_c_konsumsi',$data);
 	}
 
+	function export_kejuruan_excel_kuisioner_c_konsumsi($kejuruan)
+	{
+		$data['title'] = "Kuisioner C - Konsumsi | Kejuruan: .$kejuruan.";
+		$data['pelatihan']= $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan=$kejuruan ")->result_array();
+		$data['kejuruan1']=$this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+		$data['kejuruan']= $kejuruan;
+		$data['jml_kuisioner_c_konsumsi'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_c_konsumsi'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='pg'")->result_array();
+	
+		$this->load->view('v_laporan/excel/rekap_kejuruan_kuisioner_c_konsumsi',$data);
+	}
+
 	function export_program_excel_kuisioner_c_pelaksanaan($program)
 	{
 		$data['title'] = "Kuisioner C - Pelaksanaan | Program : .$program.";
@@ -665,6 +712,19 @@ class Laporan extends CI_Controller {
         $data['kuisioner_c_pelaksanaan'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=6 AND tipe_soal='pg'")->result_array();
 	
 		$this->load->view('v_laporan/excel/rekap_program_kuisioner_c_pelaksanaan',$data);
+	}
+
+	function export_kejuruan_excel_kuisioner_c_pelaksanaan($kejuruan)
+	{
+		$data['title'] = "Kuisioner C - Pelaksanaan | Kejuruan : .$kejuruan.";
+		$data['pelatihan']= $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan=$kejuruan ")->result_array();
+		$data['kejuruan1']=$this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+		$data['kejuruan']= $kejuruan;
+
+		$data['jml_kuisioner_c_pelaksanaan'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=6 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_c_pelaksanaan'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=6 AND tipe_soal='pg'")->result_array();
+	
+		$this->load->view('v_laporan/excel/rekap_kejuruan_kuisioner_c_pelaksanaan',$data);
 	}
 
 
@@ -679,6 +739,19 @@ class Laporan extends CI_Controller {
         $data['kuisioner_c_umum'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='pg'")->result_array();
 	
 		$this->load->view('v_laporan/excel/rekap_program_kuisioner_c_umum',$data);
+	}
+
+	function export_kejuruan_excel_kuisioner_c_umum($kejuruan)
+	{
+		$data['title'] = "Kuisioner C - Secara Umum | Kejuruan : .$kejuruan.";
+		$data['pelatihan']= $this->db->query("SELECT * FROM pelatihan WHERE id_kejuruan=$kejuruan ")->result_array();
+		$data['kejuruan1']=$this->M_kejuruan->tampil_detail_kejuruan($kejuruan);
+		$data['kejuruan']= $kejuruan;
+
+		$data['jml_kuisioner_c_umum'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_c_umum'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='pg'")->result_array();
+	
+		$this->load->view('v_laporan/excel/rekap_kejuruan_kuisioner_c_umum',$data);
 	}
 
 	function export_exel_rekap_tahap_kuisioner_b_bahan_pelatihan($tahap){
