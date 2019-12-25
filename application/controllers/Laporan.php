@@ -434,6 +434,30 @@ class Laporan extends CI_Controller {
 		$this->load->view('v_laporan/pdf/rekap_kejuruan_kuisioner_c_umum',$data);
 	}
 	
+	function cetak_pertahap_kuisioner_b_tenaga_pelatih($tahap, $id_pengajar){
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+        $data['tahap'] = $tahap;
+        $data['id_pengajar'] = $id_pengajar;
+        $data['pengajar'] = $this->db->query("SELECT * FROM pengajar WHERE id_pengajar='$id_pengajar'")->row_array();
+
+        // PENGETAHUAN PEMAHAMAN
+        $data['jml_pengetahuan_pemahaman'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=9")->num_rows();
+        $data['pengetahuan_pemahaman'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=9")->result_array();
+
+        // KEMAMPUAN DALAM MEMBAWAKAN MATERI
+        $data['jml_kemampuan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=10")->num_rows();
+        $data['kemampuan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=10")->result_array();
+
+        // KEMAMPUAN DALAM MEMAHAMI MASALAH
+        $data['jml_memahami_masalah'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=11")->num_rows();
+        $data['memahami_masalah'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=11")->result_array();
+
+        // PENAMPILAN TENAGA PELATIH
+        $data['jml_penampilan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=12")->num_rows();
+        $data['penampilan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=12")->result_array();
+		
+		$this->load->view('v_laporan/pdf/rekap_pertahap_kuisioner_b_tenaga_pelatih',$data);
+	}
 	// akhir pdf
 
 	function export_exel_kuisioner_a($kd_pelatihan){

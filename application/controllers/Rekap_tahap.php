@@ -9,7 +9,7 @@ class Rekap_tahap extends CI_Controller {
         
         if($this->session->userdata('level') != 1){
 			redirect(base_url());
-        }
+     }
         
         $this->load->model('M_progam');
         $this->load->model('M_kejuruan');
@@ -212,7 +212,7 @@ class Rekap_tahap extends CI_Controller {
             else if($jenis == 2){
                 $data['title'] = "SALUTE | Detail Rekap Kuisioner B";
 
-                $data['daftar_pengajar'] = $this->db->query("SELECT * FROM detail_pengajar LEFT JOIN pelatihan ON detail_pengajar.kd_pelatihan=pelatihan.kd_pelatihan
+                $data['daftar_pengajar'] = $this->db->query("SELECT DISTINCT pengajar.id_pengajar,pengajar.nama_pengajar FROM detail_pengajar LEFT JOIN pelatihan ON detail_pengajar.kd_pelatihan=pelatihan.kd_pelatihan
                                                                         LEFT JOIN pengajar ON pengajar.id_pengajar=detail_pengajar.id_pengajar
                                                                         WHERE pelatihan.tahap_pelatihan='$tahap'")->result_array();
                 
@@ -364,6 +364,36 @@ class Rekap_tahap extends CI_Controller {
         $this->load->view('templates/header',$data);
         $this->load->view('templates/sidebar',$data);
         $this->load->view('v_rekap_tahap/detail_kuisioner_c_secara_umum',$data);
+        $this->load->view('templates/footer');
+    }
+
+    function in_detail_pelatihan_pengajar_kuisioner_b($tahap, $id_pengajar){
+        $data['title'] = "SALUTE | Rekap Per Tahap Kuisioner C";
+
+        $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
+        $data['tahap'] = $tahap;
+        $data['id_pengajar'] = $id_pengajar;
+        $data['pengajar'] = $this->db->query("SELECT * FROM pengajar WHERE id_pengajar='$id_pengajar'")->row_array();
+
+        // PENGETAHUAN PEMAHAMAN
+        $data['jml_pengetahuan_pemahaman'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=9")->num_rows();
+        $data['pengetahuan_pemahaman'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=9")->result_array();
+
+        // KEMAMPUAN DALAM MEMBAWAKAN MATERI
+        $data['jml_kemampuan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=10")->num_rows();
+        $data['kemampuan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=10")->result_array();
+
+        // KEMAMPUAN DALAM MEMAHAMI MASALAH
+        $data['jml_memahami_masalah'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=11")->num_rows();
+        $data['memahami_masalah'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=11")->result_array();
+
+        // PENAMPILAN TENAGA PELATIH
+        $data['jml_penampilan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=12")->num_rows();
+        $data['penampilan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=12")->result_array();
+
+        $this->load->view('templates/header',$data);
+        $this->load->view('templates/sidebar',$data);
+        $this->load->view('v_rekap_tahap/detail_kuisioner_b_tenaga_pelatih',$data);
         $this->load->view('templates/footer');
     }
 
