@@ -19,14 +19,14 @@ header("Expires: 0");
                 LAPORAN PER TAHAP : <?= $tahap; ?>
                 </h4></center></td>
             </tr>
-            <tr>
+            <tr  align="center" >
                 <td colspan="3">
                         <!-- tabel -->  
-                        <table border="1" width="100%">
+                        <table align="center" width="100%" border="1">
                       <thead>
                         <tr>
-                          <th rowspan="2" width="15" align="center">No Responden</th>
-                          <th colspan="<?=$jml_kuisioner_c_secara_umum;?>" align="center">Secara Umum Pelaksanaan Pelatihan</th>
+                          <th width="15" align="center">No Responden</th>
+                          <th colspan="<?=$jml_kuisioner_c_secara_umum;?>" align="center">Pelaksanaan Uji Kompetensi</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -36,7 +36,7 @@ header("Expires: 0");
                             $responden = $this->db->query("SELECT DISTINCT id_user FROM penilaian_c WHERE kd_pelatihan='$kd_pelatihan'")->result_array(); 
                           ?>
 
-                          <?php foreach($responden as $r){ ?>
+                        <?php foreach($responden as $r){ ?>
                           <?php 
                             $id_user = $r['id_user'];
                             $soal = $this->db->query("SELECT DISTINCT id_soalC,jenis_soal,tipe_soal,id_user FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=7 AND tipe_soal='pg' ")->result_array(); 
@@ -58,8 +58,8 @@ header("Expires: 0");
                           </tr>
                           <?php } ?>
                       <?php } ?>
-
-                      <tr align="center">
+                    
+                        <tr align="center">
                           <td>Jumlah</td>
                           <?php 
                             foreach($kuisioner_c_secara_umum as $z){
@@ -96,11 +96,11 @@ header("Expires: 0");
                             <td><?= number_format($total['total']/$jml_kuisioner_c_secara_umum,2); ?></td>
                             <?php $jmlh_keseluruhan=$jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_c_secara_umum,2)); } ?>
                         </tr>
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah</td>
                           <td colspan="<?= $jml_kuisioner_c_secara_umum;?>" class="text-center"><h4><?= number_format($jmlh_keseluruhan,2) ;?></h4></td>
                         </tr>
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah X 25</td>
                           <td colspan="<?= $jml_kuisioner_c_secara_umum; ?>" class="text-center"><h4><?= $hasil_akhir = number_format($jmlh_keseluruhan*25,2);?> 
                           <?php 

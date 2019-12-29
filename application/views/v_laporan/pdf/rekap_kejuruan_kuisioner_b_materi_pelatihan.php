@@ -1,33 +1,30 @@
-<?php 
+<!DOCTYPE html>
+<html moznomarginboxes mozdisallowselectionprint>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SALUTE | Cetak Laporan</title>
+</head>
+<style>
+    p{
+        font-family: "Times New Roman", Times, serif;
+        font-size: 10px;
+    }
+</style>
 
-header("Content-type: application/octet-stream");
-
-header("Content-Disposition: attachment; filename=$title.xls");
-
-header("Pragma: no-cache");
-
-header("Expires: 0");
-
-?>
-
-
-<table align="center" cellspacing="5">
-            <tr>
-                <td></td>
-                <td colspan="3"><h4>I. MATERI PELATIHAN (KURIKULUM SILABUS)</h4></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td colspan="3"><center><h4>
-                HASIL ANALISIS ANGKET <br>
-                PER TAHAP : <?= $tahap; ?>
-                </h4></center></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td colspan="3">
-                        <!-- tabel -->  
-                        <table border="1"  width="90%">
+<body onload="window.print()">
+    <table style="margin-left:10px; margin-bottom:0px;" width="100%">
+        <tr>
+            <td><h4>I. MATERI PELATIHAN (KURIKULUM SILABUS)</h4></td>
+        </tr>
+        <tr>
+            <td><center><h4>LAPORAN KUISIONE B (MATERI PELATIHAN) <br>PER KEJURUAN : <?= strtoupper($detail_kejuruan['nama_kejuruan']); ?></h4>
+            </center></td>
+        </tr>
+        <tr>
+            <td align="center">
+            <table border="1"  width="90%">
                       <thead>
                         
                       <tr>
@@ -77,7 +74,7 @@ header("Expires: 0");
                           <?php foreach($kuisioner_b_materi_pelatihan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerB'];
                               $total = $this->db->query("SELECT SUM(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
+                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
                           ?>
                             <td align="center"><?= $total['total']; ?></td>
                           <?php } ?>
@@ -88,7 +85,7 @@ header("Expires: 0");
                           <?php foreach($kuisioner_b_materi_pelatihan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerB'];
                               $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
+                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
                           ?>
                             <td align="center"><?= number_format($total['total'],2); ?></td>
                         <?php } ?>
@@ -99,7 +96,7 @@ header("Expires: 0");
                           <?php  $jmlh_keseluruhan = 0; foreach($kuisioner_b_materi_pelatihan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerB'];
                               $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
+                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
                           ?>
                             <td align="center"><?= number_format($total['total']/$jml_kuisioner_b_materi_pelatihan,2); ?></td>
                           <?php $jmlh_keseluruhan = $jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_b_materi_pelatihan,2)); } ?>
@@ -129,8 +126,12 @@ header("Expires: 0");
                         </tr>
                       </tbody>
                     </table>
-                        <!-- akhir tabel -->
-                </td>
-            </tr>
+            </td>
             
+        </tr>
+    
     </table>
+
+    
+</body>
+</html>

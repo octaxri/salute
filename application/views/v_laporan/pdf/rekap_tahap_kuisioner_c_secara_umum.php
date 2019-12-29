@@ -100,11 +100,11 @@
                             <td><?= number_format($total['total']/$jml_kuisioner_c_secara_umum,2); ?></td>
                             <?php $jmlh_keseluruhan=$jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_c_secara_umum,2)); } ?>
                         </tr>
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah</td>
                           <td colspan="<?= $jml_kuisioner_c_secara_umum;?>" class="text-center"><h4><?= number_format($jmlh_keseluruhan,2) ;?></h4></td>
                         </tr>
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah X 25</td>
                           <td colspan="<?= $jml_kuisioner_c_secara_umum; ?>" class="text-center"><h4><?= $hasil_akhir = number_format($jmlh_keseluruhan*25,2);?> 
                           <?php 

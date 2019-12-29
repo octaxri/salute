@@ -90,7 +90,7 @@
         <div class="modal-body">  
         <?php foreach($daftar_pengajar as $i) { ?>
           <div class="form-group">
-            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan/in_detail_pelatihan_pengajar_kuisioner_b/<?= $kejuruan; ?>/<?= $i['id_pengajar']; ?>"><?= $i['nama_pengajar'];?></a><br><br>
+            <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>rekap_kejuruan/in_detail_pelatihan_pengajar_kuisioner_b/<?= $kejuruan; ?>/<?= $i['id_pengajar']; ?>"><?= $i['nama_pengajar'];?></a><br><br>
           </div>
         <?php } ?>
           <hr>

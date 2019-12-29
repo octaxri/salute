@@ -20,7 +20,7 @@ header("Expires: 0");
                 <td></td>
                 <td colspan="3"><center><h4>
                 HASIL ANALISIS ANGKET <br>
-                PER TAHAP : <?= $tahap; ?>
+                PER KEJURUAN : <?= strtoupper($detail_kejuruan['nama_kejuruan']); ?>
                 </h4></center></td>
             </tr>
             <tr>
@@ -77,7 +77,7 @@ header("Expires: 0");
                           <?php foreach($kuisioner_b_materi_pelatihan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerB'];
                               $total = $this->db->query("SELECT SUM(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
+                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
                           ?>
                             <td align="center"><?= $total['total']; ?></td>
                           <?php } ?>
@@ -88,7 +88,7 @@ header("Expires: 0");
                           <?php foreach($kuisioner_b_materi_pelatihan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerB'];
                               $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
+                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
                           ?>
                             <td align="center"><?= number_format($total['total'],2); ?></td>
                         <?php } ?>
@@ -99,7 +99,7 @@ header("Expires: 0");
                           <?php  $jmlh_keseluruhan = 0; foreach($kuisioner_b_materi_pelatihan as $sl){ 
                               $id_soalnya = $sl['id_kuisionerB'];
                               $total = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
+                                                            WHERE penilaian_b.id_soalB='$id_soalnya' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
                           ?>
                             <td align="center"><?= number_format($total['total']/$jml_kuisioner_b_materi_pelatihan,2); ?></td>
                           <?php $jmlh_keseluruhan = $jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_b_materi_pelatihan,2)); } ?>

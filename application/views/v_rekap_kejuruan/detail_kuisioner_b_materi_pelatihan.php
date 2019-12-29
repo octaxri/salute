@@ -16,7 +16,7 @@
 
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_kejuruan/rekap_kuisioner/2/<?= $kejuruan; ?>"><span class="icon icon-backward"></span></a> LAPORAN KUISIONER B - MATERI PELATIHAN | PER KEJURUAN : <?= $detail_kejuruan['nama_kejuruan']; ?></span>
+              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_kejuruan/rekap_kuisioner/2/<?= $kejuruan; ?>"><span class="icon icon-backward"></span></a> LAPORAN KUISIONER B - MATERI PELATIHAN | PER KEJURUAN : <?= strtoupper($detail_kejuruan['nama_kejuruan']); ?></span>
             </h1>
           </div>
           <hr>
@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <!-- IISI -->
                     <center>
-                        <a href="<?= base_url(); ?>laporan/rekap_pertahap_kuisioner_b_materi_pelatihan/<?= $kejuruan; ?>" class="btn btn-danger icon icon-file-pdf-o" target="_blank"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_rekap_tahap_kuisioner_b_materi_pelatihan/<?= $kejuruan; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a> 
+                        <a href="<?= base_url(); ?>laporan/rekap_kejuruan_kuisioner_b_materi_pelatihan/<?= $kejuruan; ?>" class="btn btn-danger icon icon-file-pdf-o" target="_blank"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_rekap_kejuruan_kuisioner_b_materi_pelatihan/<?= $kejuruan; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a> 
                     </center>
                     <br><br>
 
