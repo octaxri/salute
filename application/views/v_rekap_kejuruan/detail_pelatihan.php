@@ -70,7 +70,7 @@
                 <div class="card-body">
                     <!-- IISI -->
                     <center>
-                        <a href="#" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="#" class="btn btn-success icon icon-file-excel-o"> Excel</a>
+                    <a href="<?= base_url();?>laporan/cetak_kejuruan_hasil_analisa_angket/<?= $kejuruan; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url();?>laporan/rekap_kejuruan_excel_hasil_analisa_angket/<?= $kejuruan;?>" class="btn btn-success icon icon-file-excel-o" target="_blank"> Excel</a>
                         
                     </center>
                     <br><br>
@@ -110,8 +110,22 @@
                         <tr>
                           <td align="center">2</td>
                           <td>Tenaga Pelatih</td>
-                          <td align="center"></td>
+                          <td align="center"><?= $hasil_kuisioner_b_tenaga_pelatih;?></td>
                           <td align="center">
+                          <?php 
+                              if($hasil_kuisioner_b_tenaga_pelatih<= 64.99){  
+                                  echo 'Tidak Baik';
+                              }
+                              else if($hasil_kuisioner_b_tenaga_pelatih>= 65.00 && $hasil_kuisioner_b_tenaga_pelatih<= 76.60){
+                                  echo 'Kurang Baik';
+                              }
+                              else if($hasil_kuisioner_b_tenaga_pelatih>= 76.61 && $hasil_kuisioner_b_tenaga_pelatih<= 88.30){
+                                  echo 'Baik';
+                              }
+                              else if($hasil_kuisioner_b_tenaga_pelatih>= 88.31 && $hasil_kuisioner_b_tenaga_pelatih<= 100){
+                                  echo 'Sangat Baik';
+                              }   
+                          ?>
                           </td>
                         </tr>
                         <tr>
@@ -270,49 +284,265 @@
 
                     <!--  -->
                   <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
+                  <table class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th class="text-center">No</th>
-                          <th width="30%" class="text-center">Nama Instruktur</th>
-                          <th class="text-center">Pengetahuan / Pemahaman</th>
-                          <th class="text-center">Kemampuan Dalam Membawakan Materi</th>
-                          <th class="text-center">Penampilan Tenaga Pelatih</th>
+                          <th>No</th>
+                          <th>Nama Instruktur</th>
+                          <th>Pengetahuan / Pemahaman</th>
+                          <th>Kemampuan Dalam Membawakan Materi</th>
+                          <th>Kemampuan Dalam Memahami Masalah Peserta</th>
+                          <th>Penampilan Tenaga Pelatih</th>
                         </tr>
                       </thead>
                       <tbody>
+                      <?php $no=1;  $total_p=0; $total_p1=0; $total_p2=0; $total_p3=0; foreach ($daftar_pengajar as $k) { ?>
+                        
+
                         <tr>
-                          <td>1</td>
-                          <td>Betri Betharia, A.Md</td>
-                          <td align="center">80.00</td>
-                          <td align="center">80</td>
-                          <td align="center">80</td>
+                          <td align="center"><?=$no++;?></td>
+                          <td align="center"><?=$k['nama_pengajar'] ;?></td>
+                         
+                          <?php 
+                          $id_pengajar=$k['id_pengajar'];
+                          $rata1;
+                          $jml_semua1=0;
+                         
+                            foreach($pengetahuan_pemahaman as $s1){
+                              $id_soal1 = $s1['id_kuisionerB'];
+                              $total1 = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan
+                                                                LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB
+                                                                LEFT JOIN detail_penilaian_b ON detail_penilaian_b.id_penilaian_b=penilaian_b.idku
+                                                                WHERE penilaian_b.id_soalB='$id_soal1' AND pelatihan.id_kejuruan='$kejuruan' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=9 AND detail_penilaian_b.id_pengajar='$id_pengajar' ")->row_array();
+                          ?>  
+
+                          <?php $jml_semua1=$jml_semua1+(number_format($total1['total']/$jml_pengetahuan_pemahaman,2)); } ?>
+                          <!-- akhir loop soal pengetahuan_pemahaman -->
+
+                           <?php $total_p=$total_p+(number_format($jml_semua1*20,2));?> 
+
+                          <td align="center"><?=number_format($jml_semua1*20,2);?></td>
+                          
+                          
+                          <?php 
+                          $id_pengajar1=$k['id_pengajar'];
+                          $jml_semua2=0;
+                            foreach($kemampuan as $s2){
+                              $id_soal2 = $s2['id_kuisionerB'];
+                              $total2 = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan
+                                                                LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB
+                                                                LEFT JOIN detail_penilaian_b ON detail_penilaian_b.id_penilaian_b=penilaian_b.idku
+                                                                WHERE penilaian_b.id_soalB='$id_soal2' AND pelatihan.id_kejuruan='$kejuruan' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=10 AND detail_penilaian_b.id_pengajar='$id_pengajar1' ")->row_array();
+                          ?>  
+
+                          <?php $jml_semua2=$jml_semua2+(number_format($total2['total']/$jml_kemampuan,2)); } ?>
+                          
+                          <?php $total_p1=$total_p1+(number_format($jml_semua2*20,2)); ?>
+
+                          <td align="center"><?= number_format($jml_semua2*20,2);?></td>
+
+
+
+                          <?php 
+                          $id_pengajar2=$k['id_pengajar'];
+                          $jml_semua3=0;
+                            foreach($memahami_masalah as $s3){
+                              $id_soal3 = $s3['id_kuisionerB'];
+                              $total3 = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan
+                                                                LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB
+                                                                LEFT JOIN detail_penilaian_b ON detail_penilaian_b.id_penilaian_b=penilaian_b.idku
+                                                                WHERE penilaian_b.id_soalB='$id_soal3' AND pelatihan.id_kejuruan='$kejuruan' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=11 AND detail_penilaian_b.id_pengajar='$id_pengajar2' ")->row_array();
+                          ?>  
+
+                          <?php $jml_semua3=$jml_semua3+(number_format($total3['total']/$jml_memahami_masalah,2)); } ?>
+
+                          <?php $total_p2=$total_p2+(number_format($jml_semua3*20,2)); ?>
+                          <td align="center"><?= number_format($jml_semua3*20,2);?></td>
+
+
+
+                          <?php 
+                          $id_pengajar3=$k['id_pengajar'];
+                          $jml_semua4=0;
+                            foreach($penampilan as $s4){
+                              $id_soal4 = $s4['id_kuisionerB'];
+                              $total4 = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan
+                                                                LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB
+                                                                LEFT JOIN detail_penilaian_b ON detail_penilaian_b.id_penilaian_b=penilaian_b.idku
+                                                                WHERE penilaian_b.id_soalB='$id_soal4' AND pelatihan.id_kejuruan='$kejuruan' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=12 AND detail_penilaian_b.id_pengajar='$id_pengajar3' ")->row_array();
+                          ?>  
+
+                          <?php $jml_semua4=$jml_semua4+(number_format($total4['total']/$jml_penampilan,2)); } ?>
+                          <?php $total_p3=$total_p3+(number_format($jml_semua4*20,2)); ?>
+                          <td align="center"><?= number_format($jml_semua4*20,2);?></td>
+                        </tr>
+                        
+                        <?php } ?>
+                        <tr>
+                          <td colspan="2" align="center">Rata-Rata</td>
+                          <td  align="center"><?= number_format($total_p/($no-1),2);?></td>
+                          <td  align="center"><?= number_format($total_p1/($no-1),2);?></td>
+                          <td  align="center"><?= number_format($total_p2/($no-1),2);?></td>
+                          <td  align="center"><?= number_format($total_p3/($no-1),2);?></td>
                         </tr>
                         <tr>
-                          <td colspan="2">Rata-Rata</td>
-                          <td  align="center">80.00</td>
-                          <td  align="center">80</td>
-                          <td  align="center">80</td>
+                          <td colspan="2" align="center">Kinerja Unit Pelayanan</td>
+                          <td align="center"><?php 
+                              $pahaman=number_format($total_p/($no-1),2);
+                              if($pahaman <= 64.99){  
+                                  echo '(Tidak Baik)';
+                              }
+                              else if($pahaman >= 65.00 && $pahaman<= 76.60){
+                                  echo '(Kurang Baik)';
+                              }
+                              else if($pahaman>= 76.61 && $pahaman<= 88.30){
+                                  echo '(Baik)';
+                              }
+                              else if($pahaman>= 88.31 && $pahaman<= 100){
+                                  echo '(Sangat Baik)';
+                              }   
+                            ?>
+                            </td>
+                            <td align="center"><?php 
+                              $kemampuanku=number_format($total_p1/($no-1),2);
+                              if($kemampuanku <= 64.99){  
+                                  echo '(Tidak Baik)';
+                              }
+                              else if($kemampuanku >= 65.00 && $kemampuanku<= 76.60){
+                                  echo '(Kurang Baik)';
+                              }
+                              else if($kemampuanku>= 76.61 && $kemampuanku<= 88.30){
+                                  echo '(Baik)';
+                              }
+                              else if($kemampuanku>= 88.31 && $kemampuanku<= 100){
+                                  echo '(Sangat Baik)';
+                              }   
+                            ?>
+                            </td>
+                            <td align="center"><?php 
+                              $masalah=number_format($total_p2/($no-1),2);
+                              if($masalah <= 64.99){  
+                                  echo '(Tidak Baik)';
+                              }
+                              else if($masalah >= 65.00 && $masalah<= 76.60){
+                                  echo '(Kurang Baik)';
+                              }
+                              else if($masalah>= 76.61 && $masalah<= 88.30){
+                                  echo '(Baik)';
+                              }
+                              else if($masalah>= 88.31 && $masalah<= 100){
+                                  echo '(Sangat Baik)';
+                              }   
+                            ?>
+                            </td>
+                            <td align="center"><?php 
+                              $pelatih=number_format($total_p3/($no-1),2);
+                              if($pelatih <= 64.99){  
+                                  echo '(Tidak Baik)';
+                              }
+                              else if($pelatih >= 65.00 && $pelatih<= 76.60){
+                                  echo '(Kurang Baik)';
+                              }
+                              else if($pelatih>= 76.61 && $pelatih<= 88.30){
+                                  echo '(Baik)';
+                              }
+                              else if($pelatih>= 88.31 && $pelatih<= 100){
+                                  echo '(Sangat Baik)';
+                              }   
+                            ?>
+                            </td>
                         </tr>
                         <tr>
-                          <td colspan="2">Rata-Rata Instruktur</td>
-                          <td colspan="3" align="center">80.00</td>
-                        </tr>
-                        <tr>
-                          <td colspan="2">Kinerja Unit Pelayanan</td>
-                          <td align="center">Sangat baik</td>
-                          <td  align="center">Sangat baik</td>
-                          <td  align="center">Sangat baik</td>
-                        </tr>  
+                        <?php $rata_seluruh=(number_format($total_p/($no-1),2)) + (number_format($total_p1/($no-1),2)) + (number_format($total_p2/($no-1),2)) + (number_format($total_p3/($no-1),2)); ?>
+                          <td colspan="2" align="center">Rata-Rata Instruktur</td>
+                          <td colspan="4" align="center"><?= $hasil_seluruh = number_format($rata_seluruh/4,2);?>
+                          <?php 
+                          if($hasil_seluruh <= 64.99){  
+                                  echo '(Tidak Baik)';
+                              }
+                              else if($hasil_seluruh >= 65.00 && $hasil_seluruh<= 76.60){
+                                  echo '(Kurang Baik)';
+                              }
+                              else if($hasil_seluruh>= 76.61 && $hasil_seluruh<= 88.30){
+                                  echo '(Baik)';
+                              }
+                              else if($hasil_seluruh>= 88.31 && $hasil_seluruh<= 100){
+                                  echo '(Sangat Baik)';
+                              }   
+                            ?>
+
+                            </td>
+                          
+                          </td>
+                        </tr> 
                       </tbody>
                     </table>
                     <br>
                   </div>
                   <br><br>
                   <!--  -->
+                 
 
-                  GRAFIK DISINI
-  <br>
+                   <!-- codingan graifk -->
+                   <script>
+                        window.onload = function () {
+                      var judul=document.getElementById("el");;
+                        var chart = new CanvasJS.Chart("chartContainer", {
+                            animationEnabled: true,
+                            theme: "light2", // "light1", "light2", "dark1", "dark2"
+                            title:{
+                                text: "GRAFIK HASIL ANALISIS ANGKET PER KEJURUAN", 
+                                margin: 10,
+                                  padding:4,
+                            },
+                            subtitles: [{
+                                  text: " KEJURUAN : <?=  strtoupper($detail_kejuruan['nama_kejuruan']); ?> ",		
+                                  fontColor: "black",
+                                  fontSize: 22,
+                                 
+                                }],
+                            axisY: {
+                                title: "Grafik Hasil Analisis Angket",
+                            },
+                            data: [{        
+                                type: "column",  
+                                showInLegend: true, 
+                                legendMarkerColor: "grey",
+                                legendText: "Jumlah Penilaian",
+                                dataPoints: [      
+                                    { y: <?= $hasil_kuisioner_b_materi_pelatihan; ?>, label: "MATERI PELATIHAN" },
+                                    { y: <?= $hasil_kuisioner_b_tenaga_pelatih;?>, label: "TENAGA PELATIH" },
+                                    { y: <?= $hasil_kuisioner_b_sarpras; ?>,  label: "SARANA/PRASARANA" },
+                                    { y: <?= $hasil_kuisioner_b_bahan_latihan; ?>,  label: "BAHAN PELATIHAN" },
+                                    { y: <?= $hasil_kuisioner_c_rekruitmen; ?>,  label: "REKRUITMEN" },
+                                    { y: <?= $hasil_kuisioner_c_penyambutan; ?>,  label: "PENYAMBUTAN" },
+                                    { y: <?= $hasil_kuisioner_c_sarpras_asrama; ?>,  label: "SAPRAS ASRAMA" },
+                                    { y: <?= $hasil_kuisioner_c_konsumsi; ?>,  label: "KONSUMSI" },
+                                    { y: <?= $hasil_kuisioner_c_secara_umum; ?>,  label: "SECARA UMUM" },
+                                ]
+                            }]
+                        });
+                        chart.render();
+                        document.getElementById("printChart").addEventListener("click",function(){
+                           
+                            chart.print();
+                        });  	
+                        }
+                        </script>
+
+                        
+                    <br><br><br><br>
+                    <!-- <div id="el">
+                    <center><h3>GRAFIK HASIL ANALISIS ANGKET <br>LAPORAN PER PROGAM : <?= $detail_kejuruan['nama_kejuruan']; ?>
+                    </div>
+                    </h3></center> -->
+                    
+                    <br><br><br>
+                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                    <button id="printChart">Print Chart</button>
+                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                    <br><br><br><br>
+                    
                     <!-- AKHIR ISI -->
                 </div>
               </div>

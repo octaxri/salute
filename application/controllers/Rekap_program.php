@@ -54,7 +54,6 @@ class Rekap_program extends CI_Controller {
         $data['title']= "SALUTE | Detail Per Program Pelatihan ";
         $data['program'] = $program;
         $data['program1'] = $this->M_progam->tampil_detail_progam($program);
-
         
 
         $pelatihan = $this->db->query("SELECT * FROM pelatihan WHERE id_program='$program'")->result_array();
@@ -241,8 +240,6 @@ class Rekap_program extends CI_Controller {
             $hasil_akhir_sarpras = number_format($jmlh_keseluruhan_sarpras*20,2);
         }
         $data['hasil_kuisioner_b_sarpras'] = $hasil_akhir_sarpras;
-
-
 
 
         $this->load->view('templates/header',$data);

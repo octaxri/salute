@@ -1,89 +1,42 @@
-<div class="layout-content">
-        <div class="layout-content-body">
-          <div class="title-bar">
-            <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_tahap" ><span class="icon icon-backward"></span></a> Rekap Tahap : <?= $tahap; ?></span>
-              <span class="d-ib">
-                <a class="title-bar-shortcut" href="#" title="Add to shortcut list" data-container="body" data-toggle-text="Remove from shortcut list" data-trigger="hover" data-placement="right" data-toggle="tooltip">
-                  <span class="sr-only">Add to shortcut list</span>
-                </a>
-              </span>
-            </h1>
-            <hr>
-          </div>
-          <!--  -->
-          <div class="row gutter-xs">
-            <div class="col-xs-12">
-              <div class="card">
-                <div class="card-header">
-                  <strong>DAFTAR KUISIONER</strong>
-                </div>
-                <div class="card-body">
-                <table id="demo-datatables-colreorder-2" class="table table-hover table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
-                    <thead>
-                      <tr>
-                        <th width="10%">No</th>
-                        <th>Menu</th>
-                        <th width="25%">Aksi</th>
-                      </tr>
-                    </thead>
-                    <tfoot>
-                      <tr>
-                        <th>No</th>
-                        <th>Menu</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Kuisioner A</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner/1/<?= $tahap; ?>"><span class="icon icon-eye"></span> Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Kuisioner B</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner/2/<?= $tahap; ?>"><span class="icon icon-eye"></span> Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Kuisioner C</td>
-                            <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner/3/<?= $tahap; ?>"><span class="icon icon-eye"></span> Detail</a></td>
-                        </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ROW GUTTES 2 -->
-          <div class="row gutter-xs">
-            <div class="col-xs-12">
-              <div class="card">
-                <div class="card-header">
-                  <center><strong>HASIL REKAP ANALISIS ANGKET PELATIHAN</strong></center>
-                </div>
-                <div class="card-body">
-                    <!-- IISI -->
-                    <center>
-                    <a href="<?= base_url();?>laporan/cetak_tahap_hasil_analisa_angket/<?= $tahap; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url();?>laporan/rekap_tahap_excel_hasil_analisa_angket/<?= $tahap;?>" class="btn btn-success icon icon-file-excel-o" target="_blank"> Excel</a>
-                        
-                    </center>
-                    <br><br>
-                    <!--  -->
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                      <thead>
+<!DOCTYPE html>
+<html moznomarginboxes mozdisallowselectionprint>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SALUTE | Cetak Laporan</title>
+</head>
+<style>
+    p{
+        font-family: "Times New Roman", Times, serif;
+        font-size: 10px;
+    }
+</style>
+<body onload="window.print()">
+
+
+    <table align="center" cellspacing="5" width="100%">
+	
+		    <tr>
+			
+                <td colspan="3"><center><h4>HASIL REKAP ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI <br> PER KEJURUAN : <?= $detail_kejuruan['nama_kejuruan'];?></h4></center></td>
+            </tr>
+			
+			      <tr>
+					<td colspan="3">
+                        <!-- tabel -->  
+                        <table border="1" width="100%">
+                        <thead>
                         <tr>
                           <th class="text-center">No</th>
-                          <th width="40%" class="text-center">Indikator</th>
+                          <th class="text-center">Indikator</th>
                           <th class="text-center">Rata- Rata</th>
                           <th class="text-center">Kinerja Unit Pelayanan</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td align="center">1</td>
+                        <td align="center">1</td>
                           <td>Materi Pelatihan</td>
                           <td align="center"><?= $hasil_kuisioner_b_materi_pelatihan; ?></td>
                           <td align="center">
@@ -104,7 +57,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td align="center">2</td>
+                         <td align="center">2</td>
                           <td>Tenaga Pelatih</td>
                           <td align="center"><?= $hasil_kuisioner_b_tenaga_pelatih;?></td>
                           <td align="center">
@@ -125,7 +78,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td align="center">3</td>
+                        <td align="center">3</td>
                           <td>Sarpras</td>
                           <td align="center"><?= $hasil_kuisioner_b_sarpras; ?></td>
                           <td align="center">
@@ -146,7 +99,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td align="center">4</td>
+                        <td align="center">4</td>
                           <td>Bahan Pelatihan</td>
                           <td align="center"><?= $hasil_kuisioner_b_bahan_pelatihan; ?></td>
                           <td align="center">
@@ -167,7 +120,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td align="center">5</td>
+                        <td align="center">5</td>
                           <td>Rekruitmen</td>
                           <td align="center"><?= $hasil_kuisioner_b_rekruitmen; ?></td>
                           <td align="center">
@@ -189,7 +142,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td align="center">6</td>
+                        <td align="center">6</td>
                           <td>Penyambutan</td>
                           <td align="center"><?= $hasil_kuisioner_b_kamar; ?></td>
                           <td align="center">
@@ -210,7 +163,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td align="center">7</td>
+                        <td align="center">7</td>
                           <td>Sarpras Asrama</td>
                           <td align="center"><?= $hasil_kuisioner_b_sarpras_asrama; ?></td>
                           <td align="center">
@@ -231,7 +184,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td align="center">8</td>
+                        <td align="center">8</td>
                           <td>Konsumsi</td>
                           <td align="center"><?= $hasil_kuisioner_b_konsumsi; ?></td>
                           <td align="center">
@@ -251,7 +204,7 @@
                           ?></td>
                         </tr>
                         <tr>
-                          <td align="center">9</td>
+                        <td align="center">9</td>
                           <td>Secara Umum</td>
                           <td align="center"><?= $hasil_kuisioner_b_secara_umum; ?></td>
                           <td align="center">
@@ -271,22 +224,19 @@
                           ?></td>
                         </tr>
                       </tbody>
-                    </table>
-                    <br>
-                  </div>
-                    <hr>
-
-                    <!--  -->
-                  <div class="table-responsive">
-                  <table class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Nama Instruktur</th>
-                          <th>Pengetahuan / Pemahaman</th>
-                          <th>Kemampuan Dalam Membawakan Materi</th>
-                          <th>Kemampuan Dalam Memahami Masalah Peserta</th>
-                          <th>Penampilan Tenaga Pelatih</th>
+						</table>
+                        <br>
+                        <br>
+                        <br>
+                        <table border="1" width="100%">
+                        <thead>
+                        <tr class="text-center">
+                          <th class="text-center">No</th>
+                          <th class="text-center">Nama Instruktur</th>
+                          <th class="text-center">Pengetahuan / Pemahaman</th>
+                          <th class="text-center">Kemampuan Dalam Membawakan Materi</th>
+                          <th class="text-center">Kemampuan Dalam Memahami Masalah Peserta</th>
+                          <th class="text-center">Penampilan Tenaga Pelatih</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -307,7 +257,7 @@
                               $total1 = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan
                                                                 LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB
                                                                 LEFT JOIN detail_penilaian_b ON detail_penilaian_b.id_penilaian_b=penilaian_b.idku
-                                                                WHERE penilaian_b.id_soalB='$id_soal1' AND pelatihan.tahap_pelatihan='$tahap' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=9 AND detail_penilaian_b.id_pengajar='$id_pengajar' ")->row_array();
+                                                                WHERE penilaian_b.id_soalB='$id_soal1' AND pelatihan.id_kejuruan='$kejuruan' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=9 AND detail_penilaian_b.id_pengajar='$id_pengajar' ")->row_array();
                           ?>  
 
                           <?php $jml_semua1=$jml_semua1+(number_format($total1['total']/$jml_pengetahuan_pemahaman,2)); } ?>
@@ -326,7 +276,7 @@
                               $total2 = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan
                                                                 LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB
                                                                 LEFT JOIN detail_penilaian_b ON detail_penilaian_b.id_penilaian_b=penilaian_b.idku
-                                                                WHERE penilaian_b.id_soalB='$id_soal2' AND pelatihan.tahap_pelatihan='$tahap' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=10 AND detail_penilaian_b.id_pengajar='$id_pengajar1' ")->row_array();
+                                                                WHERE penilaian_b.id_soalB='$id_soal2' AND pelatihan.id_kejuruan='$kejuruan' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=10 AND detail_penilaian_b.id_pengajar='$id_pengajar1' ")->row_array();
                           ?>  
 
                           <?php $jml_semua2=$jml_semua2+(number_format($total2['total']/$jml_kemampuan,2)); } ?>
@@ -345,7 +295,7 @@
                               $total3 = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan
                                                                 LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB
                                                                 LEFT JOIN detail_penilaian_b ON detail_penilaian_b.id_penilaian_b=penilaian_b.idku
-                                                                WHERE penilaian_b.id_soalB='$id_soal3' AND pelatihan.tahap_pelatihan='$tahap' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=11 AND detail_penilaian_b.id_pengajar='$id_pengajar2' ")->row_array();
+                                                                WHERE penilaian_b.id_soalB='$id_soal3' AND pelatihan.id_kejuruan='$kejuruan' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=11 AND detail_penilaian_b.id_pengajar='$id_pengajar2' ")->row_array();
                           ?>  
 
                           <?php $jml_semua3=$jml_semua3+(number_format($total3['total']/$jml_memahami_masalah,2)); } ?>
@@ -363,7 +313,7 @@
                               $total4 = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan
                                                                 LEFT JOIN kuisioner_b ON penilaian_b.id_soalB=kuisioner_b.id_kuisionerB
                                                                 LEFT JOIN detail_penilaian_b ON detail_penilaian_b.id_penilaian_b=penilaian_b.idku
-                                                                WHERE penilaian_b.id_soalB='$id_soal4' AND pelatihan.tahap_pelatihan='$tahap' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=12 AND detail_penilaian_b.id_pengajar='$id_pengajar3' ")->row_array();
+                                                                WHERE penilaian_b.id_soalB='$id_soal4' AND pelatihan.id_kejuruan='$kejuruan' AND kuisioner_b.jenis_soal=2 AND kuisioner_b.sub_soal=12 AND detail_penilaian_b.id_pengajar='$id_pengajar3' ")->row_array();
                           ?>  
 
                           <?php $jml_semua4=$jml_semua4+(number_format($total4['total']/$jml_penampilan,2)); } ?>
@@ -470,80 +420,13 @@
                           </td>
                         </tr> 
                       </tbody>
-                    </table>
-                    <br>
-                  </div>
-                  <br><br>
-                  <!--  -->
-                 
-
-                   <!-- codingan graifk -->
-                   <script>
-                        window.onload = function () {
-                      var judul=document.getElementById("el");;
-                        var chart = new CanvasJS.Chart("chartContainer", {
-                            animationEnabled: true,
-                            theme: "light2", // "light1", "light2", "dark1", "dark2"
-                            title:{
-                                text: "GRAFIK HASIL ANALISIS ANGKET PER TAHAP", 
-                                margin: 10,
-                                  padding:4,
-                            },
-                            subtitles: [{
-                                  text: " TAHAP : <?= $tahap; ?> ",		
-                                  fontColor: "black",
-                                  fontSize: 22,
-                                 
-                                }],
-                            axisY: {
-                                title: "Grafik Hasil Analisis Angket",
-                            },
-                            data: [{        
-                                type: "column",  
-                                showInLegend: true, 
-                                legendMarkerColor: "grey",
-                                legendText: "Jumlah Penilaian",
-                                dataPoints: [      
-                                    { y: <?= $hasil_kuisioner_b_materi_pelatihan; ?>, label: "MATERI PELATIHAN" },
-                                    { y: <?= $hasil_kuisioner_b_tenaga_pelatih;?>, label: "TENAGA PELATIH" },
-                                    { y: <?= $hasil_kuisioner_b_sarpras; ?>,  label: "SARANA/PRASARANA" },
-                                    { y: <?= $hasil_kuisioner_b_bahan_pelatihan; ?>,  label: "BAHAN PELATIHAN" },
-                                    { y: <?= $hasil_kuisioner_b_rekruitmen; ?>,  label: "REKRUITMEN" },
-                                    { y: <?= $hasil_kuisioner_b_kamar; ?>,  label: "PENYAMBUTAN" },
-                                    { y: <?= $hasil_kuisioner_b_sarpras_asrama; ?>,  label: "SAPRAS ASRAMA" },
-                                    { y: <?= $hasil_kuisioner_b_konsumsi; ?>,  label: "KONSUMSI" },
-                                    { y: <?= $hasil_kuisioner_b_secara_umum; ?>,  label: "SECARA UMUM" },
-                                ]
-                            }]
-                        });
-                        chart.render();
-                        document.getElementById("printChart").addEventListener("click",function(){
-                           
-                            chart.print();
-                        });  	
-                        }
-                        </script>
-
-                        
-                    <br><br><br><br>
-                    <!-- <div id="el">
-                    <center><h3>GRAFIK HASIL ANALISIS ANGKET <br>LAPORAN PER PROGAM : <?= $tahap; ?>
-                    </div>
-                    </h3></center> -->
-                    
-                    <br><br><br>
-                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-                    <button id="printChart">Print Chart</button>
-                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-                    <br><br><br><br>
-                    
-                    <!-- AKHIR ISI -->
-                </div>
-              </div>
-            </div>
-          </div>
+                        </table>
+					</td>	
+				</tr>
+	
+	</table>
 
 
-          <!--  -->
-        </div>
-      </div>
+
+</body>
+</html>

@@ -53,6 +53,7 @@ class Rekap_kejuruan extends CI_Controller {
 
         $data['title']= "SALUTE | Detail Per Kejuruan Pelatihan ";
         $data['kejuruan'] = $kejuruan;
+        $data['detail_kejuruan'] = $this->db->query("SELECT * FROM kejuruan WHERE id_kejuruan='$kejuruan'")->row_array();
     
         // MATERI PELATIHAN
         $jml_kuisioner_b_materi_pelatihan = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
@@ -69,6 +70,51 @@ class Rekap_kejuruan extends CI_Controller {
             $hasil_akhir_materi_pelatihan = number_format($jmlh_keseluruhan_materi_pelatihan*20,2);
         }
         $data['hasil_kuisioner_b_materi_pelatihan'] = $hasil_akhir_materi_pelatihan;
+
+        // TENAGA PELATIH
+        $kuisioner_b_tenaga_pelatih=$this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg'")->result_array();
+        $jml_kuisioner_b_tenaga_pelatih=$this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg'")->num_rows();;
+        $jml_keseluruhan_tenaga_pelatih=0;
+
+        foreach ($kuisioner_b_tenaga_pelatih as $k) {
+            $id_soalnyaku=$k['id_kuisionerB'];
+            $total_tenaga_pelatih = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
+            WHERE penilaian_b.id_soalB='$id_soalnyaku' AND pelatihan.id_kejuruan='$kejuruan'")->row_array();
+
+            $jml_keseluruhan_tenaga_pelatih=$jml_keseluruhan_tenaga_pelatih+(number_format($total_tenaga_pelatih['total']/$jml_kuisioner_b_tenaga_pelatih,2));
+            $hasil_akhir_tenaga_pelatih=number_format($jml_keseluruhan_tenaga_pelatih*20,2);
+
+        }
+
+        $data['hasil_kuisioner_b_tenaga_pelatih']=$hasil_akhir_tenaga_pelatih;
+
+        ///pemahaman
+        $data['pengetahuan_pemahaman'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=9")->result_array();
+        $data['jml_pengetahuan_pemahaman'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=9")->num_rows();
+
+        ///kemampuan dalam membawa materi
+        $data['kemampuan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=10")->result_array();
+        $data['jml_kemampuan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=10")->num_rows();
+        
+        ///memahami masalah
+        $data['memahami_masalah'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=11")->result_array();
+        $data['jml_memahami_masalah'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=11")->num_rows();
+        
+        // PENAMPILAN TENAGA PELATIH
+        $data['penampilan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=12")->result_array();
+        $data['jml_penampilan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=12")->num_rows();
+       
+
+
+        /////menampilkan per tenaga pelatih 
+
+        $data['daftar_pengajar']= $this->db->query("SELECT DISTINCT pengajar.id_pengajar,pengajar.nama_pengajar FROM detail_pengajar LEFT JOIN pelatihan ON detail_pengajar.kd_pelatihan=pelatihan.kd_pelatihan
+        LEFT JOIN pengajar ON pengajar.id_pengajar=detail_pengajar.id_pengajar
+        WHERE pelatihan.id_kejuruan='$kejuruan'")->result_array();
+
+
+
+        // AKHIR TENAGA PELATIH
 
         // SARPRAS
         $jml_kuisioner_b_sarpras = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg'")->num_rows();
