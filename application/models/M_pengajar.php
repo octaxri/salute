@@ -18,7 +18,7 @@ class M_pengajar extends CI_Model
 	{
 		$data= array(
 
-			"id_pengajar" => $this->m_pengajar->get_kopeng(),
+			"id_pengajar" => $this->M_pengajar->get_kopeng(),
 			"nama_pengajar" => $this->input->post('nama_pengajar',TRUE),
 			
 		);

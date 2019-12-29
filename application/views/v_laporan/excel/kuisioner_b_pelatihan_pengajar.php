@@ -1,38 +1,38 @@
-<!DOCTYPE html>
-<html moznomarginboxes mozdisallowselectionprint>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SALUTE | Cetak Laporan</title>
-</head>
-<style>
-    p{
-        font-family: "Times New Roman", Times, serif;
-        font-size: 10px;
-    }
-</style>
-<body onload="window.print()">
+<?php 
 
+header("Content-type: application/octet-stream");
 
-    <table align="center" cellspacing="5" width="100%">
+header("Content-Disposition: attachment; filename=$title.xls");
+
+header("Pragma: no-cache");
+
+header("Expires: 0");
+
+?>
+
+<table align="center" cellspacing="5">
 	
-		    <tr>
-			
-                <td colspan="3"><h4>II. TENAGA PELATIH</h4></td>
-            </tr>
-            <tr>
-                <td colspan="3"><center><h4>HASIL ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI PER KELAS <br> KEJURUAN : <?= $data1['nama_kejuruan'];?> <br> PROGRAM : <?= $data1['nama_program'];?>  </h4></center></td>
-            </tr>
-            <tr>
+    <tr>
+    <td></td>
+        <td colspan="3"><h4>II. TENAGA PELATIH</h4></td>
+    </tr>
+    <tr>
+    <td></td>
+        <td colspan="3"><center><h4>HASIL ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI PER KELAS <br> KEJURUAN : <?= $data1['nama_kejuruan'];?> <br> PROGRAM : <?= $data1['nama_program'];?>  </h4></center></td>
+    </tr>
+    <tr>
+    <td></td>
                 <td colspan="3"><h4>NAMA INSTRUKTUR : <?= strtoupper($pengajar['nama_pengajar']); ?> </h4></td>
-            </tr>
-			
-			      <tr>
-					<td colspan="3">
-                        <!-- tabel -->  
-                        <table border="1" width="100%">
-                        <thead>
+    </tr>
+    <tr>
+    </tr>
+    
+          <tr>
+          <td></td>
+            <td colspan="3">
+                <!-- tabel -->  
+                <table border="1" width="100%">
+                <thead>
                         <tr>
                           <th rowspan="2" width="15">No Responden</th>
                           <?php $i1 =1; $jml=0; $jml1=0;$jml2=0;$jml3=0; foreach($responden as $r){ ?>
@@ -334,53 +334,48 @@
                           <td colspan="<?=$jml_penampilan;?>" align="center"><h4><?= number_format($jml_semua3*20,2);?></h4></td>
                         </tr>
                       </tbody>
-                    </table>
-                    <br>
-                  </div>
-                  <br>
-                  <div class="table-responsive">
-                    <table>
-                        <tr>
-                        <td><h4> PENGETAHUAN/PEMAHAMAN  <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua*20,2);?></h4></td></h4></td>
-                        </tr>
-                        <tr>
-                        <td><h4> KEMAMPUAN DALAM MEMBAWAKAN MATERI <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua1*20,2);?></h4></td></h4></td>
-                        </tr>                        
-                        <tr>
-                        <td><h4> KEMAMPUAN DALAM MEMAHAMI MASALAH PESERTA <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua2*20,2);?></h4></td></h4></td>
-                        </tr>                        
-                        <tr>
-                        <td><h4> PENAMPILAN TENAGA PELATIH <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua3*20,2);?></h4></td> </h4></td>
-                        </tr>                        
-                      
-                        <tr>
-                        <?php 
-                        $rata=(number_format($jml_semua*20,2))+(number_format($jml_semua1*20,2))+(number_format($jml_semua2*20,2))+(number_format($jml_semua3*20,2));
-                        ?>
-                        <td><h4> RATA-RATA <td></td><td></td><td><h4>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/4,2);?>
-                        <?php 
-                              if($hasil_akhir <= 64.99){  
-                                  echo '(Tidak Baik)';
-                              }
-                              else if($hasil_akhir>= 65.00 && $hasil_akhir<= 76.60){
-                                  echo '(Kurang Baik)';
-                              }
-                              else if($hasil_akhir>= 76.61 && $hasil_akhir<= 88.30){
-                                  echo '(Baik)';
-                              }
-                              else if($hasil_akhir>= 88.31 && $hasil_akhir<= 100){
-                                  echo '(Sangat Baik)';
-                              }   
-                            ?>
-                        </h4></td> </h4></td>
-                        </tr>
-						</table>
-					</td>	
-				</tr>
-	
-	</table>
+            </table>
+            <br>
+          </div>
+          <br>
+          <div class="table-responsive">
+            <table>
+                <tr>
+                <td><h4> PENGETAHUAN/PEMAHAMAN  <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua*20,2);?></h4></td></h4></td>
+                </tr>
+                <tr>
+                <td><h4> KEMAMPUAN DALAM MEMBAWAKAN MATERI <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua1*20,2);?></h4></td></h4></td>
+                </tr>                        
+                <tr>
+                <td><h4> KEMAMPUAN DALAM MEMAHAMI MASALAH PESERTA <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua2*20,2);?></h4></td></h4></td>
+                </tr>                        
+                <tr>
+                <td><h4> PENAMPILAN TENAGA PELATIH <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua3*20,2);?></h4></td> </h4></td>
+                </tr>                        
+              
+                <tr>
+                <?php 
+                $rata=(number_format($jml_semua*20,2))+(number_format($jml_semua1*20,2))+(number_format($jml_semua2*20,2))+(number_format($jml_semua3*20,2));
+                ?>
+                <td><h4> RATA-RATA <td></td><td></td><td><h4>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/4,2);?>
+                <?php 
+                      if($hasil_akhir <= 64.99){  
+                          echo '(Tidak Baik)';
+                      }
+                      else if($hasil_akhir>= 65.00 && $hasil_akhir<= 76.60){
+                          echo '(Kurang Baik)';
+                      }
+                      else if($hasil_akhir>= 76.61 && $hasil_akhir<= 88.30){
+                          echo '(Baik)';
+                      }
+                      else if($hasil_akhir>= 88.31 && $hasil_akhir<= 100){
+                          echo '(Sangat Baik)';
+                      }   
+                    ?>
+                </h4></td> </h4></td>
+                </tr>
+                </table>
+            </td>	
+        </tr>
 
-
-
-</body>
-</html>
+</table>

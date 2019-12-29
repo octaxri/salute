@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <!-- IISI -->
                     <center>
-                        <a href="<?= base_url();?>pelatihan/cetak_kuisioner_b_pelatihan_pengajar/<?= $kd_pelatihan;?>" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url();?>laporan/export_exel_kuisioner_b_pelatihan_pengajar/<?= $kd_pelatihan;?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
+                        <a href="<?= base_url();?>laporan/cetak_kuisioner_b_pelatihan_pengajarku/<?= $kd_pelatihan;?>/<?= $id_pengajar;?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url();?>laporan/export_exel_kuisioner_b_pelatihan_pengajar/<?=$kd_pelatihan;?>/<?=$id_pengajar;?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
                         
                     </center>
                     <br><br>
@@ -39,7 +39,7 @@
                     <table class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th rowspan="2" width="15">No Responden</th>
+                          <th rowspan="2" class="text-center">No Responden</th>
                           <?php $i1 =1; $jml=0; $jml1=0;$jml2=0;$jml3=0; foreach($responden as $r){ ?>
                             
                             <?php 
@@ -52,53 +52,42 @@
                             ?>
 
                           <?php } ?>
-                          <th colspan="<?= $jml;?>" class="text-center">PENGETAHUAN/PEMAHAMAN</th>
-                          <th colspan="<?= $jml1;?>" class="text-center">KEMAMPUAN DALAM MEMBAWAKAN MATERI</th>
-                          <th colspan="<?= $jml2;?>" class="text-center">KEMAMPUAN MEMAHAMI MASALAH PESERTA</th>
-                          <th colspan="<?= $jml3;?>" class="text-center">PENAMPILAN TENAGA PELATIH</th>
+                          <th colspan="<?= $jml_pengetahuan_pemahaman;?>" class="text-center">PENGETAHUAN/PEMAHAMAN</th>
+                          <th colspan="<?= $jml_kemampuan;?>" class="text-center">KEMAMPUAN DALAM MEMBAWAKAN MATERI</th>
+                          <th colspan="<?= $jml_memahami_masalah;?>" class="text-center">KEMAMPUAN MEMAHAMI MASALAH PESERTA</th>
+                          <th colspan="<?= $jml_penampilan;?>" class="text-center">PENAMPILAN TENAGA PELATIH</th>
                         </tr>
 
-                        <tr>
-    
-                        <?php 
-                        foreach ($responden as $k) { ?>
-                          
-                          <?php 
-                          $k=0;
-                          $id_pengajar=$k['id_pengajar'];
-                          ?>
-
-                  
+                        <tr class="text-center">
+  
                        
                        <?php 
-                               $soal=1;
-                               $jml_soal=$this->db->query("SELECT DISTINCT id_user,id_soalB,jenis_soal,tipe_soal,sub_soal,id_pengajar FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB INNER JOIN detail_penilaian_b ON idku=id_penilaian_b WHERE kd_pelatihan='$kd_pelatihan' AND id_pengajar='$id_pengajar' AND jenis_soal=2 AND tipe_soal='pg' AND sub_soal=9 ")->result_array();                               
-                              foreach ($jml_soal as $key) { ?>
-                                <th><?= $soal++;?></th>
+                                 $soal=1;            
+                              foreach ($pengetahuan_pemahaman as $key) { ?>
+                                <th class="text-center"><?= $soal++;?></th>
                               <?php }?>
                                 <!-- Ruang Teori -->
                               <?php 
                               $soal1=1;
-                              $jml_soal1=$this->db->query("SELECT DISTINCT id_user,id_soalB,jenis_soal,tipe_soal,sub_soal,id_pengajar FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB INNER JOIN detail_penilaian_b ON idku=id_penilaian_b WHERE kd_pelatihan='$kd_pelatihan' AND id_pengajar='$id_pengajar' AND jenis_soal=2 AND tipe_soal='pg' AND sub_soal=10 ")->result_array();
-                              foreach ($jml_soal1 as $key) { ?>
-                                <th><?= $soal1++;?></th>
+                              
+                              foreach ($kemampuan as $key) { ?>
+                                <th class="text-center"><?= $soal1++;?></th>
                               <?php } ?>
 
                               <?php 
                               $soal2=1;
-                              $jml_soal2=$this->db->query("SELECT DISTINCT id_user,id_soalB,jenis_soal,tipe_soal,sub_soal,id_pengajar FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB INNER JOIN detail_penilaian_b ON idku=id_penilaian_b WHERE kd_pelatihan='$kd_pelatihan' AND id_pengajar='$id_pengajar' AND jenis_soal=2 AND tipe_soal='pg' AND sub_soal=11 ")->result_array();
-                              foreach ($jml_soal2 as $key) { ?>
-                                <th><?= $soal2++;?></th>
+                              
+                              foreach ($memahami_masalah as $key) { ?>
+                                <th class="text-center"><?= $soal2++;?></th>
                               <?php } ?>
 
                               <?php 
                               $soal3=1;
-                              $jml_soal3=$this->db->query("SELECT DISTINCT id_user,id_soalB,jenis_soal,tipe_soal,sub_soal,id_pengajar FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB INNER JOIN detail_penilaian_b ON idku=id_penilaian_b WHERE kd_pelatihan='$kd_pelatihan' AND id_pengajar='$id_pengajar' AND jenis_soal=2 AND tipe_soal='pg' AND sub_soal=12 ")->result_array();
-                              foreach ($jml_soal3 as $key) { ?>
-                                <th><?= $soal3++;?></th>
+                             foreach ($penampilan as $key) { ?>
+                                <th class="text-center"><?= $soal3++;?></th>
                               <?php } ?>
 
-                              <?php  } ?>
+
 
                         </tr>
                       </thead>
@@ -114,8 +103,8 @@
                           $soal3 = $this->db->query("SELECT DISTINCT id_user,id_soalB,jenis_soal,tipe_soal,sub_soal,id_pengajar FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB INNER JOIN detail_penilaian_b ON idku=id_penilaian_b WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND id_pengajar='$id_pengajar' AND jenis_soal=2 AND tipe_soal='pg'AND sub_soal=12 ")->result_array(); 
  
                         ?>
-                        <tr>
-                        <td><?= $i1++; ?></td>
+                        <tr class="text-center">
+                        <td class="text-center"><?= $i1++; ?></td>
                         <!-- loop 2 -->
                         <?php $i2=1; 
 
@@ -174,7 +163,7 @@
                         </tr>
                         <?php } ?>
 
-                        <tr>
+                        <tr class="text-center">
                           <td>Jumlah</td>
                          
 
@@ -226,7 +215,7 @@
                             
 
                         </tr>
-                        <tr>
+                        <tr class="text-center">
                           <td>Nilai Rata-Rata</td>
  
                           <?php 
@@ -278,7 +267,7 @@
 
 
                         </tr>
-                        <tr>
+                        <tr class="text-center">
                           <td>NRR X Bobot</td>     
                           
                           <?php 
@@ -335,19 +324,19 @@
                             <?php $jml_semua3=$jml_semua3+(number_format($total1['total']/$jml_soal,2)); } ?>
 
                         </tr>
-                        <tr>
+                        <tr class="text-center">
                           <td>Jumlah</td>
-                          <td colspan="<?= $jml;?>" class="text-center"><h4><?= number_format($jml_semua,2);?></h4></td>
-                          <td colspan="<?= $jml1;?>" class="text-center"><h4><?= number_format($jml_semua1,2);?></h4></td>
-                          <td colspan="<?= $jml2;?>" class="text-center"><h4><?= number_format($jml_semua2,2);?></h4></td>
-                          <td colspan="<?= $jml3;?>" class="text-center"><h4><?= number_format($jml_semua3,2);?></h4></td>
+                          <td colspan="<?= $jml_pengetahuan_pemahaman;?>" class="text-center"><h4><?= number_format($jml_semua,2);?></h4></td>
+                          <td colspan="<?= $jml_kemampuan;?>" class="text-center"><h4><?= number_format($jml_semua1,2);?></h4></td>
+                          <td colspan="<?= $jml_memahami_masalah;?>" class="text-center"><h4><?= number_format($jml_semua2,2);?></h4></td>
+                          <td colspan="<?= $jml_penampilan;?>" class="text-center"><h4><?= number_format($jml_semua3,2);?></h4></td>
                         </tr>
-                        <tr>
+                        <tr class="text-center">
                           <td>Jumlah X 20</td>
-                          <td colspan="<?=$jml;?>" class="text-center"><h4><?= number_format($jml_semua*20,2);?></h4></td>
-                          <td colspan="<?=$jml1;?>" class="text-center"><h4><?= number_format($jml_semua1*20,2);?></h4></td>
-                          <td colspan="<?=$jml2;?>" class="text-center"><h4><?= number_format($jml_semua2*20,2);?></h4></td>
-                          <td colspan="<?=$jml3;?>" class="text-center"><h4><?= number_format($jml_semua3*20,2);?></h4></td>
+                          <td colspan="<?=$jml_pengetahuan_pemahaman;?>" class="text-center"><h4><?= number_format($jml_semua*20,2);?></h4></td>
+                          <td colspan="<?=$jml_kemampuan;?>" class="text-center"><h4><?= number_format($jml_semua1*20,2);?></h4></td>
+                          <td colspan="<?=$jml_memahami_masalah;?>" class="text-center"><h4><?= number_format($jml_semua2*20,2);?></h4></td>
+                          <td colspan="<?=$jml_penampilan;?>" class="text-center"><h4><?= number_format($jml_semua3*20,2);?></h4></td>
                         </tr>
                       </tbody>
                     </table>
@@ -393,7 +382,75 @@
                     </table>
                     </div>
                     <!-- AKHIR ISI -->
+                    <!-- codingan graifk -->
+                    <script>
+                        window.onload = function () {
 
+                        var chart = new CanvasJS.Chart("chartContainer", {
+                            animationEnabled: true,
+                            theme: "light2", // "light1", "light2", "dark1", "dark2"
+                            title: {
+                                text: "GRAFIK HASIL ANALISIS ANGKET PER KELAS  ",
+                                fontSize: 25,
+                               
+                              },
+                              subtitles:[
+                              {
+                                text: " KEJURUAN : <?= $data1['nama_kejuruan']; ?>",
+                                //Uncomment properties below to see how they behave
+                                //fontColor: "red",
+                                fontSize: 20,
+                                fontWeight: "bold",
+                              
+                              },
+                              {
+                                text: " PROGRAM : <?= $data1['nama_program']; ?>",
+                                //Uncomment properties below to see how they behave
+                                //fontColor: "red",
+                                fontSize: 20,
+                                fontWeight: "bold",
+                              },
+                              {
+                                text: "NAMA INSTRUKTUR : <?= strtoupper($pengajar['nama_pengajar']); ?>",
+                                fontSize: 16,
+                                fontWeight: "bold",
+                                margin:10,
+                                padding: 5,
+                                horizontalAlign : "left",
+                              }
+                              ],
+                            axisY: {
+                                title: "Grafik Hasil Analisis Angket"
+                            },
+                            data: [{        
+                                type: "column",  
+                                showInLegend: true, 
+                                legendMarkerColor: "grey",
+                                legendText: "Jumlah Penilaian",
+                                dataPoints: [      
+                                    { y: <?= number_format($jml_semua*20,2);?>, label: "PENGETAHUAN/PEMAHAMAN" },
+                                    { y: <?= number_format($jml_semua1*20,2);?>,  label: "KEMAMPUAN DALAM MEMBAWAKAN MATERI" },
+                                    { y: <?= number_format($jml_semua2*20,2);?>,  label: "KEMAMPUAN MEMAHAMI MASALAH PESERTA" },
+                                    { y: <?= number_format($jml_semua3*20,2);?>,  label: "PENAMPILAN TENAGA PELATIH" }
+                                ]
+                            }]
+                        });
+                        chart.render();
+                        document.getElementById("printChart").addEventListener("click",function(){
+                            chart.print();
+                        });  	
+                        }
+                        </script>
+
+
+                    <!-- akhir -->
+
+                    <br><br><br><br>
+           
+                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                    <button id="printChart">Print Chart</button>
+                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                    <br><br><br><br><br><br>
                     <!-- AKHIR ISI -->
                 </div>
               </div>
