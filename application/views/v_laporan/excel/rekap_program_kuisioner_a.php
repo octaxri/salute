@@ -14,7 +14,7 @@ header("Expires: 0");
 <table>
     <tr>
         <td></td>
-        <td colspan="10"><center><h4>LAPORAN PER PROGRAM : <?= $program1['nama_program']; ?></h4></center></td>
+        <td colspan="10"><center><h4>HASIL ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI  <br> PER PROGRAM : <?= strtoupper($program1['nama_program']); ?></h4></center></td>
     </tr>
     <tr>
         <td></td>

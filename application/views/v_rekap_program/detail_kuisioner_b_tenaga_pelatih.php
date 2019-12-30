@@ -49,25 +49,25 @@
                                $soal=1;
                               foreach($pengetahuan_pemahaman as $w){
                               ?>
-                                <th align="center"><?= $soal++;?></th>
+                                <th class="text-center"><?= $soal++;?></th>
                               <?php } ?>
                                 <!--  -->
                               <?php 
                               $soal1=1;
                               foreach ($kemampuan as $t) { ?>
-                                <th align="center"><?= $soal1++;?></th>
+                                <th class="text-center"><?= $soal1++;?></th>
                               <?php } ?>
                                 <!--  -->
                               <?php 
                               $soal2=1;
                               foreach ($memahami_masalah as $l) { ?>
-                                <th align="center"><?= $soal2++;?></th>
+                                <th class="text-center"><?= $soal2++;?></th>
                               <?php } ?>
                                 <!--  -->
                               <?php 
                               $soal3=1;
                               foreach ($penampilan as $k) { ?>
-                                <th align="center"><?= $soal3++;?></th>
+                                <th class="text-center"><?= $soal3++;?></th>
                               <?php } ?>
                                 <!--  -->
                         </tr>     
@@ -383,7 +383,7 @@
                               },
                               subtitles:[
                               {
-                                text: "LAPORAN PER PROGRAM : <?= $program1['nama_program']; ?>",
+                                text: "LAPORAN PER PROGRAM : <?= strtoupper($program1['nama_program']); ?>",
                                 //Uncomment properties below to see how they behave
                                 //fontColor: "red",
                                 fontSize: 25,

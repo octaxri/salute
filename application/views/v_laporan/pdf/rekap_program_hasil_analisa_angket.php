@@ -19,7 +19,7 @@
 	
 		    <tr>
 			
-                <td colspan="3"><center><h4>HASIL REKAP ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI <br> PER PROGRAM : <?= $program1['nama_program'];?></h4></center></td>
+                <td colspan="3"><center><h4>HASIL REKAP ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI <br> PER PROGRAM : <?= strtoupper($program1['nama_program']);?></h4></center></td>
             </tr>
 			
 			      <tr>

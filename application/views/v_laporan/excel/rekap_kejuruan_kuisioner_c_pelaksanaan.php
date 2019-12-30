@@ -19,7 +19,7 @@ header("Expires: 0");
             <br>
             <tr>
             <td></td>
-                <td colspan="3"><center><h4>LAPORAN KUISIONER C PELAKSANAAN UJI KOMPETENSI <br> PER KEJURUAN : <?=$kejuruan1['nama_kejuruan'];?> </h4></center></td>
+                <td colspan="3"><center><h4>HASIL ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI <br> PER KEJURUAN : <?= strtoupper($kejuruan1['nama_kejuruan']);?> </h4></center></td>
             </tr>
 			
 			      <tr>

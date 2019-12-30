@@ -357,6 +357,23 @@ class Rekap_program extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    function rekap_kuisioner_b_unit_kompetensi($program)
+    {
+        $data['title'] = "SALUTE | Rekap Per Program Kuisioner B Unit Kompetensi ";
+        $data['pelatihan']= $this->db->query("SELECT * FROM pelatihan WHERE id_program='$program'")->result_array();
+        $data['program']= $program;
+        $data['program1'] = $this->M_progam->tampil_detail_progam($program);
+
+        $data['jml_kuisioner_b_unit_kompetensi'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=5 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_unit_kompetensi'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=5 AND tipe_soal='pg'")->result_array();
+
+        $this->load->view('templates/header',$data);
+        $this->load->view('templates/sidebar',$data);
+        $this->load->view('v_rekap_program/detail_kuisioner_b_unit_kompetensi',$data);
+        $this->load->view('templates/footer');
+
+    }
+
     function rekap_kuisioner_b_sapras($program)
     {
      $data['title']="SALUTE | Rekap Per Program Kuisioner B Sarana dan Prasarana";

@@ -21,7 +21,7 @@
                 <td colspan="3"><h4>VI. REKRUITMEN, PERJALANAN, DAN PERSYARATAN PESERTA</h4></td>
             </tr>
             <tr>
-            <td><center><h4>LAPORAN KUISIONER C REKRUITMEN, PERJALANAN, DAN PERSYARATAN PESERTA  <br>PER PROGRAM : <?= $program1['nama_program']; ?></h4>
+            <td><center><h4>HASIL ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI <br>PER PROGRAM : <?= strtoupper($program1['nama_program']); ?></h4>
             </center></td>
             </tr>
 			

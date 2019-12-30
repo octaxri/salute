@@ -19,12 +19,14 @@ header("Expires: 0");
             <td></td>
                 <td colspan="3"><center><h4>
                 HASIL ANALISIS ANGKET <br>
-                LAPORAN PER PROGRAM : <?= $program1['nama_program']; ?>
+                PELATIHAN BERBASIS KOMPETENSI <br> PER PROGRAM : <?= strtoupper($program1['nama_program']); ?>
                 </h4></center></td>
             </tr>
             <tr>
             <td></td>
                 <td colspan="3"><h4>NAMA INSTRUKTUR : <?= strtoupper($pengajar['nama_pengajar']); ?> </h4></td>
+            </tr>
+            <tr>
             </tr>
             <tr>
             <td></td>

@@ -19,7 +19,7 @@
             </tr>
             <tr>
                 <td colspan="3"><center><h4>
-                HASIL ANALISIS ANGKET <br>
+                HASIL ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI <br>
                 PELATIHAN <?= strtoupper($data1['nama_program']); ?>  
                 <br> KEJURUAN <?= strtoupper($data1['nama_kejuruan']); ?>
                 </h4></center></td>

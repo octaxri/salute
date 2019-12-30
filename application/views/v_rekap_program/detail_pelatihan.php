@@ -490,7 +490,7 @@
                                   padding:4,
                             },
                             subtitles: [{
-                                  text: " PROGRAM : <?= $program1['nama_program']; ?> ",		
+                                  text: " PROGRAM : <?= strtoupper($program1['nama_program']); ?> ",		
                                   fontColor: "black",
                                   fontSize: 22,
                                  

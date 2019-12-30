@@ -16,9 +16,9 @@ header("Expires: 0");
             </tr>
             <tr  align="center" >
                 <td colspan="3"><center><h4>
-                HASIL ANALISIS ANGKET <br>
-                PELATIHAN <?= strtoupper($data1['nama_program']); ?>  
-                <br> KEJURUAN <?= strtoupper($data1['nama_kejuruan']); ?>
+                HASIL ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI <br> KEJURUAN : <?= strtoupper($data1['nama_kejuruan']); ?>
+                  
+                <br> PROGRAM : <?= strtoupper($data1['nama_program']); ?> 
                 </h4></center></td>
             </tr>
             <tr  align="center" >

@@ -19,7 +19,7 @@
             <td><h4>I. MATERI PELATIHAN (KURIKULUM SILABUS)</h4></td>
         </tr>
         <tr>
-            <td><center><h4>PELATIHAN BERBASIS KOMPETENSI <?= strtoupper($data1['nama_program']); ?> <br> KEJURUAN <?= strtoupper($data1['nama_kejuruan']); ?></h4>
+            <td><center><h4> HASIL ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI<br> PROGRAM : <?= strtoupper($data1['nama_program']); ?> <br> KEJURUAN : <?= strtoupper($data1['nama_kejuruan']); ?></h4>
             </center></td>
         </tr>
         <tr>

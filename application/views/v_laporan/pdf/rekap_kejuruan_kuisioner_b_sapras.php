@@ -21,7 +21,7 @@
             <td><h4>III. SARANA / PRASARANA</h4></td>
         </tr>
         <tr>
-            <td><center><h4>LAPORAN KUISIONE B SARANA / PRASARANA <br>PER KEJURUAN : <?= $kejuruan1['nama_kejuruan']; ?></h4>
+            <td><center><h4>HASIL ANALISIS <br> PELATIHAN BERBASIS KOMPETENSI <br>PER KEJURUAN : <?= strtoupper($kejuruan1['nama_kejuruan']); ?></h4>
             </center></td>
         </tr>
 

@@ -19,7 +19,7 @@
             <td><h4>I. MATERI PELATIHAN (KURIKULUM SILABUS)</h4></td>
         </tr>
         <tr>
-            <td><center><h4>LAPORAN KUISIONE B (MATERI PELATIHAN) <br>PER KEJURUAN : <?= strtoupper($detail_kejuruan['nama_kejuruan']); ?></h4>
+            <td><center><h4>HASIL ANALISI ANGKET <br> PELATIHAN BERBASIS KOMPETENSI <br>PER KEJURUAN : <?= strtoupper($detail_kejuruan['nama_kejuruan']); ?></h4>
             </center></td>
         </tr>
         <tr>

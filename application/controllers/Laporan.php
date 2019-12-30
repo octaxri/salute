@@ -473,7 +473,18 @@ class Laporan extends CI_Controller {
         $data['jml_kuisioner_a'] = $this->db->get('kuisioner_a')->num_rows();
         $data['kuisioner_a'] = $this->db->get('kuisioner_a')->result_array();
 		$this->load->view('v_laporan/pdf/rekap_program_kuisioner_a',$data);
-	 }
+     }
+     
+     function rekap_program_kuisioner_b_unit_kompetensi($program)
+     {
+        $data['program'] = $program;
+		$data['program1']= $this->M_progam->tampil_detail_progam($program);
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_program='$program'")->result_array();
+        $data['jml_kuisioner_b_unit_kompetensi'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=5 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_unit_kompetensi'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=5 AND tipe_soal='pg'")->result_array();
+		
+		$this->load->view('v_laporan/pdf/rekap_program_kuisioner_b_unit_kompetensi',$data);
+     }
 
 	 function rekap_program_kuisioner_b_materi_pelatihan($program)
 	 {
@@ -1609,7 +1620,9 @@ class Laporan extends CI_Controller {
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1 ")->result_array();
 
 		$this->load->view('v_laporan/excel/kuisioner_b_materi_pelatihan',$data);
-	}
+    }
+    
+
 
 	function export_exel_kuisioner_b_sarpras($kd_pelatihan){
 		$data['title'] = "Kuisioner B | Sarpras";
@@ -1768,7 +1781,22 @@ class Laporan extends CI_Controller {
         $data['kuisioner_a'] = $this->db->get('kuisioner_a')->result_array();
 		$this->load->view('v_laporan/excel/rekap_program_kuisioner_a',$data);
 
-	}
+    }
+    
+    function export_excel_program_kuisioner_b_unit_kompetensi($program)
+    {
+        $data['title'] = "Kuisioner B | Per Program : .$program.";
+        $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE id_program='$program'")->result_array();
+        $data['program']=$program;
+		$data['program1']=$this->M_progam->tampil_detail_progam($program);
+
+        $data['jml_kuisioner_b_unit_kompetensi'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=5 AND tipe_soal='pg'")->num_rows();
+        $data['kuisioner_b_unit_kompetensi'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=5 AND tipe_soal='pg'")->result_array();
+
+		$this->load->view('v_laporan/excel/rekap_program_kuisioner_b_unit_kompetensi',$data);
+
+
+    }
 
 	function export_exel_program_kuisioner_b_materi_pelatihan($program)
 	{

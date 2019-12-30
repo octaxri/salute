@@ -21,7 +21,7 @@
             <td><h4>III. SARANA / PRASARANA</h4></td>
         </tr>
         <tr>
-            <td><center><h4>LAPORAN KUISIONE B SARANA / PRASARANA <br>PER PROGRAM : <?= $program1['nama_program']; ?></h4>
+            <td><center><h4>HASIL ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI <br>PER PROGRAM : <?= strtoupper($program1['nama_program']); ?></h4>
             </center></td>
         </tr>
 

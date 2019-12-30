@@ -19,8 +19,8 @@
             </tr>
             <tr>
                 <td colspan="3"><center><h4>
-                HASIL ANALISIS ANGKET <br>
-                LAPORAN PER KEJURUAN : <?= strtoupper($detail_kejuruan['nama_kejuruan']); ?>
+                HASIL ANALISIS ANGKET <br> PELATIHAN BERBASIS KOMPETENSI <br>
+                PER KEJURUAN : <?= strtoupper($detail_kejuruan['nama_kejuruan']); ?>
                 </h4></center></td>
             </tr>
             <tr>

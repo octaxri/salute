@@ -22,7 +22,7 @@
                 <td colspan="3"><h4>IX. KONSUMSI</h4></td>
             </tr>
             <tr>
-                <td colspan="3"><center><h4> LAPORAN KUISIONER C KONSUMSI <br> PER KEJURUAN : <?=$kejuruan1['nama_kejuruan'];?></h4></center></td>
+                <td colspan="3"><center><h4> HASIL ANALISIS ANGKET <br>PELATIHAN BERBASIS KOMPETENSI<br> PER KEJURUAN : <?= strtoupper($kejuruan1['nama_kejuruan']);?></h4></center></td>
             </tr>
 			
 			      <tr>
