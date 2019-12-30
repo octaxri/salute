@@ -1,42 +1,33 @@
-<div class="layout-content">
-        <div class="layout-content-body">
+<?php 
 
-        <?php 
-                $dat = $this->session->flashdata('msg');
-                    if($dat!=""){ ?>
-                          <div id="notifikasi" class="alert alert-success"><strong>Sukses! </strong> <?=$dat;?></div>
-                <?php } ?> 
-                <!-- Akhir flashdata  -->
-      
-            <?php 
-            $dat = $this->session->flashdata('msg2');
-                if($dat!=""){ ?>
-                      <div id="notifikasi" class="alert alert-danger"><strong> </strong> <?=$dat;?></div>
-        <?php } ?> 
+header("Content-type: application/octet-stream");
 
-          <div class="title-bar">
-            <h1 class="title-bar-title">
-              <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner/2/<?= $tahap; ?>" ><span class="icon icon-backward"></span></a> LAPORAN KUISIONER B - TENAGA PELATIH | PER TAHAP : <?= $tahap; ?></span>
-            </h1>
-          </div>
-          <hr>
-          <br>
-          <div class="row gutter-xs">
-            <div class="col-xs-12">
-              <div class="card">
-                <div class="card-header">
-                  <strong>Hasil Analisis Angket Pengajar | <?= $pengajar['nama_pengajar']; ?></strong>
-                </div>
-                <div class="card-body">
-                    <!-- IISI -->
-                    <center>
-                        <a href="<?= base_url(); ?>laporan/cetak_pertahap_kuisioner_b_tenaga_pelatih/<?= $tahap; ?>/<?= $id_pengajar; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_exel_pertahap_kuisioner_b_tenaga_pelatih/<?= $tahap; ?>/<?= $id_pengajar; ?>" class="btn btn-success icon icon-file-excel-o" target="_blank"> Excel</a>
-                    </center>
-                    <br><br>
+header("Content-Disposition: attachment; filename=$title.xls");
 
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                      <thead>
+header("Pragma: no-cache");
+
+header("Expires: 0");
+
+?>
+
+<table align="center" cellspacing="5" width="100%">
+            <tr>
+                <td colspan="3"><h4>II. TENAGA PELATIH</h4></td>
+            </tr>
+            <tr>
+                <td colspan="3"><center><h4>
+                HASIL ANALISIS ANGKET <br>
+                LAPORAN PER TAHAP : <?= $tahap; ?>
+                </h4></center></td>
+            </tr>
+            <tr>
+                <td colspan="3"><h4>NAMA INSTRUKTUR : <?= strtoupper($pengajar['nama_pengajar']); ?> </h4></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                        <!-- tabel -->  
+                        <table border="1" width="100%">
+                        <thead valign="middle" align="center">
                         <tr>
                           <th rowspan="2" width="15"><center>No Responden</center></th>
                           <th colspan="<?= $jml_pengetahuan_pemahaman;?>">PENGETAHUAN/PEMAHAMAN</th>
@@ -84,7 +75,7 @@
                             $soal_memahami_masalah = $this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal,sub_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=2 AND tipe_soal='pg'AND sub_soal=11 ")->result_array(); 
                             $soal_penampilan = $this->db->query("SELECT DISTINCT id_soalB,jenis_soal,tipe_soal,sub_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=2 AND tipe_soal='pg'AND sub_soal=12")->result_array(); 
                           ?>
-                          <tr>
+                          <tr align="center">
                               <td ><?= $i1++; ?></td>
                           
                           <!-- loop soal pengetahuan_pemahaman -->
@@ -139,7 +130,7 @@
                         <?php } ?>
                         <!-- akhir loop responden -->
                         <?php } ?>
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah</td>
                           <!-- Jumlah pengetahuan_pemahaman -->
                           <!-- loop soal pengetahuan_pemahaman -->
@@ -194,7 +185,7 @@
                           <?php } ?>
                           <!-- akhir loop soal penampilan -->
                         </tr>
-                        <tr>
+                        <tr align="center">
                             <td>Nilai Rata-Rata</td>
                             <!-- loop soal pengetahuan_pemahaman -->
                           <?php 
@@ -249,7 +240,7 @@
                           <!-- akhir loop soal penampilan -->
 
                         </tr>
-                        <tr>
+                        <tr align="center">
                             <td>NRR X Bobot</td>
                             <!-- loop soal pengetahuan_pemahaman -->
                           <?php 
@@ -307,19 +298,19 @@
                             <?php $jml_semua4=$jml_semua4+(number_format($total4['total']/$jml_penampilan,2)); } ?>
                           <!-- akhir loop soal penampilan -->
                         </tr>
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah</td>
-                          <td colspan="<?= $jml_pengetahuan_pemahaman;?>" class="text-center"><h4><?= number_format($jml_semua1,2);?></h4></td>
-                          <td colspan="<?= $jml_kemampuan;?>" class="text-center"><h4><?= number_format($jml_semua2,2);?></h4></td>
-                          <td colspan="<?= $jml_memahami_masalah;?>" class="text-center"><h4><?= number_format($jml_semua3,2);?></h4></td>
-                          <td colspan="<?= $jml_penampilan;?>" class="text-center"><h4><?= number_format($jml_semua4,2);?></h4></td>
+                          <td colspan="<?= $jml_pengetahuan_pemahaman;?>"><h4><?= number_format($jml_semua1,2);?></h4></td>
+                          <td colspan="<?= $jml_kemampuan;?>"><h4><?= number_format($jml_semua2,2);?></h4></td>
+                          <td colspan="<?= $jml_memahami_masalah;?>"><h4><?= number_format($jml_semua3,2);?></h4></td>
+                          <td colspan="<?= $jml_penampilan;?>"><h4><?= number_format($jml_semua4,2);?></h4></td>
                         </tr>
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah X 20</td>
-                          <td colspan="<?= $jml_pengetahuan_pemahaman;?>" class="text-center"><h4><?= number_format($jml_semua1*20,2);?></h4></td>
-                          <td colspan="<?= $jml_kemampuan;?>" class="text-center"><h4><?= number_format($jml_semua2*20,2);?></h4></td>
-                          <td colspan="<?= $jml_memahami_masalah;?>" class="text-center"><h4><?= number_format($jml_semua3*20,2);?></h4></td>
-                          <td colspan="<?= $jml_penampilan;?>" class="text-center"><h4><?= number_format($jml_semua4*20,2);?></h4></td>
+                          <td colspan="<?= $jml_pengetahuan_pemahaman;?>"><h4><?= number_format($jml_semua1*20,2);?></h4></td>
+                          <td colspan="<?= $jml_kemampuan;?>"><h4><?= number_format($jml_semua2*20,2);?></h4></td>
+                          <td colspan="<?= $jml_memahami_masalah;?>"><h4><?= number_format($jml_semua3*20,2);?></h4></td>
+                          <td colspan="<?= $jml_penampilan;?>"><h4><?= number_format($jml_semua4*20,2);?></h4></td>
                         </tr>
                     </table>
                     <br>
@@ -328,106 +319,85 @@
                   <div class="table-responsive">
                     <table>
                         <tr>
-                        <td><h4> PENGETAHUAN / PEMAHAMAN  <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua1*20,2);?></h4></td></h4></td>
+                        <td> PENGETAHUAN / PEMAHAMAN  <td></td><td></td><td>&emsp;=&emsp;<?= number_format($jml_semua1*20,2);?></td></td>
                         </tr>
                         <tr>
-                        <td><h4> KEMAMPUAN DALAM MEMBAWAKAN MATERI <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua2*20,2);?></h4></td></h4></td>
+                        <td> KEMAMPUAN DALAM MEMBAWAKAN MATERI <td></td><td></td><td>&emsp;=&emsp;<?= number_format($jml_semua2*20,2);?></td></td>
                         </tr>                        
                         <tr>
-                        <td><h4> KEMAMPUAN MEMAHAMI MASALAH PESERTA <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua3*20,2);?></h4></td></h4></td>
+                        <td> KEMAMPUAN MEMAHAMI MASALAH PESERTA <td></td><td></td><td>&emsp;=&emsp;<?= number_format($jml_semua3*20,2);?></td></td>
                         </tr>                        
                         <tr>
-                        <td><h4> PENAMPILAN TENAGA PELATIH <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua4*20,2);?></h4></td> </h4></td>
+                        <td> PENAMPILAN TENAGA PELATIH <td></td><td></td><td>&emsp;=&emsp;<?= number_format($jml_semua4*20,2);?></td> </td>
                         </tr>                        
                         <tr>
                         <?php 
                         $rata=(number_format($jml_semua1*20,2))+(number_format($jml_semua2*20,2))+(number_format($jml_semua3*20,2))+(number_format($jml_semua4*20,2));
                         ?>
-                        <td><h4> RATA-RATA <td></td><td></td><td><h4>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/4,2);?>
+                        <td> RATA-RATA <td></td><td></td><td>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/4,2);?>
                         <?php 
                               if($hasil_akhir <= 64.99){  
-                                  echo '(Tidak Baik)';
+                                  echo 'Tidak Baik';
                               }
                               else if($hasil_akhir>= 65.00 && $hasil_akhir<= 76.60){
-                                  echo '(Kurang Baik)';
+                                  echo 'Kurang Baik';
                               }
                               else if($hasil_akhir>= 76.61 && $hasil_akhir<= 88.30){
-                                  echo '(Baik)';
+                                  echo 'Baik';
                               }
                               else if($hasil_akhir>= 88.31 && $hasil_akhir<= 100){
-                                  echo '(Sangat Baik)';
+                                  echo 'Sangat Baik';
                               }   
                             ?>
-                        </h4></td> </h4></td>
+                        </td> </td>
+                        </tr>                    
+                    </table>
+                    <table>
+                    <tr>
+                <td colspan="3">
+                <br>Menurut Peraturan Menteri PAN-RB Republik Indonesia No.14 Tahun 2017 tentang Pedoman Pnyusunan Survei Kepuasan Masyarakat di Unit Penyelenggara Pelayanan Publik : <br><br>       
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <table width="90%" align="center" border="1" cellpadding="3">
+                        <tr>
+                          <td align="center">NILAI PERSEPSI</td>
+                          <td align="center">NILAI INTERVAL KONVERSI IKM</td>
+                          <td align="center">MUTU PELAYANAN</td>
+                          <td align="center">KINERJA UNIT PELAYANAN</td>
+                        </tr>
+                          <tr align="center" <?php if($hasil_akhir <= 64.99){ ?>style="background-color:BurlyWood;" <?php }?>>
+                          <td>1</td>
+                          <td>25.00 - 64.99</td>
+                          <td>D</td>
+                          <td>Tidak Baik</td>
+                        </tr>
+                        <tr align="center" <?php if($hasil_akhir>= 65.00 && $hasil_akhir<= 76.60){ ?>style="background-color:BurlyWood;" <?php }?>>
+                          <td>2</td>
+                          <td>65.00 - 76.60</td>
+                          <td>C</td>
+                          <td>Kurang Baik</td>
+                        </tr>
+                        <tr align="center" <?php if($hasil_akhir>= 76.61 && $hasil_akhir<= 88.30){ ?>style="background-color:BurlyWood;" <?php }?>>
+                          <td>3</td>
+                          <td>76.61 - 88.30</td>
+                          <td>B</td>
+                          <td>Baik</td>
+                        </tr>
+                        <tr align="center" <?php if($hasil_akhir>= 88.31 && $hasil_akhir<= 100){ ?>style="background-color:BurlyWood;" <?php }?>>
+                          <td>4</td>
+                          <td>88.31 - 100.00</td>
+                          <td>A</td>
+                          <td>Sangat Baik</td>
                         </tr>
                     </table>
-                    </div>
-
-                    <!-- codingan graifk -->
-                    <script>
-                        window.onload = function () {
-
-                        var chart = new CanvasJS.Chart("chartContainer", {
-                            animationEnabled: true,
-                            theme: "light2", // "light1", "light2", "dark1", "dark2"
-                            title: {
-                                text: "GRAFIK HASIL ANALISIS ANGKET ",
-                                fontSize: 25,
-                               
-                              },
-                              subtitles:[
-                              {
-                                text: "LAPORAN PER TAHAP : <?= $tahap; ?>",
-                                //Uncomment properties below to see how they behave
-                                //fontColor: "red",
-                                fontSize: 25,
-                                fontWeight: "bold",
-                              
-                              },
-                              {
-                                text: "NAMA INSTRUKTUR : <?= strtoupper($pengajar['nama_pengajar']); ?>",
-                                fontSize: 16,
-                                fontWeight: "bold",
-                                margin:10,
-                                padding: 5,
-                                horizontalAlign : "left",
-                              }
-                              ],
-                            axisY: {
-                                title: "Grafik Hasil Analisis Angket"
-                            },
-                            data: [{        
-                                type: "column",  
-                                showInLegend: true, 
-                                legendMarkerColor: "grey",
-                                legendText: "Jumlah Penilaian",
-                                dataPoints: [      
-                                    { y: <?= number_format($jml_semua1*20,2);?>, label: "PENGETAHUAN/PEMAHAMAN" },
-                                    { y: <?= number_format($jml_semua2*20,2);?>,  label: "KEMAMPUAN DALAM MEMBAWAKAN MATERI" },
-                                    { y: <?= number_format($jml_semua3*20,2);?>,  label: "KEMAMPUAN MEMAHAMI MASALAH PESERTA" },
-                                    { y: <?= number_format($jml_semua4*20,2);?>,  label: "PENAMPILAN TENAGA PELATIH" }
-                                ]
-                            }]
-                        });
-                        chart.render();
-                        document.getElementById("printChart").addEventListener("click",function(){
-                            chart.print();
-                        });  	
-                        }
-                        </script>
-
-
-                    <!-- akhir -->
-
-                    <br><br><br><br>
-                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-                    <button id="printChart">Print Chart</button>
-                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-                    <br><br><br><br>
-                    <!-- AKHIR ISI -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                </td>
+            </tr>
+                    
+                    </table>
+                        <!-- akhir tabel -->
+                </td>
+            </tr>
+            
+    </table>
