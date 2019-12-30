@@ -577,14 +577,14 @@
                                
                             },
                             subtitles: [{
-                                  text: " KEJURUAN  : <?= $data['nama_kejuruan']; ?> ",		
+                                  text: " KEJURUAN  : <?= strtoupper($data['nama_kejuruan']); ?> ",		
                                   fontColor: "black",
                                   fontSize: 20,
                                   margin: 5,
                                   padding:2,
                                 },
                                 {
-                                  text: "  PROGRAM   : <?= $data['nama_program']; ?> ",		
+                                  text: "  PROGRAM   : <?= strtoupper($data['nama_program']); ?> ",		
                                   fontColor: "black",
                                   fontSize: 20,
                                   margin: 5,

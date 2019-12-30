@@ -88,7 +88,17 @@ class Laporan extends CI_Controller {
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 ")->result_array();
 
 		$this->load->view('v_laporan/pdf/kuisioner_b_bahan_latihan',$data);
-	}
+    }
+    
+    function rekap_kelas_unit_kompetensi($kd_pelatihan)
+    {
+        $data['kd_pelatihan']=$kd_pelatihan;
+		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=5 ")->result_array();
+
+		$this->load->view('v_laporan/pdf/kuisioner_b_unit_kompetensi',$data);
+    }
 
 	function cetak_kuisioner_c_rekrut($kd_pelatihan){
 		$data['kd_pelatihan']=$kd_pelatihan;
@@ -1812,6 +1822,19 @@ class Laporan extends CI_Controller {
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1 ")->result_array();
 
 		$this->load->view('v_laporan/excel/kuisioner_b_materi_pelatihan',$data);
+    }
+
+    function rekap_kelas_excel_unit_kompetensi($kd_pelatihan)
+    {
+		$data['title'] = "Kuisioner B | Unit Kompetensi";
+
+		$data['kd_pelatihan'] = $kd_pelatihan;
+		$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=5 ")->result_array();
+
+		$this->load->view('v_laporan/excel/kuisioner_b_unit_kompetensi',$data);
     }
     
 

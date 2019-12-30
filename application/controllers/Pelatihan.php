@@ -312,6 +312,7 @@ class Pelatihan extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
+
 	function in_detail_pelatihan_pengajar_kuisioner_b($kd_pelatihan,$id_pengajar){
 		$data['title'] = "SALUTE | Data Kuisioner B Pelatihan Pengajar";
 
@@ -382,6 +383,9 @@ class Pelatihan extends CI_Controller {
 		$data['title']= "SALUTE | Data Kuisioner B Unit Kompetensi ";
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=5 ")->result_array();
+
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
