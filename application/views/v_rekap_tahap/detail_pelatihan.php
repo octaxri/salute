@@ -504,15 +504,15 @@
                                 legendMarkerColor: "grey",
                                 legendText: "Jumlah Penilaian",
                                 dataPoints: [      
-                                    { y: <?= $hasil_kuisioner_b_materi_pelatihan; ?>, label: "MATERI PELATIHAN" },
-                                    { y: <?= $hasil_kuisioner_b_tenaga_pelatih;?>, label: "TENAGA PELATIH" },
-                                    { y: <?= $hasil_kuisioner_b_sarpras; ?>,  label: "SARANA/PRASARANA" },
-                                    { y: <?= $hasil_kuisioner_b_bahan_pelatihan; ?>,  label: "BAHAN PELATIHAN" },
-                                    { y: <?= $hasil_kuisioner_b_rekruitmen; ?>,  label: "REKRUITMEN" },
-                                    { y: <?= $hasil_kuisioner_b_kamar; ?>,  label: "PENYAMBUTAN" },
-                                    { y: <?= $hasil_kuisioner_b_sarpras_asrama; ?>,  label: "SAPRAS ASRAMA" },
-                                    { y: <?= $hasil_kuisioner_b_konsumsi; ?>,  label: "KONSUMSI" },
-                                    { y: <?= $hasil_kuisioner_b_secara_umum; ?>,  label: "SECARA UMUM" },
+                                    { y: <?= $hasil_kuisioner_b_materi_pelatihan; ?>, label: "MATERI PELATIHAN", indexLabel: "<?= $hasil_kuisioner_b_materi_pelatihan; ?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside" },
+                                    { y: <?= $hasil_kuisioner_b_tenaga_pelatih;?>,label: "TENAGA PELATIH", indexLabel: "<?= $hasil_kuisioner_b_tenaga_pelatih;?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside"},
+                                    { y: <?= $hasil_kuisioner_b_sarpras; ?>,  label: "SARANA/PRASARANA", indexLabel: "<?= $hasil_kuisioner_b_sarpras; ?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside" },
+                                    { y: <?= $hasil_kuisioner_b_bahan_pelatihan; ?>,  label: "BAHAN PELATIHAN", indexLabel: "<?= $hasil_kuisioner_b_bahan_pelatihan; ?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside" },
+                                    { y: <?= $hasil_kuisioner_b_rekruitmen; ?>,  label: "REKRUITMEN", indexLabel: "<?= $hasil_kuisioner_b_rekruitmen; ?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside" },
+                                    { y: <?= $hasil_kuisioner_b_kamar; ?>,  label: "PENYAMBUTAN", indexLabel: "<?= $hasil_kuisioner_b_kamar; ?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside" },
+                                    { y: <?= $hasil_kuisioner_b_sarpras_asrama; ?>,  label: "SAPRAS ASRAMA", indexLabel: "<?= $hasil_kuisioner_b_sarpras_asrama; ?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside" },
+                                    { y: <?= $hasil_kuisioner_b_konsumsi; ?>,  label: "KONSUMSI", indexLabel: "<?= $hasil_kuisioner_b_konsumsi; ?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside" },
+                                    { y: <?= $hasil_kuisioner_b_secara_umum; ?>,  label: "SECARA UMUM", indexLabel: "<?= $hasil_kuisioner_b_secara_umum; ?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside" },
                                 ]
                             }]
                         });

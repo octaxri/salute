@@ -428,10 +428,10 @@
                                 legendMarkerColor: "grey",
                                 legendText: "Jumlah Penilaian",
                                 dataPoints: [      
-                                    { y: <?= number_format($jml_semua*20,2);?>, label: "PENGETAHUAN/PEMAHAMAN" },
-                                    { y: <?= number_format($jml_semua1*20,2);?>,  label: "KEMAMPUAN DALAM MEMBAWAKAN MATERI" },
-                                    { y: <?= number_format($jml_semua2*20,2);?>,  label: "KEMAMPUAN MEMAHAMI MASALAH PESERTA" },
-                                    { y: <?= number_format($jml_semua3*20,2);?>,  label: "PENAMPILAN TENAGA PELATIH" }
+                                    { y: <?= number_format($jml_semua*20,2);?>, label: "PENGETAHUAN/PEMAHAMAN",indexLabel: "<?= number_format($jml_semua*20,2);?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside"  },
+                                    { y: <?= number_format($jml_semua1*20,2);?>,  label: "KEMAMPUAN DALAM MEMBAWAKAN MATERI" ,indexLabel: "<?= number_format($jml_semua1*20,2);?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside" },
+                                    { y: <?= number_format($jml_semua2*20,2);?>,  label: "KEMAMPUAN MEMAHAMI MASALAH PESERTA" ,indexLabel: "<?= number_format($jml_semua2*20,2);?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside" },
+                                    { y: <?= number_format($jml_semua3*20,2);?>,  label: "PENAMPILAN TENAGA PELATIH" ,indexLabel: "<?= number_format($jml_semua3*20,2);?>", indexLabelFontColor: "black", indexLabelOrientation: "horizontal", indexLabelPlacement: "inside"  }
                                 ]
                             }]
                         });
