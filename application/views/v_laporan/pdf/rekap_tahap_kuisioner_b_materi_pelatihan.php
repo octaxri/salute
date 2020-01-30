@@ -14,7 +14,7 @@
 </style>
 
 <body onload="window.print()">
-    <table style="margin-left:10px; margin-bottom:0px;" width="100%">
+    <table style="margin-left:10px; margin-bottom:0px;" width="100%" cellspacing=0>
         <tr>
             <td><h4>I. MATERI PELATIHAN (KURIKULUM SILABUS)</h4></td>
         </tr>
@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td align="center">
-            <table border="1"  width="90%">
+            <table border="1"  width="90%" cellspacing=0>
                       <thead>
                         
                       <tr>
@@ -131,7 +131,31 @@
         </tr>
     
     </table>
+    <br>
+    <center><h4>URAIAN</h4>
+    <table border="1" width="100%" cellspacing=0>
+      <thead>
+            <th>No</th>
+            <th>Saran / Komentar</th>
+            <th>Nama Peserta</th>
+      </thead>
+      <tbody>
+        <?php $no=1;  
+          foreach($kuisioner_b_materi_pelatihan_uraian as $ur){
+            $id_b = $ur['id_kuisionerB'];
+            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user WHERE id_soalB='$id_b'")->result_array();
 
+            foreach($uraian as $r){
+        ?>
+            <tr>
+              <td><?= $no++; ?></td>
+              <td><?= $r['jawaban']; ?></td>
+              <td><?= $r['nama']; ?></td>
+            </tr>
+        <?php } } ?>
+      </tbody>
+    </table>
+    </center>
     
 </body>
 </html>

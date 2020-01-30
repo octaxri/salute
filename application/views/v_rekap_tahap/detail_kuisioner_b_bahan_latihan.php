@@ -140,6 +140,35 @@
                     <br>
                   </div>
 
+                  <hr>
+                  <h4 class="text-center">URAIAN</h4>
+                  <!-- table uraian -->
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                            <th>No</th>
+                            <th>Saran / Komentar</th>
+                            <th>Nama Peserta</th>
+                      </thead>
+                      <tbody>
+                        <?php $no=1;  
+                          foreach($uraian as $ur){
+                            $id_b = $ur['id_kuisionerB'];
+                            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user WHERE id_soalB='$id_b'")->result_array();
+
+                            foreach($uraian as $r){
+                        ?>
+                            <tr>
+                              <td><?= $no++; ?></td>
+                              <td><?= $r['jawaban']; ?></td>
+                              <td><?= $r['nama']; ?></td>
+                            </tr>
+                        <?php } } ?>
+                      </tbody>
+                    </table>
+                    <br>
+                  </div>
+
                     <!-- AKHIR ISI -->
                 </div>
               </div>

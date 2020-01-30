@@ -103,9 +103,9 @@
           <div class="form-group">
             <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_bahan_pelatihan_b/<?= $x['kd_pelatihan'];?>">Bahan Latihan, Modul, ATK, dan Seragam Peserta</a><br><br>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <a class="btn btn-primary col-xs-12" href="<?= base_url(); ?>pelatihan_peserta/in_unit_kompetensi_b/<?= $x['kd_pelatihan'];?>">Unit Kompetensi</a><br><br>
-          </div>
+          </div> -->
           <hr>
           <div class="form-group">
             <button type="button" class="btn btn-danger col-xs-12" data-dismiss="modal">Batal</button><br><br>

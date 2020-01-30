@@ -60,11 +60,11 @@
                           <td>Bahan Latihan, Modul, ATK, Dan Seragam Peserta</td>
                           <td class="text-center"><a class="badge badge-primary" href="<?= base_url(); ?>rekap_tahap/rekap_kuisioner_b_bahan_latihan/<?= $tahap; ?>"><span class="icon icon-eye"></span> Detail</a></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                           <td>5</td>
                           <td>Unit Kompetensi</td>
                           <td class="text-center"><a class="badge badge-primary" href=""><span class="icon icon-eye"></span> Detail</a></td>
-                        </tr>
+                        </tr> -->
                       </tbody>
                     </table>
                     <br>
