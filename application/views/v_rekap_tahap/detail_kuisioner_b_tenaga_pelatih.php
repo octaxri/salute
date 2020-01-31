@@ -43,6 +43,7 @@
                           <th colspan="<?= $jml_kemampuan;?>">KEMAMPUAN DALAM MEMBAWAKAN MATERI</th>
                           <th colspan="<?= $jml_memahami_masalah;?>">KEMAMPUAN MEMAHAMI MASALAH PESERTA</th>
                           <th colspan="<?= $jml_penampilan;?>">PENAMPILAN TENAGA PELATIH</th>
+                          <th rowspan="2">ID Peserta</th>
                         </tr>     
                         <tr>
                         <?php 
@@ -134,7 +135,7 @@
                             <td><?= $nilainya4['jawaban']; ?></td>
                           <?php } ?>
                           <!-- akhir loop soal penampilan -->
-
+                          <td><?= $nilainya4['id_user']; ?></td>
                           </tr>
                         <?php } ?>
                         <!-- akhir loop responden -->
@@ -193,6 +194,7 @@
                             <td><?= $total4['total']; ?></td>
                           <?php } ?>
                           <!-- akhir loop soal penampilan -->
+                          <td rowspan="5"></td>
                         </tr>
                         <tr>
                             <td>Nilai Rata-Rata</td>
@@ -432,8 +434,9 @@
                     <table class="table table-striped table-bordered">
                       <thead>
                             <th>No</th>
+                            <th>Soal</th>
                             <th>Saran / Komentar</th>
-                            <th>Nama Peserta</th>
+                            <th>ID Peserta</th>
                       </thead>
                       <tbody>
                         <?php $no=1;  
@@ -447,8 +450,9 @@
                         ?>
                             <tr>
                               <td><?= $no++; ?></td>
+                              <td><?= $ur['soalB']; ?></td>
                               <td><?= $r['jawaban']; ?></td>
-                              <td><?= $r['nama']; ?></td>
+                              <td><?= $r['id_user']; ?></td>
                             </tr>
                         <?php } } ?>
                       </tbody>

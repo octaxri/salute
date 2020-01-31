@@ -40,6 +40,7 @@
                         <tr align="center">
                           <th rowspan="2" width="15">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_c_konsumsi;?>" class="text-center">Konsumsi</th>
+                          <th rowspan="2" align="center" ><center>ID Peserta</center></th>
                         </tr>
 
                         <tr>
@@ -76,6 +77,7 @@
                           ?>
                           <td><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
+                          <td class="text-center"><?= $nilainya['id_user']; ?></td>
                           <!-- akhir loop 2 -->
                           </tr>
                           <?php } ?>
@@ -92,6 +94,7 @@
                             ?>
                             <td><?= $total['total']; ?></td>
                             <?php } ?>
+                            <td rowspan="5"></td>
                         </tr>
 
                         <tr align="center">
@@ -154,6 +157,7 @@
                     <table class="table table-striped table-bordered">
                       <thead>
                             <th>No</th>
+                            <th>Soal</th>
                             <th>Saran / Komentar</th>
                             <th>Nama Peserta</th>
                       </thead>
@@ -167,8 +171,9 @@
                         ?>
                             <tr>
                               <td><?= $no++; ?></td>
+                              <td><?= $ur['soalC']; ?></td>
                               <td><?= $r['jawaban']; ?></td>
-                              <td><?= $r['nama']; ?></td>
+                              <td><?= $r['id_user']; ?></td>
                             </tr>
                         <?php } } ?>
                       </tbody>

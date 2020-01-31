@@ -40,6 +40,7 @@
                         <tr>
                           <th rowspan="2" width="15">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_c_secara_umum;?>" class="text-center">Secara Umum Pelaksanaan Pelatihan</th>
+                          <th rowspan="2"><center>ID User</center></th>
                         </tr>
 
                       </thead>
@@ -68,6 +69,7 @@
                           ?>
                           <td><center><?= $nilainya['jawaban']; ?></center></td>
                           <?php } ?>
+                          <td><center><?= $nilainya['id_user']; ?></center></td>
                           <!-- akhir loop 2 -->
                           </tr>
                           <?php } ?>
@@ -84,6 +86,7 @@
                             ?>
                             <td><?= $total['total']; ?></td>
                             <?php } ?>
+                            <td rowspan="5"></td>
                         </tr>
 
                         <tr class="text-center">

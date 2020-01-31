@@ -39,6 +39,7 @@
                     <thead>
                       <tr>
                         <th width="10%">No</th>
+                        <th>ID Peserta</th>
                         <th>Nama</th>
                         <th>Email</th>
                         <th>JK</th>
@@ -51,6 +52,7 @@
                     <tfoot>
                       <tr>
                         <th>No</th>
+                        <th>ID Peserta</th>
                         <th>Nama</th>
                         <th>Email</th>
                         <th>JK</th>
@@ -64,6 +66,7 @@
                     <?php $no=1; foreach($data as $i){ ?>
                     <tr>
                         <td><?= $no++; ?></td>
+                        <td><?= $i['id_user']; ?></td>
                         <td><?= $i['nama']; ?></td>
                         <td><?= $i['email']; ?></td>
                         <td><?= $i['jk']; ?></td>

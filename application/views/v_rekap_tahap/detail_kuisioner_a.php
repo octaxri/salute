@@ -41,6 +41,7 @@
                         <tr  align="center">
                           <th rowspan="2" width="15"><b>NOMOR URUT</b></th>
                           <th colspan="<?= $jml_kuisioner_a ;?>" class="text-center">NILAI PER UNSUR PELAYANAN</th>
+                          <th rowspan="3" align="center" ><center>ID Peserta</center></th>
                         </tr>
 
                         <tr align="center"> 
@@ -85,7 +86,9 @@
                                 // 
                               ?>
                               <td><?= $nilainya['jawaban']; ?></td>
-                              <?php } ?>
+                              
+                              <?php }  ?>
+                              <td><?= $nilainya['id_user']; ?></td>
                               <!-- akhir loop 2 -->
                               </tr>
                             <?php } ?>
@@ -101,7 +104,9 @@
                                                       WHERE penilaian_a.id_soalA='$id_soalnya' AND pelatihan.tahap_pelatihan='$tahap'")->row_array();
                         ?>
                           <td><?= $total['total']; ?></td>
+                          
                         <?php } ?>
+                        <td rowspan="5"></td>
                         </tr>
 
                         <tr align="center">

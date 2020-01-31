@@ -44,6 +44,7 @@
                           <th colspan="<?= $jml_listrik;?>" align="center">LISTRIK</th>
                           <th colspan="<?= $jml_km;?>" align="center">KAMAR MANDI/TOILET</th>
                           <th colspan="<?= $jml_sarana;?>" align="center">SARANA PENUNJANG</th>
+                          <th rowspan="2" align="center" ><center>ID Peserta</center></th>
                         </tr>
                         
                         <tr>
@@ -144,6 +145,7 @@
                           ?>  
                             <td><?= $nilainya5['jawaban']; ?></td>
                           <?php } ?>
+                          <td align="center"><?= $nilainya5['id_user']; ?></td>
                           <!-- akhir loop soal sarpren --> 
                           </tr>
                         <?php } ?>
@@ -210,6 +212,7 @@
                           ?>  
                             <td><?= $total5['total']; ?></td>
                           <?php } ?>
+                            <td rowspan="5"></td>
                           <!-- akhir loop soal sarprun -->
                         </tr>
                         <tr align="center">
@@ -408,8 +411,9 @@
                     <table class="table table-striped table-bordered">
                       <thead>
                             <th>No</th>
+                            <th>Soal</th>
                             <th>Saran / Komentar</th>
-                            <th>Nama Peserta</th>
+                            <th>ID Peserta</th>
                       </thead>
                       <tbody>
                         <?php $no=1;  
@@ -421,8 +425,9 @@
                         ?>
                             <tr>
                               <td><?= $no++; ?></td>
+                              <td><?= $ur['soalB']; ?></td>
                               <td><?= $r['jawaban']; ?></td>
-                              <td><?= $r['nama']; ?></td>
+                              <td><?= $r['id_user']; ?></td>
                             </tr>
                         <?php } } ?>
                       </tbody>

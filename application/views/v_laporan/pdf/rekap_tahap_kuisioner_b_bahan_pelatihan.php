@@ -134,8 +134,9 @@
     <table border="1" width="100%" cellspacing=0>
       <thead>
             <th>No</th>
+            <th>Soal</th>
             <th>Saran / Komentar</th>
-            <th>Nama Peserta</th>
+            <th>ID Peserta</th>
       </thead>
       <tbody>
         <?php $no=1;  
@@ -147,8 +148,9 @@
         ?>
             <tr>
               <td><?= $no++; ?></td>
+              <td><?= $ur['soalB']; ?></td>
               <td><?= $r['jawaban']; ?></td>
-              <td><?= $r['nama']; ?></td>
+              <td align="center"><?= $r['id_user']; ?></td>
             </tr>
         <?php } } ?>
       </tbody>

@@ -40,6 +40,7 @@
                         <tr>
                           <th rowspan="2" width="15">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_c_pelaksanaan;?>" class="text-center">Pelaksanaan Uji Kompetensi</th>
+                          <th rowspan="2"><center>ID User</center></th>
                         </tr>
 
                         <tr>
@@ -75,6 +76,7 @@
                           ?>
                           <td class="text-center"><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
+                          <td class="text-center"><?= $nilainya['id_user']; ?></td>
                           <!-- akhir loop 2 -->
                           </tr>
                         <?php } ?>
@@ -89,6 +91,7 @@
                           ?>
                             <td class="text-center"><?= $total['total']; ?></td>
                           <?php } ?>
+                            <td rowspan="5"></td>
                         
                         </tr>
 

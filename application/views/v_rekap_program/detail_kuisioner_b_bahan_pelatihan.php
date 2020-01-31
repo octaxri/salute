@@ -41,7 +41,7 @@
                       <tr>
                           <th rowspan="2" width="15" class="text-center">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_b_bahan_pelatihan; ?>" class="text-center">Bahan Pelatihan,Modul, ATK, Dan Seragam Peserta</th>
-                        
+                          <th rowspan="2" align="center" ><center>ID Peserta</center></th>
                       </tr>
 
                         <tr>
@@ -77,6 +77,7 @@
                           <td class="text-center"><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
                           <!-- akhir loop 2 -->
+                          <td class="text-center"><?= $nilainya['id_user']; ?></td>
                           </tr>
                         <?php } ?>
                         <?php } ?>
@@ -89,6 +90,7 @@
                           ?>
                             <td class="text-center"><?= $total['total']; ?></td>
                           <?php } ?>
+                          <td rowspan="5"></td>
                         </tr>
                         
                         <tr>
@@ -135,6 +137,38 @@
                             ?>
                           </h4></td>
                         </tr>
+                      </tbody>
+                    </table>
+                    <br>
+                  </div>
+
+
+                  <hr>
+                  <h4 class="text-center">URAIAN</h4>
+                  <!-- table uraian -->
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                            <th>No</th>
+                            <th>Soal</th>
+                            <th>Saran / Komentar</th>
+                            <th>ID Peserta</th>
+                      </thead>
+                      <tbody>
+                        <?php $no=1;  
+                          foreach($uraian as $ur){
+                            $id_b = $ur['id_kuisionerB'];
+                            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user WHERE id_soalB='$id_b'")->result_array();
+
+                            foreach($uraian as $r){
+                        ?>
+                            <tr>
+                              <td><?= $no++; ?></td>
+                              <td><?= $ur['soalB']; ?></td>
+                              <td><?= $r['jawaban']; ?></td>
+                              <td><?= $r['id_user']; ?></td>
+                            </tr>
+                        <?php } } ?>
                       </tbody>
                     </table>
                     <br>

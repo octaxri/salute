@@ -43,6 +43,7 @@
                           <th colspan="<?= $jml_kemampuan;?>">KEMAMPUAN DALAM MEMBAWAKAN MATERI</th>
                           <th colspan="<?= $jml_memahami_masalah;?>">KEMAMPUAN MEMAHAMI MASALAH PESERTA</th>
                           <th colspan="<?= $jml_penampilan;?>">PENAMPILAN TENAGA PELATIH</th>
+                          <th rowspan="2">ID Peserta</th>
                         </tr>     
                         <tr>
                         <?php 
@@ -139,7 +140,7 @@
                             <td align="center"><?= $nilainya4['jawaban']; ?></td>
                           <?php } ?>
                           <!-- akhir loop soal penampilan -->
-
+                          <td><?= $nilainya4['id_user']; ?></td>
                           </tr>
                         <?php } ?>
                         <!-- akhir loop responden -->
@@ -198,6 +199,7 @@
                           ?>  
                             <td><?= $total4['total']; ?></td>
                           <?php } ?>
+                          <td rowspan="5"></td>
                           <!-- akhir loop soal penampilan -->
                         </tr>
                         <tr align="center">
@@ -432,6 +434,39 @@
                     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                     <br><br><br><br><br><br>
                     <!-- AKHIR ISI -->
+                    <hr>
+                  <h4 class="text-center">URAIAN</h4>
+                  <!-- table uraian -->
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                            <th>No</th>
+                            <th>Soal</th>
+                            <th>Saran / Komentar</th>
+                            <th>ID Peserta</th>
+                      </thead>
+                      <tbody>
+                        <?php $no=1;  
+                          foreach($uraian as $ur){
+                            $id_b = $ur['id_kuisionerB'];
+                            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user 
+                                                                                  LEFT JOIN detail_penilaian_b ON penilaian_b.idku=detail_penilaian_b.id_penilaian_b
+                                                                      WHERE id_soalB='$id_b' AND id_pengajar='$id_pengajar'")->result_array();
+
+                            foreach($uraian as $r){
+                        ?>
+                            <tr>
+                              <td><?= $no++; ?></td>
+                              <td><?= $ur['soalB']; ?></td>
+                              <td><?= $r['jawaban']; ?></td>
+                              <td align="center"><?= $r['id_user']; ?></td>
+                            </tr>
+                        <?php } } ?>
+                      </tbody>
+                    </table>
+                    <br>
+                  </div>
+
                 </div>
               </div>
             </div>

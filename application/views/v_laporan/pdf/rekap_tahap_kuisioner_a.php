@@ -35,12 +35,13 @@
             <tr>
                 <td colspan="3">
                 <center>
-                <table border="1" width="100%">
+                <table border="1" width="100%" cellspacing=0>
                       <thead>
                         
                         <tr align="center">
                           <th rowspan="2" width="15" align="center"><b>NOMOR URUT</b></th>
                           <th colspan="<?= $jml_kuisioner_a ;?>" align="center">NILAI PER UNSUR PELAYANAN</th>
+                          <th rowspan="3" align="center" ><center>ID Peserta</center></th>
                         </tr>
 
                         <tr align="center">
@@ -86,6 +87,7 @@
                               ?>
                               <td><?= $nilainya['jawaban']; ?></td>
                               <?php } ?>
+                              <td><?= $nilainya['id_user']; ?></td>
                               <!-- akhir loop 2 -->
                               </tr>
                             <?php } ?>
@@ -102,6 +104,7 @@
                         ?>
                           <td><?= $total['total']; ?></td>
                         <?php } ?>
+                        <td rowspan="5"></td>
                         </tr>
 
                         <tr align="center">
@@ -167,7 +170,7 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <table width="90%" align="center" border="1" cellpadding="3">
+                    <table width="90%" align="center" border="1" cellpadding="3" cellspacing=0>
                         <tr>
                           <td align="center">NILAI PERSEPSI</td>
                           <td align="center">NILAI INTERVAL KONVERSI IKM</td>
