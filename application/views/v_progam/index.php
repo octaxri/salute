@@ -35,7 +35,7 @@
                   <strong>Daftar Progam Pelatihan</strong>
                 </div>
                 <div class="card-body">
-                  <table id="demo-datatables-5" class="table table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
+                  <table id="demo-datatables-fixedheader-2" class="table table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
                         <th width="15%">No</th>

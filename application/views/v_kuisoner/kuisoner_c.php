@@ -175,17 +175,17 @@
                   <strong>BERKENAAN DENGAN SARANA DAN PRASARANA<strong>
                 </div>
                 <div class="card-body">
-                  <table id="demo-datatables-responsive-1" class="table table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
+                  <table id="demo-datatables-fixedheader-2" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th width="15%">No</th>
+                        <th width="5%">No</th>
                         <th>Soal</th>
                         <th>Jawaban1C</th>
                         <th>Jawaban2C</th>
                         <th>Jawaban3C</th>
                         <th>Jawaban4C</th>
                         <th>Tipe Soal</th>
-                        <th width="25%">Aksi</th>
+                        <th width="15%">Aksi</th>
                       </tr>
                     </thead>
                     <tfoot>
@@ -245,17 +245,17 @@
                   <strong>BERKENAAN DENGAN KONSUMSI<strong>
                 </div>
                 <div class="card-body">
-                  <table id="demo-datatables-responsive-2" class="table table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
+                  <table id="demo-datatables-fixedheader-1" class="table table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th width="15%">No</th>
+                        <th width="5%">No</th>
                         <th>Soal</th>
                         <th>Jawaban1C</th>
                         <th>Jawaban2C</th>
                         <th>Jawaban3C</th>
                         <th>Jawaban4C</th>
                         <th>Tipe Soal</th>
-                        <th width="25%">Aksi</th>
+                        <th width="15%">Aksi</th>
                       </tr>
                     </thead>
                     <tfoot>
@@ -385,17 +385,17 @@
                   <strong>BERKENAAN DENGAN PELAKSANAAN UJI KOMPETENSI<strong>
                 </div>
                 <div class="card-body">
-                  <table id="demo-datatables-scroller-2" class="table table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
+                  <table id="demo-datatables-fixedheader-1" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th width="15%">No</th>
+                        <th width="5%">No</th>
                         <th>Soal</th>
                         <th>Jawaban1C</th>
                         <th>Jawaban2C</th>
                         <th>Jawaban3C</th>
                         <th>Jawaban4C</th>
                         <th>Tipe Soal</th>
-                        <th width="25%">Aksi</th>
+                        <th width="15%">Aksi</th>
                       </tr>
                     </thead>
                     <tfoot>

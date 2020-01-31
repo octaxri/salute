@@ -35,16 +35,16 @@
                   <strong>Daftar Kuisoner A<strong>
                 </div>
                 <div class="card-body">
-                  <table id="demo-datatables-5" class="table table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
+                  <table id="demo-datatables-fixedheader-2" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th width="15%">No</th>
+                        <th width="5%">No</th>
                         <th>Soal A</th>
                         <th>Jawaban1A</th>
                         <th>Jawaban2A</th>
                         <th>Jawaban3A</th>
                         <th>Jawaban4A</th>
-                        <th width="25%">Aksi</th>
+                        <th width="15%">Aksi</th>
                       </tr>
                     </thead>
                     <tfoot>

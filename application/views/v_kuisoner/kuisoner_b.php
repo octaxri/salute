@@ -186,10 +186,10 @@
                   <strong>Sarana dan Prasarana<strong>
                 </div>
                 <div class="card-body">
-                  <table id="demo-datatables-responsive-1" class="table table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
+                  <table id="demo-datatables-responsive-1" class="table table-striped table-bordered  dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th width="15%">No</th>
+                        <th width="5%">No</th>
                         <th>Soal</th>
                         <th>Jawaban1B</th>
                         <th>Jawaban2B</th>
@@ -198,7 +198,7 @@
                         <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
-                        <th width="25%">Aksi</th>
+                        <th width="13%">Aksi</th>
                       </tr>
                     </thead>
                     <tfoot>
@@ -262,10 +262,10 @@
                   <strong>Bahan Latihan, Modul, ATK, dan Seragam Peserta<strong>
                 </div>
                 <div class="card-body">
-                  <table id="demo-datatables-responsive-2" class="table table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
+                  <table id="demo-datatables-responsive-2" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th width="15%">No</th>
+                        <th width="5%">No</th>
                         <th>Soal</th>
                         <th>Jawaban1B</th>
                         <th>Jawaban2B</th>
@@ -274,7 +274,7 @@
                         <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
-                        <th width="25%">Aksi</th>
+                        <th width="15%">Aksi</th>
                       </tr>
                     </thead>
                     <tfoot>
@@ -338,10 +338,10 @@
                   <strong>Unit Kompetensi<strong>
                 </div>
                 <div class="card-body">
-                  <table id="demo-datatables-scroller-1" class="table table-striped table-bordered table-nowrap dataTable" cellspacing="0" width="100%">
+                  <table id="demo-datatables-fixedheader-2" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th width="15%">No</th>
+                        <th width="5%">No</th>
                         <th>Soal</th>
                         <th>Jawaban1B</th>
                         <th>Jawaban2B</th>
@@ -350,7 +350,7 @@
                         <th>Jawaban5B</th>
                         <th>Tipe Soal</th>
                         <th>Sub Soal</th>
-                        <th width="25%">Aksi</th>
+                        <th width="15%">Aksi</th>
                       </tr>
                     </thead>
                     <tfoot>
