@@ -306,6 +306,9 @@ class Pelatihan extends CI_Controller {
 		
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1 ")->result_array();
 
+		$data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='uraian'")->result_array();
+
+
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_materi_pelatihan',$data);
@@ -340,6 +343,10 @@ class Pelatihan extends CI_Controller {
         $data['jml_penampilan'] = $this->db->query("SELECT * FROM kuisioner_b  WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=12")->num_rows();
 		$data['penampilan'] = $this->db->query("SELECT * FROM kuisioner_b  WHERE jenis_soal=2 AND tipe_soal='pg' AND sub_soal=12")->result_array();
 		
+		
+		$data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='uraian'")->result_array();
+
+
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan/dt_pelatihan_kuisionerb_pengajar',$data);
@@ -353,6 +360,8 @@ class Pelatihan extends CI_Controller {
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB  WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 ")->result_array();
+		
+		$data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='uraian'")->result_array();
 
 
 		$this->load->view('templates/header',$data);
@@ -369,6 +378,8 @@ class Pelatihan extends CI_Controller {
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 ")->result_array();
+
+		$data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='uraian'")->result_array();
 
 
 		$this->load->view('templates/header',$data);
@@ -402,6 +413,8 @@ class Pelatihan extends CI_Controller {
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1")->result_array();
 
+		$data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='uraian'")->result_array();
+
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
@@ -417,6 +430,7 @@ class Pelatihan extends CI_Controller {
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=2 ")->result_array();
+		$data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=2 AND tipe_soal='uraian'")->result_array();
 
 
 		$this->load->view('templates/header',$data);
@@ -433,6 +447,8 @@ class Pelatihan extends CI_Controller {
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 ")->result_array();
+		
+		$data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=3 AND tipe_soal='uraian'")->result_array();
 
 
 		$this->load->view('templates/header',$data);
@@ -449,6 +465,7 @@ class Pelatihan extends CI_Controller {
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 ")->result_array();
+		$data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='uraian'")->result_array();
 
 
 		$this->load->view('templates/header',$data);
@@ -483,6 +500,7 @@ class Pelatihan extends CI_Controller {
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=7 ")->result_array();
+		$data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='uraian'")->result_array();
 
 
 		$this->load->view('templates/header',$data);

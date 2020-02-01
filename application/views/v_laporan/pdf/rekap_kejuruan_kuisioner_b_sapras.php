@@ -367,6 +367,32 @@
             </tr>
                     </table>
 
+                    <br><br>
+    <center><h4>URAIAN</h4>
+    <table border="1" width="100%" cellspacing=0>
+      <thead>
+            <th>No</th>
+            <th>Saran / Komentar</th>
+            <th>Nama Peserta</th>
+      </thead>
+      <tbody>
+        <?php $no=1;  
+          foreach($uraian as $ur){
+            $id_b = $ur['id_kuisionerB'];
+            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user WHERE id_soalB='$id_b'")->result_array();
+
+            foreach($uraian as $r){
+        ?>
+            <tr>
+              <td><?= $no++; ?></td>
+              <td><?= $r['jawaban']; ?></td>
+              <td><?= $r['nama']; ?></td>
+            </tr>
+        <?php } } ?>
+      </tbody>
+    </table>
+    </center>
+
 
 </body>
 </html>

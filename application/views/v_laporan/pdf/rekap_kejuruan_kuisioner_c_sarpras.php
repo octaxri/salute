@@ -1,47 +1,37 @@
-<div class="layout-content">
-        <div class="layout-content-body">
-
-        <?php 
-                $dat = $this->session->flashdata('msg');
-                    if($dat!=""){ ?>
-                          <div id="notifikasi" class="alert alert-success"><strong>Sukses! </strong> <?=$dat;?></div>
-                <?php } ?> 
-                <!-- Akhir flashdata  -->
-      
-            <?php 
-            $dat = $this->session->flashdata('msg2');
-                if($dat!=""){ ?>
-                      <div id="notifikasi" class="alert alert-danger"><strong> </strong> <?=$dat;?></div>
-        <?php } ?> 
-
-          <div class="title-bar">
-            <h1 class="title-bar-title">
-            <span class="d-ib"><a class="btn btn-info" href="<?= base_url(); ?>rekap_kejuruan/rekap_kuisioner/3/<?= $kejuruan; ?>"><span class="icon icon-backward"></span></a> LAPORAN PER KEJURUAN : <?= $detail_kejuruan['nama_kejuruan']; ?></span>
-            </h1>
-          </div>
-          <hr>
-          <br>
-          <div class="row gutter-xs">
-            <div class="col-xs-12">
-              <div class="card">
-                <div class="card-header">
-                  <strong>Hasil Nilai Responden Sarana dan Prasarana Asrama</strong>
-                </div>
-                <div class="card-body">
-                    <!-- IISI -->
-                    <center>
-                        <a href="<?= base_url(); ?>laporan/rekap_kejuruan_kuisioner_c_sarpras/<?= $kejuruan; ?>" target="_blank" class="btn btn-danger icon icon-file-pdf-o"> PDF</a> | <a href="<?= base_url(); ?>laporan/export_kejuruan_excel_kuisioner_c_sapras/<?= $kejuruan; ?>" class="btn btn-success icon icon-file-excel-o"> Excel</a>
-                    </center>
-                    <br><br>
-
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
+<!DOCTYPE html>
+<html moznomarginboxes mozdisallowselectionprint>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SALUTE | Cetak Laporan</title>
+</head>
+<style>
+    p{
+        font-family: "Times New Roman", Times, serif;
+        font-size: 10px;
+    }
+</style>
+<body onload="window.print()">
+    <table align="center" cellspacing="5" width="100%">
+            <tr>
+                <td colspan="3"><h4>VIII. SARANA DAN PRASARANA ASRAMA</h4></td>
+            </tr>
+            <tr>
+                <td colspan="3"><center><h4>
+                HASIL ANALISIS ANGKET <br>
+                LAPORAN PER KEJURUAN : <?= strtoupper($detail_kejuruan['nama_kejuruan']); ?>
+                </h4></center></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                        <!-- tabel -->  
+                        <table border="1" width="100%">
                       <thead>
-                        <tr align="center">
-                          <th rowspan="2" width="15">No Responden</th>
-                          <th colspan="<?= $jml_kuisioner_c_sarpras;?>" class="text-center">Sarana dan Prasarana Asrama</th>
+                        <tr>
+                          <th rowspan="2" width="15" align="center">No Responden</th>
+                          <th colspan="<?=$jml_kuisioner_c_sarpras;?>" align="center">Sarana dan Prasarana Asrama</th>
                         </tr>
-
                         <tr>
                         <?php 
                                $soal=1;
@@ -49,7 +39,6 @@
                                 <th><center><?= $soal++;?></center></th>
                               <?php }?>
                         </tr>
-
                       </thead>
                       <tbody>
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>
@@ -58,7 +47,7 @@
                             $responden = $this->db->query("SELECT DISTINCT id_user FROM penilaian_c WHERE kd_pelatihan='$kd_pelatihan'")->result_array(); 
                           ?>
 
-                        <?php foreach($responden as $r){ ?>
+                          <?php foreach($responden as $r){ ?>
                           <?php 
                             $id_user = $r['id_user'];
                             $soal = $this->db->query("SELECT DISTINCT id_soalC,jenis_soal,tipe_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE id_user='$id_user' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 AND tipe_soal='pg' ")->result_array(); 
@@ -80,7 +69,8 @@
                           </tr>
                           <?php } ?>
                       <?php } ?>
-                    
+
+              
                         <tr align="center">
                           <td>Jumlah</td>
                           <?php 
@@ -93,7 +83,6 @@
                             <td><?= $total['total']; ?></td>
                             <?php } ?>
                         </tr>
-
                         <tr align="center">
                           <td>Nilai Rata-Rata</td>
                           <?php 
@@ -106,6 +95,7 @@
                             <td><?= number_format($total['total'],2); ?></td>
                             <?php } ?>
                         </tr>
+
                         <tr align="center">
                           <td>NRR X Bobot</td>
                           <?php  $jmlh_keseluruhan = 0;
@@ -118,13 +108,13 @@
                             <td><?= number_format($total['total']/$jml_kuisioner_c_sarpras,2); ?></td>
                             <?php $jmlh_keseluruhan=$jmlh_keseluruhan+(number_format($total['total']/$jml_kuisioner_c_sarpras,2)); } ?>
                         </tr>
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah</td>
-                          <td colspan="<?= $jml_kuisioner_c_sarpras;?>" class="text-center"><h4><?= number_format($jmlh_keseluruhan,2) ;?></h4></td>
+                          <td colspan="<?= $jml_kuisioner_c_sarpras;?>"><h4><?= number_format($jmlh_keseluruhan,2) ;?></h4></td>
                         </tr>
-                        <tr>
+                        <tr align="center">
                           <td>Jumlah X 25</td>
-                          <td colspan="<?= $jml_kuisioner_c_sarpras; ?>" class="text-center"><h4><?= $hasil_akhir = number_format($jmlh_keseluruhan*25,2);?> 
+                          <td colspan="<?= $jml_kuisioner_c_sarpras; ?>"><h4><?= $hasil_akhir = number_format($jmlh_keseluruhan*25,2);?> 
                           <?php 
                               if($hasil_akhir <= 64.99){  
                                   echo '(Tidak Baik)';
@@ -142,44 +132,35 @@
                         </tr>
                       </tbody>
                     </table>
-                    <br>
-                
-                  </div>
-                  <br>
-                  <hr>
-                  <h4 class="text-center">URAIAN</h4>
-                  <!-- table uraian -->
-                  <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                      <thead>
-                            <th>No</th>
-                            <th>Saran / Komentar</th>
-                            <th>Nama Peserta</th>
-                      </thead>
-                      <tbody>
-                        <?php $no=1;  
-                          foreach($soal_uraian as $ur){
-                            $id_c = $ur['id_kuisionerC'];
-                            $uraian = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN user ON penilaian_c.id_user=user.id_user WHERE id_soalc='$id_c'")->result_array();
-
-                            foreach($uraian as $r){
-                        ?>
-                            <tr>
-                              <td><?= $no++; ?></td>
-                              <td><?= $r['jawaban']; ?></td>
-                              <td><?= $r['nama']; ?></td>
-                            </tr>
-                        <?php } } ?>
-                      </tbody>
-                    </table>
-                    <br>
-                  </div>
+                        <!-- akhir tabel -->
+                </td>
+            </tr>
             
+    </table>
+    <br>
+    <center><h4>URAIAN</h4>
+    <table border="1" width="100%" cellspacing=0>
+      <thead>
+            <th>No</th>
+            <th>Saran / Komentar</th>
+            <th>Nama Peserta</th>
+      </thead>
+      <tbody>
+        <?php $no=1;  
+          foreach($soal_uraian as $ur){
+            $id_c = $ur['id_kuisionerC'];
+            $uraian = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN user ON penilaian_c.id_user=user.id_user WHERE id_soalC='$id_c'")->result_array();
 
-                    <!-- AKHIR ISI -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            foreach($uraian as $r){
+        ?>
+            <tr>
+              <td><?= $no++; ?></td>
+              <td><?= $r['jawaban']; ?></td>
+              <td><?= $r['nama']; ?></td>
+            </tr>
+        <?php } } ?>
+      </tbody>
+    </table>
+    </center>
+</body>
+</html>

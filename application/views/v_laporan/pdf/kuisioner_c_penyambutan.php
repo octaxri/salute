@@ -132,5 +132,34 @@
             </tr>
             
     </table>
+    <br>
+    <center>
+                  <h4 class="text-center">URAIAN</h4>
+                  <!-- table uraian -->
+                  <div class="table-responsive">
+                    <table width="90%" border="1">
+                      <thead>
+                            <th>No</th>
+                            <th>Saran / Komentar</th>
+                            <th>Nama Peserta</th>
+                      </thead>
+                      <tbody>
+                        <?php $no=1;  
+                          foreach($soal_uraian as $ur){
+                            $id_c = $ur['id_kuisionerC'];
+                            $uraian = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN user ON penilaian_c.id_user=user.id_user WHERE id_soalC='$id_c' ")->result_array();
+                            foreach($uraian as $r){
+                        ?>
+                            <tr>
+                              <td><?= $no++; ?></td>
+                              <td><?= $r['jawaban']; ?></td>
+                              <td><?= $r['nama']; ?></td>
+                            </tr>
+                        <?php } } ?>
+                      </tbody>
+                    </table>
+                    <br>
+                  </div>
+                  </center>
 </body>
 </html>
