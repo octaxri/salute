@@ -285,7 +285,6 @@ class Rekap_tahap extends CI_Controller {
         $data['tahap'] = $tahap;
         $data['jml_kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
         $data['kuisioner_b_materi_pelatihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
-        $data['kuisioner_b_materi_pelatihan_uraian'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='uraian'")->result_array();
 
         $this->load->view('templates/header',$data);
         $this->load->view('templates/sidebar',$data);
@@ -296,7 +295,6 @@ class Rekap_tahap extends CI_Controller {
     function rekap_kuisioner_b_sarpras($tahap){
         $data['title'] = "SALUTE | Rekap Per Tahap Kuisioner B Sarpras";
         $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
-        $data['uraian'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='uraian'")->result_array();
 
         $data['tahap'] = $tahap;
         $data['jml_workshop'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=3 AND tipe_soal='pg' AND sub_soal=1")->num_rows();
@@ -320,7 +318,6 @@ class Rekap_tahap extends CI_Controller {
     function rekap_kuisioner_b_bahan_latihan($tahap){
         $data['title'] = "SALUTE | Rekap Per Tahap Kuisioner B Bahan Latihan";
         $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
-        $data['uraian'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='uraian'")->result_array();
 
         $data['tahap'] = $tahap;
         $data['jml_kuisioner_b_bahan_latihan'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
@@ -335,7 +332,6 @@ class Rekap_tahap extends CI_Controller {
     function kuisioner_c_rekruitmen($tahap){
         $data['title'] = "SALUTE | Rekap Per Tahap Kuisioner C";
         $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
-        $data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='uraian'")->result_array();
 
         $data['tahap'] = $tahap;
         $data['jml_kuisioner_c_rekruitmen'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
@@ -350,7 +346,6 @@ class Rekap_tahap extends CI_Controller {
     function kuisioner_c_kamar($tahap){
         $data['title'] = "SALUTE | Rekap Per Tahap Kuisioner C";
         $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
-        $data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=2 AND tipe_soal='uraian'")->result_array();
 
         $data['tahap'] = $tahap;
         $data['jml_kuisioner_c_kamar'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=2 AND tipe_soal='pg'")->num_rows();
@@ -381,8 +376,6 @@ class Rekap_tahap extends CI_Controller {
     function kuisioner_c_konsumsi($tahap){
         $data['title'] = "SALUTE | Rekap Per Tahap Kuisioner C";
         $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
-
-        $data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='uraian'")->result_array();
 
         $data['tahap'] = $tahap;
         $data['jml_kuisioner_c_konsumsi'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
@@ -426,7 +419,6 @@ class Rekap_tahap extends CI_Controller {
         $data['title'] = "SALUTE | Rekap Per Tahap Kuisioner C";
 
         $data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE tahap_pelatihan='$tahap'")->result_array();
-        $data['uraian'] = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=2 AND tipe_soal='uraian'")->result_array();
         $data['tahap'] = $tahap;
         $data['id_pengajar'] = $id_pengajar;
         $data['pengajar'] = $this->db->query("SELECT * FROM pengajar WHERE id_pengajar='$id_pengajar'")->row_array();

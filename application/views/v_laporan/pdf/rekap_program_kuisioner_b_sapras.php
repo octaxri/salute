@@ -27,7 +27,7 @@
 
 <tr>
             <td align="center">
-    <table border="1"  width="90%">
+    <table border="1"  width="90%" cellspacing="0">
                       <thead>
                         
                       <tr>
@@ -37,7 +37,7 @@
                           <th colspan="<?= $jml_kuisioner_b_sapras3; ?>" align="center">Listrik</th>
                           <th colspan="<?= $jml_kuisioner_b_sapras4; ?>" align="center">Kamar Mandi / Toilet</th>
                           <th colspan="<?= $jml_kuisioner_b_sapras5; ?>" align="center">Sarana Penunjang</th>
-                        
+                        <th rowspan="2" align="center" ><center>ID Peserta</center></th>
                       </tr>
 
                         <tr>
@@ -148,12 +148,12 @@
 
                               <td align="center"><?= $nilainya1['jawaban']; ?></td>
                           <?php }?>
-
-
+                          <?php if($soal4 != NULL){ ?>
+                            <td align="center"><?= $nilainya1['id_user']; ?></td>
+                          <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>
                         <?php } ?>
-                       
                        
                         <?php } ?>
 
@@ -167,7 +167,6 @@
                           ?>
                             <td align="center"><?= $total['total']; ?></td>
                           <?php } ?>
-
                             <!-- Ruang Teori -->
                           <?php foreach($kuisioner_b_sapras2 as $sl){ 
                               $id_soalnya = $sl['id_kuisionerB'];
@@ -205,7 +204,7 @@
                           ?>
                             <td align="center"><?= $total1['total']; ?></td>
                           <?php } ?>
-
+                          <td rowspan="5"></td>
                         </tr>
                         
                         <tr>
@@ -249,8 +248,6 @@
                           ?>
                             <td align="center"><?= number_format($total1['total'],2); ?></td>
                         <?php } ?>
-
-
                         </tr>
 
                         <tr>
@@ -321,51 +318,84 @@
                     </table>
                   
                   </div>
-                
+                <br>
                
-                    <table style="margin-left:10px; margin-bottom:0px;" width="100%">
+                  <table style="margin-left:10px; margin-bottom:0px;" width="100%">
                         <tr>
-                        <td><h4> WORKSHOP / BENGKEL  <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan*20,2);?></h4></td></h4></td>
+                        <td><b> WORKSHOP / BENGKEL  <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan*20,2);?></b></td></b></td>
                         </tr>
                         <tr>
-                        <td><h4> RUANG TEORI <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan1*20,2);?></h4></td></h4></td>
+                        <td><b> RUANG TEORI <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan1*20,2);?></b></td></b></td>
                         </tr>                        
                         <tr>
-                        <td><h4> LISTRIK <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan2*20,2);?></h4></td></h4></td>
+                        <td><b> LISTRIK <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan2*20,2);?></b></td></b></td>
                         </tr>                        
                         <tr>
-                        <td><h4> KAMAR MANDI / TOILET <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan3*20,2);?></h4></td> </h4></td>
+                        <td><b> KAMAR MANDI / TOILET <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan3*20,2);?></b></td> </b></td>
                         </tr>                        
                         <tr>
-                        <td><h4> SARANA PENUNJANG <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan4*20,2);?></h4></td> </h4></td>
+                        <td><b> SARANA PENUNJANG <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan4*20,2);?></b></td> </b></td>
                         </tr>
                         <tr>
                         <?php 
                         $rata=(number_format($jmlh_keseluruhan*20,2))+(number_format($jmlh_keseluruhan1*20,2))+(number_format($jmlh_keseluruhan2*20,2))+(number_format($jmlh_keseluruhan3*20,2))+(number_format($jmlh_keseluruhan4*20,2));
                         ?>
-                        <td><h4> RATA-RATA <td></td><td></td><td><h4>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/5,2);?>
-                        <?php 
-                              if($hasil_akhir <= 64.99){  
-                                  echo '(Tidak Baik)';
-                              }
-                              else if($hasil_akhir>= 65.00 && $hasil_akhir<= 76.60){
-                                  echo '(Kurang Baik)';
-                              }
-                              else if($hasil_akhir>= 76.61 && $hasil_akhir<= 88.30){
-                                  echo '(Baik)';
-                              }
-                              else if($hasil_akhir>= 88.31 && $hasil_akhir<= 100){
-                                  echo '(Sangat Baik)';
-                              }   
-                            ?>
-                        </h4></td> </h4></td>
-                        </tr>
+                        <td><b> RATA-RATA <td></td><td></td><td><b>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/5,2);?>
+                            <?php 
+                                  if($hasil_akhir <= 64.99){  
+                                      echo '(Tidak Baik)';
+                                  }
+                                  else if($hasil_akhir>= 65.00 && $hasil_akhir<= 76.60){
+                                      echo '(Kurang Baik)';
+                                  }
+                                  else if($hasil_akhir>= 76.61 && $hasil_akhir<= 88.30){
+                                      echo '(Baik)';
+                                  }
+                                  else if($hasil_akhir>= 88.31 && $hasil_akhir<= 100){
+                                      echo '(Sangat Baik)';
+                                  }   
+                                ?>
+                            </h4></td> </h4></td>
+                            </tr>
+                        </table>
+
+                        </td>
+            
+                      </tr>
                     </table>
 
                     </td>
             
             </tr>
                     </table>
+
+                    <div style="page-break-before:always;"></div>
+    <center><h4>URAIAN</h4>
+    <table border="1" width="100%" cellspacing=0>
+      <thead>
+            <th>No</th>
+            <th>Soal</th>
+            <th>Saran / Komentar</th>
+            <th>ID Peserta</th>
+      </thead>
+      <tbody>
+      <?php $no=1; foreach($pelatihan as $pl){
+        $kd = $pl['kd_pelatihan']; 
+        $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB WHERE kuisioner_b.jenis_soal=3 AND kuisioner_b.tipe_soal='uraian' AND penilaian_b.kd_pelatihan='$kd'")->result_array();
+      
+        foreach($tampung as $t){
+      ?>
+        
+        <tr>
+          <td><?= $no++; ?></td>
+          <td><?= $t['soalB']; ?></td>
+          <td><?= $t['jawaban']; ?></td>
+          <td align="center"><?= $t['id_user']; ?></td>
+        </tr>
+      <?php } } ?>
+      </tbody>
+    </table>
+    </center>
 
 
 </body>

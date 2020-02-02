@@ -47,6 +47,7 @@
                             ?>
                           <?php } ?>
                           <td colspan="<?= $jml ;?>" align="center"><b>NILAI PER UNSUR PELAYANAN</b></td>
+                          <td>ID Peserta</td>
                         </tr>
 
                         <tr  align="center" >

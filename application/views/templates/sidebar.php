@@ -80,7 +80,7 @@
                     <li><a href="<?= site_url(); ?>Rekap_kejuruan">Kejuruan</a></li>
                   </ul>
                 </li>
-                <li class="sidenav-item has-subnav">
+                <!-- <li class="sidenav-item has-subnav">
                   <a href="#" aria-haspopup="true">
                     <span class="sidenav-icon icon icon-reorder"></span>
                     <span class="sidenav-label">Rekap Uraian</span>
@@ -97,7 +97,7 @@
                     <li><a href="<?= site_url(); ?>Rekap_uraian/tampil_uraian_umum/">Secara Umum Pelaksanaan Pelatihan</a></li>
 
                   </ul>
-                </li>
+                </li> -->
                 <li class="sidenav-item">
                   <a href="<?= site_url(); ?>pelatihan">
                     <span class="sidenav-icon icon icon-diamond"></span>

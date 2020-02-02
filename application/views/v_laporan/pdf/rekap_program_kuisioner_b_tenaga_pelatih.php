@@ -37,6 +37,7 @@
                           <th colspan="<?= $jml_kemampuan;?>">KEMAMPUAN DALAM MEMBAWAKAN MATERI</th>
                           <th colspan="<?= $jml_memahami_masalah;?>">KEMAMPUAN MEMAHAMI MASALAH PESERTA</th>
                           <th colspan="<?= $jml_penampilan;?>">PENAMPILAN TENAGA PELATIH</th>
+                          <th rowspan="2">ID Peserta</th>
                         </tr>     
                         <tr>
                         <?php 
@@ -127,6 +128,7 @@
                           ?>  
                             <td><?= $nilainya4['jawaban']; ?></td>
                           <?php } ?>
+                          <td><?= $nilainya4['id_user']; ?></td>
                           <!-- akhir loop soal penampilan -->
 
                           </tr>
@@ -363,7 +365,7 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <table width="90%" align="center" border="1" cellpadding="3">
+                    <table width="90%" align="center" border="1" cellpadding="3" cellspacing="0">
                         <tr>
                           <td align="center">NILAI PERSEPSI</td>
                           <td align="center">NILAI INTERVAL KONVERSI IKM</td>
@@ -404,5 +406,32 @@
             </tr>
             
     </table>
+    <div style="page-break-before:always;"></div>
+    <center><h4>URAIAN</h4>
+    <table border="1" width="100%" cellspacing=0>
+      <thead>
+            <th>No</th>
+            <th>Soal</th>
+            <th>Saran / Komentar</th>
+            <th>ID Peserta</th>
+      </thead>
+      <tbody>
+      <?php $no=1; foreach($pelatihan as $pl){
+        $kd = $pl['kd_pelatihan']; 
+        $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB LEFT JOIN detail_penilaian_b ON detail_penilaian_b.id_penilaian_b=penilaian_b.idku WHERE kuisioner_b.jenis_soal=2 AND kuisioner_b.tipe_soal='uraian' AND penilaian_b.kd_pelatihan='$kd' AND detail_penilaian_b.id_pengajar='$id_pengajar'")->result_array();
+      
+        foreach($tampung as $t){
+      ?>
+        
+        <tr>
+          <td><?= $no++; ?></td>
+          <td><?= $t['soalB']; ?></td>
+          <td><?= $t['jawaban']; ?></td>
+          <td align="center"><?= $t['id_user']; ?></td>
+        </tr>
+      <?php } } ?>
+      </tbody>
+    </table>
+    </center>
 </body>
 </html>

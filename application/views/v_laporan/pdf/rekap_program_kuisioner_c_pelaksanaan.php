@@ -15,7 +15,7 @@
 <body onload="window.print()">
 
 
-    <table align="center" cellspacing="5" width="100%">
+    <table align="center" cellspacing="0" width="100%" >
 	
 		    <tr>
 			
@@ -28,11 +28,12 @@
 			      <tr>
 					<td colspan="3">
                         <!-- tabel -->  
-                        <table border="1" width="100%">
+                        <table border="1" width="100%" cellspacing="0">
                         <thead>
                         <tr align="center">
                           <th rowspan="2" width="15">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_c_pelaksanaan;?>" align="center">Pelaksanaan Uji Kompetensi</th>
+                          <th rowspan="2">ID Peserta</th>
                         </tr>
 
                         <tr align="center">
@@ -68,6 +69,9 @@
                           ?>
                           <td align="center"><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
+                          <?php if($soal != NULL){ ?>
+                            <td align="center"><?= $nilainya['id_user']; ?></td>
+                          <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>
                         <?php } ?>
@@ -82,6 +86,7 @@
                           ?>
                             <td align="center"><?= $total['total']; ?></td>
                           <?php } ?>
+                            <td rowspan="5"></td>
                         
                         </tr>
 

@@ -78,7 +78,9 @@
                           <td><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
                           <!-- akhir loop 2 -->
-                          <td><?= $nilainya['id_user']; ?></td>
+                          <?php if($soal != NULL){ ?>
+                            <td class="text-center"><?= $nilainya['id_user']; ?></td>
+                          <?php } ?>
                           </tr>
                           <?php } ?>
                       <?php } ?>
@@ -157,23 +159,25 @@
                     <table class="table table-striped table-bordered">
                       <thead>
                             <th>No</th>
+                            <th>Soal</th>
                             <th>Saran / Komentar</th>
                             <th>ID Peserta</th>
                       </thead>
                       <tbody>
-                        <?php $no=1;  
-                          foreach($soal_uraian as $ur){
-                            $id_c = $ur['id_kuisionerC'];
-                            $uraian = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN user ON penilaian_c.id_user=user.id_user WHERE id_soalc='$id_c'")->result_array();
-
-                            foreach($uraian as $r){
-                        ?>
+                      <?php $no=1; foreach($pelatihan as $pl){
+                            $kd = $pl['kd_pelatihan']; 
+                            $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON kuisioner_c.id_kuisionerC=penilaian_c.id_soalC WHERE kuisioner_c.jenis_soal=1 AND kuisioner_c.tipe_soal='uraian' AND penilaian_c.kd_pelatihan='$kd'")->result_array();
+                          
+                            foreach($tampung as $t){
+                          ?>
+                            
                             <tr>
                               <td><?= $no++; ?></td>
-                              <td><?= $r['jawaban']; ?></td>
-                              <td><?= $r['id_user']; ?></td>
+                              <td><?= $t['soalC']; ?></td>
+                              <td><?= $t['jawaban']; ?></td>
+                              <td><?= $t['id_user']; ?></td>
                             </tr>
-                        <?php } } ?>
+                      <?php } } ?>
                       </tbody>
                     </table>
                     <br>

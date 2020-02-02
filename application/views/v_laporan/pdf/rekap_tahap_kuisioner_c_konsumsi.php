@@ -31,6 +31,7 @@
                         <tr  align="center" >
                           <th rowspan="2" width="15" align="center">No Responden</th>
                           <th colspan="<?=$jml_kuisioner_c_konsumsi;?>" align="center">Konsumsi</th>
+                          <th rowspan="2">ID Peserta</th>
                         </tr>
                         <tr>
                         <?php 
@@ -66,6 +67,9 @@
                           <td><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
                           <!-- akhir loop 2 -->
+                          <?php if($soal != NULL){ ?>
+                            <td align="center"><?= $nilainya['id_user']; ?></td>
+                          <?php } ?>
                           </tr>
                           <?php } ?>
                       <?php } ?>
@@ -81,6 +85,7 @@
                             ?>
                             <td><?= $total['total']; ?></td>
                             <?php } ?>
+                            <td rowspan="5"></td>
                         </tr>
                         <tr align="center">
                           <td>Nilai Rata-Rata</td>
@@ -135,7 +140,7 @@
             </tr>
             
     </table>
-    <br>
+    <div style="page-break-before:always;"></div>
     <center><h4>URAIAN</h4>
     <table border="1" width="100%" cellspacing=0>
       <thead>
@@ -145,20 +150,20 @@
             <th>ID Peserta</th>
       </thead>
       <tbody>
-        <?php $no=1;  
-          foreach($soal_uraian as $ur){
-            $id_c = $ur['id_kuisionerC'];
-            $uraian = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN user ON penilaian_c.id_user=user.id_user WHERE id_soalC='$id_c'")->result_array();
-
-            foreach($uraian as $r){
-        ?>
+      <?php $no=1; foreach($pelatihan as $pl){
+            $kd = $pl['kd_pelatihan']; 
+            $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON kuisioner_c.id_kuisionerC=penilaian_c.id_soalC WHERE kuisioner_c.jenis_soal=4 AND kuisioner_c.tipe_soal='uraian' AND penilaian_c.kd_pelatihan='$kd'")->result_array();
+          
+            foreach($tampung as $t){
+          ?>
+            
             <tr>
               <td><?= $no++; ?></td>
-              <td><?= $ur['soalC']; ?></td>
-              <td><?= $r['jawaban']; ?></td>
-              <td><?= $r['id_user']; ?></td>
+              <td><?= $t['soalC']; ?></td>
+              <td><?= $t['jawaban']; ?></td>
+              <td align="center"><?= $t['id_user']; ?></td>
             </tr>
-        <?php } } ?>
+      <?php } } ?>
       </tbody>
     </table>
     </center>

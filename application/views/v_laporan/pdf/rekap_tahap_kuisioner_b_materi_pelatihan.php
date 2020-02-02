@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td align="center">
-            <table border="1"  width="90%" cellspacing=0>
+            <table border="1"  width="100%" cellspacing=0>
                       <thead>
                         
                       <tr>
@@ -63,9 +63,12 @@
                             $nilainya = $this->db->query("SELECT * FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND id_soalB='$id_soal' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=1 AND tipe_soal='pg'")->row_array();  
                             // 
                           ?>
-                          <td align="center"><?= $nilainya['jawaban']; ?></td>
+                          <td align="center"><?=
+                           $nilainya['jawaban']; ?></td>
                           <?php } ?>
-                          <td align="center"><?= $nilainya['id_user']; ?></td>
+                          <?php if($soal != NULL){ ?>
+                            <td align="center"><?= $nilainya['id_user']; ?></td>
+                          <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>
                         <?php } ?>
@@ -134,6 +137,7 @@
     
     </table>
     <br>
+    <div style="page-break-before:always;"></div>
     <center><h4>URAIAN</h4>
     <table border="1" width="100%" cellspacing=0>
       <thead>
@@ -143,20 +147,20 @@
             <th>ID Peserta</th>
       </thead>
       <tbody>
-        <?php $no=1;  
-          foreach($kuisioner_b_materi_pelatihan_uraian as $ur){
-            $id_b = $ur['id_kuisionerB'];
-            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user WHERE id_soalB='$id_b'")->result_array();
-
-            foreach($uraian as $r){
-        ?>
-            <tr>
-              <td><?= $no++; ?></td>
-              <td><?= $ur['soalB']; ?></td>
-              <td><?= $r['jawaban']; ?></td>
-              <td align="center"><?= $r['id_user']; ?></td>
-            </tr>
-        <?php } } ?>
+      <?php $no=1; foreach($pelatihan as $pl){
+        $kd = $pl['kd_pelatihan']; 
+        $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB WHERE kuisioner_b.jenis_soal=1 AND kuisioner_b.tipe_soal='uraian' AND penilaian_b.kd_pelatihan='$kd'")->result_array();
+      
+        foreach($tampung as $t){
+      ?>
+        
+        <tr>
+          <td><?= $no++; ?></td>
+          <td><?= $t['soalB']; ?></td>
+          <td><?= $t['jawaban']; ?></td>
+          <td align="center"><?= $t['id_user']; ?></td>
+        </tr>
+      <?php } } ?>
       </tbody>
     </table>
     </center>

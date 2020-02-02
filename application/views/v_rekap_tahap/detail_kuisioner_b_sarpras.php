@@ -145,7 +145,9 @@
                           ?>  
                             <td><?= $nilainya5['jawaban']; ?></td>
                           <?php } ?>
+                          <?php if($soal_sarpen != NULL){ ?>
                           <td align="center"><?= $nilainya5['id_user']; ?></td>
+                          <?php } ?>
                           <!-- akhir loop soal sarpren --> 
                           </tr>
                         <?php } ?>
@@ -416,20 +418,20 @@
                             <th>ID Peserta</th>
                       </thead>
                       <tbody>
-                        <?php $no=1;  
-                          foreach($uraian as $ur){
-                            $id_b = $ur['id_kuisionerB'];
-                            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user WHERE id_soalB='$id_b'")->result_array();
-
-                            foreach($uraian as $r){
-                        ?>
+                         <?php $no=1; foreach($pelatihan as $pl){
+                            $kd = $pl['kd_pelatihan']; 
+                            $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB WHERE kuisioner_b.jenis_soal=3 AND kuisioner_b.tipe_soal='uraian' AND penilaian_b.kd_pelatihan='$kd'")->result_array();
+                          
+                            foreach($tampung as $t){
+                          ?>
+                            
                             <tr>
                               <td><?= $no++; ?></td>
-                              <td><?= $ur['soalB']; ?></td>
-                              <td><?= $r['jawaban']; ?></td>
-                              <td><?= $r['id_user']; ?></td>
+                              <td><?= $t['soalB']; ?></td>
+                              <td><?= $t['jawaban']; ?></td>
+                              <td><?= $t['id_user']; ?></td>
                             </tr>
-                        <?php } } ?>
+                          <?php } } ?>
                       </tbody>
                     </table>
                     <br>
