@@ -24,7 +24,7 @@
                     <div class="media-middle media-body">
                       <h6 class="media-heading">Jawaban Masuk</h6>
                       <h3 class="media-heading">
-                        <span class="fw-l">0</span>
+                        <span class="fw-l"><?= $tot; ?></span>
                       </h3>
                     </div>
                   </div>

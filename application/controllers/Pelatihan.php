@@ -224,8 +224,14 @@ class Pelatihan extends CI_Controller {
             $jmlh_keseluruhan_sarpras = $jmlh_keseluruhan_sarpras+(number_format($total_sarpras['total']/$jml_kuisioner_b_sarpras,2));
             $hasil_akhir_sarpras = number_format($jmlh_keseluruhan_sarpras*20,2);
         }
-        $data['hasil_kuisioner_b_sarpras'] = $hasil_akhir_sarpras;
+		$data['hasil_kuisioner_b_sarpras'] = $hasil_akhir_sarpras;
+		
+		$penilaian_a = $this->db->query("SELECT * FROM penilaian_a WHERE kd_pelatihan='$kd_pelatihan'")->num_rows();
+		$penilaian_b = $this->db->query("SELECT * FROM penilaian_b WHERE kd_pelatihan='$kd_pelatihan'")->num_rows();
+		$penilaian_c = $this->db->query("SELECT * FROM penilaian_c WHERE kd_pelatihan='$kd_pelatihan'")->num_rows();
 
+		$data['tot'] = $penilaian_a+$penilaian_b+$penilaian_c;
+		
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);
 		$this->load->view('v_pelatihan/detail_pelatihan',$data);
