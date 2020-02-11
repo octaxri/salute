@@ -463,31 +463,37 @@
                         <?php } ?>
                         <tr>
                           <td colspan="2" align="center">Rata-Rata</td>
-                          <td  align="center"><?= number_format($total_p/($no-1),2);?></td>
-                          <td  align="center"><?= number_format($total_p1/($no-1),2);?></td>
-                          <td  align="center"><?= number_format($total_p2/($no-1),2);?></td>
-                          <td  align="center"><?= number_format($total_p3/($no-1),2);?></td>
+                          <td  align="center"><?php if($total_p != NULL){ echo number_format($total_p/($no-1),2); }?></td>
+                          <td  align="center"><?php if($total_p1 != NULL){ echo number_format($total_p1/($no-1),2); }?></td>
+                          <td  align="center"><?php if($total_p2 != NULL){ echo number_format($total_p2/($no-1),2); }?></td>
+                          <td  align="center"><?php if($total_p3 != NULL){ echo number_format($total_p3/($no-1),2); }?></td>
                         </tr>
                         <tr>
                           <td colspan="2" align="center">Kinerja Unit Pelayanan</td>
                           <td align="center"><?php 
-                              $pahaman=number_format($total_p/($no-1),2);
-                              if($pahaman <= 64.99){  
-                                  echo '(Tidak Baik)';
+
+                              if($total_p != NULL){
+                                $pahaman=number_format($total_p/($no-1),2);
+
+                                if($pahaman <= 64.99){  
+                                    echo '(Tidak Baik)';
+                                }
+                                else if($pahaman >= 65.00 && $pahaman<= 76.60){
+                                    echo '(Kurang Baik)';
+                                }
+                                else if($pahaman>= 76.61 && $pahaman<= 88.30){
+                                    echo '(Baik)';
+                                }
+                                else if($pahaman>= 88.31 && $pahaman<= 100){
+                                    echo '(Sangat Baik)';
+                                }   
                               }
-                              else if($pahaman >= 65.00 && $pahaman<= 76.60){
-                                  echo '(Kurang Baik)';
-                              }
-                              else if($pahaman>= 76.61 && $pahaman<= 88.30){
-                                  echo '(Baik)';
-                              }
-                              else if($pahaman>= 88.31 && $pahaman<= 100){
-                                  echo '(Sangat Baik)';
-                              }   
                             ?>
                             </td>
                             <td align="center"><?php 
+                            if($total_p1 != NULL){
                               $kemampuanku=number_format($total_p1/($no-1),2);
+
                               if($kemampuanku <= 64.99){  
                                   echo '(Tidak Baik)';
                               }
@@ -499,11 +505,14 @@
                               }
                               else if($kemampuanku>= 88.31 && $kemampuanku<= 100){
                                   echo '(Sangat Baik)';
-                              }   
+                              } 
+                            }  
                             ?>
                             </td>
                             <td align="center"><?php 
+                            if($total_p2 != NULL){
                               $masalah=number_format($total_p2/($no-1),2);
+
                               if($masalah <= 64.99){  
                                   echo '(Tidak Baik)';
                               }
@@ -516,9 +525,11 @@
                               else if($masalah>= 88.31 && $masalah<= 100){
                                   echo '(Sangat Baik)';
                               }   
+                            }
                             ?>
                             </td>
                             <td align="center"><?php 
+                            if($total_p3 != NULL){
                               $pelatih=number_format($total_p3/($no-1),2);
                               if($pelatih <= 64.99){  
                                   echo '(Tidak Baik)';
@@ -531,16 +542,29 @@
                               }
                               else if($pelatih>= 88.31 && $pelatih<= 100){
                                   echo '(Sangat Baik)';
-                              }   
+                              }  
+                            } 
                             ?>
                             </td>
                         </tr>
                         <tr>
-                        <?php $rata_seluruh=(number_format($total_p/($no-1),2)) + (number_format($total_p1/($no-1),2)) + (number_format($total_p2/($no-1),2)) + (number_format($total_p3/($no-1),2)); ?>
+                        <?php 
+                          $rata_seluruh = NULL;
+                          $hasil_seluruh = NULL;
+                          if($total_p != NULL && $total_p1 != NULL && $total_p2 != NULL && $total_p3 != NULL){
+                            $rata_seluruh=(number_format($total_p/($no-1),2)) + (number_format($total_p1/($no-1),2)) + (number_format($total_p2/($no-1),2)) + (number_format($total_p3/($no-1),2)); 
+                          } 
+                        ?>
                           <td colspan="2" align="center">Rata-Rata Instruktur</td>
-                          <td colspan="4" align="center"><?= $hasil_seluruh = number_format($rata_seluruh/4,2);?>
+                          <td colspan="4" align="center">
+                          <?php
+                            if($rata_seluruh != NULL){ 
+                              echo $hasil_seluruh = number_format($rata_seluruh/4,2);
+                            }
+                          ?>
                           <?php 
-                          if($hasil_seluruh <= 64.99){  
+                          if($hasil_seluruh != NULL){
+                              if($hasil_seluruh <= 64.99){  
                                   echo '(Tidak Baik)';
                               }
                               else if($hasil_seluruh >= 65.00 && $hasil_seluruh<= 76.60){
@@ -551,7 +575,8 @@
                               }
                               else if($hasil_seluruh>= 88.31 && $hasil_seluruh<= 100){
                                   echo '(Sangat Baik)';
-                              }   
+                              } 
+                          }  
                             ?>
 
                             </td>
