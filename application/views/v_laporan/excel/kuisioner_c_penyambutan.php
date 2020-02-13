@@ -35,6 +35,8 @@ header("Expires: 0");
                                 ?>
                           <?php } ?>
                           <th colspan="<?=$jml;?>" align="center">Penyambutan dan Pembagian Peserta</th>
+                          <th rowspan="2" align="center" ><center>ID Peserta</center></th>
+
                         </tr>
 
                         <tr  align="center" >
@@ -67,6 +69,11 @@ header("Expires: 0");
                           ?>
                           <td align="center"><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
+
+                          <?php if($soal != NULL){ ?>
+                                <td align="center"><?= $nilainya['id_user']; ?></td>
+                              <?php } ?>
+
                           <!-- akhir loop 2 -->
                           </tr>
                           <?php } ?>
@@ -125,6 +132,37 @@ header("Expires: 0");
                       </tbody>
                     </table>
                         <!-- akhir tabel -->
+                        <br>
+    <center>
+                  <h4 class="text-center">URAIAN</h4>
+                  <!-- table uraian -->
+                  <div class="table-responsive">
+                    <table width="90%" border="1">
+                      <thead>
+                            <th align="center">No</th>
+                            <th>Soal</th>
+                            <th>Saran / Komentar</th>
+                            <th align="center">ID Peserta</th>
+                      </thead>
+                      <tbody>
+                        <?php $no=1;  
+                          foreach($soal_uraian as $ur){
+                            $id_c = $ur['id_kuisionerC'];
+                            $uraian = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN user ON penilaian_c.id_user=user.id_user LEFT JOIN kuisioner_c ON kuisioner_c.id_kuisionerC=penilaian_c.id_soalC WHERE id_soalC='$id_c' ")->result_array();
+                            foreach($uraian as $r){
+                        ?>
+                            <tr>
+                              <td align="center"><?= $no++; ?></td>
+                              <td><?= $r['soalC']; ?></td>
+                              <td><?= $r['jawaban']; ?></td>
+                              <td align="center"><?= $r['id_user']; ?></td>
+                            </tr>
+                        <?php } } ?>
+                      </tbody>
+                    </table>
+                    <br>
+                  </div>
+                  </center>
                 </td>
             </tr>
             

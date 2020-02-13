@@ -40,6 +40,9 @@
 
                           <?php } ?>
                           <th colspan="<?=$jml;?>" align="center">Pelaksanaan Uji Kompetensi</th>
+                          <th rowspan="2" align="center" ><center>ID Peserta</center></th>
+
+
                         </tr>
                         <tr  align="center" >
                         <?php 
@@ -70,6 +73,11 @@
                           ?>
                           <td align="center"><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
+
+                          <?php if($soal != NULL){ ?>
+                                <td align="center"><?= $nilainya['id_user']; ?></td>
+                              <?php } ?>
+
                           <!-- akhir loop 2 -->
                           </tr>
                           <?php } ?>
