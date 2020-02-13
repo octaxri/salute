@@ -305,6 +305,9 @@ class Pelatihan extends CI_Controller {
 
 	function in_detail_pelatihan_kuisionerb_materi_pelatihan($kd_pelatihan){
 		$data['title'] = "SALUTE | Data Kuisioner B Pelatihan";
+		
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+
 
 		$data['kd_pelatihan'] = $kd_pelatihan;
 		$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
@@ -324,6 +327,8 @@ class Pelatihan extends CI_Controller {
 
 	function in_detail_pelatihan_pengajar_kuisioner_b($kd_pelatihan,$id_pengajar){
 		$data['title'] = "SALUTE | Data Kuisioner B Pelatihan Pengajar";
+
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
 
 		$data['kd_pelatihan'] = $kd_pelatihan;
 		$data['data1'] = $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
@@ -362,6 +367,8 @@ class Pelatihan extends CI_Controller {
 	function in_detail_pelatihan_kuisionerb_sapras($kd_pelatihan)
 	{
 		$data['title']= "SALUTE | Data Kuisioner B Sarana dan Prasarana ";
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
@@ -380,6 +387,8 @@ class Pelatihan extends CI_Controller {
 	function in_detail_pelatihan_kuisionerb_bahan_latihan($kd_pelatihan)
 	{
 		$data['title']= "SALUTE | Data Kuisioner B Bahan Pelatihan ";
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
@@ -399,6 +408,8 @@ class Pelatihan extends CI_Controller {
 	{
 		$data['title']= "SALUTE | Data Kuisioner B Unit Kompetensi ";
 		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=5 ")->result_array();
@@ -415,6 +426,8 @@ class Pelatihan extends CI_Controller {
 	{
 		$data['title']= "SALUTE | Data Kuisioner C Rekruitmen, Perjalanan, Persayaratan Peserta ";
 		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=1")->result_array();
@@ -433,6 +446,8 @@ class Pelatihan extends CI_Controller {
 	{
 		$data['title']= "SALUTE | Data Kuisioner C Penyambutan, Pembagian Kamar Peserta ";
 		$data['kd_pelatihan']=$kd_pelatihan;
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=2 ")->result_array();
@@ -449,7 +464,11 @@ class Pelatihan extends CI_Controller {
 	function in_detail_pelatihan_kuisionerc_sapras($kd_pelatihan)
 	{
 		$data['title']= "SALUTE | Data Kuisioner C Sarana dan Prasarana Asrama ";
+		
 		$data['kd_pelatihan']=$kd_pelatihan;
+		
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 ")->result_array();
@@ -469,6 +488,8 @@ class Pelatihan extends CI_Controller {
 		$data['title']= "SALUTE | Data Kuisioner C Konsumsi ";
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=4 ")->result_array();
 		$data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=4 AND tipe_soal='uraian'")->result_array();
@@ -490,6 +511,9 @@ class Pelatihan extends CI_Controller {
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
 
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+
+
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=6 ")->result_array();
 
 		$this->load->view('templates/header',$data);
@@ -504,6 +528,9 @@ class Pelatihan extends CI_Controller {
 		$data['title']= "SALUTE | Data Kuisioner C Pelaksanaan Uji Kompetensi ";
 		$data['kd_pelatihan']=$kd_pelatihan;
 		$data['data1']= $this->M_pelatihan->tampil_detail_pelatihan($kd_pelatihan);
+
+		$data['pelatihan'] = $this->db->query("SELECT * FROM pelatihan WHERE kd_pelatihan='$kd_pelatihan'")->result_array();
+
 
 		$data['responden'] = $this->db->query("SELECT DISTINCT id_user,jenis_soal FROM penilaian_c INNER JOIN kuisioner_c ON id_soalC=id_kuisionerC WHERE kd_pelatihan='$kd_pelatihan' AND jenis_soal=7 ")->result_array();
 		$data['soal_uraian'] = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=7 AND tipe_soal='uraian'")->result_array();

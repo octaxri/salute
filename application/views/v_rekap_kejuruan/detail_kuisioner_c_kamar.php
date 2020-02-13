@@ -164,12 +164,12 @@
                             <th class="text-center">ID Peserta</th>
                       </thead>
                       <tbody>
-                        <?php $no=1;  
-                          foreach($soal_uraian as $ur){
-                            $id_c = $ur['id_kuisionerC'];
-                            $uraian = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN user ON penilaian_c.id_user=user.id_user LEFT JOIN kuisioner_c ON kuisioner_c.id_kuisionerC=penilaian_c.id_soalC WHERE id_soalc='$id_c'")->result_array();
-
-                            foreach($uraian as $r){
+                      <?php $no=1;  
+                          foreach($pelatihan as $pl){
+                            $kd = $pl['kd_pelatihan']; 
+                            $tampung = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN kuisioner_c ON kuisioner_c.id_kuisionerC=penilaian_c.id_soalC WHERE kuisioner_c.jenis_soal=2 AND kuisioner_c.tipe_soal='uraian' AND penilaian_c.kd_pelatihan='$kd'")->result_array();
+                          
+                            foreach($tampung as $r){
                         ?>
                             <tr>
                               <td align="center"><?= $no++; ?></td>

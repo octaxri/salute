@@ -435,27 +435,26 @@
                   <div class="table-responsive">
                     <table class="table table-striped table-bordered">
                       <thead>
-                            <th>No</th>
+                            <th class="text-center">No</th>
                             <th>Soal</th>
                             <th>Saran / Komentar</th>
-                            <th>ID Peserta</th>
+                            <th class="text-center">ID Peserta</th>
                       </thead>
                       <tbody>
-                        <?php $no=1;  
-                          foreach($kuisioner_b_tenaga_pelatih_uraian as $ur){
-                            $id_b = $ur['id_kuisionerB'];
-                            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user 
-                                                                                  LEFT JOIN detail_penilaian_b ON penilaian_b.idku=detail_penilaian_b.id_penilaian_b LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB
-                                                                      WHERE id_soalB='$id_b' AND id_pengajar='$id_pengajar'")->result_array();
-                            foreach($uraian as $r){
-                        ?>
+                      <?php $no=1; foreach($pelatihan as $pl){
+                            $kd = $pl['kd_pelatihan']; 
+                            $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB LEFT JOIN detail_penilaian_b ON detail_penilaian_b.id_penilaian_b=penilaian_b.idku WHERE kuisioner_b.jenis_soal=2 AND kuisioner_b.tipe_soal='uraian' AND penilaian_b.kd_pelatihan='$kd' AND detail_penilaian_b.id_pengajar='$id_pengajar'")->result_array();
+                          
+                            foreach($tampung as $t){
+                          ?>
+                            
                             <tr>
-                              <td><?= $no++; ?></td>
-                              <td><?= $r['soalB']; ?></td>
-                              <td><?= $r['jawaban']; ?></td>
-                              <td><?= $r['id_user']; ?></td>
+                              <td align="center"><?= $no++; ?></td>
+                              <td><?= $t['soalB']; ?></td>
+                              <td><?= $t['jawaban']; ?></td>
+                              <td align="center"><?= $t['id_user']; ?></td>
                             </tr>
-                        <?php } } ?>
+                      <?php } } ?>
                       </tbody>
                     </table>
                     <br>
