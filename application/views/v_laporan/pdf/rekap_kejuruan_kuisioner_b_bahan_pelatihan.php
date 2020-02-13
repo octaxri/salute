@@ -33,7 +33,7 @@
                         <tr>
                             <th rowspan="2" width="15" align="center">No Responden</th>
                             <th colspan="<?= $jml_kuisioner_b_bahan_pelatihan; ?>" align="center">Bahan Pelatihan,Modul, ATK, Dan Seragam Peserta</th>
-                          
+                            <th rowspan="3" align="center" ><center>ID Peserta</center></th>
                         </tr>
   
                           <tr>
@@ -68,6 +68,10 @@
                             ?>
                             <td align="center"><?= $nilainya['jawaban']; ?></td>
                             <?php } ?>
+
+                            <?php if($soal != NULL){ ?>
+                                <td align="center"><?= $nilainya['id_user']; ?></td>
+                              <?php } ?>
                             <!-- akhir loop 2 -->
                             </tr>
                           <?php } ?>
@@ -141,22 +145,24 @@
     <center><h4>URAIAN</h4>
     <table border="1" width="100%" cellspacing=0>
       <thead>
-            <th>No</th>
+            <th class="text-center">No</th>
+            <th>Soal</th>
             <th>Saran / Komentar</th>
-            <th>Nama Peserta</th>
+            <th class="text-center">ID Peserta</th>
       </thead>
       <tbody>
         <?php $no=1;  
           foreach($uraian as $ur){
             $id_b = $ur['id_kuisionerB'];
-            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user WHERE id_soalB='$id_b'")->result_array();
+            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB WHERE id_soalB='$id_b'")->result_array();
 
             foreach($uraian as $r){
         ?>
             <tr>
-              <td><?= $no++; ?></td>
+              <td align="center"><?= $no++; ?></td>
+              <td><?= $r['soalB']; ?></td>
               <td><?= $r['jawaban']; ?></td>
-              <td><?= $r['nama']; ?></td>
+              <td align="center"><?= $r['id_user']; ?></td>
             </tr>
         <?php } } ?>
       </tbody>

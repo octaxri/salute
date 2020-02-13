@@ -43,6 +43,7 @@
                           <th colspan="<?= $jml_kemampuan;?>">KEMAMPUAN DALAM MEMBAWAKAN MATERI</th>
                           <th colspan="<?= $jml_memahami_masalah;?>">KEMAMPUAN MEMAHAMI MASALAH PESERTA</th>
                           <th colspan="<?= $jml_penampilan;?>">PENAMPILAN TENAGA PELATIH</th>
+                          <th rowspan="3" align="center" ><center>ID Peserta</center></th>
                         </tr>     
                         <tr>
                         <?php 
@@ -133,6 +134,10 @@
                           ?>  
                             <td><?= $nilainya4['jawaban']; ?></td>
                           <?php } ?>
+
+                          <?php if($soal_pengetahuan_pemahaman != NULL && $soal_kemampuan != NULL && $soal_memahami_masalah !=NULL && $soal_penampilan != NULL){ ?>
+                                <td class="text-center"><?= $nilainya1['id_user']; ?></td>
+                              <?php } ?>
                           <!-- akhir loop soal penampilan -->
 
                           </tr>
@@ -431,22 +436,24 @@
                     <table class="table table-striped table-bordered">
                       <thead>
                             <th>No</th>
+                            <th>Soal</th>
                             <th>Saran / Komentar</th>
-                            <th>Nama Peserta</th>
+                            <th>ID Peserta</th>
                       </thead>
                       <tbody>
                         <?php $no=1;  
                           foreach($kuisioner_b_tenaga_pelatih_uraian as $ur){
                             $id_b = $ur['id_kuisionerB'];
                             $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user 
-                                                                                  LEFT JOIN detail_penilaian_b ON penilaian_b.idku=detail_penilaian_b.id_penilaian_b
+                                                                                  LEFT JOIN detail_penilaian_b ON penilaian_b.idku=detail_penilaian_b.id_penilaian_b LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB
                                                                       WHERE id_soalB='$id_b' AND id_pengajar='$id_pengajar'")->result_array();
                             foreach($uraian as $r){
                         ?>
                             <tr>
                               <td><?= $no++; ?></td>
+                              <td><?= $r['soalB']; ?></td>
                               <td><?= $r['jawaban']; ?></td>
-                              <td><?= $r['nama']; ?></td>
+                              <td><?= $r['id_user']; ?></td>
                             </tr>
                         <?php } } ?>
                       </tbody>

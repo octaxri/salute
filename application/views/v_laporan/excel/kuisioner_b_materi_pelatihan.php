@@ -36,7 +36,8 @@ header("Expires: 0");
                               ?>
 
                          <?php }?>
-                          <th colspan="<?= $jml;?>" align="center">Bahan Latihan</th>
+                          <th colspan="<?= $jml;?>" align="center">Materi Pelatihan</th>
+                          <th rowspan="2" align="center" ><center>ID Peserta</center></th>
                         </tr>
              
                         <tr>
@@ -69,6 +70,10 @@ header("Expires: 0");
                           ?>
                           <td align="center"><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
+
+                          <?php if($soal != NULL){ ?>
+                                <td align="center"><?= $nilainya['id_user']; ?></td>
+                              <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>
                           <?php } ?>
@@ -127,6 +132,37 @@ header("Expires: 0");
                       </tbody>
                     </table>
                         <!-- akhir tabel -->
+                        <br>
+    <center>
+                  <h4 class="text-center">URAIAN</h4>
+                  <!-- table uraian -->
+                  <div class="table-responsive">
+                    <table width="90%" border="1">
+                      <thead>
+                            <th align="center">No</th>
+                            <th>Soal</th>
+                            <th>Saran / Komentar</th>
+                            <th align="center">ID Peserta</th>
+                      </thead>
+                      <tbody>
+                        <?php $no=1;  
+                          foreach($soal_uraian as $ur){
+                            $id_b = $ur['id_kuisionerB'];
+                            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB WHERE id_soalB='$id_b' ")->result_array();
+                            foreach($uraian as $r){
+                        ?>
+                            <tr>
+                              <td align="center"><?= $no++; ?></td>
+                              <td><?= $r['soalB']; ?></td>
+                              <td><?= $r['jawaban']; ?></td>
+                              <td align="center"><?= $r['id_user']; ?></td>
+                            </tr>
+                        <?php } } ?>
+                      </tbody>
+                    </table>
+                    <br>
+                  </div>
+                  </center>
                 </td>
             </tr>
             

@@ -50,6 +50,7 @@
                             ?>
                           <?php } ?>
                           <th colspan="<?= $jml ;?>" class="text-center">NILAI PER UNSUR PELAYANAN</th>
+                          <th rowspan="3" align="center" ><center>ID Peserta</center></th>
                         </tr>
 
                         <tr>
@@ -91,6 +92,10 @@
                           ?>
                           <td><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
+
+                          <?php if($soal != NULL){ ?>
+                                <td class="text-center"><?= $nilainya['id_user']; ?></td>
+                              <?php } ?>
                           <!-- akhir loop 2 -->
                         </tr>
                         <?php } ?>

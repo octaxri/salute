@@ -30,6 +30,7 @@ header("Expires: 0");
                         <tr align="center">
                           <th rowspan="2" width="15">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_c_konsumsi;?>" align="center">Konsumsi</th>
+                          <th rowspan="2" align="center" ><center>ID Peserta</center></th>
                         </tr>
 
                         <tr align="center">
@@ -65,6 +66,9 @@ header("Expires: 0");
                           ?>
                           <td align="center"><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
+                          <?php if($soal != NULL){ ?>
+                                <td align="center"><?= $nilainya['id_user']; ?></td>
+                              <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>
                         <?php } ?>
@@ -130,7 +134,36 @@ header("Expires: 0");
                           </h4></td>
                         </tr>
                       </tbody>
-						</table>
+            </table>
+            
+            <br>
+    <center><h4>URAIAN</h4>
+    <table border="1" width="100%" cellspacing=0>
+      <thead>
+            <th align="center">No</th>
+            <th>Soal</th>
+            <th>Saran / Komentar</th>
+            <th align="center">ID Peserta</th>
+      </thead>
+      <tbody>
+        <?php $no=1;  
+          foreach($uraian as $ur){
+            $id_c = $ur['id_kuisionerC'];
+            $uraian = $this->db->query("SELECT * FROM penilaian_c LEFT JOIN user ON penilaian_c.id_user=user.id_user LEFT JOIN kuisioner_c ON kuisioner_c.id_kuisionerC=penilaian_c.id_soalC WHERE id_soalC='$id_c'")->result_array();
+
+            foreach($uraian as $r){
+        ?>
+            <tr>
+              <td align="center"><?= $no++; ?></td>
+              <td><?= $r['soalC']; ?></td>
+              <td><?= $r['jawaban']; ?></td>
+              <td align="center"><?= $r['id_user']; ?></td>
+            </tr>
+        <?php } } ?>
+      </tbody>
+    </table>
+    </center>
+
 					</td>	
 				</tr>
 	

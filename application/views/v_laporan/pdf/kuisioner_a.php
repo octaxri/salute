@@ -86,6 +86,9 @@
                           ?>
                           <td><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
+                          <?php if($soal != NULL){ ?>
+                                <td class="text-center"><?= $nilainya['id_user']; ?></td>
+                              <?php } ?>
                           <!-- akhir loop 2 -->
                         </tr>
                         <?php } ?>

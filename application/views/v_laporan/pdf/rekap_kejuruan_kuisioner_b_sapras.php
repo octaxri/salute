@@ -37,7 +37,7 @@
                           <th colspan="<?= $jml_kuisioner_b_sapras3; ?>" align="center">Listrik</th>
                           <th colspan="<?= $jml_kuisioner_b_sapras4; ?>" align="center">Kamar Mandi / Toilet</th>
                           <th colspan="<?= $jml_kuisioner_b_sapras5; ?>" align="center">Sarana Penunjang</th>
-                        
+                          <th rowspan="3" align="center" ><center>ID Peserta</center></th>
                       </tr>
 
                         <tr>
@@ -150,6 +150,9 @@
                           <?php }?>
 
 
+                          <?php if($soal != NULL && $soal1 != NULL && $soal2 != NULL && $soal3 != NULL && $soal4 !=NULL){ ?>
+                                <td align="center"><?= $nilainya1['id_user']; ?></td>
+                              <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>
                         <?php } ?>
@@ -372,21 +375,23 @@
     <table border="1" width="100%" cellspacing=0>
       <thead>
             <th>No</th>
+            <th>Soal</th>
             <th>Saran / Komentar</th>
-            <th>Nama Peserta</th>
+            <th>ID Peserta</th>
       </thead>
       <tbody>
         <?php $no=1;  
           foreach($uraian as $ur){
             $id_b = $ur['id_kuisionerB'];
-            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user WHERE id_soalB='$id_b'")->result_array();
+            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB WHERE id_soalB='$id_b'")->result_array();
 
             foreach($uraian as $r){
         ?>
             <tr>
-              <td><?= $no++; ?></td>
+              <td align="center"><?= $no++; ?></td>
+              <td><?= $r['soalB']; ?></td>
               <td><?= $r['jawaban']; ?></td>
-              <td><?= $r['nama']; ?></td>
+              <td align="center"><?= $r['id_user']; ?></td>
             </tr>
         <?php } } ?>
       </tbody>
