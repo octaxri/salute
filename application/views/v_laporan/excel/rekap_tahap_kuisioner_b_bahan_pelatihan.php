@@ -28,6 +28,7 @@ header("Expires: 0");
                         <tr>
                           <th rowspan="2" width="15" align="center">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_b_bahan_latihan;?>" align="center">Bahan Latihan</th>
+                          <th rowspan="2" align="center" ><center>ID Peserta</center></th>
                         </tr>
              
                         <tr>
@@ -63,6 +64,9 @@ header("Expires: 0");
                           ?>
                           <td align="center"><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
+                          <?php if($soal != NULL){ ?>
+                            <td align="center"><?= $nilainya['id_user']; ?></td>
+                          <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>
                         <?php } ?>
@@ -77,6 +81,7 @@ header("Expires: 0");
                           ?>
                             <td align="center"><?= $total['total']; ?></td>
                           <?php } ?>
+                            <td rowspan="5"></td>
                         </tr>
                         <tr>
                           <td align="center">Nilai Rata-Rata</td>
@@ -128,3 +133,31 @@ header("Expires: 0");
             </tr>
             
     </table>
+
+    <!-- <div style="page-break-before:always;"></div>
+    <center><h4>URAIAN</h4>
+    <table border="1" width="100%" cellspacing=0>
+      <thead>
+            <th>No</th>
+            <th colspan="5">Soal</th>
+            <th colspan="5">Saran / Komentar</th>
+            <th>ID Peserta</th>
+      </thead>
+      <tbody>
+      <?php $no=1; foreach($pelatihan as $pl){
+          $kd = $pl['kd_pelatihan']; 
+          $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB WHERE kuisioner_b.jenis_soal=4 AND kuisioner_b.tipe_soal='uraian' AND penilaian_b.kd_pelatihan='$kd'")->result_array();
+        
+          foreach($tampung as $t){
+        ?>
+          
+          <tr>
+            <td align="center"><?= $no++; ?></td>
+            <td colspan="5"><?= $t['soalB']; ?></td>
+            <td colspan="5"><?= $t['jawaban']; ?></td>
+            <td align="center"><?= $t['id_user']; ?></td>
+          </tr>
+        <?php } } ?>
+      </tbody>
+    </table>
+    </center> -->

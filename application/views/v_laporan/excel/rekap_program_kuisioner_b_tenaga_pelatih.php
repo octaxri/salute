@@ -40,6 +40,7 @@ header("Expires: 0");
                           <th colspan="<?= $jml_kemampuan;?>">KEMAMPUAN DALAM MEMBAWAKAN MATERI</th>
                           <th colspan="<?= $jml_memahami_masalah;?>">KEMAMPUAN MEMAHAMI MASALAH PESERTA</th>
                           <th colspan="<?= $jml_penampilan;?>">PENAMPILAN TENAGA PELATIH</th>
+                          <th rowspan="2">ID Peserta</th>
                         </tr>     
                         <tr>
                         <?php 
@@ -129,6 +130,9 @@ header("Expires: 0");
                                                                     WHERE id_user='$id_user' AND id_soalB='$id_soal4' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=2 AND tipe_soal='pg' AND detail_penilaian_b.id_pengajar='$id_pengajar'")->row_array();  
                           ?>  
                             <td><?= $nilainya4['jawaban']; ?></td>
+                          <?php } ?>
+                          <?php if($soal_penampilan != NULL){ ?>
+                            <td><?= $nilainya4['id_user']; ?></td>
                           <?php } ?>
                           <!-- akhir loop soal penampilan -->
 

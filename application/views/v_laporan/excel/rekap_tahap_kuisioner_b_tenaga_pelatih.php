@@ -34,6 +34,7 @@ header("Expires: 0");
                           <th colspan="<?= $jml_kemampuan;?>">KEMAMPUAN DALAM MEMBAWAKAN MATERI</th>
                           <th colspan="<?= $jml_memahami_masalah;?>">KEMAMPUAN MEMAHAMI MASALAH PESERTA</th>
                           <th colspan="<?= $jml_penampilan;?>">PENAMPILAN TENAGA PELATIH</th>
+                          <th rowspan="2">ID Peserta</th>
                         </tr>     
                         <tr>
                         <?php 
@@ -124,6 +125,9 @@ header("Expires: 0");
                           ?>  
                             <td><?= $nilainya4['jawaban']; ?></td>
                           <?php } ?>
+                          <?php if($soal_penampilan != NULL){ ?>
+                            <td class="text-center"><?= $nilainya4['id_user']; ?></td>
+                          <?php } ?>
                           <!-- akhir loop soal penampilan -->
 
                           </tr>
@@ -183,6 +187,7 @@ header("Expires: 0");
                           ?>  
                             <td><?= $total4['total']; ?></td>
                           <?php } ?>
+                            <td rowspan="5"></td>
                           <!-- akhir loop soal penampilan -->
                         </tr>
                         <tr align="center">

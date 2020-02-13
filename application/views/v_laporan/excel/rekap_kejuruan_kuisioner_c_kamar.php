@@ -137,7 +137,7 @@ header("Expires: 0");
                       </tbody>
                     </table>
                         <!-- akhir tabel -->
-                        <br>
+                        <!-- <br>
     <center><h4>URAIAN</h4>
     <table border="1" width="100%" cellspacing=0>
       <thead>
@@ -163,7 +163,7 @@ header("Expires: 0");
         <?php } } ?>
       </tbody>
     </table>
-    </center>
+    </center> -->
                 </td>
             </tr>
             

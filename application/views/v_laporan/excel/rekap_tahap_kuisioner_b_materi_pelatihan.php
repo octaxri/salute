@@ -33,7 +33,7 @@ header("Expires: 0");
                       <tr>
                           <th rowspan="2" width="15" align="center">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_b_materi_pelatihan; ?>" align="center">Materi Pelatihan</th>
-                        
+                          <th rowspan="2">ID Peserta</th>
                       </tr>
 
                         <tr>
@@ -67,6 +67,9 @@ header("Expires: 0");
                             // 
                           ?>
                           <td align="center"><?= $nilainya['jawaban']; ?></td>
+                          <?php } ?>
+                          <?php if($soal != NULL){ ?>
+                            <td align="center"><?= $nilainya['id_user']; ?></td>
                           <?php } ?>
                           <!-- akhir loop 2 -->
                           </tr>

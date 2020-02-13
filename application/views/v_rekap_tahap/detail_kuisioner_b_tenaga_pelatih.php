@@ -135,7 +135,9 @@
                             <td><?= $nilainya4['jawaban']; ?></td>
                           <?php } ?>
                           <!-- akhir loop soal penampilan -->
-                          <td><?= $nilainya4['id_user']; ?></td>
+                          <?php if($soal_penampilan != NULL){ ?>
+                            <td class="text-center"><?= $nilainya4['id_user']; ?></td>
+                          <?php } ?>
                           </tr>
                         <?php } ?>
                         <!-- akhir loop responden -->

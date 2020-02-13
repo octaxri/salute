@@ -28,6 +28,7 @@ header("Expires: 0");
                         <tr  align="center" >
                           <th rowspan="2" width="15" align="center">No Responden</th>
                           <th colspan="<?=$jml_kuisioner_c_kamar;?>" align="center">Penyambutan dan Pembagian Peserta</th>
+                          <th rowspan="2">ID Peserta</th>
                         </tr>
 
                         
@@ -66,6 +67,9 @@ header("Expires: 0");
                           <td><?= $nilainya['jawaban']; ?></td>
                           <?php } ?>
                           <!-- akhir loop 2 -->
+                          <?php if($soal != NULL){ ?>
+                            <td align="center"><?= $nilainya['id_user']; ?></td>
+                          <?php } ?>
                           </tr>
                           <?php } ?>
                       <?php } ?>
@@ -81,6 +85,7 @@ header("Expires: 0");
                             ?>
                             <td><?= $total['total']; ?></td>
                             <?php } ?>
+                            <td rowspan="5"></td>
                         </tr>
                         <tr align="center">
                           <td>Nilai Rata-Rata</td>

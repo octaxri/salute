@@ -37,7 +37,7 @@
                           <th colspan="<?= $jml_kuisioner_b_sapras3; ?>" align="center">Listrik</th>
                           <th colspan="<?= $jml_kuisioner_b_sapras4; ?>" align="center">Kamar Mandi / Toilet</th>
                           <th colspan="<?= $jml_kuisioner_b_sapras5; ?>" align="center">Sarana Penunjang</th>
-                        <th rowspan="2" align="center" ><center>ID Peserta</center></th>
+                          <th rowspan="2" align="center" ><center>ID Peserta</center></th>
                       </tr>
 
                         <tr>

@@ -33,6 +33,7 @@ header("Expires: 0");
                           <th colspan="<?= $jml_listrik;?>" align="center">LISTRIK</th>
                           <th colspan="<?= $jml_km;?>" align="center">KAMAR MANDI/TOILET</th>
                           <th colspan="<?= $jml_sarana;?>" align="center">SARANA PENUNJANG</th>
+                          <th rowspan="2" align="center" ><center>ID Peserta</center></th>
                         </tr>
                         
                         <tr>
@@ -131,6 +132,9 @@ header("Expires: 0");
                               $nilainya5 = $this->db->query("SELECT * FROM penilaian_b INNER JOIN kuisioner_b ON id_soalB=id_kuisionerB WHERE id_user='$id_user' AND id_soalB='$id_soal5' AND kd_pelatihan='$kd_pelatihan' AND jenis_soal=3 AND tipe_soal='pg' ")->row_array();  
                           ?>  
                             <td><?= $nilainya5['jawaban']; ?></td>
+                          <?php } ?>
+                          <?php if($soal_sarpen != NULL){ ?>
+                            <td><?= $nilainya5['id_user']; ?></td>
                           <?php } ?>
                           <!-- akhir loop soal sarpren --> 
                           </tr>

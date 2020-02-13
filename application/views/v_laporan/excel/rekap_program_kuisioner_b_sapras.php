@@ -37,7 +37,7 @@ header("Expires: 0");
                             <th colspan="<?= $jml_kuisioner_b_sapras3; ?>" align="center">Listrik</th>
                             <th colspan="<?= $jml_kuisioner_b_sapras4; ?>" align="center">Kamar Mandi / Toilet</th>
                             <th colspan="<?= $jml_kuisioner_b_sapras5; ?>" align="center">Sarana Penunjang</th>
-                          
+                            <th rowspan="2" align="center" ><center>ID Peserta</center></th>
                         </tr>
   
                           <tr>
@@ -148,7 +148,9 @@ header("Expires: 0");
   
                                 <td align="center"><?= $nilainya1['jawaban']; ?></td>
                             <?php }?>
-  
+                            <?php if($soal4 != NULL){ ?>
+                              <td align="center"><?= $nilainya1['id_user']; ?></td>
+                            <?php } ?>
   
                             <!-- akhir loop 2 -->
                             </tr>
@@ -205,6 +207,7 @@ header("Expires: 0");
                             ?>
                               <td align="center"><?= $total1['total']; ?></td>
                             <?php } ?>
+                              <td rowspan="5"></td>
   
                           </tr>
                           

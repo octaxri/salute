@@ -86,7 +86,7 @@
                           ?>
                             <td align="center"><?= $total['total']; ?></td>
                           <?php } ?>
-                        
+                            <td rowspan="5"></td>
                         </tr>
 
                         <tr align="center">

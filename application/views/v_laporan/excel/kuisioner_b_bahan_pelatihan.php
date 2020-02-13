@@ -134,9 +134,9 @@ header("Expires: 0");
                     </table>
                         <!-- akhir tabel -->
                         <br>
-    <center>
+    <!-- <center>
                   <h4 class="text-center">URAIAN</h4>
-                  <!-- table uraian -->
+                  
                   <div class="table-responsive">
                     <table width="90%" border="1">
                       <thead>
@@ -163,7 +163,7 @@ header("Expires: 0");
                     </table>
                     <br>
                   </div>
-                  </center>
+                  </center> -->
                 </td>
             </tr>
             
