@@ -380,8 +380,7 @@ class Rekap_program extends CI_Controller {
 
     }
 
-    function rekap_kuisioner_b_sapras($program)
-    {
+    function rekap_kuisioner_b_sapras($program){
      $data['title']="SALUTE | Rekap Per Program Kuisioner B Sarana dan Prasarana";
      $data['pelatihan']=$this->db->query("SELECT * FROM pelatihan WHERE id_program='$program' ")->result_array();
 

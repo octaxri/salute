@@ -100,8 +100,8 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="md-form-group md-label-floating">
-                <label class="md-control-label">Tanggal Lahir</label><br>
-                  <input class="md-form-control" type="date" name="tgl_lahir" required>
+                  <input class="md-form-control" type="number" name="usia" spellcheck="false" autocomplete="off"required>
+                  <label class="md-control-label">Usia</label>
                 </div>
               </div>
             </div>

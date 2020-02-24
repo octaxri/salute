@@ -24,7 +24,6 @@ class Rekap_kejuruan extends CI_Controller {
         $this->session->userdata('username')])->row_array();
 
         $data['kejuruan'] = $this->M_kejuruan->tampil_kejuruan();
-        $data['kejuruan']= $this->M_progam->tampil_progam();
 
         $this->form_validation->set_rules('kejuruan','Kejuruan','trim|required');
 

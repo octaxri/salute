@@ -73,9 +73,9 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label" for="form-control-1">Tanggal Lahir</label>
+                    <label class="col-sm-3 control-label" for="form-control-1">Usia</label>
                     <div class="col-sm-9">
-                      <input id="form-control-1" class="form-control" type="text" value="<?= $user['tgl_lahir']; ?>" readonly>
+                      <input id="form-control-1" class="form-control" type="number" value="<?= $user['usia']; ?>" readonly>
                     </div>
                   </div>
 
@@ -158,8 +158,8 @@
                     </select>
             </div>
             <div class="form-group">
-              <label class="control-label" for="tgl_lahir">Tanggal Lahir</label>
-              <input class="form-control" id="tgl_lahir" type="date" name="tgl_lahir" value="<?= $user['tgl_lahir']; ?>">
+              <label class="control-label" for="usia">Usia</label>
+              <input class="form-control" id="usia" type="number" name="usia" value="<?= $user['usia']; ?>">
             </div>
             <div class="form-group">
                     <label for="pendidikan" class="form-control-label">Pendidikan</label>

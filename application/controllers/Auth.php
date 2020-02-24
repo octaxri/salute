@@ -231,7 +231,7 @@ class Auth extends CI_Controller {
                 "nama" => $this->input->post('nama',TRUE),
                 "email" => $this->input->post('email',TRUE),
                 "jk" => $this->input->post('jk',TRUE),
-                "tgl_lahir" => $this->input->post('tgl_lahir',TRUE),
+                "usia" => $this->input->post('usia',TRUE),
                 "pendidikan" => $this->input->post('pendidikan',TRUE),
                 "pekerjaan" => $this->input->post('pekerjaan',TRUE),
                 "is_level" => 0,
