@@ -29,6 +29,36 @@ class Peserta extends CI_Controller {
 		$this->load->view('templates/footer');
 
 	}
+
+	public function edit_peserta()
+	{
+		$data= array(
+
+			"nama" => $_POST['nama'],
+			"email" => $_POST['email'],
+			"jk" => $_POST['jk'],
+			"tgl_lahir" => $_POST['tgl_lahir'],
+			"pendidikan" => $_POST['pendidikan'],
+			"pekerjaan" => $_POST['pekerjaan'],
+			"tipe_peserta" => $_POST['tipe_peserta'],
+
+
+		);
+
+		$this->db->where('id_user', $_POST['id_user']);
+		$this->db->update('user', $data);
+		$this->session->set_flashdata('msg', 'Data Berhasil Di Edit');
+		redirect('peserta');
+
+	}
+	
+	public function hapus_peserta()
+	{
+		$id= $this->input->post('id_user',TRUE);
+		$this->M_peserta->hapus_peserta($id);
+		$this->session->set_flashdata('msg', 'Data Berhasil Di Hapus');
+		redirect('peserta');
+	}
     
     
 }

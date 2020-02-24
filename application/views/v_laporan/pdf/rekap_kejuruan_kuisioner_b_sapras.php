@@ -328,29 +328,29 @@
                     </table>
                   
                   </div>
-                
-               
+                <br>
+                  
                     <table style="margin-left:10px; margin-bottom:0px;" width="100%">
                         <tr>
-                        <td><h4> WORKSHOP / BENGKEL  <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan*20,2);?></h4></td></h4></td>
+                        <td><b> WORKSHOP / BENGKEL  <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan*20,2);?></b></td></b></td>
                         </tr>
                         <tr>
-                        <td><h4> RUANG TEORI <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan1*20,2);?></h4></td></h4></td>
+                        <td><b> RUANG TEORI <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan1*20,2);?></b></td></b></td>
                         </tr>                        
                         <tr>
-                        <td><h4> LISTRIK <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan2*20,2);?></h4></td></h4></td>
+                        <td><b> LISTRIK <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan2*20,2);?></b></td></b></td>
                         </tr>                        
                         <tr>
-                        <td><h4> KAMAR MANDI / TOILET <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan3*20,2);?></h4></td> </h4></td>
+                        <td><b> KAMAR MANDI / TOILET <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan3*20,2);?></b></td> </b></td>
                         </tr>                        
                         <tr>
-                        <td><h4> SARANA PENUNJANG <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan4*20,2);?></h4></td> </h4></td>
+                        <td><b> SARANA PENUNJANG <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jmlh_keseluruhan4*20,2);?></b></td> </b></td>
                         </tr>
                         <tr>
                         <?php 
                         $rata=(number_format($jmlh_keseluruhan*20,2))+(number_format($jmlh_keseluruhan1*20,2))+(number_format($jmlh_keseluruhan2*20,2))+(number_format($jmlh_keseluruhan3*20,2))+(number_format($jmlh_keseluruhan4*20,2));
                         ?>
-                        <td><h4> RATA-RATA <td></td><td></td><td><h4>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/5,2);?>
+                        <td><b> RATA-RATA <td></td><td></td><td><b>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/5,2);?>
                         <?php 
                               if($hasil_akhir <= 64.99){  
                                   echo '(Tidak Baik)';
@@ -365,7 +365,7 @@
                                   echo '(Sangat Baik)';
                               }   
                             ?>
-                        </h4></td> </h4></td>
+                        </b></td> </b></td>
                         </tr>
                     </table>
 

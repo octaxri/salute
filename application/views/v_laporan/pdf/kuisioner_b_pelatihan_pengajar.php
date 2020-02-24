@@ -349,23 +349,23 @@
                   <div class="table-responsive">
                     <table>
                         <tr>
-                        <td><h4> PENGETAHUAN/PEMAHAMAN  <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua*20,2);?></h4></td></h4></td>
+                        <td><b> PENGETAHUAN/PEMAHAMAN  <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jml_semua*20,2);?></b></td></b></td>
                         </tr>
                         <tr>
-                        <td><h4> KEMAMPUAN DALAM MEMBAWAKAN MATERI <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua1*20,2);?></h4></td></h4></td>
+                        <td><b> KEMAMPUAN DALAM MEMBAWAKAN MATERI <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jml_semua1*20,2);?></b></td></b></td>
                         </tr>                        
                         <tr>
-                        <td><h4> KEMAMPUAN DALAM MEMAHAMI MASALAH PESERTA <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua2*20,2);?></h4></td></h4></td>
+                        <td><b> KEMAMPUAN DALAM MEMAHAMI MASALAH PESERTA <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jml_semua2*20,2);?></b></td></b></td>
                         </tr>                        
                         <tr>
-                        <td><h4> PENAMPILAN TENAGA PELATIH <td></td><td></td><td><h4>&emsp;=&emsp;<?= number_format($jml_semua3*20,2);?></h4></td> </h4></td>
+                        <td><b> PENAMPILAN TENAGA PELATIH <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jml_semua3*20,2);?></b></td> </b></td>
                         </tr>                        
                       
                         <tr>
                         <?php 
                         $rata=(number_format($jml_semua*20,2))+(number_format($jml_semua1*20,2))+(number_format($jml_semua2*20,2))+(number_format($jml_semua3*20,2));
                         ?>
-                        <td><h4> RATA-RATA <td></td><td></td><td><h4>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/4,2);?>
+                        <td><b> RATA-RATA <td></td><td></td><td><b>&emsp;=&emsp;<?= $hasil_akhir = number_format($rata/4,2);?>
                         <?php 
                               if($hasil_akhir <= 64.99){  
                                   echo '(Tidak Baik)';
@@ -380,7 +380,7 @@
                                   echo '(Sangat Baik)';
                               }   
                             ?>
-                        </h4></td> </h4></td>
+                        </b></td> </b></td>
                         </tr>
 						</table>
 					</td>	

@@ -431,8 +431,8 @@
                 
                   </div>
                   <br>
-
-                    <table cellpadding="7" cellspacing="7">
+                  <div class="table-responsive">
+                    <table>
                         <tr>
                         <td><b> WORKSHOP / BENGKEL  <td></td><td></td><td><b>&emsp;=&emsp;<?= number_format($jml_semua1*20,2);?></b></td></b></td>
                         </tr>

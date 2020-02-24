@@ -13,6 +13,13 @@ class M_peserta extends CI_Model {
 
 		return $query;
 	}
+
+
+	function hapus_peserta($id)
+	{
+		$this->db->delete('user',['id_user' => $id]);
+		
+	}
     
     
 }
