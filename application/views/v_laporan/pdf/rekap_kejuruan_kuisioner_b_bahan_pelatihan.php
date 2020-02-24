@@ -152,11 +152,11 @@
       </thead>
       <tbody>
         <?php $no=1;  
-          foreach($uraian as $ur){
-            $id_b = $ur['id_kuisionerB'];
-            $uraian = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN user ON penilaian_b.id_user=user.id_user LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB WHERE id_soalB='$id_b'")->result_array();
-
-            foreach($uraian as $r){
+          foreach($pelatihan as $pl){
+            $kd = $pl['kd_pelatihan']; 
+                            $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB WHERE kuisioner_b.jenis_soal=4 AND kuisioner_b.tipe_soal='uraian' AND penilaian_b.kd_pelatihan='$kd'")->result_array();
+                          
+            foreach($tampung as $r){
         ?>
             <tr>
               <td align="center"><?= $no++; ?></td>
