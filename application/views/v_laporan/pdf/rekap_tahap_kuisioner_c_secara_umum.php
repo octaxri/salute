@@ -27,13 +27,11 @@
                 <td colspan="3">
                         <!-- tabel -->  
                         <table border="1" width="100%" cellspacing="0">
-                      <thead>
                         <tr>
                           <th rowspan="2" width="15" align="center">No Responden</th>
                           <th colspan="<?=$jml_kuisioner_c_secara_umum;?>" align="center">Secara Umum Pelaksanaan Pelatihan</th>
                           <th rowspan="2">ID Peserta</th>
                         </tr>
-                      </thead>
                       <tbody>
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>
                           <?php 

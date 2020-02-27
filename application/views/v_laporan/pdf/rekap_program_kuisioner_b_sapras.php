@@ -28,8 +28,6 @@
 <tr>
             <td align="center">
     <table border="1"  width="90%" cellspacing="0">
-                      <thead>
-                        
                       <tr>
                           <th rowspan="2" width="15" align="center" align="center">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_b_sapras1; ?>" align="center">Workshop/Bengkel</th>
@@ -71,7 +69,6 @@
                                 <th align="center"><?= $soal++;?></th>
                               <?php }?>
                         </tr>        
-                      </thead>
                       <tbody>
                       
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>
@@ -372,12 +369,10 @@
                     <div style="page-break-before:always;"></div>
     <center><h4>URAIAN</h4>
     <table border="1" width="100%" cellspacing=0>
-      <thead>
             <th>No</th>
             <th>Soal</th>
             <th>Saran / Komentar</th>
             <th>ID Peserta</th>
-      </thead>
       <tbody>
       <?php $no=1; foreach($pelatihan as $pl){
         $kd = $pl['kd_pelatihan']; 

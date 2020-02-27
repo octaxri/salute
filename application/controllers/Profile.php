@@ -23,7 +23,7 @@ class Profile extends CI_Controller {
 
         $data['jk'] = ['L','P'];
         $data['pendidikan'] = ['SD','SMP/SLTP','SMA/SMK/SLTA','DIPLOMA','S1','S2','S3'];
-        $data['tipe_peserta'] = ['Menginap','Pulang'];
+        $data['tipe_peserta'] = ['Boarding','Non Boarding'];
 
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/sidebar',$data);

@@ -30,7 +30,6 @@
                 <td colspan="3">
                         <!-- tabel -->  
                         <table border="1" width="100%" cellspacing="0">
-                        <thead valign="middle" align="center">
                         <tr>
                           <th rowspan="2" width="15"><center>No Responden</center></th>
                           <th colspan="<?= $jml_pengetahuan_pemahaman;?>">PENGETAHUAN/PEMAHAMAN</th>
@@ -66,7 +65,6 @@
                               <?php } ?>
                                 <!--  -->
                         </tr>     
-                      </thead>
                       <tbody>
                         <?php $i1=1;  foreach($pelatihan as $p){ 
                           $kd_pelatihan = $p['kd_pelatihan'];
@@ -407,17 +405,14 @@
                         <!-- akhir tabel -->
                 </td>
             </tr>
-            
     </table>
     <div style="page-break-before:always;"></div>
     <center><h4>URAIAN</h4>
     <table border="1" width="100%" cellspacing=0>
-      <thead>
             <th>No</th>
             <th>Soal</th>
             <th>Saran / Komentar</th>
             <th>ID Peserta</th>
-      </thead>
       <tbody>
       <?php $no=1; foreach($pelatihan as $pl){
         $kd = $pl['kd_pelatihan']; 

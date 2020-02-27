@@ -13,7 +13,7 @@
     }
 </style>
 <body onload="window.print()">
-    <table align="center" cellspacing="5" width="100%">
+    <table align="center" cellspacing="0" width="100%">
             <tr>
                 <td colspan="3"><h4>III. SARANA / PRASARANA</h4></td>
             </tr>
@@ -27,9 +27,8 @@
                 <td colspan="3">
                         <!-- tabel -->  
                         <table border="1">
-                      <thead>
                         <tr align="center">
-                          <th rowspan="2" width="15">No Responden</th>
+                          <th rowspan="2">No Responden</th>
                           <th colspan="<?= $jml_workshop;?>" align="center">WORKSHOP/BENGKEL</th>
                           <th colspan="<?= $jml_ruang_teori;?>" align="center">RUANG TEORI</th>
                           <th colspan="<?= $jml_listrik;?>" align="center">LISTRIK</th>
@@ -37,7 +36,6 @@
                           <th colspan="<?= $jml_sarana;?>" align="center">SARANA PENUNJANG</th>
                           <th rowspan="2" align="center" ><center>ID Peserta</center></th>
                         </tr>
-                        
                         <tr>
                         <?php 
                                $soal=1;
@@ -70,8 +68,6 @@
                                 <th align="center"><?= $soal4++;?></th>
                               <?php } ?>
                         </tr>
-                      
-                      </thead>
                       <tbody>
                         <?php $i1=1;  foreach($pelatihan as $p){ 
                           $kd_pelatihan = $p['kd_pelatihan'];
@@ -205,6 +201,7 @@
                           ?>  
                             <td><?= $total5['total']; ?></td>
                           <?php } ?>
+                          <td rowspan="5"></td>
                           <!-- akhir loop soal sarprun -->
                         </tr>
                         <tr align="center">
@@ -400,12 +397,10 @@
     <div style="page-break-before:always;"></div>
     <center><h4>URAIAN</h4>
     <table border="1" width="100%" cellspacing=0>
-      <thead>
             <th>No</th>
             <th>Soal</th>
             <th>Saran / Komentar</th>
             <th>ID Peserta</th>
-      </thead>
       <tbody>
       <?php $no=1; foreach($pelatihan as $pl){
         $kd = $pl['kd_pelatihan']; 

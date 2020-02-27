@@ -110,8 +110,8 @@
                 <div class="md-form-group">
                   <select class="md-form-control" name="tipe_peserta" data-msg-required="Please select your type." required>
                     <option value="" disabled="disabled" selected="selected">Tipe Peserta</option>
-                    <option value="Menginap">Menginap</option>
-                    <option value="Pulang">Pulang</option>
+                    <option value="Boarding">Boarding</option>
+                    <option value="Non Boarding">Non Boarding</option>
                   </select>
                   <label class="md-control-label"></label>
                 </div>

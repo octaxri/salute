@@ -25,14 +25,11 @@
         <tr>
             <td align="center">
             <table border="1"  width="100%" cellspacing=0>
-                      <thead>
-                        
                       <tr>
                           <th rowspan="2" width="15" align="center">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_b_materi_pelatihan; ?>" align="center">Materi Pelatihan</th>
                           <th rowspan="3" align="center" ><center>ID Peserta</center></th>
                       </tr>
-
                         <tr>
                               <?php 
                                $soal=1;
@@ -40,7 +37,6 @@
                                 <th align="center"><?= $soal++;?></th>
                               <?php }?>
                         </tr>        
-                      </thead>
                       <tbody>
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>
                         <?php 
@@ -134,26 +130,22 @@
             </td>
             
         </tr>
-    
+  
     </table>
     <br>
     <div style="page-break-before:always;"></div>
     <center><h4>URAIAN</h4>
     <table border="1" width="100%" cellspacing=0>
-      <thead>
-            <th>No</th>
-            <th>Soal</th>
-            <th>Saran / Komentar</th>
-            <th>ID Peserta</th>
-      </thead>
+      <th>No</th>
+      <th>Soal</th>
+      <th>Saran / Komentar</th>
+      <th>ID Peserta</th>
       <tbody>
       <?php $no=1; foreach($pelatihan as $pl){
         $kd = $pl['kd_pelatihan']; 
         $tampung = $this->db->query("SELECT * FROM penilaian_b LEFT JOIN kuisioner_b ON kuisioner_b.id_kuisionerB=penilaian_b.id_soalB WHERE kuisioner_b.jenis_soal=1 AND kuisioner_b.tipe_soal='uraian' AND penilaian_b.kd_pelatihan='$kd'")->result_array();
-      
         foreach($tampung as $t){
       ?>
-        
         <tr>
           <td><?= $no++; ?></td>
           <td><?= $t['soalB']; ?></td>

@@ -36,8 +36,6 @@
                 <td colspan="3">
                 <center>
                 <table border="1" width="100%" cellspacing=0>
-                      <thead>
-                        
                         <tr align="center">
                           <th rowspan="2" width="15" align="center"><b>NOMOR URUT</b></th>
                           <th colspan="<?= $jml_kuisioner_a ;?>" align="center">NILAI PER UNSUR PELAYANAN</th>
@@ -59,8 +57,6 @@
                             <td align="center" style="background-color:BurlyWood;"><?= $p2++; ?></td>
                             <?php } ?>
                         </tr>
-
-                      </thead>
                       <tbody>
                           <!-- loop pelatihan -->
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>

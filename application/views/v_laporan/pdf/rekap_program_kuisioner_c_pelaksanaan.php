@@ -29,7 +29,6 @@
 					<td colspan="3">
                         <!-- tabel -->  
                         <table border="1" width="100%" cellspacing="0">
-                        <thead>
                         <tr align="center">
                           <th rowspan="2" width="15">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_c_pelaksanaan;?>" align="center">Pelaksanaan Uji Kompetensi</th>
@@ -43,8 +42,6 @@
                                 <th align="center"><?= $soal++;?></th>
                               <?php }?>
                         </tr>
-
-                      </thead>
                       <tbody>
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>
                         <?php 
