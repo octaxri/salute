@@ -30,7 +30,7 @@
                 <td colspan="3">
                         <!-- tabel -->  
                         <table border="1" width="100%">
-                      <thead>
+                      
                         <tr>
                           <th rowspan="2" width="15" align="center">No Responden</th>
                           <th colspan="<?= $jml_kuisioner_c_rekruitmen;?>" align="center">Rekruitmen, Perjalanan, Persyaratan Peserta</th>
@@ -46,7 +46,7 @@
                               <?php }?>
                         </tr>
 
-                      </thead>
+                      
                       <tbody>
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>
                           <?php 
@@ -90,6 +90,7 @@
                             ?>
                             <td><?= $total['total']; ?></td>
                             <?php } ?>
+                            <td rowspan="5"></td>
                         </tr>
 
                         <tr align="center">
@@ -152,12 +153,12 @@
     <br>
     <center><h4>URAIAN</h4>
     <table border="1" width="100%" cellspacing=0>
-      <thead>
+      
             <th align="center">No</th>
             <th>Soal</th>
             <th>Saran / Komentar</th>
             <th align="center">ID Peserta</th>
-      </thead>
+      
       <tbody>
       <?php $no=1;  
                           foreach($pelatihan as $pl){

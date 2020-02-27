@@ -36,7 +36,7 @@
                 <td colspan="3">
                 <center>
                 <table border="1" width="100%">
-                      <thead>
+                      
                         
                         <tr align="center">
                           <th rowspan="2" width="15" align="center"><b>NOMOR URUT</b></th>
@@ -60,7 +60,7 @@
                             <?php } ?>
                         </tr>
 
-                      </thead>
+                   
                       <tbody>
                           <!-- loop pelatihan -->
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>
@@ -107,6 +107,7 @@
                         ?>
                           <td><?= $total['total']; ?></td>
                         <?php } ?>
+                        <td rowspan="5"></td>
                         </tr>
 
                         <tr align="center">

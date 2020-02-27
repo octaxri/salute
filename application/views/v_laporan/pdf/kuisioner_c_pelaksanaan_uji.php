@@ -28,7 +28,7 @@
                 <td colspan="3">
                         <!-- tabel -->  
                         <table align="center" width="100%" border="1">
-                      <thead>
+                      
                         <tr>
                           <th rowspan="2" width="15" align="center">No Responden</th>
                           <?php $i1 =1; $jml=0; foreach($responden as $r){ ?>
@@ -52,7 +52,7 @@
                                 <th align="center"><?= $soal++;?></th>
                               <?php }?>
                         </tr>
-                      </thead>
+                      
                       <tbody>
                          <?php $i1=1; foreach($responden as $r){ ?>
 
@@ -94,6 +94,7 @@
                             ?>
                             <td align="center"><?= $total['total']; ?></td>
                             <?php } ?>
+                            <td rowspan="5"></td>
                         </tr>
                         <tr  align="center" >
                           <td align="center">Nilai Rata-Rata</td>
