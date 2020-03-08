@@ -52,7 +52,7 @@
                         <br>
                         <strong>Saran dan Komentar</strong>
                             <h4><?= $n++; ?>. <?= $d['soalC']; ?></h4>
-                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5"></textarea> <br>
+                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5" required=""></textarea> <br>
                         <?php } ?>
                     <?php } ?>
                     <br>
@@ -71,7 +71,7 @@
                         <br>
                         <strong>Saran dan Komentar</strong>
                             <h4><?= $n++; ?>. <?= $d['soalC']; ?></h4>
-                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5"></textarea> <br>
+                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5" required=""></textarea> <br>
                         <?php } ?>
                     <?php } ?>
                     <br>
@@ -90,7 +90,7 @@
                         <br>
                         <strong>Saran dan Komentar</strong>
                             <h4><?= $n++; ?>. <?= $d['soalC']; ?></h4>
-                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5"></textarea> <br>
+                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5" required=""></textarea> <br>
                         <?php } ?>
                     <?php } ?>
                     <br>
@@ -109,7 +109,7 @@
                         <br>
                         <strong>Saran dan Komentar</strong>
                             <h4><?= $n++; ?>. <?= $d['soalC']; ?></h4>
-                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5"></textarea> <br>
+                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5" required=""></textarea> <br>
                         <?php } ?>
                     <?php } ?>
                     <br>
@@ -128,7 +128,7 @@
                         <br>
                         <strong>Saran dan Komentar</strong>
                             <h4><?= $n++; ?>. <?= $d['soalC']; ?></h4>
-                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5"></textarea> <br>
+                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5" required=""></textarea> <br>
                         <?php } ?>
                     <?php } ?>
                     <br>
@@ -147,7 +147,7 @@
                         <br>
                         <strong>Saran dan Komentar</strong>
                             <h4><?= $n++; ?>. <?= $d['soalC']; ?></h4>
-                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5"></textarea> <br>
+                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5" required=""></textarea> <br>
                         <?php } ?>
                     <?php } ?>
                     <br>
@@ -166,7 +166,7 @@
                         <br>
                         <strong>Saran dan Komentar</strong>
                             <h4><?= $n++; ?>. <?= $d['soalC']; ?></h4>
-                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5"></textarea> <br>
+                            <textarea class="form-control" name="pertanyaan2[<?= $n; ?>][jawaban]" id="" cols="30" rows="5" required=""></textarea> <br>
                         <?php } ?>
                     <?php } ?>
                     <button class="btn btn-primary col-xs-12" type="submit" >Kirim</button>

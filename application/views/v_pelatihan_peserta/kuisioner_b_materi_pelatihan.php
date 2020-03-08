@@ -49,7 +49,7 @@
                           &nbsp; &nbsp; &nbsp; <input type="radio" name="pertanyaan[<?= $no; ?>][jawaban]" value="<?= $d['jawaban5B']; ?>"> <?= $d['jawaban5B']; ?> <br>
                         <?php }else{ ?>
                           <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan2[<?= $no; ?>][id]" class="form-control" >  
-                          <textarea name="pertanyaan2[<?= $no; ?>][jawaban]" class="form-control" cols="30" rows="5"></textarea>
+                          <textarea name="pertanyaan2[<?= $no; ?>][jawaban]" class="form-control" cols="30" rows="5" required=""></textarea>
                         <?php } ?>
                           <hr>
                     <?php } ?>

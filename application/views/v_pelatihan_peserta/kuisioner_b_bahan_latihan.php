@@ -53,7 +53,7 @@
                         <br>
                             <h4><?= $k++; ?>. <?= $d['soalB']; ?></h4>
                             <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan2[<?= $no; ?>][id]" class="form-control" >
-                            <textarea class="form-control" name="pertanyaan2[<?= $no; ?>][jawaban]" id="" cols="30" rows="5"></textarea> <br>
+                            <textarea class="form-control" name="pertanyaan2[<?= $no; ?>][jawaban]" id="" cols="30" rows="5" required=""></textarea> <br>
                         <?php } ?>
                     <?php } ?>
                     <button class="btn btn-primary col-xs-12" type="submit" >Kirim</button>

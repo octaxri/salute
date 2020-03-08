@@ -90,7 +90,7 @@
                           <strong>KOMENTAR / SARAN TENAGA PELATIH</strong>
                           <h4><?= $m++; ?>. <?= $d['soalB']; ?></h4>
                           <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan2[<?= $no; ?>][id]" class="form-control" >  
-                          <textarea name="pertanyaan2[<?= $no; ?>][jawaban]" class="form-control" cols="30" rows="5"></textarea>
+                          <textarea name="pertanyaan2[<?= $no; ?>][jawaban]" class="form-control" cols="30" rows="5" required=""></textarea>
                         
                         <?php } ?>
                           <hr>

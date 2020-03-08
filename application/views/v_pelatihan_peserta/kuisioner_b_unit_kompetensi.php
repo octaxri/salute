@@ -43,7 +43,7 @@
                         <?php if($d['tipe_soal'] == 'pg'){ ?>
                         <input type="hidden" value="<?= $d['id_kuisionerB']; ?>" name="pertanyaan[<?= $no; ?>][id]" class="form-control" >  
                         
-                        <input type="number" name="pertanyaan[<?= $no;?>][jawaban]" class="form-control" required>
+                        <input type="number" name="pertanyaan[<?= $no;?>][jawaban]" class="form-control" required="">
                         
                         
 
