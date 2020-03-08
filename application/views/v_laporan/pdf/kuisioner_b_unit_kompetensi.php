@@ -28,7 +28,7 @@
                 <td colspan="3">
                         <!-- tabel -->  
                         <table border="1" width="100%">
-                      <thead>
+                      
                         <tr  align="center" >
                           <th rowspan="2" width="15" align="center">No Responden</th>
                           <?php $i=0; $jml=0; foreach ($responden as $r) { ?>
@@ -50,7 +50,7 @@
                               <?php }?>
                         </tr>
              
-                      </thead>
+                    
                       <tbody>
                       <?php $i1=1; foreach($responden as $r){ ?>
 
@@ -87,6 +87,7 @@
                             ?>
                             <td align="center"><?= $total['total']; ?></td>
                             <?php } ?>
+                            <td rowspan="5"></td>
                         </tr>
 
                       </tbody>

@@ -43,7 +43,7 @@
                         <th>Nama</th>
                         <th>Email</th>
                         <th>JK</th>
-                        <th>Tanggal Lahir</th>
+                        <th>Usia</th>
                         <th>Tipe Peserta</th>
                         <th>Pendidikan</th>
                         <th>Pekerjaan</th>
@@ -57,7 +57,7 @@
                         <th>Nama</th>
                         <th>Email</th>
                         <th>JK</th>
-                        <th>Tanggal Lahir</th>
+                        <th>Usia</th>
                         <th>Tipe Peserta</th>
                         <th>Pendidikan</th>
                         <th>Pekerjaan</th>
@@ -72,7 +72,7 @@
                         <td><?= $i['nama']; ?></td>
                         <td><?= $i['email']; ?></td>
                         <td><?= $i['jk']; ?></td>
-                        <td><?= $i['tgl_lahir']; ?></td>
+                        <td><?= $i['usia']; ?></td>
                         <td><?= $i['tipe_peserta']; ?></td>
                         <td><?= $i['pendidikan']; ?></td>
                         <td><?= $i['pekerjaan']; ?></td>
@@ -144,9 +144,9 @@
     </div>
 
     <div class="form-group">
-      <label class="control-label">Tanggal Lahir</label>
-      <input class="form-control" type="date" name="tgl_lahir" value="<?= $x['tgl_lahir'] ?>" required>
-      <small class="form-text text-danger"><?= form_error('tgl_lahir');?></small>
+      <label class="control-label">Usia</label>
+      <input class="form-control" type="number" name="usia" value="<?= $x['usia'] ?>" required>
+      <small class="form-text text-danger"><?= form_error('usia');?></small>
     </div>
 
     <div class="form-group">
@@ -156,16 +156,16 @@
           <option value="selected"><?= $x['tipe_peserta']?></option>
 
               <?php
-                if($x['tipe_peserta']=="Menginap")
+                if($x['tipe_peserta']=="Boarding")
                 { ?>
-                  <option value="Pulang">Pulang</option>
+                  <option value="Non Boarding">Non Boarding</option>
               
               <?php  } ?>
 
               <?php
-                if($x['tipe_peserta']=="Pulang")
+                if($x['tipe_peserta']=="Non Boarding")
                 { ?>
-                  <option value="Menginap">Menginap</option>
+                  <option value="Boarding">Boarding</option>
               
               <?php  } ?>
             

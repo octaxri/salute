@@ -31,7 +31,7 @@
                 <td colspan="3">
                         <!-- tabel -->  
                         <table width="100%" border="1">
-                      <thead>
+                    
                         <tr  align="center" >
                           <th rowspan="2" width="15" align="center">No Responden</th>
                           <?php $i=0; $jml=0;foreach ($responden as $r) { ?>
@@ -55,7 +55,7 @@
                               <?php }?>
                         </tr>
 
-                      </thead>
+                    
                       <tbody>
                       <?php $i1=1; foreach($responden as $r){ ?>
 
@@ -97,6 +97,7 @@
                             ?>
                             <td align="center"><?= $total['total']; ?></td>
                             <?php } ?>
+                            <td rowspan="5"></td>
                         </tr>
                         <tr>
                           <td align="center">Nilai Rata-Rata</td>
@@ -149,12 +150,12 @@
                   <!-- table uraian -->
                   <div class="table-responsive">
                     <table width="90%" border="1">
-                      <thead>
+            
                             <th align="center">No</th>
                             <th>Soal</th>
                             <th>Saran / Komentar</th>
                             <th align="center">ID Peserta</th>
-                      </thead>
+       
                       <tbody>
                       <?php $no=1; foreach($pelatihan as $pl){
                             $kd = $pl['kd_pelatihan']; 

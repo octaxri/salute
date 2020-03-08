@@ -32,7 +32,7 @@
 <tr>
             <td align="center">
     <table border="1"  width="90%">
-                      <thead>
+                   
                         
                       <tr>
                           <th rowspan="2" width="15" align="center" align="center">No Responden</th>
@@ -75,7 +75,7 @@
                                 <th align="center"><?= $soal++;?></th>
                               <?php }?>
                         </tr>        
-                      </thead>
+                  
                       <tbody>
                       
                       <?php $i1=1;  foreach($pelatihan as $pl){ ?>
@@ -183,6 +183,7 @@
                           ?>
                             <td align="center"><?= $total1['total']; ?></td>
                           <?php } ?>
+                          <td rowspan="5"></td>
 
                             <!-- Listrik -->
                           <?php foreach($kuisioner_b_sapras3 as $sl){ 
@@ -377,12 +378,12 @@
                     <br><br>
     <center><h4>URAIAN</h4>
     <table border="1" width="100%" cellspacing=0>
-      <thead>
+    
             <th>No</th>
             <th>Soal</th>
             <th>Saran / Komentar</th>
             <th>ID Peserta</th>
-      </thead>
+     
       <tbody>
         <?php $no=1;  
           foreach($pelatihan as $pl){
