@@ -93,22 +93,40 @@ class Pelatihan extends CI_Controller {
 
         $data['hasil_kuisioner_b_tenaga_pelatih']=$hasil_akhir_tenaga_pelatih;
         
-        // materi pelatihan
+		// materi pelatihan
+		$jml_kuisioner_b_materi_pelatihan = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
         $kuisioner_b_materi_pelatihan = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
         
         $jmlh_keseluruhan_materi_pelatihan = 0;
-        $jml_kuisioner_b_materi_pelatihan = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+        
         foreach($kuisioner_b_materi_pelatihan as $sl){ 
             $id_soalnya1 = $sl['id_kuisionerB'];
         
             $total_materi_pelatihan = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
             WHERE penilaian_b.id_soalB='$id_soalnya1' AND pelatihan.kd_pelatihan")->row_array();
-            
+			
+			
+			
+
             $jmlh_keseluruhan_materi_pelatihan = $jmlh_keseluruhan_materi_pelatihan+(number_format($total_materi_pelatihan['total']/$jml_kuisioner_b_materi_pelatihan,2));
             $hasil_akhir_materi_pelatihan = number_format($jmlh_keseluruhan_materi_pelatihan*20,2);
         }
         $data['hasil_kuisioner_b_materi_pelatihan'] = $hasil_akhir_materi_pelatihan;
 
+		//   rekruitmen
+		//   $jml_kuisioner_c_rekruitmen = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='pg'")->num_rows();
+		//   $kuisioner_c_rekruitmen = $this->db->query("SELECT * FROM kuisioner_c WHERE jenis_soal=1 AND tipe_soal='pg'")->result_array();
+  
+		//   $jmlh_keseluruhan_rekruitmen = 0;
+		//   foreach($kuisioner_c_rekruitmen as $sl3){
+		// 	  $id_soalnya3 = $sl3['id_kuisionerC'];
+		// 	  $total_rekruitmen = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
+		// 									  WHERE penilaian_c.id_soalC='$id_soalnya3' AND pelatihan.kd_pelatihan")->row_array();
+  
+		// 	  $jmlh_keseluruhan_rekruitmen=$jmlh_keseluruhan_rekruitmen+(number_format($total_rekruitmen['total']/$jml_kuisioner_c_rekruitmen,2));
+		// 	  $hasil_akhir_rekruitmen = number_format($jmlh_keseluruhan_rekruitmen*25,2);
+		//   }
+		//   $data['hasil_kuisioner_b_rekruitmen'] = $hasil_akhir_rekruitmen;
 
         // bahan latihan
         $jml_kuisioner_b_bahan_latihan = $this->db->query("SELECT * FROM kuisioner_b WHERE jenis_soal=4 AND tipe_soal='pg'")->num_rows();
