@@ -1116,7 +1116,7 @@ class Laporan extends CI_Controller {
             $id_soalnya1 = $sl['id_kuisionerB'];
         
             $total_materi_pelatihan = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-            WHERE penilaian_b.id_soalB='$id_soalnya1' AND pelatihan.kd_pelatihan")->row_array();
+            WHERE penilaian_b.id_soalB='$id_soalnya1' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
             
             $jmlh_keseluruhan_materi_pelatihan = $jmlh_keseluruhan_materi_pelatihan+(number_format($total_materi_pelatihan['total']/$jml_kuisioner_b_materi_pelatihan,2));
             $hasil_akhir_materi_pelatihan = number_format($jmlh_keseluruhan_materi_pelatihan*20,2);
@@ -1131,7 +1131,7 @@ class Laporan extends CI_Controller {
         foreach ($kuisioner_b_tenaga_pelatih as $k) {
             $id_soalnyaku=$k['id_kuisionerB'];
             $total_tenaga_pelatih = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-            WHERE penilaian_b.id_soalB='$id_soalnyaku' AND pelatihan.kd_pelatihan")->row_array();
+            WHERE penilaian_b.id_soalB='$id_soalnyaku' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 
             $jml_keseluruhan_tenaga_pelatih=$jml_keseluruhan_tenaga_pelatih+(number_format($total_tenaga_pelatih['total']/$jml_kuisioner_b_tenaga_pelatih,2));
             $hasil_akhir_tenaga_pelatih=number_format($jml_keseluruhan_tenaga_pelatih*20,2);
@@ -1182,7 +1182,7 @@ class Laporan extends CI_Controller {
         foreach($kuisioner_b_bahan_latihan as $sl2){ 
             $id_soalnya2 = $sl2['id_kuisionerB'];
             $total_bahan_pelatihan = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-                                          WHERE penilaian_b.id_soalB='$id_soalnya2' AND pelatihan.kd_pelatihan")->row_array();
+                                          WHERE penilaian_b.id_soalB='$id_soalnya2' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
         
         $jmlh_keseluruhan_bahan_pelatihan = $jmlh_keseluruhan_bahan_pelatihan+(number_format($total_bahan_pelatihan['total']/$jml_kuisioner_b_bahan_latihan,2));
         $hasil_akhir_bahan_pelatihan = number_format($jmlh_keseluruhan_bahan_pelatihan*20,2);
@@ -1198,7 +1198,7 @@ class Laporan extends CI_Controller {
         foreach($kuisioner_c_rekruitmen as $sl3){
             $id_soalnya3 = $sl3['id_kuisionerC'];
             $total_rekruitmen = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-                                            WHERE penilaian_c.id_soalC='$id_soalnya3' AND pelatihan.kd_pelatihan")->row_array();
+                                            WHERE penilaian_c.id_soalC='$id_soalnya3' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 
             $jmlh_keseluruhan_rekruitmen=$jmlh_keseluruhan_rekruitmen+(number_format($total_rekruitmen['total']/$jml_kuisioner_c_rekruitmen,2));
             $hasil_akhir_rekruitmen = number_format($jmlh_keseluruhan_rekruitmen*25,2);
@@ -1215,7 +1215,7 @@ class Laporan extends CI_Controller {
             $id_soalnya4 = $sl4['id_kuisionerC'];
 
             $total_kamar = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-                                            WHERE penilaian_c.id_soalC='$id_soalnya4' AND pelatihan.kd_pelatihan")->row_array();
+                                            WHERE penilaian_c.id_soalC='$id_soalnya4' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
         
             $jmlh_keseluruhan_kamar=$jmlh_keseluruhan_kamar+(number_format($total_kamar['total']/$jml_kuisioner_c_kamar,2));
             $hasil_akhir_kamar = number_format($jmlh_keseluruhan_kamar*25,2);
@@ -1232,7 +1232,7 @@ class Laporan extends CI_Controller {
             $id_soalnya5 = $sl5['id_kuisionerC'];
 
             $total_sarpras_asrama = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-                                            WHERE penilaian_c.id_soalC='$id_soalnya5' AND pelatihan.kd_pelatihan")->row_array();
+                                            WHERE penilaian_c.id_soalC='$id_soalnya5' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
             
             $jmlh_keseluruhan_sarpras_asrama=$jmlh_keseluruhan_sarpras_asrama+(number_format($total_sarpras_asrama['total']/$jml_kuisioner_c_sarpras,2));
             $hasil_akhir_sarpras_asrama = number_format($jmlh_keseluruhan_sarpras_asrama*25,2);
@@ -1249,7 +1249,7 @@ class Laporan extends CI_Controller {
             $id_soalnya6 = $sl6['id_kuisionerC'];
 
             $total_konsumsi = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-                                            WHERE penilaian_c.id_soalC='$id_soalnya6' AND pelatihan.kd_pelatihan")->row_array();
+                                            WHERE penilaian_c.id_soalC='$id_soalnya6' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 
             $jmlh_keseluruhan_konsumsi=$jmlh_keseluruhan_konsumsi+(number_format($total_konsumsi['total']/$jml_kuisioner_c_konsumsi,2));
             $hasil_akhir_konsumsi = number_format($jmlh_keseluruhan_konsumsi*25,2);
@@ -1266,7 +1266,7 @@ class Laporan extends CI_Controller {
             $id_soalnya6 = $sl6['id_kuisionerC'];
 
             $total_secara_umum = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-                                            WHERE penilaian_c.id_soalC='$id_soalnya6' AND pelatihan.kd_pelatihan")->row_array();
+                                            WHERE penilaian_c.id_soalC='$id_soalnya6' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 
             $jmlh_keseluruhan_secara_umum=$jmlh_keseluruhan_secara_umum+(number_format($total_secara_umum['total']/$jml_kuisioner_c_secara_umum,2));
             $hasil_akhir_secara_umum = number_format($jmlh_keseluruhan_secara_umum*25,2);
@@ -1283,7 +1283,7 @@ class Laporan extends CI_Controller {
             $id_soalnya7 = $sl7['id_kuisionerB'];
         
             $total_sarpras = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-            WHERE penilaian_b.id_soalB='$id_soalnya7' AND pelatihan.kd_pelatihan")->row_array();
+            WHERE penilaian_b.id_soalB='$id_soalnya7' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
             
             $jmlh_keseluruhan_sarpras = $jmlh_keseluruhan_sarpras+(number_format($total_sarpras['total']/$jml_kuisioner_b_sarpras,2));
             $hasil_akhir_sarpras = number_format($jmlh_keseluruhan_sarpras*20,2);
@@ -1508,7 +1508,7 @@ class Laporan extends CI_Controller {
 		$id_soalnya1 = $sl['id_kuisionerB'];
 	
 		$total_materi_pelatihan = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-		WHERE penilaian_b.id_soalB='$id_soalnya1' AND pelatihan.kd_pelatihan")->row_array();
+		WHERE penilaian_b.id_soalB='$id_soalnya1' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 		
 		$jmlh_keseluruhan_materi_pelatihan = $jmlh_keseluruhan_materi_pelatihan+(number_format($total_materi_pelatihan['total']/$jml_kuisioner_b_materi_pelatihan,2));
 		$hasil_akhir_materi_pelatihan = number_format($jmlh_keseluruhan_materi_pelatihan*20,2);
@@ -1523,7 +1523,7 @@ class Laporan extends CI_Controller {
 	foreach ($kuisioner_b_tenaga_pelatih as $k) {
 		$id_soalnyaku=$k['id_kuisionerB'];
 		$total_tenaga_pelatih = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-		WHERE penilaian_b.id_soalB='$id_soalnyaku' AND pelatihan.kd_pelatihan")->row_array();
+		WHERE penilaian_b.id_soalB='$id_soalnyaku' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 
 		$jml_keseluruhan_tenaga_pelatih=$jml_keseluruhan_tenaga_pelatih+(number_format($total_tenaga_pelatih['total']/$jml_kuisioner_b_tenaga_pelatih,2));
 		$hasil_akhir_tenaga_pelatih=number_format($jml_keseluruhan_tenaga_pelatih*20,2);
@@ -1574,7 +1574,7 @@ class Laporan extends CI_Controller {
 	foreach($kuisioner_b_bahan_latihan as $sl2){ 
 		$id_soalnya2 = $sl2['id_kuisionerB'];
 		$total_bahan_pelatihan = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-									  WHERE penilaian_b.id_soalB='$id_soalnya2' AND pelatihan.kd_pelatihan")->row_array();
+									  WHERE penilaian_b.id_soalB='$id_soalnya2' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 	
 	$jmlh_keseluruhan_bahan_pelatihan = $jmlh_keseluruhan_bahan_pelatihan+(number_format($total_bahan_pelatihan['total']/$jml_kuisioner_b_bahan_latihan,2));
 	$hasil_akhir_bahan_pelatihan = number_format($jmlh_keseluruhan_bahan_pelatihan*20,2);
@@ -1590,7 +1590,7 @@ class Laporan extends CI_Controller {
 	foreach($kuisioner_c_rekruitmen as $sl3){
 		$id_soalnya3 = $sl3['id_kuisionerC'];
 		$total_rekruitmen = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-										WHERE penilaian_c.id_soalC='$id_soalnya3' AND pelatihan.kd_pelatihan")->row_array();
+										WHERE penilaian_c.id_soalC='$id_soalnya3' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 
 		$jmlh_keseluruhan_rekruitmen=$jmlh_keseluruhan_rekruitmen+(number_format($total_rekruitmen['total']/$jml_kuisioner_c_rekruitmen,2));
 		$hasil_akhir_rekruitmen = number_format($jmlh_keseluruhan_rekruitmen*25,2);
@@ -1607,7 +1607,7 @@ class Laporan extends CI_Controller {
 		$id_soalnya4 = $sl4['id_kuisionerC'];
 
 		$total_kamar = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-										WHERE penilaian_c.id_soalC='$id_soalnya4' AND pelatihan.kd_pelatihan")->row_array();
+										WHERE penilaian_c.id_soalC='$id_soalnya4' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 	
 		$jmlh_keseluruhan_kamar=$jmlh_keseluruhan_kamar+(number_format($total_kamar['total']/$jml_kuisioner_c_kamar,2));
 		$hasil_akhir_kamar = number_format($jmlh_keseluruhan_kamar*25,2);
@@ -1624,7 +1624,7 @@ class Laporan extends CI_Controller {
 		$id_soalnya5 = $sl5['id_kuisionerC'];
 
 		$total_sarpras_asrama = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-										WHERE penilaian_c.id_soalC='$id_soalnya5' AND pelatihan.kd_pelatihan")->row_array();
+										WHERE penilaian_c.id_soalC='$id_soalnya5' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 		
 		$jmlh_keseluruhan_sarpras_asrama=$jmlh_keseluruhan_sarpras_asrama+(number_format($total_sarpras_asrama['total']/$jml_kuisioner_c_sarpras,2));
 		$hasil_akhir_sarpras_asrama = number_format($jmlh_keseluruhan_sarpras_asrama*25,2);
@@ -1641,7 +1641,7 @@ class Laporan extends CI_Controller {
 		$id_soalnya6 = $sl6['id_kuisionerC'];
 
 		$total_konsumsi = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-										WHERE penilaian_c.id_soalC='$id_soalnya6' AND pelatihan.kd_pelatihan")->row_array();
+										WHERE penilaian_c.id_soalC='$id_soalnya6' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 
 		$jmlh_keseluruhan_konsumsi=$jmlh_keseluruhan_konsumsi+(number_format($total_konsumsi['total']/$jml_kuisioner_c_konsumsi,2));
 		$hasil_akhir_konsumsi = number_format($jmlh_keseluruhan_konsumsi*25,2);
@@ -1658,7 +1658,7 @@ class Laporan extends CI_Controller {
 		$id_soalnya6 = $sl6['id_kuisionerC'];
 
 		$total_secara_umum = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_c LEFT JOIN pelatihan ON penilaian_c.kd_pelatihan=pelatihan.kd_pelatihan 
-										WHERE penilaian_c.id_soalC='$id_soalnya6' AND pelatihan.kd_pelatihan")->row_array();
+										WHERE penilaian_c.id_soalC='$id_soalnya6' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 
 		$jmlh_keseluruhan_secara_umum=$jmlh_keseluruhan_secara_umum+(number_format($total_secara_umum['total']/$jml_kuisioner_c_secara_umum,2));
 		$hasil_akhir_secara_umum = number_format($jmlh_keseluruhan_secara_umum*25,2);
@@ -1675,7 +1675,7 @@ class Laporan extends CI_Controller {
 		$id_soalnya7 = $sl7['id_kuisionerB'];
 	
 		$total_sarpras = $this->db->query("SELECT AVG(jawaban) as total FROM penilaian_b LEFT JOIN pelatihan ON penilaian_b.kd_pelatihan=pelatihan.kd_pelatihan 
-		WHERE penilaian_b.id_soalB='$id_soalnya7' AND pelatihan.kd_pelatihan")->row_array();
+		WHERE penilaian_b.id_soalB='$id_soalnya7' AND pelatihan.kd_pelatihan='$kd_pelatihan' ")->row_array();
 		
 		$jmlh_keseluruhan_sarpras = $jmlh_keseluruhan_sarpras+(number_format($total_sarpras['total']/$jml_kuisioner_b_sarpras,2));
 		$hasil_akhir_sarpras = number_format($jmlh_keseluruhan_sarpras*20,2);
